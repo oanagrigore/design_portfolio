@@ -17,7 +17,7 @@ export default function ContactPage() {
         </h1>
       </section>
 
-      <section className="grid grid-cols-1 gap-12 border-t border-border/60 py-16 md:grid-cols-[1fr_1.4fr] md:gap-16 md:py-20">
+      <section className="gap-12 border-t border-border/60 py-16 md:grid-cols-[1fr_1.4fr] md:gap-16 md:py-20">
         <div className="space-y-10">
           <p className="text-pretty text-lg leading-relaxed text-muted-foreground">
             I&apos;m currently taking on select freelance and contract projects.
@@ -25,7 +25,7 @@ export default function ContactPage() {
             to you within a couple of days.
           </p>
 
-          <div className="space-y-6">
+          <div className="grid space-y-6">
             <div>
               <p className="text-sm text-muted-foreground">Email</p>
               <a
@@ -63,7 +63,7 @@ export default function ContactPage() {
           </div>
         </div>
 
-        <ContactForm />
+        {/* <ContactForm /> */}
       </section>
     </div>
   )
