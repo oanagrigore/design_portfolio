@@ -216,7 +216,8 @@ function RichSection({
 
         {section.bullets && (
           <ul className="flex flex-col gap-4">
-            {section.bullets.map((bullet, i) => (
+            {section.bullets.map((bullet, i) => {
+              return (
               <li key={bullet.slice(0, 32)} className="flex flex-col gap-4">
                 <div className="flex gap-3 text-pretty leading-relaxed text-muted-foreground">
                   <span
@@ -225,25 +226,38 @@ function RichSection({
                   />
                   <span>{bullet}</span>
                 </div>
-                {section.image?.afterBullet === i && (
-                  <SectionImage image={section.image} />
+                {section.images?.filter(image => image.afterBullet === i).map(
+                  (image, idx) => (
+                     <SectionImage image={image} key={`${image.src}-${idx}-${i}`}/>
+                  )
                 )}
               </li>
-            ))}
+            )})}
           </ul>
         )}
 
-        {section.image && section.image.afterBullet === undefined && (
-          <SectionImage image={section.image} />
+        {section.images?.filter(image => image.afterBullet === undefined && image.afterDecision === undefined).map(
+          (image, idx) => (
+              <SectionImage image={image} key={`${image.src}-trailing-${idx}`}/>
+            )
         )}
 
         {section.decisions && (
           <ol className="flex flex-col gap-px overflow-hidden rounded-lg border border-border/60 bg-border/60">
-            {section.decisions.map((decision) => (
-              <DecisionItem key={decision.title} decision={decision} />
+            {section.decisions.map((decision, i) => (
+              <li key={decision.title} className="flex flex-col gap-px">
+                <DecisionItem decision={decision} />
+                {section.images
+                  ?.filter((image) => image.afterDecision === i)
+                  .map((image, idx) => (
+                    <div className="bg-card p-6 pt-0" key={`${image.src}-${idx}-${i}`}>
+                      <SectionImage image={image} />
+                    </div>
+                  ))}
+              </li>
             ))}
           </ol>
-        )}
+          )}
 
         {section.callout && (
           <div className="rounded-lg border border-primary/25 bg-primary/5 p-6">
@@ -298,7 +312,7 @@ function DecisionItem({ decision }: { decision: CaseStudyDecision }) {
     { label: 'Why', text: decision.why },
   ]
   return (
-    <li className="bg-card p-6">
+    <div className="bg-card p-6">
       <h3 className="text-base font-medium tracking-tight text-foreground">
         {decision.title}
       </h3>
@@ -314,7 +328,7 @@ function DecisionItem({ decision }: { decision: CaseStudyDecision }) {
           </div>
         ))}
       </dl>
-    </li>
+    </div>
   )
 }
 

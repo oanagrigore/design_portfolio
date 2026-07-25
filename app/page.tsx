@@ -21,7 +21,7 @@ export default function HomePage() {
           {profile.role} · {profile.location}
         </p>
         <h1 className="mt-6 max-w-4xl text-balance text-4xl font-medium leading-[1.05] tracking-tight text-foreground sm:text-6xl md:text-7xl">
-          I design calm, considered products that people actually enjoy using.
+          Good design should feel like someone thought about you. That's the thing I chase.
         </h1>
         <p className="mt-8 max-w-xl text-pretty text-lg leading-relaxed text-muted-foreground">
           {profile.intro}

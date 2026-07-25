@@ -9,9 +9,9 @@ import {
 } from '@/lib/content'
 
 export const metadata: Metadata = {
-  title: 'About — Oana Grigore',
+  title: 'Oana Grigore Senior Product Designer',
   description:
-    'A little about Oana Grigore, a senior product designer based in Bucharest, Romania.',
+    'Lead Product Designer driving design strategy and accessible product design across multiple brands and platforms, from marketing to product flows.',
 }
 
 export default function AboutPage() {
@@ -40,7 +40,7 @@ export default function AboutPage() {
         <div className="order-1 md:order-2">
           <div className="relative aspect-[4/5] overflow-hidden rounded-lg border border-border/60 bg-card">
             <Image
-              src={profile.name ? '/portrait.png' : '/placeholder.svg'}
+              src={profile.name ? '/oana-grigore.JPG' : '/placeholder.svg'}
               alt={`Portrait of ${profile.name}`}
               fill
               sizes="(max-width: 768px) 100vw, 33vw"

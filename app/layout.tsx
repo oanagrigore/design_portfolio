@@ -16,9 +16,9 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Maya Okafor — Product Designer',
+  title: 'Oana Grigore — Lead Product Designer',
   description:
-    'Portfolio of Maya Okafor, an independent product designer crafting calm, considered digital products.',
+    'Lead Product Designer driving design strategy and accessible product design across multiple brands and platforms, from marketing to product flows.',
   generator: 'v0.app',
 }
 

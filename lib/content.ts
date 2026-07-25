@@ -5,7 +5,7 @@ export const profile = {
   email: 'grigore.oana.elena@gmail.com',
   phone: '+40 742 090 361',
   intro:
-    'I am a senior product designer. I lead design strategy across transportation brands, shaping everything from landing pages to product flows — with accessibility built in from the start.',
+    'I lead design across brands, from first click to finished flow, with accessibility built in from the start, because a confusing product fails the people who need it most.',
   avatar: '/oana-avatar.png',
   social: [
     { label: 'LinkedIn', href: 'https://www.linkedin.com/in/oanagrigore' },
@@ -31,6 +31,7 @@ export type CaseStudyImage = {
   // When set, the image renders directly after the bullet at this index.
   // Otherwise it renders after the bullet list.
   afterBullet?: number
+  afterDecision?: number 
 }
 
 export type CaseStudySection = {
@@ -39,7 +40,7 @@ export type CaseStudySection = {
   bullets?: string[]
   callout?: string
   decisions?: CaseStudyDecision[]
-  image?: CaseStudyImage
+  images?: CaseStudyImage[]
 }
 
 export type CaseStudy = {
@@ -68,7 +69,7 @@ export const caseStudies: CaseStudy[] = [
     title: 'Building the system that made the redesign possible',
     summary:
       'How a design system built as governance infrastructure made a consistent, accessible redesign of a NEMT member portal and app possible at ecosystem scale.',
-    cover: '/work/medidrive-cover.png',
+    cover: '/work/cover-md.png',
     year: '2026',
     client: 'MediDrive — NEMT',
     role: 'Lead Product Designer',
@@ -128,18 +129,31 @@ export const caseStudies: CaseStudy[] = [
           'There was no design system. Colors, components, and patterns were inconsistent across surfaces, so every new screen re-litigated basic decisions and accessibility was applied case by case.',
           "The audience amplifies every one of these. For a 65+ Medicaid population, the cost of a confusing flow isn't a bounce — it's a missed medical appointment and a call to a support line.",
         ],
-        image: {
+        images: [
+          {
           src: '/work/medidrive-dispatcher-view.png',
           alt: 'The original MediDrive trip console: a dense dispatcher-oriented list of trips with status pills, a trip-detail panel, and a large route map — built for staff scanning across many members rather than a single member reading their own trips.',
-          width: 3840,
-          height: 1858,
           caption:
             'The original console — a dispatcher tool members were expected to read as their own trip list.',
           afterBullet: 0,
         },
+        {
+          src: '/work/portal-booking-1.png',
+          alt: 'The original post-login experience: a member is dropped straight into a booking form with no onboarding step and no prompt to add the member who needs transportation, and no indication that the account just created is not the member’s own.',
+          caption: 'Login dropped members directly into a booking form — no guidance that the first step was to add a member, and no signal the account wasn’t the member’s.',
+          afterBullet: 1,
+        },
+        {
+          src: '/work/portal-booking-2.png',
+          alt: 'The original one-size-fits-all booking form: the same fields shown regardless of trip type (one-way, round trip, or multi-leg), with a validation error surfaced only after submission rather than at the point of entry.',
+          caption: 'One form for every trip type, with errors appearing only after submit — so a caregiver booking for someone else had no confirmation of who the trip was for until it was too late to fix cheaply.',
+          afterBullet: 2,
+        }
+      ],
         callout:
           'The strategic problem underneath all of this: you cannot redesign two surfaces consistently, accessibly, and at multi-brand scale by hand-crafting screens. The bottleneck isn\u2019t design taste, it\u2019s the absence of a system and a governance model — so I sequenced the work accordingly.',
       },
+      
       {
         heading: 'The strategic bet: system first',
         paragraphs: [
@@ -151,20 +165,36 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: 'What I built: the design system',
         paragraphs: [
-          'The system is a two-tier token architecture — primitives resolving into semantics — following standard atomic design and token practice.',
+          'The system is a two-tier token architecture, primitives resolving into semantics, following standard atomic design and token practice.',
         ],
         bullets: [
           'Primitives hold every raw value. They carry no meaning and are never referenced directly in components.',
           'Semantics alias primitives to a role. No semantic token holds a raw hex; it always points to a primitive. This is the governance mechanism, not a nicety — theming, dark mode, and rebrands change one layer, and component authors physically cannot hardcode a value that escapes the system.',
           'Light and dark modes resolve through the semantic layer, so a token never fails to resolve for a developer.',
-          'Accessibility is baked into the tokens. WCAG 2.1 AA was applied to color and component decisions at the token level — contrast is a property of the system, not a per-screen check.',
+          'Accessibility is baked into the tokens. WCAG 2.1 AA was applied to color and component decisions at the token level. Contrast is a property of the system, not a per-screen check.',
           'A single icon component set keeps icon usage consistent and swappable.',
         ],
+        images: [
+          {
+          src: '/work/primitives.png',
+          alt: 'Primitives hold every raw value',
+          caption:
+            'The list of primitive colors',
+          afterBullet: 0,
+        },
+        {
+          src: '/work/semantics.png',
+          alt: 'Semantics alias primitives to a role. No semantic token holds a raw hex; it always points to a primitive',
+          caption:
+            'Semnatics alias.',
+          afterBullet: 1,
+        }
+      ],
       },
       {
         heading: 'How the system enabled the redesign',
         paragraphs: [
-          'With the system in place, the redesign became a series of decisions grounded in member reality rather than a per-screen fight over primitives.',
+          'With the system in place, the redesign became a series of decisions grounded in members and caregivers reality.',
         ],
         decisions: [
           {
@@ -208,28 +238,67 @@ export const caseStudies: CaseStudy[] = [
           },
           {
             title: 'Trip list rebuilt for the member',
-            problem: 'A table designed for staff scanning across members.',
+            problem: 'The trip layout overview was appropiated to a dispatcher or operational tool. It introduced unnecessary complexity for members and increases cognitive load without adding real value to their core tasks. ',
             change:
-              'One scannable row per trip — member, date, status, treatment, pickup, drop-off.',
+              'A table layout it is more intuitive, task-focused and more familiar structure that’s easy to scan and understand, especially for less tech-savvy users.',
             why: 'No training required to read your own trips.',
           },
         ],
+        images: [
+          {
+          src: '/work/email-entry.png',
+          alt: 'The redesigned MediDrive sign-in: a single entry field accepting either an email address or phone number, with no separate sign-up path — the system recognizes the person and routes returning versus first-time users automatically.',
+          caption:'One entry point — email or phone. Returning and first-time members are routed automatically, so no one has to know in advance whether they have an account.',
+          afterDecision: 0,
+        },
+        {
+          src: '/work/dashboard-portal.png',
+          alt: 'The redesigned member dashboard as the landing surface after login: an active trip shown front and center with driver details and pickup time, plus shortcuts to trip history, reimbursements, and saved addresses.',
+          caption:'The dashboard answers the highest-anxiety question first, “is my ride happening?”. So most members never need to navigate further.',
+          afterDecision: 1,
+        },
+        {
+          src: '/work/trip-selection.png',
+          alt: 'The start of the redesigned booking flow: a trip-type selector offering round trip, one-way, and multi-leg. The choice reshapes the form, round trip auto-fills the return leg, one-way removes the return section entirely.',
+          caption: 'The flow opens with a trip-type choice, so each path shows only the fields it needs and the return leg is never re-typed by hand.',
+          afterDecision: 2,
+        },
+        {
+          src: '/work/confirmation.png',
+          alt: 'The member-confirmation step at the top of the booking flow: the member’s identity — Medicaid ID and date of birth — surfaced for confirmation before any trip fields are filled in.',
+          caption:'Member identity is confirmed before any field is touched, so the most expensive error — booking a medical ride for the wrong person — is caught up front.',
+          afterDecision: 3,
+        },
+        {
+          src: '/work/errors.png',
+          alt: 'The redesigned booking form showing inline validation: a specific, field-level error message displayed next to the input at the point of entry, rather than a generic error after submission.',
+          caption: 'Validation is inline and specific at the point of entry, so members recover in-flow instead of calling support after a failed submit.',
+          afterDecision: 4,
+        },
+        {
+          src: '/work/trip-list.png',
+          alt: 'The redesigned member trip list: one clear row per trip showing member, date, status, treatment, pickup, and drop-off — a simple, member-oriented layout in place of the dispatcher console.',
+          caption: 'A member-oriented trip list built to be scanned without training — each row is one trip, in plain terms.',
+          afterDecision: 5,
+        }
+      ],
       },
+
       {
         heading: 'Accessibility as risk management',
         paragraphs: [
-          'For a Medicaid NEMT product, accessibility is legal exposure (ADA / Section 508), not polish. I treated it that way.',
+          'For a Medicaid NEMT product, accessibility is legal exposure (ADA / Section 508), not polish. I treated it that way. And a mandatory request from the states.',
         ],
         bullets: [
-          'WCAG 2.1 AA applied at the token and component level — contrast is a property of the system, not a per-screen check.',
+          'WCAG 2.1 AA applied at the token and component level, contrast is a property of the system, not a per-screen check.',
           'Concrete targets: minimum body text size, 44px touch targets, 4.5:1 contrast, and plain language pitched to the member audience.',
-          "Design decisions carried the accessibility load so individual builders didn't have to re-derive it — the point of putting AA in the tokens.",
+          "Design decisions carried the accessibility load so individual builders didn't have to re-derive it.",
         ],
         callout:
           'I made accessibility structural rather than discretionary, so every screen built on the system inherits it by default.',
       },
       {
-        heading: 'Impact — the honest version',
+        heading: 'Impact',
         paragraphs: [
           'This program is in progress, so this section states a target and a measurement plan, not achieved results. No number here is claimed as proven.',
           'Primary success metric (target): reduce avoidable, self-service-able support calls by 15–20%. This targets specific call reasons — wrong-member bookings, unexplained booking failures, "is my ride happening?", and login confusion — not total call volume, and it is not an attempt to remove the phone as a channel. For a 65+ Medicaid audience the phone is often the appropriate channel; the goal is only to stop generating calls a member never should have needed to make.',
@@ -316,14 +385,14 @@ export const caseStudies: CaseStudy[] = [
             why: 'Testing across real stores surfaced the layout tradeoffs that drove the next iteration.',
           },
         ],
-        image: {
+        images: [{
           src: '/work/wishlist-example1.png',
           alt: 'Three stacked storefront header examples labeled Live version, First iteration (with height: 44px added), and Second iteration (height: 44px removed because it is a non-Shopify theme), each showing the wishlist heart icon with a badge count alongside language, search, cart, and currency controls.',
           width: 777,
           height: 587,
           caption:
             'Iterations of the icon in a live storefront header: the live version, the first iteration adding a fixed 44px height, and the second iteration removing it for non-Shopify themes.',
-        },
+        }],
       },
       {
         heading: 'Collaboration & tradeoffs',
@@ -348,14 +417,14 @@ export const caseStudies: CaseStudy[] = [
             why: 'Prevented scenarios where the spacing between the icon and badge appeared broken.',
           },
         ],
-        image: {
+        images: [{
           src: '/work/wishlist-example2.png',
           alt: 'Three header component examples on a dark background labeled Live version, First iteration (note: added height 44px), and Second iteration (note: removed height 44px because this is a non-Shopify theme), each showing the wishlist heart icon with a badge among account, search, and cart icons.',
           width: 671,
           height: 530,
           caption:
             'The same three iterations isolated as components, showing how the badge stays anchored to the heart icon across the wrapper changes.',
-        },
+        }],
       },
       {
         heading: 'Results',
@@ -451,14 +520,14 @@ export const caseStudies: CaseStudy[] = [
           'Vitals is a large project built with multiple technologies, so components could not be applied universally across all apps.',
           'Every new component and variable had to maintain backward compatibility — and getting management buy-in for a design system was itself a challenge, as there was never an "opportune" moment to start.',
         ],
-        image: {
+        images: [{
           src: '/work/ds-twist-frame1.png',
           alt: 'Variant and quantity selector dropdown components in several states — "Team Purple / L", "iPhone 7/8", "Black / Small", and an error state showing "White / 3-6m" with a red border — demonstrating the tokenized selector built to adapt to any store theme.',
           width: 885,
           height: 429,
           caption:
             'Core selector components rebuilt as tokenized, theme-agnostic patterns — including validation states — so a single update propagates across every app.',
-        },
+        }],
       },
       {
         heading: 'First steps',
@@ -468,14 +537,14 @@ export const caseStudies: CaseStudy[] = [
           'Good practices: documented naming conventions and usage rules to make the system approachable for designers, engineers, and non-designers alike.',
           'Components: built Figma components and tokens, then partnered with engineers on implementation with backward compatibility.',
         ],
-        image: {
+        images: [{
           src: '/work/ds-twist-frame2.png',
           alt: 'Real Vitals widgets built from the design system: a product card for leggings with a size selector and Add to Cart button, an iPhone Case upsell card with a "Get 10% off" badge, a "Buy more, save more!" quantity-bundle offer, and a standalone quantity selector — all styled to blend into a storefront theme.',
           width: 864,
           height: 523,
           caption:
             'The same system powering live conversion widgets — product cards, upsell offers, and bundle selectors — each adapting to the host store\u2019s look.',
-        },
+        }],
       },
       {
         heading: 'Risks',
@@ -562,14 +631,14 @@ export const caseStudies: CaseStudy[] = [
           'Persistent checkout access — the checkout button remains visible across screen sizes, ensuring easy access regardless of device or resolution.',
           'Accessibility — the drawer works well with screen readers and can be fully navigated by keyboard, with WCAG-compliant contrast and tap targets large enough to hit on any device.',
         ],
-        image: {
+        images: [{
           src: '/work/cart-drawer-design.png',
           alt: 'The Vitals cart drawer inside the Shopify admin: a settings tree on the left (General settings, Announcement bars, Product upsells, Spending goal, Gift, Empty state) and a live cart preview on the right showing a free-shipping bar, a sneaker line item with quantity stepper and discounted price, an order note, a "You may also like" upsell with a variant selector, a spending-goal progress bar, and a sticky "Go to checkout" button.',
           width: 1440,
           height: 1157,
           caption:
             'The cart drawer previewed inside the merchant admin — free-shipping bar, line items, order note, upsells, spending goal, and a sticky checkout button.',
-        },
+        }],
       },
       {
         heading: 'Design system & component structure in Figma',
@@ -581,14 +650,14 @@ export const caseStudies: CaseStudy[] = [
           'Used Figma variants and component properties (boolean toggles, instance swaps) to manage complexity while keeping the file easy for developers and collaborators.',
           'Built the entire drawer in a modular layout to support future iterations and A/B testing without redesigning from scratch.',
         ],
-        image: {
+        images: [{
           src: '/work/cart-components.png',
           alt: 'A Figma components board for the cart drawer showing reusable pieces annotated with "Text default, opacity 70%": upsell "You may also like" cards with variant selectors and Add to cart buttons, product line items with quantity steppers, discount summary panels with old price and subtotal, a spending-goal progress bar, and expandable order-note fields.',
           width: 2048,
           height: 1011,
           caption:
             'The drawer treated as a mini design system: modular, annotated components with variants for every state.',
-        },
+        }],
       },
       {
         heading: 'Component design & developer handoff',
@@ -628,14 +697,14 @@ export const caseStudies: CaseStudy[] = [
           'Touch targets: all tap areas meet minimum guidelines for mobile usability.',
           'Safe areas: padding adjusted for device safe zones (iOS notch, bottom bars).',
         ],
-        image: {
+        images: [{
           src: '/work/cart-responsive.png',
           alt: 'Three admin states of the cart drawer labeled Menu items, General settings, and General settings – custom color scheme, each showing the Shopify admin with the settings panel and a live storefront cart preview, demonstrating how the drawer adapts to configuration and custom colors.',
           width: 2034,
           height: 1234,
           caption:
             'Configuration states side by side: menu items, general settings, and a custom color scheme reflected live in the preview.',
-        },
+        }],
       },
       {
         heading: 'User admin',
@@ -647,14 +716,14 @@ export const caseStudies: CaseStudy[] = [
           "Preview embeds: since Polaris doesn't natively support live previews, we designed a scrollable drawer mock inside the admin for real-time visual feedback.",
           'Custom component overlays: certain settings (e.g. upsell rules) were layered with collapsible panels and helper tooltips to reduce visual overload.',
         ],
-        image: {
+        images: [{
           src: '/work/cart-admin.png',
           alt: 'The Shopify Polaris-based Vitals admin for the cart drawer: a left navigation, a settings tree (General settings, Announcement bars, Product upsells, Spending goal, Gift, Empty state), and a live scrollable cart preview showing line items, an order note, an upsell, a spending-goal bar, and a sticky checkout button.',
           width: 2048,
           height: 649,
           caption:
             'The merchant admin built on Shopify Polaris, with a live scrollable drawer mock for real-time feedback.',
-        },
+        }],
       },
       {
         heading: 'What I learned',
@@ -749,14 +818,14 @@ export const caseStudies: CaseStudy[] = [
         paragraphs: [
           'In the UI/UX phase, I created wireframes to define the enhanced user flow, facilitating stakeholder alignment. I then developed detailed Figma screens for both the user interface and storefront scenarios, while the development team prepared a more efficient codebase to support the new features.',
         ],
-        image: {
+        images: [{
           src: '/work/popup-admin.png',
           alt: 'A Figma canvas mapping every popup variant and state: desktop layouts with image on the right and left, no-image and background variants, scroll-content and error states, plus thank-you, click-through, discount, and close-button scenarios — each annotated with settings like image aspect ratio, max width, and hover states.',
           width: 2048,
           height: 1507,
           caption:
             'The full Figma exploration — every layout, state, and edge case (thank-you, click-through, discount, error, close-button) mapped with settings annotations.',
-        },
+        }],
       },
       {
         heading: 'User admin design',
@@ -781,28 +850,28 @@ export const caseStudies: CaseStudy[] = [
           'Customization & flexibility: options for placement, animation styles, and triggers (exit-intent, timed delay) to help recover up to 10–15% of abandoning visitors.',
           'Scenarios: from simple lead capture to more complex upsell opportunities, each scenario highlights the widget\u2019s flexibility in driving engagement.',
         ],
-        image: {
+        images: [{
           src: '/work/popup-scenarios.png',
           alt: 'A row of four storefront popup scenarios built from the redesign: image on the right, image on the left, image with logo, and a thank-you screen with a coupon code — all sharing the same clean newsletter-signup layout with an email field, consent checkboxes, and a "Sign me up" button.',
           width: 2048,
           height: 515,
           caption:
             'Storefront scenarios: image-right, image-left, logo, and the thank-you/coupon screen — one consistent, high-conversion system.',
-        },
+        }],
       },
       {
         heading: 'Mockups',
         paragraphs: [
           'To ensure compatibility with various store themes and simplify setup, we designed the app to inherit key styling elements directly from the theme — such as font family for headings and body text, as well as line height. This lets merchants customize and launch in just a few clicks, providing a seamless integration experience aligned with our easy-onboarding policy.',
         ],
-        image: {
+        images: [{
           src: '/work/popup-left.png',
           alt: 'A storefront newsletter popup with the fashion model image on the left and the "Subscribe to our newsletter" content on the right — email field, privacy and offers consent checkboxes, a "Sign me up" button, and a "No, thank you" dismiss link — shown blending into a store theme.',
           width: 1024,
           height: 770,
           caption:
             'A live mockup inheriting the theme\u2019s typography and spacing — brand-aligned in a few clicks.',
-        },
+        }],
         callout:
           'Designing the app to inherit theme styling was the key to easy onboarding — brand alignment without merchants touching a single style value.',
       },
@@ -816,14 +885,14 @@ export const caseStudies: CaseStudy[] = [
           'Product Update Modal — introducing the widget\u2019s new features to users.',
           '\u201CMy Apps\u201D Reminder — a prompt for users who have yet to activate the widget.',
         ],
-        image: {
+        images: [{
           src: '/work/popup-dashboard.png',
           alt: 'The Shopify admin showing a Vitals in-app "Product Update" modal titled "Vitals\u2019 Pop-ups just got a whole lot better," with a preview of the new discount popup and a "Try it now" button — one of the two in-app promotion methods driving activation.',
           width: 1440,
           height: 930,
           caption:
             'The in-app Product Update Modal — one of two prompts driving the 10% activation increase post-launch.',
-        },
+        }],
       },
     ],
   },
