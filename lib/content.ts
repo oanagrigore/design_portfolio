@@ -69,7 +69,7 @@ export const caseStudies: CaseStudy[] = [
     title: 'Building the system that made the redesign possible',
     summary:
       'How a design system built as governance infrastructure made a consistent, accessible redesign of a NEMT member portal and app possible at ecosystem scale.',
-    cover: '/work/cover-md.png',
+    cover: '/work/medidrive-cover.png',
     year: '2026',
     client: 'MediDrive — NEMT',
     role: 'Lead Product Designer',
@@ -586,7 +586,7 @@ export const caseStudies: CaseStudy[] = [
     title: 'Cart Drawer – smoother, faster ecommerce UX',
     summary:
       'A custom, accessible cart drawer built to replace unreliable third-party solutions — improving retention and giving merchants a native way to boost sales with Vitals.',
-    cover: '/work/cart-cover.png',
+    cover: '/work/cart-drawer-cover.png',
     year: '2024',
     client: 'Vitals',
     role: 'Lead Product Designer',
