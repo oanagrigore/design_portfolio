@@ -66,7 +66,7 @@ export type CaseStudy = {
 export const caseStudies: CaseStudy[] = [
   {
     slug: 'design-system-redesign',
-    title: 'Building the system that made the redesign possible',
+    title: 'MediDrive: Scaling Accessibility Across an Enterprise Healthtech Ecosystem',
     summary:
       'How a design system built as governance infrastructure made a consistent, accessible redesign of a NEMT member portal and app possible at ecosystem scale.',
     cover: '/work/medidrive-cover.png',
@@ -309,7 +309,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: 'omni-limousine',
-    title: 'Omni Limousine: From brand site to booking channel',
+    title: 'Omni Limousine: Driving direct bookings through a premium web experience',
     summary:
       'Redesign and Webflow build of the web experience for a premium chauffeur service in Las Vegas and Miami, turning a static brand site into a direct-booking channel.',
     cover: '/work/omni-cover.png',
@@ -472,9 +472,9 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: 'wishlist-accessibility',
-    title: 'Improving Wishlist icon accessibility & integration across Shopify themes',
+    title: 'Standardizing E-Commerce Accessibility Across 1,000+ Custom Shopify Themes',
     summary:
-      'Making the Wishlist icon meet mobile touch-target guidelines and integrate cleanly across diverse Shopify and non-Shopify themes.',
+      'Engineered adaptable UI patterns to meet mobile touch-target standards without breaking legacy storefront layouts.',
     cover: '/work/wishlist-cover.png',
     year: '2025',
     client: 'Vitals',
@@ -1181,9 +1181,8 @@ export const certifications: Certification[] = [
 ]
 
 export const services = [
-  'Product Design',
-  'Design Systems',
-  'Accessibility',
-  'Design Strategy',
-  'Brand & Identity',
+  'Product Strategy & Architecture: Mapping complex user flows, technical constraints, and business goals into scalable product roadmaps.',
+  'Design Systems & Governance: Building multi-brand, tokenized UI systems that speed up engineering handoff and enforce consistency.',
+  'Accessibility Leadership: Designing WCAG-compliant systems so products are usable by everyone from day one.',
+  'Conversion & Flow Optimization: Turning static marketing experiences into high-performing conversion channels.',
 ]
