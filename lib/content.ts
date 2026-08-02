@@ -308,6 +308,169 @@ export const caseStudies: CaseStudy[] = [
     ],
   },
   {
+    slug: 'omni-limousine',
+    title: 'Omni Limousine: From brand site to booking channel',
+    summary:
+      'Redesign and Webflow build of the web experience for a premium chauffeur service in Las Vegas and Miami, turning a static brand site into a direct-booking channel.',
+    cover: '/work/omni-cover.png',
+    year: '2026',
+    client: 'Omni Limousine',
+    role: 'Lead Product Designer',
+    tags: ['Product design', 'Webflow', 'UX/UI', 'Design Systems'],
+    overview:
+      "Omni Limousine has run a premium chauffeur service since 1998, but almost all of its bookings came through partnerships rather than its own website. I redesigned and rebuilt it in Webflow around one goal: turn the website into a direct-booking channel with booking reachable from anywhere on the site.",
+    challenge:
+      "The old site looked dated, didn't reflect the quality of the real-world service, and wasn't built to convert. Direct web bookings were a small share of volume, and the brand read as generic rather than approachable luxury.",
+    approach:
+      "I anchored the redesign in three principles: approachable luxury, a distinct Las Vegas at night visual identity, and a 'book from anywhere' strategy with a responsive, omnipresent booking widget built natively in Webflow.",
+    outcome:
+      "A cohesive, high-converting Webflow web experience paired with a redesigned 4-step booking widget integrated into Omni's reservation platform.",
+    metrics: [
+      { label: 'Direct bookings (target)', value: '+20%' },
+      { label: 'Scope', value: 'UX, UI & Webflow' },
+      { label: 'Markets', value: 'Las Vegas & Miami' },
+    ],
+    quickSummary: [
+      { label: 'My role', value: 'Lead Product Designer (solo end-to-end)' },
+      {
+        label: 'Scope',
+        value:
+          'Full website redesign, UX/UI for the booking experience, content structure, and front-end Webflow build.',
+      },
+      {
+        label: 'Team',
+        value:
+          'Solo design and Webflow build. Collaborated with a backend developer who connected the booking widget to Omni’s reservation platform.',
+      },
+      {
+        label: 'Primary metric (target)',
+        value: '20% increase in direct web bookings',
+      },
+    ],
+    sections: [
+      {
+        heading: 'Overview',
+        paragraphs: [
+          'Omni Limousine has run a premium chauffeur service since 1998, but almost all of its bookings came through partnerships — hotels, concierges, referrals — rather than its own website.',
+          'The old site looked dated, didn’t reflect the quality of the real-world service, and wasn’t built to convert. I redesigned and rebuilt it in Webflow around one goal: turn the website into a direct-booking channel, with booking reachable from anywhere on the site.',
+          'Because the previous site collected no analytics and the new one launched without instrumentation, this case study is about the problem, the decisions, and the craft — not a measured lift. I’ve kept the line between result and hypothesis explicit throughout.',
+        ],
+      },
+      {
+        heading: 'The problem',
+        paragraphs: [
+          'Omni’s reputation lived offline. Repeat clients and partners knew the service was reliable and discreet; new customers landing on the website saw none of that. Two problems compounded:',
+        ],
+        bullets: [
+          'The website wasn’t a booking channel: Direct web bookings were a small share of volume; the business leaned on partnership referrals. Growing direct bookings meant the site had to build trust and remove friction on its own.',
+          'The brand read as neither premium nor approachable: The old design looked like a generic black-and-white chauffeur template. It didn’t signal luxury, and it didn’t feel welcoming to the broad audience Omni actually serves — event guests, business travelers, and families, not only executives.',
+        ],
+        callout:
+          'The target set for the project was a 20% increase in direct web bookings. To be precise: that was the target the design worked toward, not an outcome I can claim.',
+      },
+      {
+        heading: 'My role and constraints',
+        paragraphs: [
+          'I was the only designer, and I also built the site, owning the UX, UI, content structure, and Webflow implementation end to end. The booking flow (its steps, fields, states, and logic) was my design; a backend developer wired the resulting widget into Omni’s reservation platform.',
+          'Two constraints shaped the work:',
+        ],
+        bullets: [
+          'A fixed booking platform: The reservation back-end was a given, so I designed the flow around what it could support rather than in a vacuum.',
+          'No baseline: With no analytics on the old site, I had nothing to diagnose from. I worked from the booking platform’s structure, competitor patterns, and a set of explicit behavioral assumptions that I treated as hypotheses to design against, not as facts.',
+        ],
+      },
+      {
+        heading: 'Approach',
+        paragraphs: [
+          'I anchored the redesign in three core principles:',
+        ],
+        bullets: [
+          'Approachable luxury: Omni serves a wide audience, so the site had to feel premium without being intimidating or exclusive. In practice that meant clean layouts, clear and literal language, readable typography, and straightforward service explanations — luxury you don’t have to decode.',
+          'A visual identity built on Las Vegas at night: To break from the generic black-and-white chauffeur look, I built the palette around the city where Omni operates best: deep charcoals for a cinematic base, purple gradients evoking dusk over the strip, and gold accents for warmth and signal. The intent was instant recognizability and clear differentiation from competitors.',
+          'Book from anywhere: If the site was going to become a booking channel, booking couldn’t sit on one buried page. I placed an above-the-fold booking widget on the homepage and booking entry points throughout — in the hero, on fleet cards, inside service descriptions, and beside social proof — so the shortest path to a reservation was always one click away.',
+        ],
+      },
+      {
+        heading: 'The booking experience',
+        paragraphs: [
+          'This was the center of the project.',
+        ],
+        decisions: [
+          {
+            title: 'Shift from isolated flow to omnipresent entry point',
+            problem:
+              'The old booking flow was a six-step, single-purpose journey — Reservation, Vehicle, Options, Passenger, Payment, Confirmation — that lived on its own page, disconnected from the rest of the site.',
+            change:
+              'Reframed booking as something available everywhere, starting with an above-the-fold homepage widget that opens the flow immediately.',
+            why: 'A customer no longer has to hunt for the booking page; the entry point is available the second they land or browse any service.',
+          },
+          {
+            title: 'Trip-type first initialization',
+            problem:
+              'Users faced overwhelming form fields right at the start before defining their core intent.',
+            change:
+              'The trip type is chosen up front (one-way / return, hourly / as-directed, and security services), revealing only essential fields to start — pickup, drop-off, date, and time.',
+            why: 'Reduces cognitive load and allows the reservation to progress naturally into vehicle and detail selection.',
+          },
+          {
+            title: 'Designing edge cases and error states',
+            problem:
+              'Traditional booking forms fail silently or obscurely when inputs are invalid, causing drop-offs.',
+            change:
+              'Designed explicit states for empty fields, invalid inputs, and moments where a booking can stall.',
+            why: 'Designing for where a flow breaks is what makes it a dependable product rather than just a web form.',
+          },
+        ],
+        images: [
+          {
+            src: '/work/omni-widget.png',
+            alt: 'The redesigned Omni Limousine hero section featuring the inline booking widget with trip type tabs and immediate location inputs.',
+            caption: 'The homepage hero widget puts booking front and center with minimal initial friction.',
+            afterDecision: 0,
+          },
+          {
+            src: '/work/omni-vehicle.png',
+            alt: 'Mobile view of the Omni Limousine booking flow showing thumb-friendly inputs and clear steps.',
+            caption: 'Optimized for mobile users who frequently book close to pickup.',
+            afterDecision: 1,
+          },
+        ],
+      },
+      {
+        heading: 'Designing and building it in Webflow',
+        paragraphs: [
+          'I built the entire site in Webflow, not a design handed off to someone else. That meant translating the system into real, responsive components, wiring the CMS, and collaborating with the backend developer at the one seam where my booking UI met Omni’s reservation platform.',
+          'Owning both design and build kept the shipped product faithful to the intent and let me iterate directly instead of through a handoff round-trip.',
+        ],
+        images: [
+          {
+            src: '/work/omni-webflow.png',
+            alt: 'Webflow component structure and layout system designed for the Omni Limousine website.',
+            caption: 'Modular Webflow components designed for seamless responsiveness and CMS integration.',
+          },
+        ],
+      },
+      {
+        heading: 'Outcome and how I’d measure it',
+        paragraphs: [
+          'The honest version: there are no performance metrics. The old site tracked nothing, so there’s no baseline; the new site shipped without analytics, so there’s nothing to compare against yet. I won’t present a target as a result.',
+          'What I’d do now — and would prioritize on any similar project — is make it measurable from day one:',
+        ],
+        bullets: [
+          'Instrument the booking funnel end to end: widget opens, step completions, drop-off points, completed reservations.',
+          'Define the success metric explicitly: direct web bookings, and homepage-to-booking conversion rate against the 20% target.',
+          'Validate behavioral assumptions with real data: are guests actually booking on mobile and close to pickup? — and let the findings reshape the flow.',
+        ],
+      },
+      {
+        heading: 'Reflection',
+        paragraphs: [
+          'The craft holds up. The site looks premium, stays approachable, and puts booking one click away from anywhere, but "designed to convert" and "converts" are different claims, and I don’t want to blur them. On the next project, measurement is a first-class design requirement, not an afterthought.',
+        ],
+      },
+    ],
+  },
+  {
     slug: 'wishlist-accessibility',
     title: 'Improving Wishlist icon accessibility & integration across Shopify themes',
     summary:
@@ -896,6 +1059,7 @@ export const caseStudies: CaseStudy[] = [
       },
     ],
   },
+
 ]
 
 export type Testimonial = {
