@@ -4,6 +4,7 @@ import { Analytics } from '@vercel/analytics/next'
 import { SiteHeader } from '@/components/site-header'
 import { SiteFooter } from '@/components/site-footer'
 import { SmoothScrollProvider } from '@/components/smooth-scroll-provider'
+import DesignInspector from '@/components/DesignInspector'
 import './globals.css'
 
 const geistSans = Geist({
@@ -43,6 +44,10 @@ export default function RootLayout({
             <SiteFooter />
           </div>
         </SmoothScrollProvider>
+
+        {/* Live Design System & Redline Inspector Overlay */}
+        <DesignInspector />
+
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>
