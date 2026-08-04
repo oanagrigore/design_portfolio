@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { ArrowUpRight } from 'lucide-react'
+import { motion, AnimatePresence } from 'framer-motion'
 import { WorkCard } from '@/components/work-card'
 import { caseStudies, profile, services } from '@/lib/content'
 import { HeroAnimator } from "@/components/hero-animator"
@@ -59,9 +60,9 @@ const COMPARISONS = [
       { label: "Form Abandonment Rate", value: "-22%" },
     ],
     caseStudyUrl: "/work/omni-limousine",
-    beforeImage: "/work/omni-before.png", // Replace with your Omni before image path in /public/work/
+    beforeImage: "/work/omni-before.png",
     beforeAlt: "Legacy Omni Limousine website interface",
-    afterImage: "/work/omni-after.png",   // Replace with your Omni after image path in /public/work/
+    afterImage: "/work/omni-after.png",
     afterAlt: "Redesigned accessible Omni Limousine direct booking web experience",
     aspectRatio: "16/10",
   },
@@ -130,66 +131,92 @@ export default function HomePage() {
             </h2>
           </div>
 
-          {/* Tab Controls */}
-          <div className="flex flex-wrap items-center gap-1 rounded-full border border-border/60 bg-secondary/50 p-1">
-            {COMPARISONS.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => setActiveTab(item)}
-                className={`rounded-full px-4 py-1.5 text-xs font-medium transition-all ${
-                  activeTab.id === item.id
-                    ? "bg-background text-foreground shadow-sm"
-                    : "text-muted-foreground hover:text-foreground"
-                }`}
-              >
-                {item.tabLabel}
-              </button>
-            ))}
+          {/* Tab Controls - Horizontally scrollable on mobile */}
+          <div className="-mx-6 flex items-center overflow-x-auto px-6 py-1 no-scrollbar md:mx-0 md:px-0">
+            <div className="inline-flex shrink-0 items-center gap-1 rounded-full border border-border/60 bg-secondary/50 p-1">
+              {COMPARISONS.map((item) => {
+                const isActive = activeTab.id === item.id;
+                return (
+                  <button
+                    key={item.id}
+                    onClick={() => setActiveTab(item)}
+                    className="relative rounded-full px-4 py-1.5 text-xs font-medium transition-colors"
+                  >
+                    {isActive && (
+                      <motion.div
+                        layoutId="activeTabIndicator"
+                        className="absolute inset-0 rounded-full bg-background shadow-sm"
+                        transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                      />
+                    )}
+                    <span className={`relative z-10 ${isActive ? "text-foreground" : "text-muted-foreground hover:text-foreground"}`}>
+                      {item.tabLabel}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
           </div>
         </div>
 
         {/* Dynamic Tab Content */}
         <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-2">
-          {/* Slider for Active Tab */}
-          <div>
-            <ImageSlider
-              key={activeTab.id} // Re-mounts component on tab change to reset slider position
-              beforeImage={activeTab.beforeImage}
-              beforeAlt={activeTab.beforeAlt}
-              afterImage={activeTab.afterImage}
-              afterAlt={activeTab.afterAlt}
-              aspectRatio={activeTab.aspectRatio}
-            />
-          </div>
+          {/* Slider Container with Cross-Fade */}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeTab.id}
+              initial={{ opacity: 0, scale: 0.98 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.98 }}
+              transition={{ duration: 0.25, ease: "easeOut" }}
+            >
+              <ImageSlider
+                beforeImage={activeTab.beforeImage}
+                beforeAlt={activeTab.beforeAlt}
+                afterImage={activeTab.afterImage}
+                afterAlt={activeTab.afterAlt}
+                aspectRatio={activeTab.aspectRatio}
+              />
+            </motion.div>
+          </AnimatePresence>
 
-          {/* Active Tab Details */}
-          <div className="space-y-6">
-            <h3 className="text-xl font-medium tracking-tight text-foreground">
-              {activeTab.title}
-            </h3>
-            <p className="text-muted-foreground leading-relaxed">
-              {activeTab.description}
-            </p>
-            
-            <div className="grid grid-cols-2 gap-4 border-t border-border/60 pt-6">
-              {activeTab.metrics.map((m, idx) => (
-                <div key={idx}>
-                  <p className="text-2xl font-semibold tracking-tight text-foreground">{m.value}</p>
-                  <p className="text-xs text-muted-foreground mt-0.5">{m.label}</p>
-                </div>
-              ))}
-            </div>
+          {/* Active Tab Details with Cross-Fade */}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeTab.id}
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.25, ease: "easeOut" }}
+              className="space-y-6"
+            >
+              <h3 className="text-xl font-medium tracking-tight text-foreground">
+                {activeTab.title}
+              </h3>
+              <p className="text-muted-foreground leading-relaxed">
+                {activeTab.description}
+              </p>
+              
+              <div className="grid grid-cols-2 gap-4 border-t border-border/60 pt-6">
+                {activeTab.metrics.map((m, idx) => (
+                  <div key={idx}>
+                    <p className="text-2xl font-semibold tracking-tight text-foreground">{m.value}</p>
+                    <p className="text-xs text-muted-foreground mt-0.5">{m.label}</p>
+                  </div>
+                ))}
+              </div>
 
-            <div>
-              <Link
-                href={activeTab.caseStudyUrl}
-                className="inline-flex items-center gap-1.5 text-sm font-medium text-foreground transition-colors hover:text-muted-foreground"
-              >
-                Read deep-dive case study
-                <ArrowUpRight className="size-4" />
-              </Link>
-            </div>
-          </div>
+              <div>
+                <Link
+                  href={activeTab.caseStudyUrl}
+                  className="inline-flex items-center gap-1.5 text-sm font-medium text-foreground transition-colors hover:text-muted-foreground"
+                >
+                  Read deep-dive case study
+                  <ArrowUpRight className="size-4" />
+                </Link>
+              </div>
+            </motion.div>
+          </AnimatePresence>
         </div>
       </section>
 

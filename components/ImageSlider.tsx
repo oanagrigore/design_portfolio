@@ -1,102 +1,155 @@
-// components/ImageSlider.tsx
-'use client';
+"use client";
 
-import { useState, useRef, useEffect, ChangeEvent } from 'react';
-import Image from 'next/image';
+import { useState, useRef, useCallback, KeyboardEvent } from "react";
+import Image from "next/image";
 
 interface ImageSliderProps {
   beforeImage: string;
-  afterImage: string;
   beforeAlt: string;
+  afterImage: string;
   afterAlt: string;
-  aspectRatio?: string; // e.g., '16/9'
+  aspectRatio?: string;
 }
 
 export default function ImageSlider({
   beforeImage,
-  afterImage,
   beforeAlt,
+  afterImage,
   afterAlt,
-  aspectRatio = '16/9'
+  aspectRatio = "16/10",
 }: ImageSliderProps) {
-  const [position, setPosition] = useState<number>(50); // Initialize slider at 50%
+  // Slider position from 0 to 100
+  const [sliderPosition, setSliderPosition] = useState(50);
+  const [isDragging, setIsDragging] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // Handle slider input changes
-  const handleSliderChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setPosition(Number(e.target.value));
+  // Helper to calculate clamp values between 0 and 100
+  const updatePosition = useCallback((clientX: number) => {
+    if (!containerRef.current) return;
+    const rect = containerRef.current.getBoundingClientRect();
+    const x = clientX - rect.left;
+    let percentage = (x / rect.width) * 100;
+    if (percentage < 0) percentage = 0;
+    if (percentage > 100) percentage = 100;
+    setSliderPosition(percentage);
+  }, []);
+
+  // Mouse & Touch Drag Handlers
+  const handleTouchMove = useCallback((e: React.TouchEvent) => {
+    updatePosition(e.touches[0].clientX);
+  }, [updatePosition]);
+
+  const handleMouseMove = useCallback((e: React.MouseEvent) => {
+    if (!isDragging) return;
+    updatePosition(e.clientX);
+  }, [isDragging, updatePosition]);
+
+  const handleMouseDown = () => setIsDragging(true);
+  const handleMouseUp = () => setIsDragging(false);
+
+  // Keyboard Navigation Handler (WCAG 2.1 - Arrow Left/Right, Home, End)
+  const handleKeyDown = (e: KeyboardEvent<HTMLDivElement>) => {
+    const step = 5; // 5% shift per keypress
+    if (e.key === "ArrowLeft" || e.key === "ArrowDown") {
+      e.preventDefault();
+      setSliderPosition((prev) => Math.max(0, prev - step));
+    } else if (e.key === "ArrowRight" || e.key === "ArrowUp") {
+      e.preventDefault();
+      setSliderPosition((prev) => Math.min(100, prev + step));
+    } else if (e.key === "Home") {
+      e.preventDefault();
+      setSliderPosition(0);
+    } else if (e.key === "End") {
+      e.preventDefault();
+      setSliderPosition(100);
+    }
   };
 
   return (
-    <div
-      ref={containerRef}
-      className="group relative w-full overflow-hidden rounded-xl border border-neutral-200 bg-white shadow-lg dark:border-neutral-800 dark:bg-neutral-900"
-      style={{ aspectRatio: aspectRatio }}
-    >
-      {/* 1. After (Right) Image - Set as background/base layer */}
-      <Image
-        src={afterImage}
-        alt={afterAlt}
-        fill
-        sizes="(max-width: 1200px) 100vw, 1200px"
-        className="object-cover object-left"
-        priority={false}
-      />
-      {/* Label for After image */}
-      <span className="absolute bottom-3 right-3 z-10 rounded bg-neutral-900/70 px-2 py-0.5 text-[11px] font-mono font-medium uppercase text-white backdrop-blur-sm">
-        After
-      </span>
-
-      {/* 2. Before (Left) Image - Clipped based on slider position */}
-      <div
-        className="absolute inset-0 z-10 overflow-hidden"
-        style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }}
-      >
-        <Image
-          src={beforeImage}
-          alt={beforeAlt}
-          fill
-          sizes="(max-width: 1200px) 100vw, 1200px"
-          className="object-cover object-left"
-          priority={false}
-        />
-        {/* Label for Before image */}
-        <span className="absolute bottom-3 left-3 z-10 rounded bg-red-600/90 px-2 py-0.5 text-[11px] font-mono font-medium uppercase text-white backdrop-blur-sm">
-          Original
-        </span>
+    <div className="space-y-2">
+      {/* Screen Reader Only Instruction Summary */}
+      <div className="sr-only">
+        Before and after visual comparison slider. Use left and right arrow keys to adjust the visible comparison threshold.
       </div>
 
-      {/* 3. The Interactive Handle/Slider */}
-      <input
-        type="range"
-        min="0"
-        max="100"
-        value={position}
-        onChange={handleSliderChange}
-        className="before-after-slider absolute inset-0 z-30 h-full w-full cursor-col-resize opacity-0"
-        aria-label="Before and After design comparison slider"
-        aria-valuenow={position}
-        aria-valuemin={0}
-        aria-valuemax={100}
-      />
-
-      {/* 4. The Visual Handle (line and circle) */}
+      {/* Main Interactive Container */}
       <div
-        className="pointer-events-none absolute bottom-0 top-0 z-20 w-0.5 bg-white shadow-xl transition-all"
-        style={{ left: `calc(${position}% - 1px)` }}
+        ref={containerRef}
+        onMouseMove={handleMouseMove}
+        onMouseDown={handleMouseDown}
+        onMouseUp={handleMouseUp}
+        onMouseLeave={handleMouseUp}
+        onTouchMove={handleTouchMove}
+        className="relative select-none overflow-hidden rounded-xl border border-border/60 bg-muted touch-pan-y"
+        style={{ aspectRatio }}
       >
-        {/* The Circle Handle */}
-        <div className="absolute left-1/2 top-1/2 flex h-8 w-8 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-2xl transition group-hover:scale-110">
-          {/* SVGs for Arrows (left/right) */}
+        {/* AFTER Image (Background Base Layer) */}
+        <div className="absolute inset-0">
+          <Image
+            src={afterImage}
+            alt={afterAlt}
+            fill
+            sizes="(max-width: 768px) 100vw, 50vw"
+            className="object-cover"
+            priority
+          />
+          {/* Badge Label */}
+          <span className="absolute bottom-3 right-3 rounded-md bg-background/80 px-2 py-1 text-[10px] font-medium tracking-wide text-foreground backdrop-blur-sm">
+            AFTER
+          </span>
+        </div>
+
+        {/* BEFORE Image (Clipped Foreground Layer) */}
+        <div
+          className="absolute inset-0 overflow-hidden"
+          style={{ width: `${sliderPosition}%` }}
+        >
+          {/* Note: Fixed width matching parent container avoids image squeezing */}
+          <div className="relative h-full w-full" style={{ width: containerRef.current?.offsetWidth || "100%" }}>
+            <Image
+              src={beforeImage}
+              alt={beforeAlt}
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover"
+              priority
+            />
+            {/* Badge Label */}
+            <span className="absolute bottom-3 left-3 rounded-md bg-background/80 px-2 py-1 text-[10px] font-medium tracking-wide text-foreground backdrop-blur-sm">
+              BEFORE
+            </span>
+          </div>
+        </div>
+
+        {/* Vertical Separator Line */}
+        <div
+          className="absolute bottom-0 top-0 w-0.5 bg-white shadow-[0_0_10px_rgba(0,0,0,0.5)]"
+          style={{ left: `${sliderPosition}%` }}
+        />
+
+        {/* WCAG Accessible Slider Handle */}
+        <div
+          role="slider"
+          tabIndex={0}
+          aria-label="Before and after image comparison slider"
+          aria-valuenow={Math.round(sliderPosition)}
+          aria-valuemin={0}
+          aria-valuemax={100}
+          aria-valuetext={`${Math.round(sliderPosition)} percent before image visible`}
+          onKeyDown={handleKeyDown}
+          className="absolute top-1/2 -translate-x-1/2 -translate-y-1/2 cursor-ew-resize touch-none rounded-full border border-border/80 bg-background/90 p-2.5 shadow-lg backdrop-blur-md transition-shadow hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+          style={{ left: `${sliderPosition}%` }}
+        >
+          {/* Custom Handle Icon (Double Arrows) */}
           <svg
-            xmlns="http://www.w3.org/2000/svg"
+            className="size-4 text-foreground"
             fill="none"
             viewBox="0 0 24 24"
-            strokeWidth={2.5}
             stroke="currentColor"
-            className="h-5 w-5 text-neutral-900"
+            strokeWidth="2.5"
+            aria-hidden="true"
           >
-            <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+            <path strokeLinecap="round" strokeLinejoin="round" d="M8 9l-4 3 4 3m8-6l4 3-4 3" />
           </svg>
         </div>
       </div>
