@@ -241,7 +241,7 @@ export const caseStudies: CaseStudy[] = [
     title: 'MediDrive: Scaling Accessibility Across an Enterprise Healthtech Ecosystem',
     summary:
       'How a design system built as governance infrastructure made a consistent, accessible redesign of a NEMT member portal and app possible at ecosystem scale.',
-    cover: '/work/MediDrive-portal-cover.png',
+    cover: '/work/MediDrive-ds-cover.png',
     year: '2026',
     client: 'MediDrive',
     role: 'Lead Product Designer',
@@ -418,7 +418,7 @@ export const caseStudies: CaseStudy[] = [
         ],
         images: [
           {
-          src: '/work/email-entry.png',
+          src: '/work/md-email-entry.png',
           alt: 'The redesigned MediDrive sign-in: a single entry field accepting either an email address or phone number, with no separate sign-up path — the system recognizes the person and routes returning versus first-time users automatically.',
           caption:'One entry point — email or phone. Returning and first-time members are routed automatically, so no one has to know in advance whether they have an account.',
           afterDecision: 0,
