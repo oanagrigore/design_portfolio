@@ -9,7 +9,7 @@ import {
 } from '@/lib/content'
 
 export const metadata: Metadata = {
-  title: 'Oana Grigore Senior Product Designer',
+  title: `${profile.name} — ${profile.role}`,
   description:
     'Lead Product Designer driving design strategy and accessible product design across multiple brands and platforms, from marketing to product flows.',
 }
@@ -26,16 +26,9 @@ export default function AboutPage() {
 
       <section className="grid grid-cols-1 gap-12 border-t border-border/60 py-16 md:grid-cols-[2fr_1fr] md:gap-16 md:py-20">
         <div className="order-2 space-y-6 text-pretty text-lg leading-relaxed text-muted-foreground md:order-1">
-          <p>
-            {`Right now I'm leading design strategy across 5 transportation brands, from premium chauffeur services to non-emergency medical transport (NEMT), where accessibility isn't a nice-to-have but a mandatory requirement.`}
-          </p>
-          <p>
-            I shape everything from landing pages and social to product flows
-            across multiple platforms.
-          </p>
-          <p>
-            {`With 8+ years of experience designing web applications for 40+ Shopify apps and 30,000+ merchants, and a 14-year foundation in visual, graphic, and web design.`}
-          </p>
+          {(profile.aboutIntro ?? []).map((paragraph, idx) => (
+            <p key={idx}>{paragraph}</p>
+          ))}
         </div>
         <div className="order-1 md:order-2">
           <div className="relative aspect-[4/5] overflow-hidden rounded-lg border border-border/60 bg-card">
@@ -45,27 +38,37 @@ export default function AboutPage() {
               fill
               sizes="(max-width: 768px) 100vw, 33vw"
               className="object-cover"
+              priority
             />
           </div>
         </div>
       </section>
 
+      {/* Redesigned Results Section with High Impact Callouts */}
       <section className="grid grid-cols-1 gap-10 border-t border-border/60 py-16 md:grid-cols-[1fr_2fr] md:py-20">
-        <h2 className="text-sm font-medium tracking-tight text-muted-foreground">
-          Results include
-        </h2>
-        <ul className="grid grid-cols-1 gap-px overflow-hidden rounded-lg border border-border/60 bg-border/60 sm:grid-cols-2">
-          {highlights.map((item, index) => (
+        <div>
+          <h2 className="text-sm font-medium tracking-tight text-muted-foreground">
+            Selected Impact
+          </h2>
+          <p className="mt-2 text-sm text-muted-foreground/80">
+            Key outcomes across systems, accessibility, and reach.
+          </p>
+        </div>
+        <ul className="grid grid-cols-1 gap-px overflow-hidden rounded-xl border border-border/60 bg-border/60 sm:grid-cols-2">
+          {highlights.map((item) => (
             <li
-              key={item}
-              className="flex flex-col gap-4 bg-card p-6"
+              key={item.title}
+              className="flex flex-col justify-between gap-6 bg-card p-8 transition-colors hover:bg-accent/5"
             >
-              <span className="text-sm font-medium tabular-nums text-primary">
-                {String(index + 1).padStart(2, '0')}
+              <span className="text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
+                {item.value}
               </span>
-              <p className="text-pretty leading-relaxed text-foreground">
-                {item}
-              </p>
+              <div>
+                <h3 className="font-medium text-foreground">{item.title}</h3>
+                <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                  {item.description}
+                </p>
+              </div>
             </li>
           ))}
         </ul>

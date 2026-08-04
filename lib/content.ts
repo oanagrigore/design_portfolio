@@ -4,6 +4,11 @@ export const profile = {
   location: 'Bucharest, Romania',
   email: 'grigore.oana.elena@gmail.com',
   phone: '+40 742 090 361',
+  aboutIntro: [
+    `Currently leading design strategy across 5 transportation brands, including MediDrive, a non-emergency medical transport (NEMT) platform serving millions of members across Virginia and Colorado, where WCAG accessibility is a mandatory baseline.`,
+    `I created the core design system used across all MediDrive touchpoints and led the complete UX/UI redesigns for the Member Mobile App and Member Web Portal, making healthcare transport effortless for members.`,
+    `Backing this is an 8+ year specialization in complex web applications, including scaling 40+ Shopify apps for 30,000+ merchants, and a 14-year foundation spanning visual, graphic, and product design.`
+  ],
   intro:
     'I lead design across brands, from first click to finished flow, with accessibility built in from the start, because a confusing product fails the people who need it most.',
   avatar: '/oana-avatar.png',
@@ -12,6 +17,38 @@ export const profile = {
     { label: 'Dribbble', href: 'https://dribbble.com/oelenagrigore' },
   ],
 }
+export interface Highlight {
+  value: string;
+  title: string;
+  description: string; // Add this field
+}
+
+export const highlights: Highlight[] = [
+  {
+    value: 'Millions+',
+    title: 'Rider Reach & System Scale',
+    description:
+      'Designed the MediDrive Member App, Web Portal, and unified design system powering non-emergency healthcare transport across Virginia and Colorado.',
+  },
+  {
+    value: '+8%',
+    title: 'Addressable Market Growth',
+    description:
+      'Advanced accessibility across core applications to align strictly with WCAG guidelines, expanding overall market reach and compliance.',
+  },
+  {
+    value: '+40%',
+    title: 'Design Consistency',
+    description:
+      'Built a tokenized multi-brand design system across production web applications, cutting design debt by 15% and accelerating handoffs.',
+  },
+  {
+    value: '+75%',
+    title: 'Startup CSAT Lift',
+    description:
+      'Guided early-stage startups in establishing online presences and product flows, driving measurable improvements in customer satisfaction.',
+  },
+]
 
 export type CaseStudyDecision = {
   title: string
@@ -1263,12 +1300,6 @@ export const testimonials: Testimonial[] = [
   },
 ]
 
-export const highlights = [
-  'Shaped the design strategy for 5 brands as Lead Product Designer, spanning landing page redesigns, end-to-end product flow improvements across platforms, and social media direction.',
-  'Led accessibility improvements across core applications, increasing adherence to WCAG guidelines and expanding the addressable market by an estimated 8%.',
-  'Developed and launched a standardized design system for all web applications, leading to a 40% boost in design consistency and slashing design debt by 15% across the organization.',
-  'Guided startups in establishing online presences, resulting in a 75% improvement in customer satisfaction ratings.',
-]
 
 export type Experience = {
   role: string
@@ -1346,10 +1377,10 @@ export type Certification = {
 
 export const certifications: Certification[] = [
   { name: 'Product Psychology Masterclass', issuer: 'Growth Design' },
-  { name: 'UX/UI Designer', issuer: 'Certification' },
-  { name: 'UX Writing', issuer: 'Certification' },
-  { name: 'Design Accessibility', issuer: 'Certification' },
-  { name: 'CSS Foundations', issuer: 'Certification' },
+  { name: 'UX/UI Designer', issuer: 'Uxcel' },
+  { name: 'UX Writing', issuer: 'Uxcel' },
+  { name: 'Design Accessibility', issuer: 'Uxcel' },
+  { name: 'CSS Foundations', issuer: 'Uxcel' },
 ]
 
 export const services = [
