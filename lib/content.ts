@@ -65,13 +65,185 @@ export type CaseStudy = {
 
 export const caseStudies: CaseStudy[] = [
   {
+    slug: 'medidrive-member-portal',
+    title: 'Redesigning the MediDrive member portal',
+    summary:
+      'A heuristic + accessibility-led redesign of a Medicaid non-emergency medical transportation (NEMT) portal — audited flow by flow, rebuilt in light and dark mode with state-specific variants and designed to WCAG 2.1 AA.',
+    cover: '/work/medidrive-portal-cover.png',
+    year: '2026',
+    client: 'MediDrive',
+    role: 'Lead Product Designer',
+    tags: ['Product design', 'Accessibility', 'UX Audit', 'Design Systems'],
+    overview:
+      'MediDrive lets members book and manage rides to medical appointments. The audience skews older, less tech-savvy, and benefit-dependent. I led a flow-based heuristic and accessibility audit of the member portal and partnered with Senior Product Designer Liviu to completely redesign the web portal and app in light and dark mode, including state-specific variants.',
+    challenge:
+      'The portal had accreted features over time by borrowing mental models from operational and dispatcher tooling. This led to silent failures, premature error states, and severe accessibility barriers that forced members to rely on costly support phone calls.',
+    approach:
+      'Audited four primary journeys against Nielsen’s heuristics and WCAG 2.1 AA. Anchored the redesign around three core principles: eliminating silent failure states, replacing operational dispatcher grids with intuitive member tables, and baking WCAG 2.1 AA keyboard/contrast accessibility into every component.',
+    outcome:
+      'A complete, accessibility-first redesign across portal and mobile app surfaces in light and dark mode, backed by a comprehensive 90-day measurement plan targeting onboarding completion, self-service rates, and support call reduction.',
+    metrics: [
+      { label: 'Accessibility', value: 'WCAG 2.1 AA' },
+      { label: 'Theme Support', value: 'Light & Dark' },
+      { label: 'State Variants', value: 'UX for elderly users' },
+    ],
+    quickSummary: [
+      { label: 'My role', value: 'Lead Product Designer (Audit, Architecture, Accessibility)' },
+      {
+        label: 'Team',
+        value: 'Co-redesigned with Liviu (Senior Product Designer).',
+      },
+      {
+        label: 'Scope',
+        value:
+          'Flow heuristic audit, portal & mobile app redesign, light & dark modes, state-specific variant system (Colorado), accessibility compliance specification.',
+      },
+      {
+        label: 'Status',
+        value: 'Design complete & specified; awaiting implementation & conformance testing.',
+      },
+    ],
+    sections: [
+      {
+        heading: 'Context',
+        paragraphs: [
+          'MediDrive lets members book and manage rides to medical appointments. The audience skews older, less tech-savvy, and benefit-dependent — a group for whom a failed booking isn’t a minor annoyance, it’s a missed appointment. That single fact set the bar for the whole redesign: the portal has to make the next step obvious and never fail silently.',
+          'The existing portal had accreted feature by feature, borrowing patterns from operational/dispatcher tooling that were wrong for members. So I audited it before touching the UI.',
+          'My role — Lead Product Designer. I led the audit, flow architecture, and accessibility. I partnered with Liviu, the other Senior Product Designer on the team, to fully redesign the member app and portal in light and dark mode.',
+          'Status: design complete, not yet in development. The problems below are audited and evidenced; the solutions are designed and specified. Accessibility is designed-in and specified to WCAG 2.1 AA, but not yet implemented or conformance-tested — so this study is honest about what’s proven versus what’s proposed.',
+        ],
+        images: [
+          {
+            src: '/work/portal-light-dark.png',
+            alt: 'Full bleed overview showing the redesigned MediDrive portal in both light and dark mode.',
+            caption: 'The redesigned MediDrive member experience: task-focused portal and app interfaces in light and dark modes.',
+          },
+        ],
+      },
+      {
+        heading: 'The audit',
+        paragraphs: [
+          'I ran a flow-based heuristic evaluation, not a screen skin, across the four journeys that mattered to the business: New user, Existing user, Multiple members, and Mobile. Each was evaluated against Nielsen’s 10 usability heuristics (Nielsen Norman Group) and WCAG 2.1 AA (W3C) — because a Medicaid-adjacent product carries a usability and a legal-conformance obligation.',
+          'The findings clustered into five core themes:',
+        ],
+        bullets: [
+          'Silent failures and dead-end states: The portal repeatedly put users into blocked states without telling them why or what to do (e.g., multi-leg booking disabling "Continue" without feedback, missing service levels blocking progress without explanation). Violates Heuristics #1 & #9; WCAG 3.3.1 & 4.1.3.',
+          'Operational tool wearing a member’s clothes: Layouts borrowed dispatcher mental models (dense operational grids, searching by Trip ID, jargon like "Legs") rather than providing intuitive tables and member-first flows. Violates Heuristics #2 & #8.',
+          'Critical accessibility failures: Inputs that could not be completed via keyboard (WCAG 2.1.1 Level A failure), pervasive low-contrast elements (WCAG 1.4.3), and insufficient badge font sizes for older adults.',
+          'Error and empty states that mislead: Premature error states that alarmed elderly users into thinking they made mistakes, alongside confusing and misleading empty panel states.',
+          'Orientation and feedback gaps: Lack of branding/location hints, no multi-step registration progress indicators, and transient feedback/tooltips that vanished before being read.',
+        ],
+        callout:
+          'Audit Highlight (State-Sync Defect): In the multiple-members flow, selecting a member from the dropdown failed to update the trip list automatically, forcing manual page refreshes. A functional defect the redesign solved structurally.',
+        images: [
+          {
+            src: '/work/portal-audit.png',
+            alt: 'Full-bleed heuristic audit analysis mapping screen flaws to Nielsen heuristics and WCAG AA guidelines.',
+            caption: 'Flow-based heuristic and accessibility audit matrix mapping critical user friction points.',
+            afterBullet: 4,
+          },
+        ],
+      },
+      {
+        heading: 'Principles',
+        paragraphs: [
+          'Three non-negotiables, drawn straight from the audit findings, guided every interface decision:',
+        ],
+        bullets: [
+          'No silent states: Every disabled control, block, or error explains itself explicitly and offers a clear way forward.',
+          'Members are not dispatchers: Familiar, scannable, task-focused patterns (tables over operational grids); zero internal jargon.',
+          'Accessibility is the floor: Keyboard operability and AA contrast designed in from the flow up, verified against WCAG 2.1 — with older adults as the primary design target, not an edge case.',
+        ],
+      },
+      {
+        heading: 'The redesign',
+        paragraphs: [
+          'I rebuilt all four flows and delivered the full screen set in light and dark mode, plus a Colorado state-specific variant set (state Medicaid programs differ in requirements and language — handled as a deliberate variant layer, not hardcoded exceptions).',
+        ],
+        decisions: [
+          {
+            title: 'Clear, self-explaining error & block states',
+            problem:
+              'Users were frequently blocked by disabled buttons or silent validation errors without feedback.',
+            change:
+              'Redesigned every form and action point so that disabled buttons display contextual helper messages indicating missing required fields.',
+            why: 'Eliminates guesswork and keeps anxious or less tech-savvy members moving forward without needing to call support.',
+          },
+          {
+            title: 'Task-focused member tables over operational grids',
+            problem:
+              'Members had to parse multi-column dispatcher tables with internal jargon like "Trip IDs" and "Legs".',
+            change:
+              'Replaced dense grids with clean, scannable member tables highlighting date, destination, driver status, and simple human actions.',
+            why: 'Aligns with the member mental model, drastically lowering cognitive load and reading friction.',
+          },
+          {
+            title: 'First-run member onboarding priority',
+            problem:
+              'First-time logins immediately dropped users into booking forms without identifying who the trip was for.',
+            change:
+              'Structured first-run onboarding to prioritize adding a member and confirming Medicaid details prior to booking.',
+            why: 'Prevents the most expensive error in the ecosystem — booking a medical trip under the wrong account.',
+          },
+        ],
+        images: [
+          {
+            src: '/work/portal-figma.png',
+            alt: 'Full-bleed layout comparing member portal dashboard screens across Light, Dark, and Colorado state modes.',
+            caption: 'The complete redesign ecosystem: rendered across light mode, dark mode, and state-specific Medicaid variants.',
+          },
+        ],
+      },
+      {
+        heading: 'Designing for accessibility (design stage)',
+        paragraphs: [
+          'The portal isn’t in development yet, so I’m not claiming verified conformance — there’s no built product to test. What I can show is accessibility designed in from the flow up, targeting WCAG 2.1 AA, with the specific failures from the audit resolved in the design:',
+        ],
+        bullets: [
+          'Keyboard operability — the audit’s most serious finding, "these inputs can’t be filled out by using a keyboard" (WCAG 2.1.1, Level A), designed out completely.',
+          'Contrast — AA-contrast tokens replacing the repeated low-contrast callouts (WCAG 1.4.3).',
+          'Error identification and status — errors that no longer fire prematurely, and blocked states that explain themselves (WCAG 3.3.1, 4.1.3) — the change that most directly protects an anxious, older user from thinking they’ve done something wrong.',
+        ],
+        callout:
+          'The honest next step is verification against the built product — an accessibility audit plus usability sessions with real members — before any formal conformance claim is made.',
+        images: [
+          {
+            src: '/work/portal-btns.png',
+            alt: 'Full-bleed diagram showing focus ring indicators, high-contrast touch targets, and typography specs.',
+            caption: 'Accessibility specifications: keyboard focus navigation states, 44px+ touch targets, and WCAG AA contrast rules.',
+            afterBullet: 2,
+          },
+        ],
+      },
+      {
+        heading: 'How we’ll measure success',
+        paragraphs: [
+          'No reliable pre-redesign baseline existed, so this is a measurement plan, not a results claim: baseline is established at launch and actuals reported at 90 days. Four metrics tracked from day one, each tied to a problem the audit surfaced:',
+        ],
+        bullets: [
+          '1. Onboarding completion rate: % of users who finish profile setup and make their first booking without calling for help. (Tests theme 5: no multi-step hint, weak orientation.)',
+          '2. Self-service rate: % of bookings completed independently: no dispatcher contact, no support call. (Tests theme 2: operational-tool complexity pushing members to call in.)',
+          '3. Booking error rate: % of submitted bookings requiring correction, cancellation, or support contact. (Tests themes 1 and 4: silent failures and misleading error states.)',
+          '4. Support contact rate: Inbound support contacts per 100 booking attempts — the clearest single signal of user friction.',
+        ],
+      },
+      {
+        heading: 'Reflection',
+        paragraphs: [
+          'Designing for older, less tech-savvy members was a new challenge for me. The lens I used was my own parents: build something they could use on their own, with feedback at every step — feedback that guides rather than alarms. That’s not a sentiment; it’s a design rule that shows up in specific decisions here. It’s why "the error state appears too early… may cause them to stop or second-guess themselves" was flagged critical, why no state is allowed to fail silently, and why the whole point is a member who can complete a booking without calling for help.',
+          'I’ll also be honest about the limit of that lens: imagining my parents is empathy, not evidence. It’s a strong starting point, but the design still needs to be validated with real members before launch — usability sessions with actual older adults are the next step, and the measurement plan above is how I’ll know whether the empathy held up.',
+        ],
+      },
+    ],
+  },
+  {
     slug: 'design-system-redesign',
     title: 'MediDrive: Scaling Accessibility Across an Enterprise Healthtech Ecosystem',
     summary:
       'How a design system built as governance infrastructure made a consistent, accessible redesign of a NEMT member portal and app possible at ecosystem scale.',
-    cover: '/work/medidrive-cover.png',
+    cover: '/work/medidrive-ds-cover.png',
     year: '2026',
-    client: 'MediDrive — NEMT',
+    client: 'MediDrive',
     role: 'Lead Product Designer',
     tags: ['Product design', 'Accessibility', 'Design Systems'],
     overview:
