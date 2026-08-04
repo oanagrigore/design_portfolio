@@ -69,7 +69,7 @@ export const caseStudies: CaseStudy[] = [
     title: 'Redesigning the MediDrive member portal',
     summary:
       'A heuristic + accessibility-led redesign of a Medicaid non-emergency medical transportation (NEMT) portal — audited flow by flow, rebuilt in light and dark mode with state-specific variants and designed to WCAG 2.1 AA.',
-    cover: '/work/medidrive-portal-cover.png',
+    cover: '/work/MediDrive-portal-cover.png',
     year: '2026',
     client: 'MediDrive',
     role: 'Lead Product Designer',
@@ -241,7 +241,7 @@ export const caseStudies: CaseStudy[] = [
     title: 'MediDrive: Scaling Accessibility Across an Enterprise Healthtech Ecosystem',
     summary:
       'How a design system built as governance infrastructure made a consistent, accessible redesign of a NEMT member portal and app possible at ecosystem scale.',
-    cover: '/work/medidrive-ds-cover.png',
+    cover: '/work/MediDrive-portal-cover.png',
     year: '2026',
     client: 'MediDrive',
     role: 'Lead Product Designer',
