@@ -173,3 +173,30 @@ body.inspector-mode *:hover {
   outline: 1px solid rgba(239, 68, 68, 0.8) !important;
   background-color: rgba(239, 68, 68, 0.03) !important;
 }
+
+/* globals.css */
+
+/* Special styles for the Before/After range input */
+.before-after-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 1px; /* Minimum width to allow interaction but remain invisible */
+  height: 100vh; /* Fill the vertical space of the container */
+  background: transparent;
+  cursor: col-resize;
+}
+
+.before-after-slider::-moz-range-thumb {
+  width: 1px;
+  height: 100vh;
+  background: transparent;
+  cursor: col-resize;
+  border: none;
+}
+
+.before-after-slider::-ms-thumb {
+  width: 1px;
+  height: 100vh;
+  background: transparent;
+  cursor: col-resize;
+}
