@@ -31,7 +31,7 @@ export default function AboutPage() {
           </h1>
         </section>
 
-        <section className="grid grid-cols-1 gap-12 border-t border-border/60 py-16 md:grid-cols-[2fr_1fr] md:gap-16 md:py-20">
+        <section className="grid grid-cols-1 gap-12 py-16 md:grid-cols-[2fr_1fr] md:gap-16 md:py-20">
           <div
             data-animate="hero-bio"
             className="order-2 space-y-6 text-pretty text-lg leading-relaxed text-muted-foreground md:order-1"
@@ -60,7 +60,7 @@ export default function AboutPage() {
         {/* Selected Impact Section */}
         <section
           data-animate="impact-section"
-          className="grid grid-cols-1 gap-10 border-t border-border/60 py-16 md:grid-cols-[1fr_2fr] md:py-20"
+          className="grid grid-cols-1 gap-10 py-16 md:grid-cols-[1fr_2fr] md:py-20"
         >
           <div>
             <h2 className="text-sm font-medium tracking-tight text-muted-foreground">
