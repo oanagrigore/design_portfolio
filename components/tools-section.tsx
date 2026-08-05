@@ -14,7 +14,7 @@ const stackData: ToolCategory[] = [
   {
     category: "Interface & Workshop",
     description: "UI design, spatial brainstorming, and analog low-fidelity exploration.",
-    tools: ["Figma", "Paper Design", "FigJam", "Miro"],
+    tools: ["Figma", "Canva", "Paper Design", "FigJam", "Miro"],
   },
   {
     category: "Design Systems & UI Frameworks",
@@ -24,12 +24,12 @@ const stackData: ToolCategory[] = [
   {
     category: "AI & Co-Creation",
     description: "Prompt-driven iteration, concept generation, and AI-assisted workflows.",
-    tools: ["Claude", "Claude Design"],
+    tools: ["Claude", "Claude Design", "ChatGPT", "Moda.app", "Gamma.app"],
   },
   {
     category: "Frontend & Prototyping",
-    description: "Production-grade code understanding, structural markup, and IDE tuning.",
-    tools: ["HTML", "CSS", "Visual Studio Code"],
+    description: "Production-grade code understanding, structural markup, and web builders.",
+    tools: ["Framer", "Webflow", "HTML", "CSS", "Visual Studio Code"],
   },
   {
     category: "Product & Operations",
@@ -61,7 +61,7 @@ const cardVariants = {
     y: 0,
     transition: {
       duration: 0.5,
-      ease: [0.215, 0.61, 0.355, 1] as const, // Added 'as const' here to enforce the tuple type
+      ease: [0.215, 0.61, 0.355, 1] as const,
     },
   },
 };
