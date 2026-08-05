@@ -1298,6 +1298,12 @@ export const testimonials: Testimonial[] = [
     name: 'Felix Harms',
     title: 'Founder, Tabbler',
   },
+  {
+    quote:
+      'I worked with Oana on launching a new brand with 6 apps under it, each one built from the same system but distinct enough to stand on its own. She handled it end to end: the design system itself, the product UI and UX, the component library, icons, App Store assets, landing pages, email design & HTML, plus the social and explainer materials around all of it. She arrives with options rather than one answer, adapts and moves fast when you need her to, and leaves files organised that anyone can pick up the work.',
+    name: 'Alice Fischer',
+    title: 'Marketing and Operations, Vitals',
+  },
 ]
 
 

@@ -3,7 +3,7 @@ import { Quote } from 'lucide-react'
 import { testimonials } from '@/lib/content'
 
 export const metadata: Metadata = {
-  title: 'Testimonials — Oana Grigore',
+  title: 'Testimonials | Oana Grigore',
   description: 'Kind words from people I have worked with.',
 }
 
