@@ -210,3 +210,10 @@ body.inspector-mode *:hover {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
 }
+
+.gallery-item img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover; /* Prevents distortion by cropping overflow */
+  border-radius: 8px; /* Optional styling */
+}

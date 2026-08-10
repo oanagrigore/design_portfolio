@@ -13,6 +13,7 @@ import { ServiceItem } from "@/components/service-item"
 import { AnimatedProjectCard } from "@/components/animated-project-card"
 import ImageSlider from "@/components/ImageSlider"
 import { ToolsSection } from '@/components/tools-section';
+import BrandGallery from '@/components/BrandGallery';
 
 // Data structure for the comparison tabs
 const COMPARISONS = [
@@ -191,6 +192,8 @@ export default function HomePage() {
             </div>
           </section>
         </HeroAnimator>
+
+        <BrandGallery />
 
         {/* Multi Before vs After Comparison Section */}
         <section className="py-16 md:py-24">
