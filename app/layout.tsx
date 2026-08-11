@@ -22,6 +22,11 @@ export const metadata: Metadata = {
   description:
     'Lead Product Designer driving design strategy and accessible product design across multiple brands and platforms, from marketing to product flows.',
   generator: 'v0.app',
+  icons: {
+    icon: '/favicon.ico', // path to your favicon file in the /public directory
+    shortcut: '/favicon.png',
+    apple: '/apple-touch-icon.png',
+  },
 }
 
 export const viewport: Viewport = {
