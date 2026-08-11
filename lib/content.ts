@@ -439,6 +439,10 @@ export const caseStudies: CaseStudy[] = [
           src: '/work/md-site-3.png',
           alt: 'Overview of the redesigned MediDrive state resource pages showing audience routing and responsive layouts.',
         },
+        {
+          src: '/work/md-site-5.png',
+          alt: 'Overview of the redesigned MediDrive state resource pages showing audience routing and responsive layouts.',
+        },
       ],
     },
     {
