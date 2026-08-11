@@ -14,6 +14,7 @@ import { AnimatedProjectCard } from "@/components/animated-project-card"
 import ImageSlider from "@/components/ImageSlider"
 import { ToolsSection } from '@/components/tools-section';
 import BrandGallery from '@/components/BrandGallery';
+import { PrimaryButton } from '@/components/PrimaryButton';
 
 // Data structure for the comparison tabs
 const COMPARISONS = [
@@ -176,16 +177,10 @@ export default function HomePage() {
             </p>
             
             <div className="hero-cta-group mt-10 flex flex-wrap items-center gap-4">
-              <Link
-                href="/work"
-                className="inline-flex items-center gap-1.5 rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
-              >
-                View selected work
-                <ArrowUpRight className="size-4" />
-              </Link>
+              <PrimaryButton href="/work">View selected work</PrimaryButton>
               <Link
                 href="/about"
-                className="inline-flex items-center gap-1.5 rounded-full border border-border px-5 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-secondary"
+                className="inline-flex items-center gap-1.5 rounded-full border border-border px-6 py-3.5 text-sm font-medium text-foreground transition-colors hover:bg-secondary"
               >
                 About me
               </Link>
