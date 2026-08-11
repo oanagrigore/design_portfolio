@@ -274,6 +274,189 @@ export const caseStudies: CaseStudy[] = [
     ],
   },
   {
+  slug: 'medidrive-state-resource-pages',
+  title: 'Restructuring MediDrive’s state NEMT resource pages',
+  summary:
+    'A multi-audience information architecture redesign for Colorado and Virginia NEMT pages — segmenting member, facility, and provider paths, introducing a WCAG 2.1 AA-audited component system, and standardizing accessible downloadable forms.',
+  cover: '/work/medidrive-website-cover.png',
+  year: '2026',
+  client: 'MediDrive',
+  role: 'Lead Product Designer',
+  tags: ['Information Architecture', 'Product Design', 'Accessibility', 'Design Systems'],
+  overview:
+    'MediDrive provides non-emergency medical transportation (NEMT) for Medicaid members. Its state NEMT resource pages serve three distinct groups simultaneously: members and caregivers, medical facilities, and transportation providers. I led the multi-audience information architecture and system redesign, replacing an operations-heavy layout with explicit audience routing while keeping the vulnerable member journey as the primary, most-protected route.',
+  challenge:
+    'The previous state resource pages were built like internal operations documents, forcing all three audiences through a single wall of text. For older Medicaid members, critical coverage and booking information was buried under dispatcher jargon, non-functional decorative widgets, and low-contrast UI components that created severe accessibility barriers.',
+  approach:
+    'Segmented the pages around a multi-audience routing architecture, protected the member journey as the primary track, replaced taxonomy-led ride lists with need-first grids, built the views on a reusable design system, and audited all five core web surfaces to WCAG 2.1 AA alongside standardizing contrast across all downloadable member forms.',
+  outcome:
+    'A scalable, multi-audience state page framework launched for Colorado (Health First Colorado) and Virginia (Aetna Better Health of Virginia). Delivered a live DOM-inspected WCAG 2.1 AA Accessibility Conformance Report (ACR) and established a multi-channel page structure now handling the site’s highest traffic volume (~3,585 monthly clicks post-launch).',
+  metrics: [
+    { label: 'Accessibility Audit', value: 'WCAG 2.1 AA (ACR Produced)' },
+    { label: 'Audience Paths', value: '3 Dedicated Routes' },
+    { label: 'State Coverage', value: 'Colorado & Virginia' },
+  ],
+  quickSummary: [
+    { label: 'My role', value: 'Lead Product Designer (Audience Segmentation, Page Architecture, Hierarchy, Accessibility, Design System)' },
+    {
+      label: 'Team',
+      value: 'Collaborated with Livia (Content Strategy & Plain Language) and Serhii (Frontend Development).',
+    },
+    {
+      label: 'Scope',
+      value:
+        'Multi-audience IA, state resource page architecture (Colorado & Virginia), design system patterns, downloadable form accessibility standardization, WCAG 2.1 AA live audit.',
+    },
+    {
+      label: 'Status',
+      value: 'Live in production; audited via formal Accessibility Conformance Report (ACR).',
+    },
+  ],
+  sections: [
+    {
+      heading: 'Context',
+      paragraphs: [
+        'MediDrive provides non-emergency medical transportation (NEMT) for Medicaid members. Its state resource pages are not single-audience pages — they must simultaneously serve three distinct user groups, each arriving with a different intent:',
+        '1. Members and caregivers: Skewing older, often with lower digital literacy, seeking immediate reassurance to two core questions: Am I covered, and how do I book a ride?',
+        '2. Medical facilities: Hospital and clinic staff scheduling rides on behalf of patients who need fast, explicit processes and requirements.',
+        '3. Transportation providers: Logistics partners evaluating or managing operational relationships.',
+        'The previous pages treated everyone identically through a single, operations-first layout. The design looked finished on the surface, but it buried member tasks under operational details, featured a non-functional interactive map, and front-loaded advance-notice restrictions that acted as immediate barriers to care.',
+      ],
+      images: [
+        {
+          src: '/work/md-old-site.png',
+          alt: 'Overview of the redesigned MediDrive state resource pages showing audience routing and responsive layouts.',
+          caption: 'The restructured MediDrive state resource page architecture: multi-audience routing with a protected member path.',
+        },
+      ],
+    },
+    {
+      heading: 'The core design challenge',
+      paragraphs: [
+        'Serving members, facilities, and providers on shared state pages is a structural information architecture problem, not a copy refresh. The three groups operate in entirely different registers:',
+        'Members need plain-language reassurance and clear steps. Facility schedulers need rapid rules and forms without hand-holding. Transportation providers need partner mechanics. Get the architecture wrong, and you either bury the member route under operational complexity or dilute the professional tooling needed by staff.',
+        'The legacy design failed because it treated members as an afterthought. To fix this, I established the member route as the primary path, anchored against an explicit user persona: an older Medicaid member (frequently 60s–80s), often viewing zoomed text on mobile devices, and unfamiliar with complex digital conventions.',
+      ],
+      bullets: [
+        'Undifferentiated layout: Members, clinic staff, and drivers were forced through the same dense text blocks.',
+        'Misplaced operational friction: A "3 days\' advance notice" requirement was front-loaded near the hero, reading as a denial of service before members could evaluate coverage.',
+        'Phone-first bias: Support phone numbers were prioritized while self-serve digital tools were hidden inside generic, unformatted cards.',
+        'Accessibility barriers: Low-contrast hero metrics (WCAG 1.4.3 failure risk) and unstandardized downloadable PDF forms.',
+      ],
+      images: [
+        {
+          src: '/work/md-old-site-2.png',
+          alt: 'Overview of the redesigned MediDrive state resource pages showing audience routing and responsive layouts.',
+          caption: 'The restructured MediDrive state resource page architecture: multi-audience routing with a protected member path.',
+        },
+      ],
+      callout:
+        'Working Benchmark: I designed the member path against the digital literacy of older family members. If an interface step assumes unprompted web fluency or hides critical actions behind decorative elements, it fails.',
+    },
+    {
+      heading: 'Principles',
+      paragraphs: [
+        'Three architectural principles guided the multi-audience restructuring:',
+      ],
+      bullets: [
+        'Segment early, route explicitly: Identify the visitor’s job immediately and offer dedicated tracks rather than a single unified scroll.',
+        'Protect the member path: The primary route belongs to the most vulnerable user; professional tooling must never crowd out member reassurance.',
+        'Accessibility through the entire ecosystem: Extend WCAG 2.1 AA compliance beyond web components to include printed and downloadable PDF artifacts.',
+      ],
+    },
+    {
+      heading: 'The redesign',
+      paragraphs: [
+        'I restructured the page architecture into a reusable state framework, deploying it across Colorado (Health First Colorado) and Virginia (Aetna Better Health of Virginia).',
+      ],
+      decisions: [
+        {
+          title: 'Explicit audience segmentation & routing',
+          problem:
+            'Visitors had to manually scan dense operational documents to locate relevant instructions.',
+          change:
+            'Introduced a "Find the information you need" routing section directly below the hero, immediately bifurcating members, medical facilities, and transportation providers into tailored tracks.',
+          why: 'Eliminates cognitive overload for older members while giving professional staff direct access to operational workflows.',
+        },
+        {
+          title: 'Need-first ride categorization',
+          problem:
+            'Ride options were listed using industry taxonomies like "Ambulatory" or "Levels of Service".',
+          change:
+            'Replaced rigid lists with a scannable "Different rides for different needs" grid that leads with familiar vehicle types ("Standard cars") and demotes technical terminology to parentheticals.',
+          why: 'Matches the member’s mental model and reduces reading friction for non-technical users.',
+        },
+        {
+          title: 'Self-serve priority with protected human fallback',
+          problem:
+            'Call centers were overloaded because web and app booking options were obscured.',
+          change:
+            'Positioned 24/7 web and mobile app booking as the primary actions while maintaining a dedicated "Prefer to speak with someone?" phone section.',
+          why: 'Drives self-service efficiency without removing essential phone support for lower-literacy members.',
+        },
+      ],
+      images: [
+        {
+          src: '/work/md-site-1.png',
+          alt: 'Information architecture diagram showing the multi-audience routing logic and section hierarchy.',
+          caption: 'Structural layout: audience routing layer, member-first hierarchy, and need-based vehicle categorization.',
+        },
+      ],
+    },
+    {
+      heading: 'Systematizing accessibility (web & forms)',
+      paragraphs: [
+        'Accessibility was treated as core architecture rather than a post-launch audit requirement across both digital and printable touchpoints:',
+      ],
+      bullets: [
+        'Web DOM Conformance: Audited all five Colorado public pages against WCAG 2.1 AA via live DOM inspection. Produced an official Accessibility Conformance Report (ACR) documenting 42 Supports, 8 Partially Supports, and 0 Does Not Support across 50 applicable success criteria.',
+        'Downloadable Form Standardization: Extended accessibility compliance to printable member/caregiver PDF forms, enforcing standardized color palettes with WCAG 2.1 AA minimum contrast ratios (4.5:1 body text, 3:1 large text).',
+        'Structural ADA Integration: Integrated a dedicated ADA compliance section into the page architecture, surfacing accessibility assistance options explicitly.',
+      ],
+      callout:
+        'Audit Distinction: Rather than asserting untested compliance, the project produced a formal Accessibility Conformance Report (ACR) based on live DOM evaluation with a documented remediation log.',
+      images: [
+        {
+          src: '/work/md-site-2.png',
+          alt: 'Design system spec showing contrast ratios and color palette standards for web pages and PDF forms.',
+          caption: 'Accessibility standards: WCAG 2.1 AA compliant color tokens applied across web components and printable PDF forms.',
+          afterBullet: 1,
+        },
+      ],
+    },
+    {
+      heading: 'Impact & performance',
+      paragraphs: [
+        'The restructuring established a robust operational foundation as MediDrive launched state-level partnerships:',
+      ],
+      bullets: [
+        'High-volume core page: Coinciding with MediDrive’s launch as Colorado’s Medicaid NEMT partner in July 2026, the redesigned Colorado page became the most-trafficked surface on the site (~3,585 clicks in July 2026, up from 622 in June; Google Search Console).',
+        'Multi-audience scalability: The underlying design system patterns successfully accommodated both Colorado and Virginia state requirements without custom layout hacks.',
+        'Search findability alignment: Non-branded search traffic grew +191% over a three-month launch window (GSC, May–July 2026), supported by plain-language audience segmentation and structured HTML hierarchy.',
+      ],
+      images: [
+        {
+          src: '/work/md-site-3.png',
+          alt: 'Overview of the redesigned MediDrive state resource pages showing audience routing and responsive layouts.',
+        },
+      ],
+    },
+    {
+      heading: 'Reflection',
+      paragraphs: [
+        'Designing for public health access requires balancing strict operational requirements with deep empathy for vulnerable users. Removing decorative UI elements — such as the non-functional interactive map — reinforced a core principle: every element on a high-stakes resource page must earn its place by helping a user take their next step.',
+        'Structuring information for multi-audience surfaces proved that clarity is achieved through intentional routing, not by omitting necessary details. By protecting the member path while providing clear tracks for professional partners, the redesign delivers an equitable experience across all user groups.',
+      ],
+      images: [
+        {
+          src: '/work/md-site-4.png',
+          alt: 'Overview of the redesigned MediDrive state resource pages showing audience routing and responsive layouts.',
+        },
+      ],
+    },
+  ],
+},
+  {
     slug: 'design-system-redesign',
     title: 'MediDrive: Scaling Accessibility Across an Enterprise Healthtech Ecosystem',
     summary:
