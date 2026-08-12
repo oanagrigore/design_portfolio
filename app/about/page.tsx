@@ -8,6 +8,7 @@ import {
   services,
 } from '@/lib/content'
 import { AboutAnimator } from '@/components/about-animator'
+import { FiveReasons } from '@/components/five-reasons'
 
 export const metadata: Metadata = {
   title: `${profile.name} — ${profile.role}`,
@@ -56,6 +57,8 @@ export default function AboutPage() {
             </div>
           </div>
         </section>
+
+        <FiveReasons />
 
         {/* Selected Impact Section */}
         <section
