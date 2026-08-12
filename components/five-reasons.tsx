@@ -34,7 +34,7 @@ export function FiveReasons() {
 
         <h2 className="mt-6 text-balance text-3xl font-bold tracking-tight text-foreground sm:text-5xl leading-[1.08]">
           A few reasons you{' '}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-rose-500 to-fuchsia-600">
+          <span className="text-transparent bg-clip-text bg-linear-to-r from-pink-500 via-rose-500 to-fuchsia-600">
             shouldn't
           </span>{' '}
           hire me.

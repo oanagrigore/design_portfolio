@@ -98,6 +98,7 @@ export type CaseStudy = {
   // detailed, sectioned layout instead of the simple overview format.
   quickSummary?: { label: string; value: string }[]
   sections?: CaseStudySection[]
+  impactText?: string
 }
 
 export const caseStudies: CaseStudy[] = [
@@ -106,6 +107,7 @@ export const caseStudies: CaseStudy[] = [
     title: 'Redesigning the MediDrive member portal',
     summary:
       'A heuristic + accessibility-led redesign of a Medicaid non-emergency medical transportation (NEMT) portal — audited flow by flow, rebuilt in light and dark mode with state-specific variants and designed to WCAG 2.1 AA.',
+    impactText: 'Audited and transformed a dispatch-heavy interface into an intuitive, accessible portal built specifically for caregivers and members aged 65+.',
     cover: '/work/MediDrive-portal-cover.png',
     year: '2026',
     client: 'MediDrive',
@@ -275,9 +277,10 @@ export const caseStudies: CaseStudy[] = [
   },
   {
   slug: 'medidrive-state-resource-pages',
-  title: 'Restructuring MediDrive’s state NEMT resource pages',
+  title: 'Restructuring MediDrive’s state NEMT pages',
   summary:
     'A multi-audience information architecture redesign for Colorado and Virginia NEMT pages — segmenting member, facility, and provider paths, introducing a WCAG 2.1 AA-audited component system, and standardizing accessible downloadable forms.',
+  impactText: 'Our state NEMT traffic jumped +280% in just a few months. I built a clear, multi-audience layout to make sure thousands of members, facilities, and providers could easily self-serve instead of calling support.',
   cover: '/work/medidrive-website-cover.png',
   year: '2026',
   client: 'MediDrive',

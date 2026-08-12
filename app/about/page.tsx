@@ -44,7 +44,7 @@ export default function AboutPage() {
           <div className="order-1 md:order-2">
             <div
               data-animate="hero-image"
-              className="relative aspect-[4/5] overflow-hidden rounded-lg border border-border/60 bg-card"
+              className="relative aspect-4/5 overflow-hidden rounded-lg border border-border/60 bg-card"
             >
               <Image
                 src={profile.name ? '/oana-grigore.JPG' : '/placeholder.svg'}
