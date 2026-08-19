@@ -1510,7 +1510,7 @@ export const testimonials: Testimonial[] = [
     quote:
     'Across multiple projects and brands, Oana has consistently demonstrated one defining quality: she takes the time to understand the real need behind every task before jumping into execution. Once she does, she\u2019ll go above and beyond to deliver the best possible outcome. She understands complex business challenges and translates them into intuitive user experiences. She thinks through problems thoroughly, considers every angle, and designs scalable systems that have a measurable impact on business outcomes. She also cares deeply about the people she manages, and is always looking to empower them to do their best work. Honestly, Oana is the kind of person you want in your corner: she takes initiative and assumes full ownership of her work. Even under tight deadlines, she never compromises on quality, always delivering great work at a fast pace.',
     name: 'Livia Burbulea',
-    title: 'Product Designer, Techonology Oriented',
+    title: 'Senior Copywriter, Techonology Oriented',
   },
   
 ]
