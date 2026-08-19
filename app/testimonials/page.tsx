@@ -11,10 +11,10 @@ export default function TestimonialsPage() {
   return (
     <div className="mx-auto max-w-6xl px-6">
       <section className="pt-24 pb-16 md:pt-32 md:pb-20">
-        <p className="text-sm text-muted-foreground">Testimonials</p>
         <h1 className="mt-6 max-w-3xl text-balance text-3xl font-medium leading-tight tracking-tight text-foreground sm:text-5xl">
           Kind words from people I&apos;ve had the pleasure of working with.
         </h1>
+        <p className="text-md text-muted-foreground">Honest feedback earned through hard work and collaboration, not sales pitches.</p>
       </section>
 
       <section className="pb-16 md:pb-24">

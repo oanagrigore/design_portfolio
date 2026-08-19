@@ -1494,6 +1494,25 @@ export const testimonials: Testimonial[] = [
     name: 'Alice Fischer',
     title: 'Marketing and Operations, Vitals',
   },
+   {
+    quote:
+      'Oana is one of those rare Lead Product Designers who naturally steps up whenever a project needs direction, clarity, or a bridge between design and engineering. Having worked closely with her on several US-based projects over the last six months, I was consistently impressed by her commitment to product quality and accessibility. Her design decisions were directly responsible for us passing every accessibility audit without friction. What sets Oana apart is her cross-functional impact: while leading product design, she seamlessly stepped in to drive business analysis, align with frontend implementation, integrate AI into our workflows, and lead the team when needed. Stakeholders always valued her proactive approach and the confidence with which she pitched new ideas. On a personal level, Oana is grounded, highly reliable, and a genuine pleasure to build products with. I would jump at the chance to work with her again in the future.',
+    name: 'Serhii Nadoienko',
+    title: 'Frontend Engineer, Techonology Oriented',
+  },
+  {
+    quote:
+    'I’ve been working with Oana for the past months, and as one designer to another, I can say she is an exceptional colleague and team lead. Her design expertise speaks for itself and her technical skills are on par with those of an experienced engineer. What truly sets Oana apart is that she doesn’t just care about the success of the product she is working on, she genuinely cares about the people around her and the well-being of the entire team. She brings empathy, support, and leadership into everything she does. When it comes to design challenges, there is practically nothing Oana can’t handle. With an AI-driven mindset and a strong ability to adapt to new technologies, she brings creativity, innovation, and problem-solving skills that make her a remarkable asset to any team. ',
+    name: 'Liviu Atudorei',
+    title: 'Product Designer, Techonology Oriented',
+  },
+  {
+    quote:
+    'Across multiple projects and brands, Oana has consistently demonstrated one defining quality: she takes the time to understand the real need behind every task before jumping into execution. Once she does, she\u2019ll go above and beyond to deliver the best possible outcome. She understands complex business challenges and translates them into intuitive user experiences. She thinks through problems thoroughly, considers every angle, and designs scalable systems that have a measurable impact on business outcomes. She also cares deeply about the people she manages, and is always looking to empower them to do their best work. Honestly, Oana is the kind of person you want in your corner: she takes initiative and assumes full ownership of her work. Even under tight deadlines, she never compromises on quality, always delivering great work at a fast pace.',
+    name: 'Livia Burbulea',
+    title: 'Product Designer, Techonology Oriented',
+  },
+  
 ]
 
 
