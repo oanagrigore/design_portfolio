@@ -19,6 +19,22 @@ function getInitials(name: string) {
     .toUpperCase()
 }
 
+// Break a long quote into shorter paragraphs (grouping a couple of sentences
+// each) so the copy is easier to scan than a single dense block.
+function splitIntoParagraphs(quote: string, sentencesPerParagraph = 2) {
+  const sentences = quote.trim().match(/[^.!?]+[.!?]*\s*/g) ?? [quote]
+  const paragraphs: string[] = []
+  for (let i = 0; i < sentences.length; i += sentencesPerParagraph) {
+    paragraphs.push(
+      sentences
+        .slice(i, i + sentencesPerParagraph)
+        .join('')
+        .trim(),
+    )
+  }
+  return paragraphs
+}
+
 // Wrap each highlighted phrase found in the quote with a subtle marker so the
 // key takeaways are scannable at a glance. Matching is case-insensitive and the
 // original casing from the quote is preserved.
@@ -72,11 +88,13 @@ function TestimonialCard({
       )}
 
       <blockquote
-        className={`text-pretty leading-relaxed text-muted-foreground ${
+        className={`flex flex-col gap-4 text-pretty leading-relaxed text-muted-foreground ${
           featured ? 'text-lg' : 'text-base'
         }`}
       >
-        {highlightQuote(t.quote, t.highlights)}
+        {splitIntoParagraphs(t.quote).map((paragraph, index) => (
+          <p key={index}>{highlightQuote(paragraph, t.highlights)}</p>
+        ))}
       </blockquote>
 
       <figcaption className="mt-auto flex items-center gap-3 border-t border-border/60 pt-5">
