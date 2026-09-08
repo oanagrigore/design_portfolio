@@ -19,11 +19,20 @@ export default function ContactPage() {
 
       <section className="gap-12 border-t border-border/60 py-16 md:grid-cols-[1fr_1.4fr] md:gap-16 md:py-20">
         <div className="space-y-10">
-          <p className="text-pretty text-lg leading-relaxed text-muted-foreground">
-            I&apos;m currently taking on select freelance and contract projects.
-            Tell me a bit about what you&apos;re building and I&apos;ll get back
-            to you within a couple of days.
-          </p>
+          <div className="space-y-4">
+            <span className="inline-flex items-center gap-2 rounded-full border border-border/60 bg-card px-3 py-1 text-sm text-foreground">
+              <span className="relative flex size-2">
+                <span className="absolute inline-flex size-full animate-ping rounded-full bg-pink-500 opacity-75" />
+                <span className="relative inline-flex size-2 rounded-full bg-pink-500" />
+              </span>
+              Available for project-based or full-time work
+            </span>
+            <p className="text-pretty text-lg leading-relaxed text-muted-foreground">
+              I&apos;m currently looking to take on project-based or full-time
+              roles. Tell me a bit about what you&apos;re building and I&apos;ll
+              get back to you within a couple of days.
+            </p>
+          </div>
 
           <div className="grid space-y-6">
             <div>
