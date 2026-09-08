@@ -141,7 +141,7 @@ export default function TestimonialsPage() {
         </h1>
         <p className="mt-4 max-w-2xl text-pretty text-base leading-relaxed text-muted-foreground">
           Honest feedback earned through hard work and collaboration, not sales
-          pitches. Skim the highlights, or read the full stories below.
+          pitches.
         </p>
       </section>
 
