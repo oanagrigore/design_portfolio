@@ -832,6 +832,7 @@ export const caseStudies: CaseStudy[] = [
 export type Testimonial = {
   headline?: string
   quote: string
+  highlights?: string[]
   name: string
   title: string
 }
@@ -841,18 +842,38 @@ export const testimonials: Testimonial[] = [
     headline: 'The best business decision we made: partnering with Oana',
     quote:
       "From the early start of our journey at Dillali, we faced significant challenges in nailing our branding and visual communication. That all changed when Oana joined our team. Working with her has been one of the best decisions we made. Oana has been pivotal in defining and creating our brand and product design, blending her remarkable creativity and passion. Her commitment goes beyond consulting; she has become an integral part of our team, deeply involved in shaping our visual narrative. Oana's work is not just about creating designs; it's about crafting a visual language that resonates deeply with our users and symbolises the essence of Dillali. It's difficult to describe the depths of her contribution in just a few words, but let me say this — choosing to work with Oana was a turning point for us. Oana is a visionary partner who brings out the best in our brand.",
+    highlights: [
+      'one of the best decisions we made',
+      'pivotal in defining and creating our brand and product design',
+      'an integral part of our team',
+      'a turning point for us',
+      'a visionary partner',
+    ],
     name: 'Ibrahim Bashir',
     title: 'Founder, Dillali',
   },
   {
+    headline: 'A pivotal role in our rebrand',
     quote:
       'Oana played a pivotal role in rebranding Tekudo. Despite our early stage and numerous uncertainties, she was instrumental in establishing our brand identity and developing a comprehensive set of tools for future growth. Beyond this, her mentorship was invaluable to our junior in-house designer, particularly in navigating complex product design challenges. Her skill and professionalism were evident throughout the entire process. We highly recommend her and look forward to potential future collaborations.',
+    highlights: [
+      'pivotal role in rebranding Tekudo',
+      'instrumental in establishing our brand identity',
+      'mentorship was invaluable',
+      'skill and professionalism',
+    ],
     name: 'Vasile Popescu & Pascal Franke',
     title: 'Founders, Tekudo',
   },
   {
+    headline: 'High-quality work, delivered on time',
     quote:
       'Oana has been working for us on multiple projects. She always delivered high-quality work on time. Even when we needed something faster, Oana made it possible. We will definitely contact her for future jobs. I highly recommend working with her if you are seeking a very experienced, talented, dedicated and reliable designer.',
+    highlights: [
+      'high-quality work on time',
+      'Oana made it possible',
+      'experienced, talented, dedicated and reliable designer',
+    ],
     name: 'Felix Harms',
     title: 'Founder, Tabbler',
   },
