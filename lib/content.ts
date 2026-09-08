@@ -1571,7 +1571,7 @@ export const experience: Experience[] = [
   {
     role: 'Lead Product Designer',
     company: 'Technology Oriented',
-    period: "Oct '25 — Present",
+    period: "Oct '25 — Sep '26",
     description:
       "I stepped into this role to do something I hadn't done before: lead design strategy across 5 brands at once. That means thinking in systems, not just screens, and zooming out from individual flows to ask what each brand needs to communicate, convert, and grow.",
     bullets: [
@@ -1583,7 +1583,7 @@ export const experience: Experience[] = [
     ],
   },
   {
-    role: 'Product Designer',
+    role: 'Senior Product Designer',
     company: 'Vitals',
     period: "Feb '19 — Oct '25",
     description:
