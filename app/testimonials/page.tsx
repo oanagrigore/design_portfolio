@@ -53,7 +53,7 @@ function highlightQuote(quote: string, highlights?: string[]): ReactNode {
     return (
       <mark
         key={index}
-        className="rounded bg-primary/15 px-1 py-0.5 font-medium text-foreground decoration-clone"
+        className="rounded bg-pink-500/15 px-1 py-0.5 font-medium text-pink-300 decoration-clone"
       >
         {part}
       </mark>
@@ -75,7 +75,7 @@ function TestimonialCard({
         featured ? 'md:gap-8' : ''
       }`}
     >
-      <Quote aria-hidden="true" className="size-6 shrink-0 text-primary" />
+      <Quote aria-hidden="true" className="size-6 shrink-0 text-pink-500" />
 
       {t.headline && (
         <p
@@ -100,7 +100,7 @@ function TestimonialCard({
       <figcaption className="mt-auto flex items-center gap-3 border-t border-border/60 pt-5">
         <span
           aria-hidden="true"
-          className="flex size-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-sm font-medium text-primary"
+          className="flex size-10 shrink-0 items-center justify-center rounded-full bg-pink-500/10 text-sm font-medium text-pink-300"
         >
           {getInitials(t.name)}
         </span>
