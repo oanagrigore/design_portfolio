@@ -29,8 +29,8 @@ export default function ContactPage() {
             </span>
             <p className="text-pretty text-lg leading-relaxed text-muted-foreground">
               I&apos;m currently looking to take on project-based or full-time
-              roles. Tell me a bit about what you&apos;re building and I&apos;ll
-              get back to you within a couple of days.
+              roles. Drop me an email with a bit about what you&apos;re building
+              and I&apos;ll get back to you within a couple of days.
             </p>
           </div>
 
