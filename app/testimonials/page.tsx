@@ -61,6 +61,21 @@ function highlightQuote(quote: string, highlights?: string[]): ReactNode {
   })
 }
 
+// Distribute testimonials into balanced columns by estimated content height so
+// neither column ends dramatically earlier than the other (unlike CSS columns,
+// which balance by splitting and leave uneven gaps).
+function balanceColumns(items: Testimonial[], columnCount = 2) {
+  const columns: Testimonial[][] = Array.from({ length: columnCount }, () => [])
+  const heights = new Array(columnCount).fill(0)
+  for (const item of items) {
+    const weight = (item.headline?.length ?? 0) + item.quote.length
+    const target = heights.indexOf(Math.min(...heights))
+    columns[target].push(item)
+    heights[target] += weight
+  }
+  return columns
+}
+
 function TestimonialCard({
   testimonial,
   featured,
@@ -133,9 +148,13 @@ export default function TestimonialsPage() {
       <section className="pb-16 md:pb-24">
         <div className="flex flex-col gap-6">
           {featured && <TestimonialCard testimonial={featured} featured />}
-          <div className="gap-6 md:columns-2 [&>*]:mb-6">
-            {rest.map((t) => (
-              <TestimonialCard key={t.name} testimonial={t} />
+          <div className="grid gap-6 md:grid-cols-2 md:items-start">
+            {balanceColumns(rest).map((column, index) => (
+              <div key={index} className="flex flex-col gap-6">
+                {column.map((t) => (
+                  <TestimonialCard key={t.name} testimonial={t} />
+                ))}
+              </div>
             ))}
           </div>
         </div>
