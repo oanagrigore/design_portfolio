@@ -5,7 +5,7 @@ export const profile = {
   email: 'grigore.oana.elena@gmail.com',
   phone: '+40 742 090 361',
   aboutIntro: [
-    `Currently leading design strategy across 5 transportation brands, including MediDrive, a non-emergency medical transport (NEMT) platform serving millions of members across Virginia and Colorado, where WCAG accessibility is a mandatory baseline.`,
+    `Led design strategy across 5 transportation brands, including MediDrive, a non-emergency medical transport (NEMT) platform serving millions of members across Virginia and Colorado, where WCAG accessibility is a mandatory baseline.`,
     `I created the core design system used across all MediDrive touchpoints and led the complete UX/UI redesigns for the Member Mobile App and Member Web Portal, making healthcare transport effortless for members.`,
     `Backing this is an 8+ year specialization in complex web applications, including scaling 40+ Shopify apps for 30,000+ merchants, and a 14-year foundation spanning visual, graphic, and product design.`
   ],
@@ -1464,6 +1464,7 @@ export const caseStudies: CaseStudy[] = [
 export type Testimonial = {
   headline?: string
   quote: string
+  highlights?: string[]
   name: string
   title: string
 }
@@ -1473,42 +1474,84 @@ export const testimonials: Testimonial[] = [
     headline: 'The best business decision we made: partnering with Oana',
     quote:
       "From the early start of our journey at Dillali, we faced significant challenges in nailing our branding and visual communication. That all changed when Oana joined our team. Working with her has been one of the best decisions we made. Oana has been pivotal in defining and creating our brand and product design, blending her remarkable creativity and passion. Her commitment goes beyond consulting; she has become an integral part of our team, deeply involved in shaping our visual narrative. Oana's work is not just about creating designs; it's about crafting a visual language that resonates deeply with our users and symbolises the essence of Dillali. It's difficult to describe the depths of her contribution in just a few words, but let me say this — choosing to work with Oana was a turning point for us. Oana is a visionary partner who brings out the best in our brand.",
+    highlights: [
+      'pivotal in defining and creating our brand and product design',
+      'an integral part of our team',
+      'a turning point for us',
+      'a visionary partner',
+    ],
     name: 'Ibrahim Bashir',
     title: 'Founder, Dillali',
   },
   {
+    headline: 'A pivotal role in our rebrand',
     quote:
       'Oana played a pivotal role in rebranding Tekudo. Despite our early stage and numerous uncertainties, she was instrumental in establishing our brand identity and developing a comprehensive set of tools for future growth. Beyond this, her mentorship was invaluable to our junior in-house designer, particularly in navigating complex product design challenges. Her skill and professionalism were evident throughout the entire process. We highly recommend her and look forward to potential future collaborations.',
+    highlights: [
+      'instrumental in establishing our brand identity',
+      'her mentorship was invaluable',
+      'skill and professionalism',
+    ],
     name: 'Vasile Popescu & Pascal Franke',
     title: 'Founders, Tekudo',
   },
   {
+    headline: 'High-quality work, always on time',
     quote:
       'Oana has been working for us on multiple projects. She always delivered high-quality work on time. Even when we needed something faster, Oana made it possible. We will definitely contact her for future jobs. I highly recommend working with her if you are seeking a very experienced, talented, dedicated and reliable designer.',
+    highlights: [
+      'high-quality work on time',
+      'experienced, talented, dedicated and reliable designer',
+    ],
     name: 'Felix Harms',
     title: 'Founder, Tabbler',
   },
   {
+    headline: 'Launched a new brand with 6 apps, end to end',
     quote:
       'I worked with Oana on launching a new brand with 6 apps under it, each one built from the same system but distinct enough to stand on its own. She handled it end to end: the design system itself, the product UI and UX, the component library, icons, App Store assets, landing pages, email design & HTML, plus the social and explainer materials around all of it. She arrives with options rather than one answer, adapts and moves fast when you need her to, and leaves files organised that anyone can pick up the work.',
+    highlights: [
+      'She handled it end to end',
+      'arrives with options rather than one answer',
+      'moves fast when you need her to',
+    ],
     name: 'Alice Fischer',
     title: 'Marketing and Operations, Vitals',
   },
    {
+    headline: 'A rare designer who steps up and bridges teams',
     quote:
       'Oana is one of those rare Lead Product Designers who naturally steps up whenever a project needs direction, clarity, or a bridge between design and engineering. Having worked closely with her on several US-based projects over the last six months, I was consistently impressed by her commitment to product quality and accessibility. Her design decisions were directly responsible for us passing every accessibility audit without friction. What sets Oana apart is her cross-functional impact: while leading product design, she seamlessly stepped in to drive business analysis, align with frontend implementation, integrate AI into our workflows, and lead the team when needed. Stakeholders always valued her proactive approach and the confidence with which she pitched new ideas. On a personal level, Oana is grounded, highly reliable, and a genuine pleasure to build products with. I would jump at the chance to work with her again in the future.',
+    highlights: [
+      'passing every accessibility audit without friction',
+      'her cross-functional impact',
+      'grounded, highly reliable, and a genuine pleasure to build products with',
+    ],
     name: 'Serhii Nadoienko',
     title: 'Frontend Engineer, Techonology Oriented',
   },
   {
+    headline: 'An exceptional colleague and team lead',
     quote:
     'I’ve been working with Oana for the past months, and as one designer to another, I can say she is an exceptional colleague and team lead. Her design expertise speaks for itself and her technical skills are on par with those of an experienced engineer. What truly sets Oana apart is that she doesn’t just care about the success of the product she is working on, she genuinely cares about the people around her and the well-being of the entire team. She brings empathy, support, and leadership into everything she does. When it comes to design challenges, there is practically nothing Oana can’t handle. With an AI-driven mindset and a strong ability to adapt to new technologies, she brings creativity, innovation, and problem-solving skills that make her a remarkable asset to any team. ',
+    highlights: [
+      'technical skills are on par with those of an experienced engineer',
+      'she genuinely cares about the people around her',
+      'a remarkable asset to any team',
+    ],
     name: 'Liviu Atudorei',
     title: 'Product Designer, Techonology Oriented',
   },
   {
+    headline: 'The kind of person you want in your corner',
     quote:
     'Across multiple projects and brands, Oana has consistently demonstrated one defining quality: she takes the time to understand the real need behind every task before jumping into execution. Once she does, she\u2019ll go above and beyond to deliver the best possible outcome. She understands complex business challenges and translates them into intuitive user experiences. She thinks through problems thoroughly, considers every angle, and designs scalable systems that have a measurable impact on business outcomes. She also cares deeply about the people she manages, and is always looking to empower them to do their best work. Honestly, Oana is the kind of person you want in your corner: she takes initiative and assumes full ownership of her work. Even under tight deadlines, she never compromises on quality, always delivering great work at a fast pace.',
+    highlights: [
+      'understand the real need behind every task',
+      'scalable systems that have a measurable impact on business outcomes',
+      'assumes full ownership of her work',
+      'never compromises on quality',
+    ],
     name: 'Livia Burbulea',
     title: 'Senior Copywriter, Techonology Oriented',
   },
@@ -1528,7 +1571,7 @@ export const experience: Experience[] = [
   {
     role: 'Lead Product Designer',
     company: 'Technology Oriented',
-    period: "Oct '25 — Present",
+    period: "Oct '25 — Sep '26",
     description:
       "I stepped into this role to do something I hadn't done before: lead design strategy across 5 brands at once. That means thinking in systems, not just screens, and zooming out from individual flows to ask what each brand needs to communicate, convert, and grow.",
     bullets: [
@@ -1540,7 +1583,7 @@ export const experience: Experience[] = [
     ],
   },
   {
-    role: 'Product Designer',
+    role: 'Senior Product Designer',
     company: 'Vitals',
     period: "Feb '19 — Oct '25",
     description:
