@@ -15,7 +15,7 @@ export type BrandGalleryItem = {
 };
 
 export const brandGalleryItems: BrandGalleryItem[] = [
-  { id: "1", src: "/work/gallery-9.png", alt: "." },
+  { id: "1", src: "/work/Bundle.png", alt: "." },
   { id: "2", src: "/work/gallery-2.png", alt: "." },
   { id: "3", src: "/work/gallery-5.mp4", alt: "." },
   { id: "4", src: "/work/gallery-12.mp4", alt: "." },
