@@ -106,7 +106,7 @@ export const caseStudies: CaseStudy[] = [
     slug: 'medidrive-member-portal',
     title: 'Redesigning the MediDrive member portal',
     summary:
-      'A heuristic + accessibility-led redesign of a Medicaid non-emergency medical transportation (NEMT) portal — audited flow by flow, rebuilt in light and dark mode with state-specific variants and designed to WCAG 2.1 AA.',
+      'Accessibility driven redesign of a Medicaid non-emergency medical transportation (NEMT) portal. Audited flow by flow, rebuilt in light and dark mode with state-specific variants and designed to WCAG 2.1 AA.',
     impactText: 'Audited and transformed a dispatch-heavy interface into an intuitive, accessible portal built specifically for caregivers and members aged 65+.',
     cover: '/work/MediDrive-portal-cover.png',
     year: '2026',
@@ -165,16 +165,29 @@ export const caseStudies: CaseStudy[] = [
           'I ran a flow-based heuristic evaluation, not a screen skin, across the four journeys that mattered to the business: New user, Existing user, Multiple members, and Mobile. Each was evaluated against Nielsen’s 10 usability heuristics (Nielsen Norman Group) and WCAG 2.1 AA (W3C) — because a Medicaid-adjacent product carries a usability and a legal-conformance obligation.',
           'The findings clustered into five core themes:',
         ],
+       
         bullets: [
-          'Silent failures and dead-end states: The portal repeatedly put users into blocked states without telling them why or what to do (e.g., multi-leg booking disabling "Continue" without feedback, missing service levels blocking progress without explanation). Violates Heuristics #1 & #9; WCAG 3.3.1 & 4.1.3.',
-          'Operational tool wearing a member’s clothes: Layouts borrowed dispatcher mental models (dense operational grids, searching by Trip ID, jargon like "Legs") rather than providing intuitive tables and member-first flows. Violates Heuristics #2 & #8.',
-          'Critical accessibility failures: Inputs that could not be completed via keyboard (WCAG 2.1.1 Level A failure), pervasive low-contrast elements (WCAG 1.4.3), and insufficient badge font sizes for older adults.',
-          'Error and empty states that mislead: Premature error states that alarmed elderly users into thinking they made mistakes, alongside confusing and misleading empty panel states.',
+          'The portal repeatedly put users into blocked states without telling them why or what to do (e.g., multi-leg booking disabling "Continue" without feedback, missing service levels blocking progress without explanation). Violates Heuristics #1 & #9; WCAG 3.3.1 & 4.1.3.',
+          'Layouts borrowed dispatcher mental models (dense operational grids, searching by Trip ID, jargon like "Legs") rather than providing intuitive tables and member-first flows. Violates Heuristics #2 & #8.',
+          'Inputs that could not be completed via keyboard (WCAG 2.1.1 Level A failure), pervasive low-contrast elements (WCAG 1.4.3), and insufficient badge font sizes for older adults.',
+          'Premature error states that alarmed elderly users into thinking they made mistakes, alongside confusing and misleading empty panel states.',
           'Orientation and feedback gaps: Lack of branding/location hints, no multi-step registration progress indicators, and transient feedback/tooltips that vanished before being read.',
         ],
         callout:
           'Audit Highlight (State-Sync Defect): In the multiple-members flow, selecting a member from the dropdown failed to update the trip list automatically, forcing manual page refreshes. A functional defect the redesign solved structurally.',
         images: [
+          {
+            src: '/work/md-cs-audit.png',
+            alt: 'dispatcher mental models (dense operational grids, searching by Trip ID, jargon like "Legs")',
+            caption: 'Dispatcher mental models (dense operational grids, searching by Trip ID.',
+            afterBullet: 1,
+          },
+          {
+            src: '/work/md-cs-audit2.png',
+            alt: 'Premature error states that alarmed elderly users into thinking they made mistakes',
+            caption: 'Premature error states that alarmed elderly users into thinking they made mistakes',
+            afterBullet: 3,
+          },
           {
             src: '/work/portal-audit.png',
             alt: 'Full-bleed heuristic audit analysis mapping screen flaws to Nielsen heuristics and WCAG AA guidelines.',
@@ -192,6 +205,20 @@ export const caseStudies: CaseStudy[] = [
           'No silent states: Every disabled control, block, or error explains itself explicitly and offers a clear way forward.',
           'Members are not dispatchers: Familiar, scannable, task-focused patterns (tables over operational grids); zero internal jargon.',
           'Accessibility is the floor: Keyboard operability and AA contrast designed in from the flow up, verified against WCAG 2.1 — with older adults as the primary design target, not an edge case.',
+        ],
+        images: [
+          {
+            src: '/work/md-cs-solution.png',
+            alt: 'Explicit error messages and guided next steps.',
+            caption: 'Explicit error messages and guided next steps.',
+            afterBullet: 0,
+          },
+          {
+            src: '/work/md-cs-solution2.png',
+            alt: 'Familiar, scannable, task-focused patterns (tables over operational grids)',
+            caption: 'Familiar, scannable, task-focused patterns (tables over operational grids)',
+            afterBullet: 1,
+          },
         ],
       },
       {
@@ -260,10 +287,10 @@ export const caseStudies: CaseStudy[] = [
           'No reliable pre-redesign baseline existed, so this is a measurement plan, not a results claim: baseline is established at launch and actuals reported at 90 days. Four metrics tracked from day one, each tied to a problem the audit surfaced:',
         ],
         bullets: [
-          '1. Onboarding completion rate: % of users who finish profile setup and make their first booking without calling for help. (Tests theme 5: no multi-step hint, weak orientation.)',
-          '2. Self-service rate: % of bookings completed independently: no dispatcher contact, no support call. (Tests theme 2: operational-tool complexity pushing members to call in.)',
-          '3. Booking error rate: % of submitted bookings requiring correction, cancellation, or support contact. (Tests themes 1 and 4: silent failures and misleading error states.)',
-          '4. Support contact rate: Inbound support contacts per 100 booking attempts — the clearest single signal of user friction.',
+          'Onboarding completion rate: % of users who finish profile setup and make their first booking without calling for help. (Tests theme 5: no multi-step hint, weak orientation.)',
+          'Self-service rate: % of bookings completed independently: no dispatcher contact, no support call. (Tests theme 2: operational-tool complexity pushing members to call in.)',
+          'Booking error rate: % of submitted bookings requiring correction, cancellation, or support contact. (Tests themes 1 and 4: silent failures and misleading error states.)',
+          'Support contact rate: Inbound support contacts per 100 booking attempts — the clearest single signal of user friction.',
         ],
       },
       {
