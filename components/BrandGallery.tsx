@@ -16,15 +16,16 @@ export type BrandGalleryItem = {
 
 export const brandGalleryItems: BrandGalleryItem[] = [
   { id: "1", src: "/work/Bundle.png", alt: "." },
-  { id: "2", src: "/work/gallery-2.png", alt: "." },
-  { id: "3", src: "/work/gallery-5.mp4", alt: "." },
-  { id: "4", src: "/work/gallery-12.mp4", alt: "." },
-  { id: "5", src: "/work/gallery-4.png", alt: "." },
-  { id: "6", src: "/work/gallery-13.mp4", alt: "." },
-  { id: "7", src: "/work/gallery-7.png", alt: "." },
-  { id: "8", src: "/work/gallery-11.png", alt: "." },
-  { id: "9", src: "/work/gallery-10.png", alt: "." },
-  { id: "10", src: "/work/gallery-3.mp4", alt: "." },
+  { id: "2", src: "/work/book-a-trip.png", alt: "." },
+  { id: "3", src: "/work/gallery-2.png", alt: "." },
+  { id: "4", src: "/work/gallery-5.mp4", alt: "." },
+  { id: "5", src: "/work/gallery-12.mp4", alt: "." },
+  { id: "6", src: "/work/gallery-4.png", alt: "." },
+  { id: "7", src: "/work/gallery-13.mp4", alt: "." },
+  { id: "8", src: "/work/gallery-7.png", alt: "." },
+  { id: "9", src: "/work/gallery-11.png", alt: "." },
+  { id: "10", src: "/work/gallery-10.png", alt: "." },
+  { id: "11", src: "/work/gallery-3.mp4", alt: "." },
 ];
 
 /* ── Tuning knobs ─────────────────────────────────────────────────────────── */
