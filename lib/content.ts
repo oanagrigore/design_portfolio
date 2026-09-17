@@ -279,6 +279,11 @@ export const caseStudies: CaseStudy[] = [
             caption: 'Accessibility specifications: keyboard focus navigation states, 44px+ touch targets, and WCAG AA contrast rules.',
             afterBullet: 2,
           },
+           {
+            src: '/work/md-cs-solution3.png',
+            alt: 'Design for accessibility',
+            caption: 'Design for accessibility.',
+          },
         ],
       },
       {
