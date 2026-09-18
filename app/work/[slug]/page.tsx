@@ -336,11 +336,6 @@ function RichSection({
               <p className="text-pretty text-xl font-medium leading-relaxed text-foreground sm:text-2xl">
                 “{section.callout}”
               </p>
-              {section.quoteAuthor && (
-                <footer className="mt-5 text-sm font-semibold uppercase tracking-wider text-muted-foreground">
-                  {section.quoteAuthor}
-                </footer>
-              )}
             </blockquote>
           )}
         </div>
