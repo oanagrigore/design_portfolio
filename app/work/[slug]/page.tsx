@@ -1,7 +1,6 @@
 'use client'
 
 import React, { useState } from 'react'
-import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
@@ -37,14 +36,14 @@ export default function CaseStudyPage({
         >
           <button
             type="button"
-            className="absolute top-6 right-6 rounded-full bg-card p-3 text-foreground shadow-lg border border-border/80 hover:bg-muted transition-colors"
+            className="absolute top-6 right-6 rounded-full bg-card p-3 text-foreground shadow-lg border border-border hover:bg-muted transition-colors"
             onClick={() => setActiveImage(null)}
             aria-label="Close image lightbox"
           >
             <X className="size-6" />
           </button>
           <div
-            className="relative max-h-[90vh] max-w-[95vw] overflow-hidden rounded-xl border border-border/80 bg-card shadow-2xl"
+            className="relative max-h-[90vh] max-w-[95vw] overflow-hidden rounded-xl border border-border bg-card shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             <Image
@@ -55,7 +54,7 @@ export default function CaseStudyPage({
               className="max-h-[85vh] w-auto object-contain"
             />
             {activeImage.caption && (
-              <p className="bg-card/90 p-4 text-center text-sm font-medium text-muted-foreground border-t border-border/60">
+              <p className="bg-card/90 p-4 text-center text-sm font-medium text-muted-foreground border-t border-border">
                 {activeImage.caption}
               </p>
             )}
@@ -63,9 +62,9 @@ export default function CaseStudyPage({
         </div>
       )}
 
-      {/* Hero Container */}
+      {/* Hero */}
       <div className="mx-auto max-w-5xl px-6">
-        <div className="pt-16 md:pt-20">
+        <div className="pt-16 md:pt-24">
           <Link
             href="/work"
             className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition-all hover:-translate-x-1 hover:text-foreground"
@@ -75,57 +74,45 @@ export default function CaseStudyPage({
           </Link>
         </div>
 
-        <header className="pt-10 pb-12 md:pt-12 md:pb-16">
-          <div className="flex flex-wrap gap-2.5">
+        <header className="pt-12 pb-14 md:pt-16 md:pb-20">
+          {/* Eyebrow meta line */}
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 text-xs font-semibold uppercase tracking-[0.18em]">
+            <span className="text-primary">{study.client}</span>
+            <span aria-hidden="true" className="text-border">
+              /
+            </span>
+            <span className="text-muted-foreground">{study.role}</span>
+            <span aria-hidden="true" className="text-border">
+              /
+            </span>
+            <span className="text-muted-foreground">{study.year}</span>
+          </div>
+
+          <h1 className="mt-7 max-w-4xl text-balance text-4xl font-semibold leading-[1.04] tracking-tight text-foreground sm:text-6xl md:text-7xl">
+            {study.title}
+          </h1>
+
+          <p className="mt-8 max-w-2xl text-pretty text-xl leading-relaxed text-muted-foreground">
+            {study.summary}
+          </p>
+
+          <div className="mt-9 flex flex-wrap gap-2.5">
             {study.tags.map((tag) => (
               <span
                 key={tag}
-                className="rounded-full border border-border/80 bg-muted/40 px-3.5 py-1 text-xs font-medium text-muted-foreground"
+                className="rounded-full border border-border px-3.5 py-1 text-xs font-medium text-muted-foreground"
               >
                 {tag}
               </span>
             ))}
           </div>
-
-          <h1 className="mt-6 text-balance text-4xl font-semibold leading-[1.08] tracking-tight text-foreground sm:text-6xl md:text-7xl">
-            {study.title}
-          </h1>
-
-          <p className="mt-8 max-w-3xl text-pretty text-xl leading-relaxed text-muted-foreground font-normal">
-            {study.summary}
-          </p>
-
-          <dl className="mt-12 grid grid-cols-2 gap-6 border-t border-border/80 pt-8 sm:grid-cols-3">
-            <div>
-              <dt className="text-xs uppercase tracking-wider text-muted-foreground font-semibold">
-                Client
-              </dt>
-              <dd className="mt-1.5 text-base font-medium text-foreground">
-                {study.client}
-              </dd>
-            </div>
-            <div>
-              <dt className="text-xs uppercase tracking-wider text-muted-foreground font-semibold">
-                Role
-              </dt>
-              <dd className="mt-1.5 text-base font-medium text-foreground">
-                {study.role}
-              </dd>
-            </div>
-            <div>
-              <dt className="text-xs uppercase tracking-wider text-muted-foreground font-semibold">
-                Year
-              </dt>
-              <dd className="mt-1.5 text-base font-medium text-foreground">
-                {study.year}
-              </dd>
-            </div>
-          </dl>
         </header>
+      </div>
 
-        {/* Hero Cover Frame */}
+      {/* Full-width cover band */}
+      <div className="mx-auto max-w-6xl px-6">
         <div
-          className="group relative aspect-[16/9] w-full cursor-pointer overflow-hidden rounded-2xl border border-border/80 bg-card shadow-2xl transition-all hover:border-primary/50"
+          className="group relative aspect-[16/9] w-full cursor-pointer overflow-hidden rounded-2xl border border-border bg-card transition-colors hover:border-primary/50"
           onClick={() =>
             setActiveImage({
               src: study.cover,
@@ -138,7 +125,7 @@ export default function CaseStudyPage({
             src={study.cover || '/placeholder.svg'}
             alt={`${study.title} cover`}
             fill
-            sizes="(max-width: 1200px) 100vw, 1200px"
+            sizes="(max-width: 1200px) 100vw, 1152px"
             className="object-cover transition-transform duration-500 group-hover:scale-[1.015]"
             priority
           />
@@ -146,40 +133,51 @@ export default function CaseStudyPage({
             <Maximize2 className="size-4 text-foreground" />
           </div>
         </div>
+      </div>
 
-        {/* Quick Summary Aside */}
-        {study.quickSummary && (
-          <aside className="mt-16 rounded-2xl border border-border/80 bg-card/60 backdrop-blur-sm p-8 md:p-10 shadow-sm">
-            <h2 className="text-xs uppercase tracking-widest font-semibold text-primary">
-              Quick Summary
+      {/* Editorial lead statement (impact) */}
+      {study.impactText && (
+        <div className="mx-auto max-w-5xl px-6">
+          <p className="mt-16 max-w-4xl text-balance text-2xl font-medium leading-[1.4] tracking-tight text-foreground md:mt-24 md:text-[2rem]">
+            {study.impactText}
+          </p>
+        </div>
+      )}
+
+      {/* Quick summary as a spec sheet */}
+      {study.quickSummary && (
+        <aside className="mx-auto max-w-5xl px-6">
+          <div className="mt-14 md:mt-20">
+            <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">
+              At a glance
             </h2>
-            <dl className="mt-6 flex flex-col divide-y divide-border/60">
+            <dl className="mt-6 border-t border-border">
               {study.quickSummary.map((item) => (
                 <div
                   key={item.label}
-                  className="flex flex-col gap-2 py-5 first:pt-0 last:pb-0 sm:flex-row sm:items-baseline sm:gap-10"
+                  className="grid grid-cols-1 gap-1.5 border-b border-border py-6 sm:grid-cols-[11rem_1fr] sm:gap-10"
                 >
-                  <dt className="shrink-0 text-xs font-semibold uppercase tracking-wider text-muted-foreground sm:w-44">
+                  <dt className="text-xs font-semibold uppercase tracking-[0.12em] text-muted-foreground">
                     {item.label}
                   </dt>
-                  <dd className="text-pretty text-base leading-relaxed text-foreground font-normal">
+                  <dd className="text-pretty text-base leading-relaxed text-foreground">
                     {item.value}
                   </dd>
                 </div>
               ))}
             </dl>
-          </aside>
-        )}
-      </div>
+          </div>
+        </aside>
+      )}
 
-      {/* Main Content Sections */}
+      {/* Main content */}
       {study.sections ? (
-        <div className="py-20 md:py-28">
+        <div className="py-16 md:py-24">
           <div className="mx-auto max-w-5xl px-6">
             <MetricsBlock metrics={study.metrics} />
           </div>
 
-          <div className="mt-20 space-y-24 md:mt-28 md:space-y-32">
+          <div className="mt-16 space-y-16 md:mt-24 md:space-y-24">
             {study.sections.map((section, i) => (
               <RichSection
                 key={section.heading}
@@ -191,29 +189,29 @@ export default function CaseStudyPage({
           </div>
         </div>
       ) : (
-        <div className="mx-auto max-w-5xl px-6 space-y-16 py-20 md:py-28">
-          <Section title="Overview" body={study.overview} />
-          <Section title="The challenge" body={study.challenge} />
-          <Section title="Approach" body={study.approach} />
+        <div className="mx-auto max-w-5xl px-6 space-y-16 py-16 md:py-24">
           <MetricsBlock metrics={study.metrics} />
-          <Section title="Outcome" body={study.outcome} />
+          <Section title="Overview" body={study.overview} index={1} />
+          <Section title="The challenge" body={study.challenge} index={2} />
+          <Section title="Approach" body={study.approach} index={3} />
+          <Section title="Outcome" body={study.outcome} index={4} />
         </div>
       )}
 
-      {/* Next Project Footer */}
-      <div className="border-t border-border/80 bg-muted/20 py-20">
+      {/* Next project */}
+      <div className="border-t border-border py-16 md:py-24">
         <div className="mx-auto max-w-5xl px-6">
-          <p className="text-xs uppercase tracking-widest font-semibold text-muted-foreground">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
             Next project
           </p>
           <Link
             href={`/work/${next.slug}`}
-            className="group mt-4 flex items-center justify-between gap-6"
+            className="group mt-5 flex items-center justify-between gap-6"
           >
-            <span className="text-3xl font-semibold tracking-tight text-foreground transition-colors group-hover:text-primary sm:text-5xl">
+            <span className="text-balance text-3xl font-semibold tracking-tight text-foreground transition-colors group-hover:text-primary sm:text-5xl">
               {next.title}
             </span>
-            <div className="flex size-14 shrink-0 items-center justify-center rounded-full border border-border/80 bg-card transition-all group-hover:border-primary group-hover:bg-primary group-hover:text-primary-foreground">
+            <div className="flex size-14 shrink-0 items-center justify-center rounded-full border border-border bg-card transition-all group-hover:border-primary group-hover:bg-primary group-hover:text-primary-foreground">
               <ArrowUpRight className="size-7 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </div>
           </Link>
@@ -229,18 +227,16 @@ function MetricsBlock({
   metrics: { label: string; value: string }[]
 }) {
   return (
-    <section className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+    <section className="grid grid-cols-1 border-t border-border sm:grid-cols-3">
       {metrics.map((metric) => (
         <div
           key={metric.label}
-          className="flex flex-col justify-between rounded-2xl bg-card p-8 min-h-[280px]"
+          className="border-b border-border py-8 sm:border-b-0 sm:border-r sm:px-8 sm:py-10 sm:first:pl-0 sm:last:border-r-0"
         >
-          <p className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-foreground leading-[1.1] text-balance">
+          <p className="text-balance text-3xl font-semibold leading-[1.1] tracking-tight text-foreground md:text-4xl">
             {metric.value}
           </p>
-          <p className="text-sm text-muted-foreground font-normal">
-            {metric.label}
-          </p>
+          <p className="mt-3 text-sm text-muted-foreground">{metric.label}</p>
         </div>
       ))}
     </section>
@@ -262,88 +258,94 @@ function RichSection({
   )
 
   return (
-    <section className="space-y-12">
-      {/* 2-Column Sticky Layout Container */}
-      <div className="mx-auto max-w-5xl px-6 grid grid-cols-1 gap-8 md:grid-cols-[1fr_2.2fr] md:gap-12 items-start">
-        {/* Left Sticky Header */}
-        <div className="md:sticky md:top-24">
-          <h2 className="flex items-baseline gap-3 text-lg font-semibold tracking-tight text-foreground">
-            <span className="tabular-nums font-mono text-sm font-bold text-primary">
-              {String(index).padStart(2, '0')}
-            </span>
-            {section.heading}
-          </h2>
-        </div>
+    <section className="space-y-10">
+      <div className="mx-auto max-w-5xl px-6">
+        <div className="grid grid-cols-1 gap-8 border-t border-border pt-12 md:grid-cols-[200px_1fr] md:gap-16 md:pt-16 items-start">
+          {/* Sticky numbered header */}
+          <div className="md:sticky md:top-28">
+            <div className="flex items-center gap-3">
+              <span className="font-mono text-sm font-semibold tabular-nums text-primary">
+                {String(index).padStart(2, '0')}
+              </span>
+              <span aria-hidden="true" className="h-px w-8 bg-border" />
+            </div>
+            <h2 className="mt-4 text-balance text-2xl font-semibold tracking-tight text-foreground">
+              {section.heading}
+            </h2>
+          </div>
 
-        {/* Right Content */}
-        <div className="space-y-8">
-          {section.paragraphs?.map((paragraph) => (
-            <p
-              key={paragraph.slice(0, 32)}
-              className="text-pretty text-xl leading-relaxed text-foreground/90 font-normal"
-            >
-              {paragraph}
-            </p>
-          ))}
-
-          {section.bullets && (
-            <ul className="flex flex-col gap-6">
-              {section.bullets.map((bullet, i) => (
-                <li key={bullet.slice(0, 32)} className="flex flex-col gap-6">
-                  <div className="flex gap-4 text-pretty text-lg leading-relaxed text-muted-foreground">
-                    <span
-                      aria-hidden="true"
-                      className="mt-3 size-2 shrink-0 rounded-full bg-primary"
-                    />
-                    <span>{bullet}</span>
-                  </div>
-                  {section.images
-                    ?.filter((image) => image.afterBullet === i)
-                    .map((image, idx) => (
-                      <SectionImage
-                        image={image}
-                        key={`${image.src}-${idx}-${i}`}
-                        onClick={() => onImageClick(image)}
-                      />
-                    ))}
-                </li>
-              ))}
-            </ul>
-          )}
-
-          {section.decisions && (
-            <ol className="flex flex-col gap-4">
-              {section.decisions.map((decision, i) => (
-                <li key={decision.title} className="flex flex-col gap-4">
-                  <DecisionItem decision={decision} />
-                  {section.images
-                    ?.filter((image) => image.afterDecision === i)
-                    .map((image, idx) => (
-                      <SectionImage
-                        image={image}
-                        key={`${image.src}-${idx}-${i}`}
-                        onClick={() => onImageClick(image)}
-                      />
-                    ))}
-                </li>
-              ))}
-            </ol>
-          )}
-
-          {/* High-Impact Editorial Quote Callout */}
-          {section.callout && (
-            <blockquote className="relative my-6 overflow-hidden rounded-2xl border-l-4 border-primary bg-primary/5 p-8 md:p-10">
-              <p className="text-pretty text-xl font-medium leading-relaxed text-foreground sm:text-2xl">
-                “{section.callout}”
+          {/* Content */}
+          <div className="space-y-8">
+            {section.paragraphs?.map((paragraph) => (
+              <p
+                key={paragraph.slice(0, 32)}
+                className="text-pretty text-xl leading-relaxed text-foreground/90"
+              >
+                {paragraph}
               </p>
-            </blockquote>
-          )}
+            ))}
+
+            {section.bullets && (
+              <ul className="flex flex-col">
+                {section.bullets.map((bullet, i) => (
+                  <li
+                    key={bullet.slice(0, 32)}
+                    className="flex flex-col gap-6 border-t border-border py-6 first:border-t-0 first:pt-0"
+                  >
+                    <div className="flex gap-4 text-pretty text-lg leading-relaxed text-muted-foreground">
+                      <span className="shrink-0 pt-1 font-mono text-xs font-semibold tabular-nums text-primary">
+                        {String(i + 1).padStart(2, '0')}
+                      </span>
+                      <span>{bullet}</span>
+                    </div>
+                    {section.images
+                      ?.filter((image) => image.afterBullet === i)
+                      .map((image, idx) => (
+                        <SectionImage
+                          image={image}
+                          key={`${image.src}-${idx}-${i}`}
+                          onClick={() => onImageClick(image)}
+                        />
+                      ))}
+                  </li>
+                ))}
+              </ul>
+            )}
+
+            {section.decisions && (
+              <ol className="flex flex-col gap-4">
+                {section.decisions.map((decision, i) => (
+                  <li key={decision.title} className="flex flex-col gap-4">
+                    <DecisionItem decision={decision} />
+                    {section.images
+                      ?.filter((image) => image.afterDecision === i)
+                      .map((image, idx) => (
+                        <SectionImage
+                          image={image}
+                          key={`${image.src}-${idx}-${i}`}
+                          onClick={() => onImageClick(image)}
+                        />
+                      ))}
+                  </li>
+                ))}
+              </ol>
+            )}
+
+            {/* Editorial pull-quote */}
+            {section.callout && (
+              <blockquote className="my-4 border-l-2 border-primary pl-6 md:pl-8">
+                <p className="text-pretty text-xl font-medium leading-[1.45] text-foreground sm:text-2xl">
+                  {`“${section.callout}”`}
+                </p>
+              </blockquote>
+            )}
+          </div>
         </div>
       </div>
 
-      {/* Expanded Full-Bleed Image Container */}
+      {/* Trailing full-bleed imagery */}
       {hasTrailingImages && (
-        <div className="mx-auto max-w-[1200px] px-6 space-y-10 pt-4">
+        <div className="mx-auto max-w-6xl px-6 space-y-10 pt-2">
           {section.images
             ?.filter(
               (image) =>
@@ -377,7 +379,7 @@ function SectionImage({
 
   return (
     <figure
-      className={`group relative my-4 cursor-pointer overflow-hidden rounded-2xl border border-border/80 bg-card shadow-lg transition-all hover:border-primary/50 hover:shadow-xl ${
+      className={`group relative my-2 cursor-pointer overflow-hidden rounded-2xl border border-border bg-card transition-colors hover:border-primary/50 ${
         isFullBleed ? 'w-full' : ''
       }`}
       onClick={onClick}
@@ -390,8 +392,8 @@ function SectionImage({
           height={image.height}
           sizes={
             isFullBleed
-              ? '(max-width: 1200px) 100vw, 1200px'
-              : '(max-width: 768px) 100vw, 600px'
+              ? '(max-width: 1200px) 100vw, 1152px'
+              : '(max-width: 768px) 100vw, 640px'
           }
           className="h-auto w-full object-cover transition-transform duration-500 group-hover:scale-[1.01]"
         />
@@ -403,8 +405,8 @@ function SectionImage({
             fill
             sizes={
               isFullBleed
-                ? '(max-width: 1200px) 100vw, 1200px'
-                : '(max-width: 768px) 100vw, 600px'
+                ? '(max-width: 1200px) 100vw, 1152px'
+                : '(max-width: 768px) 100vw, 640px'
             }
             className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.01]"
           />
@@ -416,7 +418,7 @@ function SectionImage({
       </div>
 
       {image.caption && (
-        <figcaption className="bg-card/90 px-6 py-3.5 text-center text-sm font-medium leading-relaxed text-muted-foreground border-t border-border/60">
+        <figcaption className="border-t border-border bg-card/90 px-6 py-3.5 text-center text-sm font-medium leading-relaxed text-muted-foreground">
           {image.caption}
         </figcaption>
       )}
@@ -431,20 +433,20 @@ function DecisionItem({ decision }: { decision: CaseStudyDecision }) {
     { label: 'Why', text: decision.why },
   ]
   return (
-    <div className="rounded-2xl border border-border/80 bg-card p-6 md:p-8 shadow-sm">
+    <div className="rounded-2xl border border-border bg-card/40 p-6 md:p-8">
       <h3 className="text-lg font-semibold tracking-tight text-foreground">
         {decision.title}
       </h3>
-      <dl className="mt-6 space-y-4">
+      <dl className="mt-6 divide-y divide-border">
         {rows.map((row) => (
           <div
             key={row.label}
-            className="grid grid-cols-1 gap-1.5 sm:grid-cols-[5rem_1fr] sm:gap-4"
+            className="grid grid-cols-1 gap-1.5 py-4 first:pt-0 last:pb-0 sm:grid-cols-[5rem_1fr] sm:gap-4"
           >
-            <dt className="text-xs font-bold uppercase tracking-wider text-primary">
+            <dt className="text-xs font-bold uppercase tracking-[0.12em] text-primary">
               {row.label}
             </dt>
-            <dd className="text-pretty text-base leading-relaxed text-muted-foreground font-normal">
+            <dd className="text-pretty text-base leading-relaxed text-muted-foreground">
               {row.text}
             </dd>
           </div>
@@ -454,13 +456,29 @@ function DecisionItem({ decision }: { decision: CaseStudyDecision }) {
   )
 }
 
-function Section({ title, body }: { title: string; body: string }) {
+function Section({
+  title,
+  body,
+  index,
+}: {
+  title: string
+  body: string
+  index: number
+}) {
   return (
-    <section className="grid grid-cols-1 gap-4 md:grid-cols-[1fr_2.2fr] md:gap-12 items-start">
-      <h2 className="text-lg font-semibold tracking-tight text-foreground md:sticky md:top-24">
-        {title}
-      </h2>
-      <p className="text-pretty text-xl leading-relaxed text-foreground/90 font-normal">
+    <section className="grid grid-cols-1 gap-8 border-t border-border pt-12 md:grid-cols-[200px_1fr] md:gap-16 md:pt-16 items-start">
+      <div className="md:sticky md:top-28">
+        <div className="flex items-center gap-3">
+          <span className="font-mono text-sm font-semibold tabular-nums text-primary">
+            {String(index).padStart(2, '0')}
+          </span>
+          <span aria-hidden="true" className="h-px w-8 bg-border" />
+        </div>
+        <h2 className="mt-4 text-balance text-2xl font-semibold tracking-tight text-foreground">
+          {title}
+        </h2>
+      </div>
+      <p className="text-pretty text-xl leading-relaxed text-foreground/90">
         {body}
       </p>
     </section>
