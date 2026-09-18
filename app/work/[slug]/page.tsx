@@ -77,7 +77,7 @@ export default function CaseStudyPage({
         <header className="pt-12 pb-14 md:pt-16 md:pb-20">
           {/* Eyebrow meta line */}
           <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 text-xs font-semibold uppercase tracking-[0.18em]">
-            <span className="text-primary">{study.client}</span>
+            <span className="text-pink-400">{study.client}</span>
             <span aria-hidden="true" className="text-border">
               /
             </span>
@@ -148,7 +148,7 @@ export default function CaseStudyPage({
       {study.quickSummary && (
         <aside className="mx-auto max-w-5xl px-6">
           <div className="mt-14 md:mt-20">
-            <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">
+            <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-pink-400">
               At a glance
             </h2>
             <dl className="mt-6 border-t border-border">
@@ -201,17 +201,17 @@ export default function CaseStudyPage({
       {/* Next project */}
       <div className="border-t border-border py-16 md:py-24">
         <div className="mx-auto max-w-5xl px-6">
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-pink-400">
             Next project
           </p>
           <Link
             href={`/work/${next.slug}`}
             className="group mt-5 flex items-center justify-between gap-6"
           >
-            <span className="text-balance text-3xl font-semibold tracking-tight text-foreground transition-colors group-hover:text-primary sm:text-5xl">
+            <span className="text-balance text-3xl font-semibold tracking-tight text-foreground transition-colors group-hover:text-pink-400 sm:text-5xl">
               {next.title}
             </span>
-            <div className="flex size-14 shrink-0 items-center justify-center rounded-full border border-border bg-card transition-all group-hover:border-primary group-hover:bg-primary group-hover:text-primary-foreground">
+            <div className="flex size-14 shrink-0 items-center justify-center rounded-full border border-border bg-card transition-all group-hover:border-pink-500 group-hover:bg-pink-500 group-hover:text-white">
               <ArrowUpRight className="size-7 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </div>
           </Link>
@@ -233,7 +233,7 @@ function MetricsBlock({
           key={metric.label}
           className="border-b border-border py-8 sm:border-b-0 sm:border-r sm:px-8 sm:py-10 sm:first:pl-0 sm:last:border-r-0"
         >
-          <p className="text-balance text-3xl font-semibold leading-[1.1] tracking-tight text-foreground md:text-4xl">
+          <p className="text-balance text-3xl font-semibold leading-[1.1] tracking-tight text-pink-400 md:text-4xl">
             {metric.value}
           </p>
           <p className="mt-3 text-sm text-muted-foreground">{metric.label}</p>
@@ -333,9 +333,15 @@ function RichSection({
 
             {/* Editorial pull-quote */}
             {section.callout && (
-              <blockquote className="my-4 border-l-2 border-primary pl-6 md:pl-8">
+              <blockquote className="my-4 border-l-2 border-pink-500 pl-6 md:pl-8">
                 <p className="text-pretty text-xl font-medium leading-[1.45] text-foreground sm:text-2xl">
-                  {`“${section.callout}”`}
+                  <span aria-hidden="true" className="text-pink-400">
+                    {'“'}
+                  </span>
+                  {section.callout}
+                  <span aria-hidden="true" className="text-pink-400">
+                    {'”'}
+                  </span>
                 </p>
               </blockquote>
             )}
