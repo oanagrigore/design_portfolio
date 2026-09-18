@@ -76,6 +76,8 @@ export type CaseStudySection = {
   paragraphs?: string[]
   bullets?: string[]
   callout?: string
+  // Optional attribution rendered beneath the callout quote (e.g. "Name · Role").
+  quoteAuthor?: string
   decisions?: CaseStudyDecision[]
   images?: CaseStudyImage[]
 }
@@ -102,6 +104,228 @@ export type CaseStudy = {
 }
 
 export const caseStudies: CaseStudy[] = [
+  {
+    slug: 'n3xt-narrow-bank',
+    title:
+      'Designing the digital experience for a $72M-funded next-gen narrow bank.',
+    summary:
+      'An 18+ month engagement shaping the product and digital presence for N3XT — turning an intricate financial system into a brand people grasp in seconds and trust immediately, carried through product, website, collateral, pitch deck, and launch film.',
+    impactText:
+      'Took N3XT from stealth to launch in 6 months — a complete brand, a live product across 300+ screens, an investor-ready story, and a $72M raise behind them.',
+    cover: '/work/n3xt-cover.png',
+    year: '2024 - present',
+    client: 'N3XT',
+    role: 'Brand, Product & Web Design Lead',
+    tags: ['Brand identity', 'Product design', 'Web design', 'Design Systems'],
+    overview:
+      'N3XT is rebuilding payments from the ground up: instant, transparent, and free of the hidden machinery of traditional banking. The very thing that makes the product radical also made it almost impossible to explain. We were brought in to turn an intricate financial system into a brand people grasp in seconds and trust immediately — and then to carry that clarity through everything N3XT would launch with.',
+    challenge:
+      'The hardest problem wasn’t visual, it was comprehension. N3XT had a genuinely new financial system and almost no way to make people understand it, all on a launch clock, while needing to look like a bank you would trust yet nothing like the rest of fintech.',
+    approach:
+      'We ran N3XT through a brand discovery process, reframed the company as a story with the customer as hero and N3XT as guide, tested and settled on an ownable orange identity, mapped the full information architecture, and built a complete design system to design 300+ screens fast and consistently.',
+    outcome:
+      'N3XT came out of stealth with a complete brand, a live product, an investor-ready story, and a $72M Series A — inside an ongoing partnership that now spans 18+ months across brand, product, and web.',
+    metrics: [
+      { label: 'Raised in Series A', value: '$72M' },
+      { label: 'Fully launched brand, product, and site', value: 'Out of stealth' },
+      { label: 'Partnership, still ongoing', value: '18+ months' },
+    ],
+    quickSummary: [
+      { label: 'Client', value: 'N3XT — next-gen narrow bank platform' },
+      {
+        label: 'Services',
+        value:
+          'Brand strategy & identity · Product design · Web design & development · Marketing collateral · Pitch deck · Launch film',
+      },
+      { label: 'Timeline', value: '2024 – present · MVP launched in 3 months' },
+      {
+        label: 'Outcome',
+        value: 'Out of stealth with a live brand, product, and site, and $72M raised.',
+      },
+    ],
+    sections: [
+      {
+        heading: 'Overview',
+        paragraphs: [
+          'When we met N3XT, they were still in stealth. Six months later, they went live with a complete brand, a live product, an investor-ready story, and a raise of $72M behind them.',
+          'We helped shape the product and digital presence across an 18+ month engagement spanning brand, product, and web — turning an intricate financial system into something people grasp in seconds and trust immediately.',
+        ],
+        callout:
+          'I was impressed with their great outputs and wonderful design outcomes! Excellent project management capability, centralized in one person who orchestrates the projects’ tasks and aligns the efforts to the needs. Very able to switch priorities on the fly.',
+        quoteAuthor: 'Aurelien Bonnel · CTO, N3XT',
+        images: [
+          {
+            src: '/work/n3xt-cover.png',
+            alt: 'N3XT brand hero: a warm orange abstract form on a near-black background.',
+            caption:
+              'The N3XT brand: warmth and energy claiming space no fintech competitor owned.',
+          },
+        ],
+      },
+      {
+        heading: 'The challenge',
+        paragraphs: [
+          'N3XT had a genuinely new financial system and almost no way to make people understand it. The mechanics that justify the company are invisible to the people it needs to reach, and explaining them usually loses the room.',
+          'On top of comprehension, they had to look like a bank you would trust while looking nothing like the rest of fintech — and do it on a launch clock. For a company asking the world to move its money onto a system no one had heard of, the brand was the first proof of trust.',
+        ],
+        bullets: [
+          'Hard to explain — a complex financial system had to make sense in seconds, to a CFO and a developer alike, without being dumbed down.',
+          'Trustworthy but different — as credible as a bank, while looking nothing like the blue-and-purple every other fintech uses.',
+          'A crowded, confusing market — N3XT sits between bank payment platforms, consumer wallets, card networks, and crypto. We had to place it clearly.',
+          'A lot to build, fast — a full product across web and mobile, a brand, a website, and an investor story, all delivered within 6 months.',
+        ],
+        callout:
+          'We really struggle with this, because a lot of the reasons the company was created are things that are not well known by people. The way financial markets work, the way banking works. We’ve experienced them first-hand, but very few people are actually aware of them.',
+        quoteAuthor: 'Aurelien Bonnel · CTO, N3XT',
+      },
+      {
+        heading: 'Brand discovery',
+        paragraphs: [
+          'Before a single pixel, we ran N3XT through our brand discovery process, led as two deep working sessions with the founder. We deliberately set the finance and the tech to one side and rebuilt the company as a story — because a story is the only format the human brain reliably understands in three seconds.',
+          'Working through the StoryBrand model across three pillars — customer, market, and brand — we reframed the narrative around a single principle: the customer is the hero, and N3XT is the guide. The hero became the finance leader haunted by one question: has the money actually arrived? The villain became the instruments nobody questions — cards, chargebacks, and the opaque “trust me” of the existing system.',
+          'The outcome was a strategic platform and one line that anchored everything downstream: Liberating money. Every decision after this — identity, product, website, and film — traces back to it.',
+        ],
+      },
+      {
+        heading: 'Testing orange',
+        paragraphs: [
+          'In review, the team kept coming back to orange. The reasons were sound: warmer than green, more human, more ownable, and almost unused in finance. But a direction chosen on strategy doesn’t get swapped on a hunch, so we tested it properly.',
+          'We ran orange head to head against blue, purple, and dark green, so the call would be deliberate rather than reactive. Orange won. It held the energy and warmth of the early work without feeling unserious, and it claimed space no competitor owned. Then we ran two orange tones side by side across the whole system until the final tone was clear.',
+        ],
+        images: [
+          {
+            src: '/work/n3xt-orange-testing.png',
+            alt: 'Color exploration board testing orange against blue, purple, and dark green.',
+            caption:
+              'Orange tested head to head against blue, purple, and dark green — chosen on strategy, confirmed in review.',
+          },
+        ],
+      },
+      {
+        heading: 'Identity system',
+        paragraphs: [
+          'The logo came down to a single character: the 3 at the heart of the N3XT name. We tested how the 3 sits inside the wordmark and how far it could be pushed on its own, until it worked as a standalone mark you would recognize anywhere — in an app icon, a favicon, a single tile.',
+          'From the chosen direction we built the full toolkit: the N3XT wordmark, an icon set, type, and usage rules, engineered to flex across product, web, and print without losing coherence. Two brand iterations refined the wordmark, the icon, and the exact palette into the final identity that now carries the company.',
+        ],
+        images: [
+          {
+            src: '/work/n3xt-identity.png',
+            alt: 'N3XT identity system: the 3 mark, wordmark, app icon, and favicon usage.',
+            caption:
+              'A system the team could run with — the 3 mark, wordmark, and usage rules built to flex across every surface.',
+          },
+        ],
+      },
+      {
+        heading: 'Architecture & flows',
+        paragraphs: [
+          'Before drawing screens, we mapped the entire product — every page, every state, every decision point — so the architecture drove the design rather than the other way around. For a product this dense, with approvals, transactions, instant payments, requests, internal transfers, and team roles, the IA is the real foundation.',
+          'We ran the main dashboard in high fidelity across five visual explorations — light, dark, and orange — to lock the visual direction early. Then we wireframed every single flow in full: sign-up, dashboard, approvals, contacts, transactions, instant payments, requests, and pay-after-delivery across admin, member, payer and provider sides. Nothing was left as a “we’ll figure it out in build.”',
+        ],
+        callout:
+          '300+ screens across web and mobile, in roughly four months. The speed came from doing things in the right order, not from cutting corners.',
+        images: [
+          {
+            src: '/work/n3xt-dashboard.png',
+            alt: 'The N3XT dashboard rendered in light, dark, and orange themes.',
+            caption:
+              'The dashboard is the heart of the product, so we used it to settle the visual language before scaling it everywhere.',
+          },
+        ],
+      },
+      {
+        heading: 'Design system',
+        paragraphs: [
+          'None of that speed happens without a system underneath it. We built N3XT a full design system — design tokens, a complete component library, and light and dark theming throughout — all structured to atomic-design principles.',
+          'Take the context menu: it ships in light and dark, with every item state defined — default, hover, and disabled — plus checkbox and radio variants, nested levels, and submenus. Every component is built in this much detail, so any screen can be assembled quickly and consistently, and the product behaves the same way everywhere.',
+        ],
+        images: [
+          {
+            src: '/work/n3xt-design-system.png',
+            alt: 'The N3XT design system: component library with light and dark variants and tokens.',
+            caption:
+              'Build the small pieces once, use them to assemble any screen — change one setting and the whole product updates.',
+          },
+        ],
+      },
+      {
+        heading: 'The final product',
+        paragraphs: [
+          'With the brand as foundation, we designed the experience around the three things that justify N3XT existing. The throughline from discovery drove every flow: move the user from ambiguity to certainty. No grey areas, no “did it arrive?”',
+        ],
+        bullets: [
+          'Instant payments — money that’s genuinely there, the moment it’s sent.',
+          'Verified counterparties — certainty about who you’re paying and being paid by, removing the trust gap businesses currently paper over.',
+          'Programmable payments — money that can carry logic, so payments behave like software rather than paperwork.',
+        ],
+      },
+      {
+        heading: 'The website',
+        paragraphs: [
+          'The first thing the market would see out of stealth, designed and refined alongside N3XT’s leadership and their communications partners. The hardest constraint was a dual audience on one page.',
+        ],
+        decisions: [
+          {
+            title: 'A brand-led hero, not a UI screenshot',
+            problem:
+              'A product screenshot would lead with what N3XT looks like before anyone understood what it means.',
+            change:
+              'The launch film and motion-led graphics open the site, so the first impression is the idea of N3XT, not its interface.',
+            why: 'For an unknown category, meaning has to land before mechanics — the brand is the first proof of trust.',
+          },
+          {
+            title: 'A “how it works” that respects the reader',
+            problem:
+              'The underlying mechanics are genuinely complex and easy to lose a newcomer in.',
+            change:
+              'We compressed the mechanics into a few clear steps a newcomer could follow without a finance background.',
+            why: 'Comprehension in seconds was the whole brief — the site had to explain, not impress.',
+          },
+          {
+            title: 'Two clean paths',
+            problem:
+              'Finance teams and developers need very different things from the same page.',
+            change:
+              'Sign-up and support for finance teams, plus a dedicated route to API docs for developers, without either crowding the other.',
+            why: 'A dual audience on one page only works when each path is explicit and uncluttered.',
+          },
+          {
+            title: 'Credibility, carefully staged',
+            problem:
+              'A stealth company needs to signal institutional backing without overselling it.',
+            change:
+              'Mission, vision, leadership, and investors sequenced to build trust — the investor section handled with restraint.',
+            why: 'Enough to signal backing, not so much it undercut N3XT’s standing as a bank.',
+          },
+        ],
+        images: [
+          {
+            src: '/work/n3xt-website.png',
+            alt: 'The N3XT marketing website homepage shown on laptop and mobile.',
+            caption:
+              'A brand-led homepage built for a dual audience — finance teams and developers — out of stealth.',
+          },
+        ],
+      },
+      {
+        heading: 'Marketing collateral',
+        paragraphs: [
+          'We extended the identity into the full launch kit, holding it consistent across every surface so a company stepping into the spotlight looked like one coherent thing from day one.',
+        ],
+        bullets: [
+          'Pitch deck — the same narrative spine from the brand work (hero, problem, guide, plan, the world that becomes possible), compressed into an investor deck built to win rooms, not just inform them.',
+          'Print collateral — the identity carried into physical touchpoints, consistent with the product and the web.',
+          'Launch film — the brand anthem that opens the homepage: money set free, payments that simply arrive, the three-second promise of the brand given motion and emotion.',
+        ],
+      },
+      {
+        heading: 'The result',
+        paragraphs: [
+          'N3XT came out of stealth fully formed: a launched brand, a live product, and a site — with $72M raised in Series A and a partnership that continues, 18+ months on, across brand, product, and web.',
+        ],
+      },
+    ],
+  },
   {
     slug: 'medidrive-member-portal',
     title: 'Redesigning the MediDrive member portal',
