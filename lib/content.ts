@@ -153,7 +153,7 @@ export const caseStudies: CaseStudy[] = [
         ],
         images: [
           {
-            src: '/work/portal-light-dark.png',
+            src: '/work/md-cs-solution4.png',
             alt: 'Full bleed overview showing the redesigned MediDrive portal in both light and dark mode.',
             caption: 'The redesigned MediDrive member experience: task-focused portal and app interfaces in light and dark modes.',
           },
@@ -257,6 +257,14 @@ export const caseStudies: CaseStudy[] = [
             src: '/work/portal-figma.png',
             alt: 'Full-bleed layout comparing member portal dashboard screens across Light, Dark, and Colorado state modes.',
             caption: 'The complete redesign ecosystem: rendered across light mode, dark mode, and state-specific Medicaid variants.',
+          },
+           {
+            src: '/work/md-cs-solution5.png',
+            alt: 'Confirmed trip on the redesigned MediDrive portal, showing clear status and next steps.',
+          },
+          {
+            src: '/work/md-cs-solution6.png',
+            alt: 'Ride card on the dashboard showing clear status, driver ETA, and next steps.',
           },
         ],
       },

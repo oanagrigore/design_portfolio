@@ -13,6 +13,7 @@
     "@gsap/react": "^2.1.2",
     "@studio-freight/lenis": "^1.0.42",
     "@vercel/analytics": "1.6.1",
+    "@vercel/speed-insights": "^2.0.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "framer-motion": "^12.43.0",
