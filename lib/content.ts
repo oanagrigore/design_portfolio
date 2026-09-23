@@ -1595,6 +1595,18 @@ export const testimonials: Testimonial[] = [
     name: 'Livia Burbulea',
     title: 'Senior Copywriter, Techonology Oriented',
   },
+  {
+    headline: 'A designer who makes teams and products better',
+    quote:
+      'It was a pleasure working with Oana at Vitals. As the engineering manager, I worked closely with her, and so did every engineer on my team. She took a startup from basically zero UI/UX to having a proper brand, a design system, and clear guidelines for how we build user-facing features. She always stuck to good UX practices and thought about the different personas using the product. She was very hands-on with the engineers and got involved in actually implementing the designs, not just handing them off. She was easy to work with in feedback sessions and always came with multiple versions, whether it was wireframes or polished designs. One thing that really stood out was how she thought through the edge cases users could run into, usually before we hit them in development. I\'d happily recommend her to any product team.',
+    highlights: [
+      'zero UI/UX to having a proper brand, a design system, and clear guidelines',
+      'very hands-on with the engineers',
+      'thought through the edge cases users could run into',
+    ],
+    name: 'Adrian Neatu',
+    title: 'Engineering Manager, Vitals',
+  },
   
 ]
 
