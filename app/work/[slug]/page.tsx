@@ -331,6 +331,33 @@ function RichSection({
               </ol>
             )}
 
+            {section.testimonialQuotes && (
+              <div className="w-full">
+                {section.testimonialQuotes.map((testimonial) => (
+                  <figure
+                    key={testimonial.name}
+                    className="flex w-full flex-col justify-between rounded-2xl border border-pink-500/30 bg-pink-500/[0.06] p-8 md:p-10"
+                  >
+                    <blockquote className="text-pretty text-base leading-relaxed text-foreground/90">
+                      <span aria-hidden="true" className="mr-1 text-xl text-pink-400">
+                        {'“'}
+                      </span>
+                      {testimonial.quote}
+                      <span aria-hidden="true" className="text-xl text-pink-400">
+                        {'”'}
+                      </span>
+                    </blockquote>
+                    <figcaption className="mt-8 border-t border-pink-500/20 pt-4">
+                      <p className="text-sm font-semibold text-foreground">{testimonial.name}</p>
+                      <p className="mt-1 text-xs uppercase tracking-[0.12em] text-pink-300">
+                        {testimonial.title}
+                      </p>
+                    </figcaption>
+                  </figure>
+                ))}
+              </div>
+            )}
+
             {/* Editorial pull-quote */}
             {section.callout && (
               <blockquote className="my-4 border-l-2 border-pink-500 pl-6 md:pl-8">
@@ -343,6 +370,11 @@ function RichSection({
                     {'”'}
                   </span>
                 </p>
+                {section.calloutAttribution && (
+                  <cite className="mt-4 block text-xs font-semibold not-italic uppercase tracking-[0.14em] text-muted-foreground">
+                    {section.calloutAttribution}
+                  </cite>
+                )}
               </blockquote>
             )}
           </div>

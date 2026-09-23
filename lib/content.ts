@@ -76,6 +76,12 @@ export type CaseStudySection = {
   paragraphs?: string[]
   bullets?: string[]
   callout?: string
+  calloutAttribution?: string
+  testimonialQuotes?: {
+    quote: string
+    name: string
+    title: string
+  }[]
   decisions?: CaseStudyDecision[]
   images?: CaseStudyImage[]
 }
@@ -158,6 +164,20 @@ export const caseStudies: CaseStudy[] = [
             caption: 'The redesigned MediDrive member experience: task-focused portal and app interfaces in light and dark modes.',
           },
         ],
+      },
+      {
+        heading: 'The engineering perspective',
+        paragraphs: [
+          'The redesign was shaped by the way design decisions travel into real products: through shared language, accessible systems, edge-case thinking, and close collaboration with the people who build the experience.',
+        ],
+  testimonialQuotes: [
+  {
+  quote:
+  'Oana is one of those rare Lead Product Designers who naturally steps up whenever a project needs direction, clarity, or a bridge between design and engineering. Her design decisions were directly responsible for us passing every accessibility audit without friction.',
+  name: 'Serhii Nadoienko',
+  title: 'Frontend Engineer, Technology Oriented',
+  },
+  ],
       },
       {
         heading: 'The audit',
@@ -1229,7 +1249,7 @@ export const caseStudies: CaseStudy[] = [
         ],
         bullets: [
           'Clarity of product information — each product in the cart displays a thumbnail image, name, specifications (like size or color), and quantity, so users can easily review their order.',
-          'Clean, focused layout — we avoided clutter and limited the number of upsells and promotions shown, to maintain a frictionless path to checkout.',
+          'Clean, focused layout �� we avoided clutter and limited the number of upsells and promotions shown, to maintain a frictionless path to checkout.',
           'Persistent checkout access — the checkout button remains visible across screen sizes, ensuring easy access regardless of device or resolution.',
           'Accessibility — the drawer works well with screen readers and can be fully navigated by keyboard, with WCAG-compliant contrast and tap targets large enough to hit on any device.',
         ],
@@ -1594,6 +1614,18 @@ export const testimonials: Testimonial[] = [
     ],
     name: 'Livia Burbulea',
     title: 'Senior Copywriter, Techonology Oriented',
+  },
+  {
+    headline: 'A designer who makes teams and products better',
+    quote:
+      'It was a pleasure working with Oana at Vitals. As the engineering manager, I worked closely with her, and so did every engineer on my team. She took a startup from basically zero UI/UX to having a proper brand, a design system, and clear guidelines for how we build user-facing features. She always stuck to good UX practices and thought about the different personas using the product. She was very hands-on with the engineers and got involved in actually implementing the designs, not just handing them off. She was easy to work with in feedback sessions and always came with multiple versions, whether it was wireframes or polished designs. One thing that really stood out was how she thought through the edge cases users could run into, usually before we hit them in development. I\'d happily recommend her to any product team.',
+    highlights: [
+      'zero UI/UX to having a proper brand, a design system, and clear guidelines',
+      'very hands-on with the engineers',
+      'thought through the edge cases users could run into',
+    ],
+    name: 'Adrian Neatu',
+    title: 'Engineering Manager, Vitals',
   },
   
 ]
