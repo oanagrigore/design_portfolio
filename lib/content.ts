@@ -77,6 +77,11 @@ export type CaseStudySection = {
   bullets?: string[]
   callout?: string
   calloutAttribution?: string
+  testimonialQuotes?: {
+    quote: string
+    name: string
+    title: string
+  }[]
   decisions?: CaseStudyDecision[]
   images?: CaseStudyImage[]
 }
@@ -152,14 +157,37 @@ export const caseStudies: CaseStudy[] = [
           'My role — Lead Product Designer. I led the audit, flow architecture, and accessibility. I partnered with Liviu, the other Senior Product Designer on the team, to fully redesign the member app and portal in light and dark mode.',
           'Status: design complete, not yet in development. The problems below are audited and evidenced; the solutions are designed and specified. Accessibility is designed-in and specified to WCAG 2.1 AA, but not yet implemented or conformance-tested — so this study is honest about what’s proven versus what’s proposed.',
         ],
-        callout:
-          'She was very hands-on with the engineers and got involved in actually implementing the designs, not just handing them off. One thing that really stood out was how she thought through the edge cases users could run into, usually before we hit them in development.',
-        calloutAttribution: 'Adrian Neatu — Engineering Manager, Vitals',
         images: [
           {
             src: '/work/md-cs-solution4.png',
             alt: 'Full bleed overview showing the redesigned MediDrive portal in both light and dark mode.',
             caption: 'The redesigned MediDrive member experience: task-focused portal and app interfaces in light and dark modes.',
+          },
+        ],
+      },
+      {
+        heading: 'The engineering perspective',
+        paragraphs: [
+          'The redesign was shaped by the way design decisions travel into real products: through shared language, accessible systems, edge-case thinking, and close collaboration with the people who build the experience.',
+        ],
+        testimonialQuotes: [
+          {
+            quote:
+              'Oana is one of those rare Lead Product Designers who naturally steps up whenever a project needs direction, clarity, or a bridge between design and engineering. Her design decisions were directly responsible for us passing every accessibility audit without friction.',
+            name: 'Serhii Nadoienko',
+            title: 'Frontend Engineer, Technology Oriented',
+          },
+          {
+            quote:
+              'Her design expertise speaks for itself and her technical skills are on par with those of an experienced engineer. With an AI-driven mindset and a strong ability to adapt to new technologies, she brings creativity, innovation, and problem-solving skills that make her a remarkable asset to any team.',
+            name: 'Liviu Atudorei',
+            title: 'Product Designer, Technology Oriented',
+          },
+          {
+            quote:
+              'Across multiple projects and brands, Oana takes the time to understand the real need behind every task before jumping into execution. She understands complex business challenges and translates them into intuitive user experiences, designing scalable systems that have a measurable impact on business outcomes.',
+            name: 'Livia Burbulea',
+            title: 'Senior Copywriter, Technology Oriented',
           },
         ],
       },
