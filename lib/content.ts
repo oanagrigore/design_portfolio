@@ -170,26 +170,14 @@ export const caseStudies: CaseStudy[] = [
         paragraphs: [
           'The redesign was shaped by the way design decisions travel into real products: through shared language, accessible systems, edge-case thinking, and close collaboration with the people who build the experience.',
         ],
-        testimonialQuotes: [
-          {
-            quote:
-              'Oana is one of those rare Lead Product Designers who naturally steps up whenever a project needs direction, clarity, or a bridge between design and engineering. Her design decisions were directly responsible for us passing every accessibility audit without friction.',
-            name: 'Serhii Nadoienko',
-            title: 'Frontend Engineer, Technology Oriented',
-          },
-          {
-            quote:
-              'Her design expertise speaks for itself and her technical skills are on par with those of an experienced engineer. With an AI-driven mindset and a strong ability to adapt to new technologies, she brings creativity, innovation, and problem-solving skills that make her a remarkable asset to any team.',
-            name: 'Liviu Atudorei',
-            title: 'Product Designer, Technology Oriented',
-          },
-          {
-            quote:
-              'Across multiple projects and brands, Oana takes the time to understand the real need behind every task before jumping into execution. She understands complex business challenges and translates them into intuitive user experiences, designing scalable systems that have a measurable impact on business outcomes.',
-            name: 'Livia Burbulea',
-            title: 'Senior Copywriter, Technology Oriented',
-          },
-        ],
+  testimonialQuotes: [
+  {
+  quote:
+  'Oana is one of those rare Lead Product Designers who naturally steps up whenever a project needs direction, clarity, or a bridge between design and engineering. Her design decisions were directly responsible for us passing every accessibility audit without friction.',
+  name: 'Serhii Nadoienko',
+  title: 'Frontend Engineer, Technology Oriented',
+  },
+  ],
       },
       {
         heading: 'The audit',
@@ -1261,7 +1249,7 @@ export const caseStudies: CaseStudy[] = [
         ],
         bullets: [
           'Clarity of product information — each product in the cart displays a thumbnail image, name, specifications (like size or color), and quantity, so users can easily review their order.',
-          'Clean, focused layout — we avoided clutter and limited the number of upsells and promotions shown, to maintain a frictionless path to checkout.',
+          'Clean, focused layout �� we avoided clutter and limited the number of upsells and promotions shown, to maintain a frictionless path to checkout.',
           'Persistent checkout access — the checkout button remains visible across screen sizes, ensuring easy access regardless of device or resolution.',
           'Accessibility — the drawer works well with screen readers and can be fully navigated by keyboard, with WCAG-compliant contrast and tap targets large enough to hit on any device.',
         ],

@@ -332,11 +332,11 @@ function RichSection({
             )}
 
             {section.testimonialQuotes && (
-              <div className="grid gap-5 md:grid-cols-3">
+              <div className="w-full">
                 {section.testimonialQuotes.map((testimonial) => (
                   <figure
                     key={testimonial.name}
-                    className="flex h-full flex-col justify-between rounded-2xl border border-pink-500/30 bg-pink-500/[0.06] p-6 md:p-7"
+                    className="flex w-full flex-col justify-between rounded-2xl border border-pink-500/30 bg-pink-500/[0.06] p-8 md:p-10"
                   >
                     <blockquote className="text-pretty text-base leading-relaxed text-foreground/90">
                       <span aria-hidden="true" className="mr-1 text-xl text-pink-400">
