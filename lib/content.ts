@@ -76,6 +76,7 @@ export type CaseStudySection = {
   paragraphs?: string[]
   bullets?: string[]
   callout?: string
+  calloutAttribution?: string
   decisions?: CaseStudyDecision[]
   images?: CaseStudyImage[]
 }
@@ -151,6 +152,9 @@ export const caseStudies: CaseStudy[] = [
           'My role — Lead Product Designer. I led the audit, flow architecture, and accessibility. I partnered with Liviu, the other Senior Product Designer on the team, to fully redesign the member app and portal in light and dark mode.',
           'Status: design complete, not yet in development. The problems below are audited and evidenced; the solutions are designed and specified. Accessibility is designed-in and specified to WCAG 2.1 AA, but not yet implemented or conformance-tested — so this study is honest about what’s proven versus what’s proposed.',
         ],
+        callout:
+          'She was very hands-on with the engineers and got involved in actually implementing the designs, not just handing them off. One thing that really stood out was how she thought through the edge cases users could run into, usually before we hit them in development.',
+        calloutAttribution: 'Adrian Neatu — Engineering Manager, Vitals',
         images: [
           {
             src: '/work/md-cs-solution4.png',

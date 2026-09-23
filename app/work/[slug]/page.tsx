@@ -343,6 +343,11 @@ function RichSection({
                     {'”'}
                   </span>
                 </p>
+                {section.calloutAttribution && (
+                  <cite className="mt-4 block text-xs font-semibold not-italic uppercase tracking-[0.14em] text-muted-foreground">
+                    {section.calloutAttribution}
+                  </cite>
+                )}
               </blockquote>
             )}
           </div>
