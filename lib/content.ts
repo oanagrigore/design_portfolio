@@ -133,7 +133,7 @@ export const caseStudies: CaseStudy[] = [
       { label: 'State Variants', value: 'UX for elderly users' },
     ],
     quickSummary: [
-      { label: 'My role', value: 'Lead Product Designer (Audit, Architecture, Accessibility)' },
+      { label: 'My role', value: 'Lead Product Designer' },
       {
         label: 'Team',
         value: 'Co-redesigned with Liviu (Senior Product Designer).',
@@ -152,7 +152,7 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: 'Context',
         paragraphs: [
-          'MediDrive lets members book and manage rides to medical appointments. The audience skews older, less tech-savvy, and benefit-dependent — a group for whom a failed booking isn’t a minor annoyance, it’s a missed appointment. That single fact set the bar for the whole redesign: the portal has to make the next step obvious and never fail silently.',
+          'MediDrive allows members to schedule and manage rides to medical appointments. The audience is older, less tech-savvy, and reliant on benefits. A demographic for whom a failed booking is more than a minor inconvenience; it is a missed appointment.That single fact set the standard for the entire redesign: the portal must make the next step clear and never fail silently.',
           'The existing portal had accreted feature by feature, borrowing patterns from operational/dispatcher tooling that were wrong for members. So I audited it before touching the UI.',
           'My role — Lead Product Designer. I led the audit, flow architecture, and accessibility. I partnered with Liviu, the other Senior Product Designer on the team, to fully redesign the member app and portal in light and dark mode.',
           'Status: design complete, not yet in development. The problems below are audited and evidenced; the solutions are designed and specified. Accessibility is designed-in and specified to WCAG 2.1 AA, but not yet implemented or conformance-tested — so this study is honest about what’s proven versus what’s proposed.',
