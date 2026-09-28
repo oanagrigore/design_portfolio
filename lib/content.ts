@@ -320,7 +320,7 @@ export const caseStudies: CaseStudy[] = [
           'No reliable pre-redesign baseline existed, so this is a measurement plan, not a results claim: baseline is established at launch and actuals reported at 90 days. Four metrics tracked from day one, each tied to a problem the audit surfaced:',
         ],
         bullets: [
-          'Onboarding completion rate: % of users who finish profile setup and make their first booking without calling for help. (Tests theme 5: no multi-step hint, weak orientation.)',
+          'Onboarding completion rate: % of users who finish profile setup and make their first booking without calling for help.',
           'Self-service rate: % of bookings completed independently: no dispatcher contact, no support call. (Tests theme 2: operational-tool complexity pushing members to call in.)',
           'Booking error rate: % of submitted bookings requiring correction, cancellation, or support contact. (Tests themes 1 and 4: silent failures and misleading error states.)',
           'Support contact rate: Inbound support contacts per 100 booking attempts — the clearest single signal of user friction.',
