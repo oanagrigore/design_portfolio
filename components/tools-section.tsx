@@ -2,8 +2,6 @@
 "use client";
 
 import React from 'react';
-import { motion } from 'framer-motion';
-
 interface ToolCategory {
   category: string;
   description: string;
@@ -44,28 +42,6 @@ interface ToolsSectionProps {
   subtitle?: string;
 }
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.08,
-    },
-  },
-};
-
-const cardVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.5,
-      ease: [0.215, 0.61, 0.355, 1] as const,
-    },
-  },
-};
-
 export function ToolsSection({
   className = "",
   title = "Tools & Stack",
@@ -73,17 +49,11 @@ export function ToolsSection({
 }: ToolsSectionProps) {
   return (
     <section className={`border-y border-border/80 py-12 md:py-14 ${className}`}>
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-60px" }}
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5"
-      >
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5">
+
         {stackData.map((item, index) => (
-          <motion.div
+          <div
             key={item.category}
-            variants={cardVariants}
             className={`min-h-[220px] px-0 py-2 md:px-8 lg:min-h-[280px] lg:py-0 ${
               index < stackData.length - 1
                 ? "border-border/80 md:border-r"
@@ -103,9 +73,9 @@ export function ToolsSection({
                 </span>
               ))}
             </div>
-          </motion.div>
+          </div>
         ))}
-      </motion.div>
+      </div>
     </section>
   );
 }
