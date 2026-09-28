@@ -112,7 +112,7 @@ export default function CaseStudyPage({
       {/* Full-width cover band */}
       <div className="mx-auto max-w-6xl px-6">
         <div
-          className="group relative aspect-[16/9] w-full cursor-pointer overflow-hidden rounded-2xl border border-border bg-card transition-colors hover:border-primary/50"
+          className="group relative aspect-[16/9] w-full cursor-pointer overflow-hidden rounded-2xl border border-border bg-card"
           onClick={() =>
             setActiveImage({
               src: study.cover,
@@ -417,7 +417,7 @@ function SectionImage({
 
   return (
     <figure
-      className={`group relative my-2 cursor-pointer overflow-hidden rounded-2xl border border-border bg-card transition-colors hover:border-primary/50 ${
+      className={`group relative my-2 cursor-pointer overflow-hidden rounded-2xl border border-border bg-card ${
         isFullBleed ? 'w-full' : ''
       }`}
       onClick={onClick}
