@@ -330,8 +330,7 @@ export const caseStudies: CaseStudy[] = [
         heading: 'Reflection',
         paragraphs: [
           'Designing for older, less tech-savvy members was a new challenge for me. The lens I used was my own parents: build something they could use on their own, with feedback at every step — feedback that guides rather than alarms. That’s not a sentiment; it’s a design rule that shows up in specific decisions here. It’s why "the error state appears too early… may cause them to stop or second-guess themselves" was flagged critical, why no state is allowed to fail silently, and why the whole point is a member who can complete a booking without calling for help.',
-          'I’ll also be honest about the limit of that lens: imagining my parents is empathy, not evidence. It’s a strong starting point, but the design still needs to be validated with real members before launch — usability sessions with actual older adults are the next step, and the measurement plan above is how I’ll know whether the empathy held up.',
-        ],
+                ],
       },
     ],
   },
