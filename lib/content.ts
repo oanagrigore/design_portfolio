@@ -152,7 +152,7 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: 'Context',
         paragraphs: [
-          'MediDrive allows members to schedule and manage rides to medical appointments. The audience is older, less tech-savvy, and reliant on benefits. A demographic for whom a failed booking is more than a minor inconvenience; it is a missed appointment.That single fact set the standard for the entire redesign: the portal must make the next step clear and never fail silently.',
+          'MediDrive allows members to schedule and manage rides to medical appointments. The audience is older, less tech-savvy, and reliant on benefits. A demographic for whom a failed booking is more than a minor inconvenience; it is a missed appointment.That single fact set the standard for the entire redesign: the portal must make the next step clear and never fail silently.',
           'The existing portal had accreted feature by feature, borrowing patterns from operational/dispatcher tooling that were wrong for members. So I audited it before touching the UI.',
 'I led the audit, flow architecture, and accessibility. I partnered with Liviu, the other senior product designer on the team, to fully redesign the member app and portal in light and dark mode.',
   'Status: design complete, not yet in development. ',
