@@ -91,7 +91,7 @@ export default function HomePage() {
   const ruleXRight = useTransform(smoothProgress, [0, 1], ['96%', '88%']);
   const ruleYTop = useTransform(smoothProgress, [0, 1], [180, 600]);
 
-  const quote = "Good design should feel like someone thought about you. That's the thing I chase.";
+  const quote = 'Oana Grigore\u00a0Senior Product Designer, based in Bucharest, Romania.';
 
   return (
     <div ref={containerRef} className="relative min-h-screen overflow-hidden">
