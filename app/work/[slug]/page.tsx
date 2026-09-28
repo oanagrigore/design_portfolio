@@ -260,7 +260,7 @@ function RichSection({
   return (
     <section className="space-y-10">
       <div className="mx-auto max-w-5xl px-6">
-        <div className="grid grid-cols-1 gap-8 border-t border-border pt-12 md:grid-cols-[200px_1fr] md:gap-16 md:pt-16 items-start">
+        <div className="grid grid-cols-1 gap-8 pt-12 md:grid-cols-[200px_1fr] md:gap-16 md:pt-16 items-start">
           {/* Sticky numbered header */}
           <div className="md:sticky md:top-28">
             <div className="flex items-center gap-3">
