@@ -260,7 +260,7 @@ function RichSection({
   return (
     <section className="space-y-10">
       <div className="mx-auto max-w-5xl px-6">
-        <div className="grid grid-cols-1 gap-8 border-t border-border pt-12 md:grid-cols-[200px_1fr] md:gap-16 md:pt-16 items-start">
+        <div className="grid grid-cols-1 gap-8 pt-12 md:grid-cols-[200px_1fr] md:gap-16 md:pt-16 items-start">
           {/* Sticky numbered header */}
           <div className="md:sticky md:top-28">
             <div className="flex items-center gap-3">
@@ -338,15 +338,9 @@ function RichSection({
                     key={testimonial.name}
                     className="flex w-full flex-col justify-between rounded-2xl bg-pink-500/[0.06] p-8 md:p-10"
                   >
-                    <blockquote className="text-pretty text-base leading-relaxed text-foreground/90">
-                      <span aria-hidden="true" className="mr-1 text-xl text-pink-400">
-                        {'“'}
-                      </span>
-                      {testimonial.quote}
-                      <span aria-hidden="true" className="text-xl text-pink-400">
-                        {'”'}
-                      </span>
-                    </blockquote>
+                  <blockquote className="text-pretty text-base leading-relaxed text-foreground/90">
+                    {testimonial.quote}
+                  </blockquote>
                     <figcaption className="mt-8 border-t border-pink-500/20 pt-4">
                       <p className="text-sm font-semibold text-foreground">{testimonial.name}</p>
                       <p className="mt-1 text-xs uppercase tracking-[0.12em] text-pink-300">
@@ -361,15 +355,9 @@ function RichSection({
             {/* Editorial pull-quote */}
             {section.callout && (
               <blockquote className="my-4 border-l-2 border-pink-500 pl-6 md:pl-8">
-                <p className="text-pretty text-xl font-medium leading-[1.45] text-foreground sm:text-2xl">
-                  <span aria-hidden="true" className="text-pink-400">
-                    {'“'}
-                  </span>
-                  {section.callout}
-                  <span aria-hidden="true" className="text-pink-400">
-                    {'”'}
-                  </span>
-                </p>
+              <p className="text-pretty text-xl font-medium leading-[1.45] text-foreground sm:text-2xl">
+                {section.callout}
+              </p>
                 {section.calloutAttribution && (
                   <cite className="mt-4 block text-xs font-semibold not-italic uppercase tracking-[0.14em] text-muted-foreground">
                     {section.calloutAttribution}

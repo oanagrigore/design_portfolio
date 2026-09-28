@@ -133,7 +133,7 @@ export const caseStudies: CaseStudy[] = [
       { label: 'State Variants', value: 'UX for elderly users' },
     ],
     quickSummary: [
-      { label: 'My role', value: 'Lead Product Designer (Audit, Architecture, Accessibility)' },
+      { label: 'My role', value: 'Lead Product Designer' },
       {
         label: 'Team',
         value: 'Co-redesigned with Liviu (Senior Product Designer).',
@@ -152,10 +152,10 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: 'Context',
         paragraphs: [
-          'MediDrive lets members book and manage rides to medical appointments. The audience skews older, less tech-savvy, and benefit-dependent — a group for whom a failed booking isn’t a minor annoyance, it’s a missed appointment. That single fact set the bar for the whole redesign: the portal has to make the next step obvious and never fail silently.',
+          'MediDrive allows members to schedule and manage rides to medical appointments. The audience is older, less tech-savvy, and reliant on benefits. A demographic for whom a failed booking is more than a minor inconvenience; it is a missed appointment.That single fact set the standard for the entire redesign: the portal must make the next step clear and never fail silently.',
           'The existing portal had accreted feature by feature, borrowing patterns from operational/dispatcher tooling that were wrong for members. So I audited it before touching the UI.',
-          'My role — Lead Product Designer. I led the audit, flow architecture, and accessibility. I partnered with Liviu, the other Senior Product Designer on the team, to fully redesign the member app and portal in light and dark mode.',
-          'Status: design complete, not yet in development. The problems below are audited and evidenced; the solutions are designed and specified. Accessibility is designed-in and specified to WCAG 2.1 AA, but not yet implemented or conformance-tested — so this study is honest about what’s proven versus what’s proposed.',
+'I led the audit, flow architecture, and accessibility. I partnered with Liviu, the other senior product designer on the team, to fully redesign the member app and portal in light and dark mode.',
+  'Status: design complete, not yet in development. ',
         ],
         images: [
           {
@@ -194,7 +194,7 @@ export const caseStudies: CaseStudy[] = [
           'Orientation and feedback gaps: Lack of branding/location hints, no multi-step registration progress indicators, and transient feedback/tooltips that vanished before being read.',
         ],
         callout:
-          'Audit Highlight (State-Sync Defect): In the multiple-members flow, selecting a member from the dropdown failed to update the trip list automatically, forcing manual page refreshes. A functional defect the redesign solved structurally.',
+          'In the multiple-members flow, selecting a member from the dropdown failed to update the trip list automatically, forcing manual page refreshes. A functional defect the redesign solved structurally.',
         images: [
           {
             src: '/work/md-cs-audit.png',
@@ -299,7 +299,7 @@ export const caseStudies: CaseStudy[] = [
           'Error identification and status — errors that no longer fire prematurely, and blocked states that explain themselves (WCAG 3.3.1, 4.1.3) — the change that most directly protects an anxious, older user from thinking they’ve done something wrong.',
         ],
         callout:
-          'The honest next step is verification against the built product — an accessibility audit plus usability sessions with real members — before any formal conformance claim is made.',
+          'The honest next step is verification against the built product. An accessibility audit plus usability sessions with real members, before any formal conformance claim is made.',
         images: [
           {
             src: '/work/portal-btns.png',
@@ -320,9 +320,9 @@ export const caseStudies: CaseStudy[] = [
           'No reliable pre-redesign baseline existed, so this is a measurement plan, not a results claim: baseline is established at launch and actuals reported at 90 days. Four metrics tracked from day one, each tied to a problem the audit surfaced:',
         ],
         bullets: [
-          'Onboarding completion rate: % of users who finish profile setup and make their first booking without calling for help. (Tests theme 5: no multi-step hint, weak orientation.)',
-          'Self-service rate: % of bookings completed independently: no dispatcher contact, no support call. (Tests theme 2: operational-tool complexity pushing members to call in.)',
-          'Booking error rate: % of submitted bookings requiring correction, cancellation, or support contact. (Tests themes 1 and 4: silent failures and misleading error states.)',
+          'Onboarding completion rate: % of users who finish profile setup and make their first booking without calling for help.',
+          'Self-service rate: % of bookings completed independently: no dispatcher contact, no support call.',
+          'Booking error rate: % of submitted bookings requiring correction, cancellation, or support contact.',
           'Support contact rate: Inbound support contacts per 100 booking attempts — the clearest single signal of user friction.',
         ],
       },
@@ -330,8 +330,7 @@ export const caseStudies: CaseStudy[] = [
         heading: 'Reflection',
         paragraphs: [
           'Designing for older, less tech-savvy members was a new challenge for me. The lens I used was my own parents: build something they could use on their own, with feedback at every step — feedback that guides rather than alarms. That’s not a sentiment; it’s a design rule that shows up in specific decisions here. It’s why "the error state appears too early… may cause them to stop or second-guess themselves" was flagged critical, why no state is allowed to fail silently, and why the whole point is a member who can complete a booking without calling for help.',
-          'I’ll also be honest about the limit of that lens: imagining my parents is empathy, not evidence. It’s a strong starting point, but the design still needs to be validated with real members before launch — usability sessions with actual older adults are the next step, and the measurement plan above is how I’ll know whether the empathy held up.',
-        ],
+                ],
       },
     ],
   },
@@ -1693,7 +1692,7 @@ export const experience: Experience[] = [
   {
     role: 'Brand Designer',
     company: 'Electronic Arts',
-    period: "Mar '16 — Feb '19",
+    period: "Mar '16 ��� Feb '19",
     description:
       'Crafted brand and visual design work within a global games company, building assets and identity systems across campaigns.',
     bullets: [],

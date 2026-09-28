@@ -91,7 +91,7 @@ export default function HomePage() {
   const ruleXRight = useTransform(smoothProgress, [0, 1], ['96%', '88%']);
   const ruleYTop = useTransform(smoothProgress, [0, 1], [180, 600]);
 
-  const quote = "Good design should feel like someone thought about you. That's the thing I chase.";
+  const quote = 'Oana Grigore\u00a0Senior Product Designer, based in Bucharest, Romania.';
 
   return (
     <div ref={containerRef} className="relative min-h-screen overflow-hidden">
@@ -160,10 +160,7 @@ export default function HomePage() {
               priority
               className="hero-avatar mb-8 size-20 rounded-full border border-border/60 bg-card object-cover md:size-24"
             />
-            <p className="hero-subtitle text-sm text-muted-foreground">
-              {profile.role} · {profile.location}
-            </p>
-            
+
             <h1 className="mt-6 max-w-4xl overflow-hidden text-balance text-4xl font-medium leading-[1.05] tracking-tight text-foreground sm:text-6xl md:text-7xl">
               {quote.split(" ").map((word, i) => (
                 <span key={i} className="hero-title-word inline-block mr-[0.22em] whitespace-nowrap">
