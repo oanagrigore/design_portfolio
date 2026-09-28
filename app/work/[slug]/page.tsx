@@ -338,15 +338,9 @@ function RichSection({
                     key={testimonial.name}
                     className="flex w-full flex-col justify-between rounded-2xl bg-pink-500/[0.06] p-8 md:p-10"
                   >
-                    <blockquote className="text-pretty text-base leading-relaxed text-foreground/90">
-                      <span aria-hidden="true" className="mr-1 text-xl text-pink-400">
-                        {'“'}
-                      </span>
-                      {testimonial.quote}
-                      <span aria-hidden="true" className="text-xl text-pink-400">
-                        {'”'}
-                      </span>
-                    </blockquote>
+                  <blockquote className="text-pretty text-base leading-relaxed text-foreground/90">
+                    {testimonial.quote}
+                  </blockquote>
                     <figcaption className="mt-8 border-t border-pink-500/20 pt-4">
                       <p className="text-sm font-semibold text-foreground">{testimonial.name}</p>
                       <p className="mt-1 text-xs uppercase tracking-[0.12em] text-pink-300">
