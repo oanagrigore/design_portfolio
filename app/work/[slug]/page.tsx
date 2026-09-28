@@ -211,7 +211,7 @@ export default function CaseStudyPage({
             <span className="text-balance text-3xl font-semibold tracking-tight text-foreground transition-colors group-hover:text-pink-400 sm:text-5xl">
               {next.title}
             </span>
-            <div className="flex size-14 shrink-0 items-center justify-center rounded-full border border-border bg-card transition-all group-hover:border-pink-500 group-hover:bg-pink-500 group-hover:text-white">
+            <div className="flex size-14 shrink-0 items-center justify-center rounded-full bg-card transition-all group-hover:bg-pink-500 group-hover:text-white">
               <ArrowUpRight className="size-7 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </div>
           </Link>
@@ -336,7 +336,7 @@ function RichSection({
                 {section.testimonialQuotes.map((testimonial) => (
                   <figure
                     key={testimonial.name}
-                    className="flex w-full flex-col justify-between rounded-2xl border border-pink-500/30 bg-pink-500/[0.06] p-8 md:p-10"
+                    className="flex w-full flex-col justify-between rounded-2xl bg-pink-500/[0.06] p-8 md:p-10"
                   >
                     <blockquote className="text-pretty text-base leading-relaxed text-foreground/90">
                       <span aria-hidden="true" className="mr-1 text-xl text-pink-400">
@@ -417,7 +417,7 @@ function SectionImage({
 
   return (
     <figure
-      className={`group relative my-2 cursor-pointer overflow-hidden rounded-2xl border border-border bg-card ${
+      className={`group relative my-2 cursor-pointer overflow-hidden rounded-2xl bg-card ${
         isFullBleed ? 'w-full' : ''
       }`}
       onClick={onClick}
@@ -471,7 +471,7 @@ function DecisionItem({ decision }: { decision: CaseStudyDecision }) {
     { label: 'Why', text: decision.why },
   ]
   return (
-    <div className="rounded-2xl border border-border bg-card/40 p-6 md:p-8">
+    <div className="rounded-2xl bg-card/40 p-6 md:p-8">
       <h3 className="text-lg font-semibold tracking-tight text-foreground">
         {decision.title}
       </h3>
