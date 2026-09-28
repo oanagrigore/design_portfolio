@@ -164,7 +164,7 @@ export default function BrandGallery({
               zIndex: index + 1,
               top: `calc(var(--deck-top) + ${index * PARK_STEP_PX}px)`,
             }}
-            className="sticky mb-[var(--deck-gap)] aspect-[16/9] w-full overflow-hidden rounded-3xl border border-border/40 bg-card shadow-2xl last:mb-0"
+            className="sticky relative mb-[var(--deck-gap)] aspect-[16/9] w-full overflow-hidden rounded-3xl border border-border/40 bg-card shadow-2xl last:mb-0"
           >
             {isVideoSrc(item.src) ? (
               <video
