@@ -194,7 +194,7 @@ export const caseStudies: CaseStudy[] = [
           'Orientation and feedback gaps: Lack of branding/location hints, no multi-step registration progress indicators, and transient feedback/tooltips that vanished before being read.',
         ],
         callout:
-          'Audit Highlight (State-Sync Defect): In the multiple-members flow, selecting a member from the dropdown failed to update the trip list automatically, forcing manual page refreshes. A functional defect the redesign solved structurally.',
+          'In the multiple-members flow, selecting a member from the dropdown failed to update the trip list automatically, forcing manual page refreshes. A functional defect the redesign solved structurally.',
         images: [
           {
             src: '/work/md-cs-audit.png',
@@ -1692,7 +1692,7 @@ export const experience: Experience[] = [
   {
     role: 'Brand Designer',
     company: 'Electronic Arts',
-    period: "Mar '16 — Feb '19",
+    period: "Mar '16 ��� Feb '19",
     description:
       'Crafted brand and visual design work within a global games company, building assets and identity systems across campaigns.',
     bullets: [],

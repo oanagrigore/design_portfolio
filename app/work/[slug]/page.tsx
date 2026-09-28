@@ -355,15 +355,9 @@ function RichSection({
             {/* Editorial pull-quote */}
             {section.callout && (
               <blockquote className="my-4 border-l-2 border-pink-500 pl-6 md:pl-8">
-                <p className="text-pretty text-xl font-medium leading-[1.45] text-foreground sm:text-2xl">
-                  <span aria-hidden="true" className="text-pink-400">
-                    {'“'}
-                  </span>
-                  {section.callout}
-                  <span aria-hidden="true" className="text-pink-400">
-                    {'”'}
-                  </span>
-                </p>
+              <p className="text-pretty text-xl font-medium leading-[1.45] text-foreground sm:text-2xl">
+                {section.callout}
+              </p>
                 {section.calloutAttribution && (
                   <cite className="mt-4 block text-xs font-semibold not-italic uppercase tracking-[0.14em] text-muted-foreground">
                     {section.calloutAttribution}
