@@ -299,7 +299,7 @@ export const caseStudies: CaseStudy[] = [
           'Error identification and status — errors that no longer fire prematurely, and blocked states that explain themselves (WCAG 3.3.1, 4.1.3) — the change that most directly protects an anxious, older user from thinking they’ve done something wrong.',
         ],
         callout:
-          'The honest next step is verification against the built product — an accessibility audit plus usability sessions with real members — before any formal conformance claim is made.',
+          'The honest next step is verification against the built product. An accessibility audit plus usability sessions with real members, before any formal conformance claim is made.',
         images: [
           {
             src: '/work/portal-btns.png',
