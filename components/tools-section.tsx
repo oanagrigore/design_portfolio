@@ -48,7 +48,7 @@ export function ToolsSection({
   subtitle = "The software, frameworks, and AI tools I rely on to bridge product strategy, system design, and frontend execution.",
 }: ToolsSectionProps) {
   return (
-    <section className={`border-y border-border/80 py-12 md:py-14 ${className}`}>
+    <section className={`border-y border-border/80 bg-muted/20 py-12 md:py-14 ${className}`}>
       <div className="mb-10 px-0 md:mb-12">
         <span className="text-xs font-mono uppercase tracking-wider text-muted-foreground">
           Toolkit & Environment
