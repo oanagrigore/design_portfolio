@@ -91,7 +91,11 @@ export default function HomePage() {
   const ruleXRight = useTransform(smoothProgress, [0, 1], ['96%', '88%']);
   const ruleYTop = useTransform(smoothProgress, [0, 1], [180, 600]);
 
-  const quote = 'Oana Grigore\u00a0Senior Product Designer, based in Bucharest, Romania.';
+  const heroLines = [
+  "Oana Grigore",
+  "Senior Product Designer",
+  "based in Bucharest, Romania.",
+];
 
   return (
     <div ref={containerRef} className="relative min-h-screen overflow-hidden">
@@ -146,13 +150,20 @@ export default function HomePage() {
               className="hero-avatar mb-8 size-20 rounded-full border border-border/60 bg-card object-cover md:size-24"
             />
 
-            <h1 className="mt-6 max-w-4xl overflow-hidden text-balance text-4xl font-medium leading-[1.05] tracking-tight text-foreground sm:text-6xl md:text-7xl">
-              {quote.split(" ").map((word, i) => (
-                <span key={i} className="hero-title-word inline-block mr-[0.22em] whitespace-nowrap">
-                  {word}
-                </span>
-              ))}
-            </h1>
+            <h1 className="mt-6 max-w-5xl overflow-hidden text-4xl font-medium leading-[1.1] tracking-tight text-foreground sm:text-6xl md:text-7xl">
+      {heroLines.map((line, lineIndex) => (
+        <span key={lineIndex} className="block">
+          {line.split(" ").map((word, wordIndex) => (
+            <span
+              key={`${lineIndex}-${wordIndex}`}
+              className="hero-title-word inline-block mr-[0.22em] whitespace-nowrap"
+            >
+              {word}
+            </span>
+          ))}
+        </span>
+      ))}
+    </h1>
 
             <p className="mt-8 max-w-xl text-pretty text-lg leading-relaxed text-muted-foreground">
               {profile.intro}
