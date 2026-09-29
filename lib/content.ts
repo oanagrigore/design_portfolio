@@ -10,7 +10,7 @@ export const profile = {
     `Backing this is an 8+ year specialization in complex web applications, including scaling 40+ Shopify apps for 30,000+ merchants, and a 14-year foundation spanning visual, graphic, and product design.`
   ],
   intro:
-    'I lead design across brands, from first click to finished flow, with accessibility built in from the start, because a confusing product fails the people who need it most.',
+    'In healthcare transportation, bad UX means someone doesn\'t get to their appointment. That\'s why I design accessibility in from the start, across portals, apps and the systems that hold them together.',
   avatar: '/oana-avatar.png',
   social: [
     { label: 'LinkedIn', href: 'https://www.linkedin.com/in/oanagrigore' },

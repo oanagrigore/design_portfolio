@@ -92,9 +92,9 @@ export default function HomePage() {
   const ruleYTop = useTransform(smoothProgress, [0, 1], [180, 600]);
 
   const heroLines = [
-  "Oana Grigore",
-  "Senior Product Designer",
-  "based in Bucharest, Romania.",
+  "Every confusing screen",
+  "is a missed ride.",
+  ,
 ];
 
   return (
