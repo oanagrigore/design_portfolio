@@ -49,8 +49,18 @@ export function ToolsSection({
 }: ToolsSectionProps) {
   return (
     <section className={`border-y border-border/80 py-12 md:py-14 ${className}`}>
+      <div className="mb-10 px-0 md:mb-12">
+        <span className="text-xs font-mono uppercase tracking-wider text-muted-foreground">
+          Toolkit & Environment
+        </span>
+        <h2 className="mt-1 text-2xl font-medium tracking-tight text-foreground sm:text-3xl">
+          {title}
+        </h2>
+        <p className="mt-2 max-w-2xl text-base leading-relaxed text-muted-foreground">
+          {subtitle}
+        </p>
+      </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5">
-
         {stackData.map((item, index) => (
           <div
             key={item.category}
