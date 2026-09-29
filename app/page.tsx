@@ -95,21 +95,6 @@ export default function HomePage() {
 
   return (
     <div ref={containerRef} className="relative min-h-screen overflow-hidden">
-      {/* 1. SCROLL-DRIVEN ARCHITECTURAL GRID BACKGROUND */}
-      <motion.div 
-        className="fixed inset-0 pointer-events-none z-0 opacity-[0.07] dark:opacity-[0.12]"
-        style={{ y: gridY }}
-      >
-        <svg className="w-full h-[140vh]" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <pattern id="paper-grid" width="48" height="48" patternUnits="userSpaceOnUse">
-              <path d="M 48 0 L 0 0 0 48" fill="none" stroke="currentColor" strokeWidth="0.75" />
-              <circle cx="48" cy="48" r="1.2" fill="currentColor" />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#paper-grid)" />
-        </svg>
-      </motion.div>
 
       {/* 2. DYNAMIC SCROLL RULES & ALIGNMENT GUIDES */}
       <div className="fixed inset-0 pointer-events-none z-10 overflow-hidden">
@@ -119,7 +104,7 @@ export default function HomePage() {
           style={{ left: ruleXLeft }}
         >
           <span className="absolute top-6 left-2 font-mono text-[9px] uppercase tracking-widest text-muted-foreground/60 select-none">
-            X1 · CANVAS
+            2026
           </span>
         </motion.div>
 
@@ -129,7 +114,7 @@ export default function HomePage() {
           style={{ left: ruleXRight }}
         >
           <span className="absolute top-6 right-2 font-mono text-[9px] uppercase tracking-widest text-muted-foreground/60 select-none">
-            X2 · MARGIN
+            AI
           </span>
         </motion.div>
 
@@ -228,7 +213,7 @@ export default function HomePage() {
           </div>
 
           {/* Dynamic Tab Content */}
-          <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-2">
+          <div>
             {/* Slider Container with Cross-Fade */}
             <AnimatePresence mode="wait">
               <motion.div
@@ -256,11 +241,24 @@ export default function HomePage() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -8 }}
                 transition={{ duration: 0.25, ease: "easeOut" }}
-                className="space-y-6"
+                className="grid grid-cols-2 space-y-6 mt-4 md:grid-cols-2 md:gap-x-8 md:space-y-0"
               >
-                <h3 className="text-xl font-medium tracking-tight text-foreground">
-                  {activeTab.title}
-                </h3>
+                <div>
+                  <h2 className="text-2xl font-medium tracking-tight text-foreground">
+                    {activeTab.title}
+                  </h2>
+        
+                <div>
+                  <Link
+                    href={activeTab.caseStudyUrl}
+                    className="inline-flex items-center gap-1.5 text-sm font-medium text-foreground transition-colors hover:text-muted-foreground"
+                  >
+                    Read deep-dive case study
+                    <ArrowUpRight className="size-4" />
+                  </Link>
+                </div>
+                </div>
+                <div>
                 <p className="text-muted-foreground leading-relaxed">
                   {activeTab.description}
                 </p>
@@ -273,16 +271,8 @@ export default function HomePage() {
                     </div>
                   ))}
                 </div>
-
-                <div>
-                  <Link
-                    href={activeTab.caseStudyUrl}
-                    className="inline-flex items-center gap-1.5 text-sm font-medium text-foreground transition-colors hover:text-muted-foreground"
-                  >
-                    Read deep-dive case study
-                    <ArrowUpRight className="size-4" />
-                  </Link>
                 </div>
+
               </motion.div>
             </AnimatePresence>
           </div>

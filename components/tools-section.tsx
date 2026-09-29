@@ -10,14 +10,14 @@ interface ToolCategory {
 
 const stackData: ToolCategory[] = [
   {
-    category: "Interface & Workshop",
+    category: "Interface",
     description: "",
     tools: ["Figma", "FigJam", "Canva", "Miro", "Paper Design"],
   },
   {
     category: "Design Systems & UI Frameworks",
     description: "",
-    tools: ["Shadcn UI", "Radix UI", "Polaris", "Tailwind CSS"],
+    tools: ["Shadcn UI", "Radix UI", "Shopify Polaris", "Tailwind CSS"],
   },
   {
     category: "Frontend & Prototyping",
@@ -48,10 +48,10 @@ export function ToolsSection({
   subtitle = "The software, frameworks, and AI tools I rely on to bridge product strategy, system design, and frontend execution.",
 }: ToolsSectionProps) {
   return (
-    <section className={`relative left-1/2 w-screen -translate-x-1/2 border-y border-border/80 bg-muted/20 py-12 md:py-14 ${className}`}>
+    <section className={`relative left-1/2 w-screen -translate-x-1/2 bg-muted/20 py-12 md:py-14 ${className}`}>
       <div className="mx-auto max-w-6xl px-6">
       <div className="mb-10 px-0 md:mb-12">
-        <span className="text-xs font-mono uppercase tracking-wider text-muted-foreground">
+        <span className="text-xs uppercase tracking-wider text-muted-foreground">
           Toolkit & Environment
         </span>
         <h2 className="mt-1 text-2xl font-medium tracking-tight text-foreground sm:text-3xl">
@@ -65,11 +65,11 @@ export function ToolsSection({
         {stackData.map((item, index) => (
           <div
             key={item.category}
-            className={`min-h-[220px] px-0 py-2 md:px-8 lg:min-h-[280px] lg:py-0 ${
+            className={`min-h-[220px] lg:min-h-[280px] ${
               index < stackData.length - 1
-                ? "border-border/80 md:border-r"
+                ? ""
                 : ""
-            } ${index > 0 ? "border-t md:border-t-0" : ""}`}
+            } ${index > 0 ? "" : ""}`}
           >
             <h3 className="max-w-[190px] text-lg font-semibold leading-tight tracking-tight text-foreground md:text-xl">
               {item.category}

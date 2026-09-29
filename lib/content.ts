@@ -1713,8 +1713,8 @@ export const certifications: Certification[] = [
 ]
 
 export const services = [
-  'Product Strategy & Architecture: Mapping complex user flows, technical constraints, and business goals into scalable product roadmaps.',
-  'Design Systems & Governance: Building multi-brand, tokenized UI systems that speed up engineering handoff and enforce consistency.',
-  'Accessibility Leadership: Designing WCAG-compliant systems so products are usable by everyone from day one.',
-  'Conversion & Flow Optimization: Turning static marketing experiences into high-performing conversion channels.',
+  'Product Strategy & Architecture',
+  'Design Systems & Governance',
+  'WCAG compliant systems',
+  'Conversion & Flow Optimization',
 ]
