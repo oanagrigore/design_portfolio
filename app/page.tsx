@@ -288,9 +288,6 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Tools Section */}
-        <ToolsSection />
-
         {/* Selected Work Section */}
         <section className="py-16 md:py-24">
           <div className="flex items-end justify-between">
@@ -312,6 +309,9 @@ export default function HomePage() {
             ))}
           </div>
         </section>
+
+        {/* Tools Section */}
+        <ToolsSection />
 
         {/* Services Section ("What I do") */}
         <section className="py-16 md:py-24">

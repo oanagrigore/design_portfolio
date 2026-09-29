@@ -2,8 +2,6 @@
 "use client";
 
 import React from 'react';
-import { motion } from 'framer-motion';
-
 interface ToolCategory {
   category: string;
   description: string;
@@ -13,28 +11,28 @@ interface ToolCategory {
 const stackData: ToolCategory[] = [
   {
     category: "Interface & Workshop",
-    description: "UI design, spatial brainstorming, and analog low-fidelity exploration.",
-    tools: ["Figma", "Canva", "Paper Design", "FigJam", "Miro"],
+    description: "",
+    tools: ["Figma", "FigJam", "Canva", "Miro", "Paper Design"],
   },
   {
     category: "Design Systems & UI Frameworks",
-    description: "Accessible component governance, tokenized layouts, and UI primitives.",
+    description: "",
     tools: ["Shadcn UI", "Radix UI", "Polaris", "Tailwind CSS"],
   },
   {
-    category: "AI & Co-Creation",
-    description: "Prompt-driven iteration, concept generation, and AI-assisted workflows.",
-    tools: ["Claude", "Claude Design", "ChatGPT", "Moda.app", "Gamma.app"],
-  },
-  {
     category: "Frontend & Prototyping",
-    description: "Production-grade code understanding, structural markup, and web builders.",
-    tools: ["Framer", "Webflow", "HTML", "CSS", "Visual Studio Code"],
+    description: "",
+    tools: ["Framer", "Webflow", "HTML", "CSS", "VS Code"],
   },
   {
     category: "Product & Operations",
-    description: "Async collaboration, spec documentation, and issue tracking.",
+    description: "",
     tools: ["Linear", "Notion"],
+  },
+  {
+    category: "AI & Co-Creation",
+    description: "",
+    tools: ["Claude", "Claude Design", "ChatGPT", "Moda.app", "Gamma.app"],
   },
 ];
 
@@ -44,90 +42,52 @@ interface ToolsSectionProps {
   subtitle?: string;
 }
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.08,
-    },
-  },
-};
-
-const cardVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.5,
-      ease: [0.215, 0.61, 0.355, 1] as const,
-    },
-  },
-};
-
 export function ToolsSection({
   className = "",
   title = "Tools & Stack",
   subtitle = "The software, frameworks, and AI tools I rely on to bridge product strategy, system design, and frontend execution.",
 }: ToolsSectionProps) {
   return (
-    <section className={`py-16 md:py-24 ${className}`}>
-      {/* Section Header */}
-      <motion.div
-        initial={{ opacity: 0, y: 16 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-80px" }}
-        transition={{ duration: 0.5, ease: "easeOut" }}
-        className="mb-10"
-      >
+    <section className={`relative left-1/2 w-screen -translate-x-1/2 border-y border-border/80 bg-muted/20 py-12 md:py-14 ${className}`}>
+      <div className="mx-auto max-w-6xl px-6">
+      <div className="mb-10 px-0 md:mb-12">
         <span className="text-xs font-mono uppercase tracking-wider text-muted-foreground">
           Toolkit & Environment
         </span>
         <h2 className="mt-1 text-2xl font-medium tracking-tight text-foreground sm:text-3xl">
           {title}
         </h2>
-        <p className="mt-2 text-base text-muted-foreground leading-relaxed max-w-2xl">
+        <p className="mt-2 max-w-2xl text-base leading-relaxed text-muted-foreground">
           {subtitle}
         </p>
-      </motion.div>
-
-      {/* Grid Container */}
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-60px" }}
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-      >
-        {stackData.map((item) => (
-          <motion.div
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5">
+        {stackData.map((item, index) => (
+          <div
             key={item.category}
-            variants={cardVariants}
-            className="p-6 rounded-2xl border border-border/60 bg-card/40 backdrop-blur-xs flex flex-col justify-between hover:border-border transition-colors duration-200"
+            className={`min-h-[220px] px-0 py-2 md:px-8 lg:min-h-[280px] lg:py-0 ${
+              index < stackData.length - 1
+                ? "border-border/80 md:border-r"
+                : ""
+            } ${index > 0 ? "border-t md:border-t-0" : ""}`}
           >
-            <div>
-              <h3 className="text-base font-medium text-foreground">
-                {item.category}
-              </h3>
-              <p className="text-xs text-muted-foreground mt-2 mb-6 leading-relaxed">
-                {item.description}
-              </p>
-            </div>
-
-            <div className="flex flex-wrap gap-2 mt-auto">
+            <h3 className="max-w-[190px] text-lg font-semibold leading-tight tracking-tight text-foreground md:text-xl">
+              {item.category}
+            </h3>
+            <div className="mt-6 flex flex-wrap content-start gap-2.5">
               {item.tools.map((tool) => (
                 <span
                   key={tool}
-                  className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-secondary/80 text-secondary-foreground border border-border/50"
+                  className="inline-flex items-center rounded-full border border-border px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:border-pink-500/60 hover:text-foreground"
                 >
                   {tool}
                 </span>
               ))}
             </div>
-          </motion.div>
+          </div>
         ))}
-      </motion.div>
+      </div>
+      </div>
     </section>
   );
 }
