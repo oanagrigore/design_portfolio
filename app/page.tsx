@@ -94,7 +94,6 @@ export default function HomePage() {
   const heroLines = [
   "Every confusing screen",
   "is a missed ride.",
-  ,
 ];
 
   return (
