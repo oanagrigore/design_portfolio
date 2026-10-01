@@ -21,7 +21,7 @@ const COMPARISONS = [
   {
     id: "portal",
     tabLabel: "Member Portal",
-    title: "MediDrive Member Portal Redesign",
+    title: "Designing ride booking portal every Medicaid member can use",
     subtitle: "Scaling accessibility across an enterprise healthtech ecosystem.",
     description: "Redesigned the complex legacy member portal to adhere to WCAG 2.1 AA standards, simplifying patient onboarding and drive scheduling.",
     metrics: [

@@ -110,7 +110,7 @@ export type CaseStudy = {
 export const caseStudies: CaseStudy[] = [
   {
     slug: 'medidrive-member-portal',
-    title: 'Redesigning the MediDrive member portal',
+    title: 'Designing a ride booking portal every Medicaid member can use',
     summary:
       'Accessibility driven redesign of a Medicaid non-emergency medical transportation (NEMT) portal. Audited flow by flow, rebuilt in light and dark mode with state-specific variants and designed to WCAG 2.1 AA.',
     impactText: 'Audited and transformed a dispatch-heavy interface into an intuitive, accessible portal built specifically for caregivers and members aged 65+.',
