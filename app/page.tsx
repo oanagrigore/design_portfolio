@@ -15,6 +15,7 @@ import ImageSlider from "@/components/ImageSlider"
 import { ToolsSection } from '@/components/tools-section';
 import BrandGallery from '@/components/BrandGallery';
 import { PrimaryButton } from '@/components/PrimaryButton';
+import ExpandableGallery from '@/components/expandable-gallery';
 
 // Data structure for the comparison tabs
 const COMPARISONS = [
@@ -139,17 +140,8 @@ export default function HomePage() {
       <div className="relative z-20 mx-auto max-w-6xl px-6">
         {/* Hero Section */}
         <HeroAnimator>
-          <section className="pt-24 pb-20 md:pt-36 md:pb-28">
-            <Image
-              src={profile.avatar || '/placeholder.svg'}
-              alt={`${profile.name} portrait`}
-              width={96}
-              height={96}
-              priority
-              className="hero-avatar mb-8 size-20 rounded-full border border-border/60 bg-card object-cover md:size-24"
-            />
-
-            <h1 className="mt-6 max-w-5xl overflow-hidden text-4xl font-medium leading-[1.1] tracking-tight text-foreground sm:text-6xl md:text-7xl">
+          <section className="pt-24 pb-20 md:pt-36 md:pb-28 justify-center items-center flex flex-col text-center">
+            <h1 className="mt-6 max-w-5xl overflow-hidden text-5xl font-bold leading-[1.1] tracking-tight text-foreground sm:text-6xl md:text-7xl">
       {heroLines.map((line, lineIndex) => (
         <span key={lineIndex} className="block">
           {line.split(" ").map((word, wordIndex) => (
@@ -180,7 +172,8 @@ export default function HomePage() {
           </section>
         </HeroAnimator>
 
-        <BrandGallery />
+        <ExpandableGallery />
+      
 
         {/* Multi Before vs After Comparison Section */}
         <section className="py-16 md:py-24">
