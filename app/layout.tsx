@@ -6,6 +6,7 @@ import { SiteFooter } from '@/components/site-footer'
 import { SmoothScrollProvider } from '@/components/smooth-scroll-provider'
 import DesignInspector from '@/components/DesignInspector'
 import './globals.css'
+import { HeaderGate } from "@/components/header-gate";
 
 const geistSans = Geist({
   subsets: ['latin'],
@@ -18,9 +19,9 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Oana Grigore — Lead Product Designer',
+  title: 'Oana Grigore — Senior Product Designer',
   description:
-    'Lead Product Designer driving design strategy and accessible product design across multiple brands and platforms, from marketing to product flows.',
+    'Senior Product Designer driving design strategy and accessible product design across multiple brands and platforms, from marketing to product flows.',
   generator: 'v0.app',
   icons: {
     icon: '/favicon.ico', // path to your favicon file in the /public directory
@@ -44,14 +45,14 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}>
         <SmoothScrollProvider>
           <div className="relative flex min-h-dvh flex-col">
-            <SiteHeader />
+            <HeaderGate>
+              <SiteHeader />
+            </HeaderGate>
             <main className="flex-1">{children}</main>
             <SiteFooter />
           </div>
         </SmoothScrollProvider>
-
-        {/* Live Design System & Redline Inspector Overlay */}
-        <DesignInspector />
+      
 
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>

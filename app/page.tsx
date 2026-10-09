@@ -1,10 +1,9 @@
 "use client";
 
-import { useState, useRef } from 'react'
+import { useState } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 import { ArrowUpRight } from 'lucide-react'
-import { motion, AnimatePresence, useScroll, useTransform, useSpring } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { WorkCard } from '@/components/work-card'
 import { caseStudies, profile, services } from '@/lib/content'
 import { HeroAnimator } from "@/components/hero-animator"
@@ -13,12 +12,30 @@ import { ServiceItem } from "@/components/service-item"
 import { AnimatedProjectCard } from "@/components/animated-project-card"
 import ImageSlider from "@/components/ImageSlider"
 import { ToolsSection } from '@/components/tools-section';
-import BrandGallery from '@/components/BrandGallery';
 import { PrimaryButton } from '@/components/PrimaryButton';
 import ExpandableGallery from '@/components/expandable-gallery';
+import { ReadingRoomHero } from '@/components/reading-room';
+
+type Metric = { label: string; value: string };
+
+type Comparison = {
+  id: string;
+  tabLabel: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  /** Only measured results. Leave empty until you have a number you can defend. */
+  metrics: Metric[];
+  caseStudyUrl: string;
+  beforeImage: string;
+  beforeAlt: string;
+  afterImage: string;
+  afterAlt: string;
+  aspectRatio: string;
+};
 
 // Data structure for the comparison tabs
-const COMPARISONS = [
+const COMPARISONS: Comparison[] = [
   {
     id: "portal",
     tabLabel: "Member Portal",
@@ -29,7 +46,7 @@ const COMPARISONS = [
       { label: "Touch Target Compliance", value: "+100%" },
       { label: "Task Completion Time", value: "-34%" },
     ],
-    caseStudyUrl: "/work/design-system-redesign",
+    caseStudyUrl: "/work/medidrive-member-portal",
     beforeImage: "/work/md-portal-before.png",
     beforeAlt: "Legacy MediDrive Member Portal interface",
     afterImage: "/work/md-portal-after.png",
@@ -42,10 +59,8 @@ const COMPARISONS = [
     title: "MediDrive Native Mobile App",
     subtitle: "Accessible touch targets and instant appointment booking on mobile.",
     description: "Standardized tokenized mobile UI components to ensure seamless booking flows for patients with visual and motor impairments.",
-    metrics: [
-      { label: "Mobile Booking Lift", value: "+42%" },
-      { label: "WCAG Contrast Rating", value: "AAA Pass" },
-    ],
+    // Removed until measured: "Mobile Booking Lift +42%", "WCAG Contrast Rating AAA Pass"
+    metrics: [],
     caseStudyUrl: "/work/design-system-redesign",
     beforeImage: "/work/md-app-before.png",
     beforeAlt: "Legacy MediDrive Mobile App flow",
@@ -59,10 +74,8 @@ const COMPARISONS = [
     title: "Omni Limousine Direct Booking Flow",
     subtitle: "Driving direct bookings through a premium web experience.",
     description: "Transformed a static brand website into a high-converting, accessible direct-booking funnel for luxury chauffeur services in Las Vegas and Miami.",
-    metrics: [
-      { label: "Direct Booking Conversion", value: "+38%" },
-      { label: "Form Abandonment Rate", value: "-22%" },
-    ],
+    // Removed until measured: "Direct Booking Conversion +38%", "Form Abandonment Rate -22%"
+    metrics: [],
     caseStudyUrl: "/work/omni-limousine",
     beforeImage: "/work/omni-before.png",
     beforeAlt: "Legacy Omni Limousine website interface",
@@ -72,95 +85,50 @@ const COMPARISONS = [
   },
 ];
 
-export default function HomePage() {
-  const [activeTab, setActiveTab] = useState(COMPARISONS[0]);
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  // Track page scroll progress for background canvas effects
-  const { scrollYProgress, scrollY } = useScroll({
-    target: containerRef,
-    offset: ['start start', 'end end'],
-  });
-
-  const smoothProgress = useSpring(scrollYProgress, { stiffness: 100, damping: 20 });
-
-  // Grid background translate on scroll
-  const gridY = useTransform(scrollY, [0, 3000], [0, 400]);
-
-  // Dynamic vertical rule positions shifting inward/outward as user scrolls
-  const ruleXLeft = useTransform(smoothProgress, [0, 1], ['4%', '12%']);
-  const ruleXRight = useTransform(smoothProgress, [0, 1], ['96%', '88%']);
-  const ruleYTop = useTransform(smoothProgress, [0, 1], [180, 600]);
-
-  const heroLines = [
-  "Every confusing screen",
-  "is a missed ride.",
+const heroLines = [
+  { text: "Make yourself at home.", className: "block text-foreground" },
+  {
+    text: "I’ll show you how I design for people who can’t afford to get lost.",
+    className: "block text-muted-foreground",
+  },
 ];
 
+export default function HomePage() {
+  const [activeTab, setActiveTab] = useState(COMPARISONS[0]);
+
   return (
-    <div ref={containerRef} className="relative min-h-screen overflow-hidden">
-
-      {/* 2. DYNAMIC SCROLL RULES & ALIGNMENT GUIDES */}
-      <div className="fixed inset-0 pointer-events-none z-10 overflow-hidden">
-        {/* Left Vertical Alignment Line */}
-        <motion.div 
-          className="absolute top-0 bottom-0 border-l border-dashed border-primary/20 dark:border-primary/30"
-          style={{ left: ruleXLeft }}
-        >
-          <span className="absolute top-6 left-2 font-mono text-[9px] uppercase tracking-widest text-muted-foreground/60 select-none">
-            2026
-          </span>
-        </motion.div>
-
-        {/* Right Vertical Alignment Line */}
-        <motion.div 
-          className="absolute top-0 bottom-0 border-r border-dashed border-primary/20 dark:border-primary/30"
-          style={{ left: ruleXRight }}
-        >
-          <span className="absolute top-6 right-2 font-mono text-[9px] uppercase tracking-widest text-muted-foreground/60 select-none">
-            AI
-          </span>
-        </motion.div>
-
-        {/* Dynamic Horizontal Tracker Rule */}
-        <motion.div 
-          className="absolute left-0 right-0 border-t border-primary/20 dark:border-primary/30 flex justify-between items-center px-4"
-          style={{ top: ruleYTop }}
-        >
-          <span className="font-mono text-[9px] uppercase tracking-widest text-primary/70 bg-background/80 backdrop-blur-xs px-1.5 py-0.5 rounded -mt-2.5">
-            PORTFOLIO
-          </span>
-          <span className="font-mono text-[9px] uppercase tracking-widest text-primary/70 bg-background/80 backdrop-blur-xs px-1.5 py-0.5 rounded -mt-2.5">
-            OANA GRIGORE
-          </span>
-        </motion.div>
-      </div>
+    <div className="relative min-h-screen overflow-hidden">
+      <ReadingRoomHero />
 
       {/* Main Page Content */}
       <div className="relative z-20 mx-auto max-w-6xl px-6">
         {/* Hero Section */}
         <HeroAnimator>
-          <section className="pt-24 pb-20 md:pt-36 md:pb-28 justify-center items-center flex flex-col text-center">
-            <h1 className="mt-6 max-w-5xl overflow-hidden text-5xl font-bold leading-[1.1] tracking-tight text-foreground sm:text-6xl md:text-7xl">
-      {heroLines.map((line, lineIndex) => (
-        <span key={lineIndex} className="block">
-          {line.split(" ").map((word, wordIndex) => (
-            <span
-              key={`${lineIndex}-${wordIndex}`}
-              className="hero-title-word inline-block mr-[0.22em] whitespace-nowrap"
-            >
-              {word}
-            </span>
-          ))}
-        </span>
-      ))}
-    </h1>
+          <section className="pt-24 pb-20 md:pt-36 md:pb-28 flex flex-col items-center text-center">
+            <p className="text-xs font-mono font-medium uppercase tracking-wider text-muted-foreground">
+              Oana Grigore · Senior Product Designer
+            </p>
 
-            <p className="mt-8 max-w-xl text-pretty text-lg leading-relaxed text-muted-foreground">
+            <h1 className="mt-6 max-w-4xl text-balance text-4xl font-semibold leading-[1.1] tracking-tight sm:text-5xl md:text-6xl">
+              {heroLines.map((line, lineIndex) => (
+                <span key={lineIndex} className={line.className}>
+                  {line.text.split(" ").map((word, wordIndex) => (
+                    <span
+                      key={`${lineIndex}-${wordIndex}`}
+                      className="hero-title-word inline-block mr-[0.22em] whitespace-nowrap"
+                    >
+                      {word}
+                    </span>
+                  ))}
+                </span>
+              ))}
+            </h1>
+
+            <p className="mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-muted-foreground">
               {profile.intro}
             </p>
-            
-            <div className="hero-cta-group mt-10 flex flex-wrap items-center gap-4">
+
+            <div className="hero-cta-group mt-10 flex flex-wrap items-center justify-center gap-4">
               <PrimaryButton href="/work">View selected work</PrimaryButton>
               <Link
                 href="/about"
@@ -173,17 +141,16 @@ export default function HomePage() {
         </HeroAnimator>
 
         <ExpandableGallery />
-      
 
         {/* Multi Before vs After Comparison Section */}
         <section className="py-16 md:py-24">
           <div className="mb-8 flex flex-col justify-between gap-4 md:flex-row md:items-end">
             <div>
               <span className="text-xs font-mono font-medium uppercase tracking-wider text-muted-foreground">
-                Design Transformation
+                Before & After Impact
               </span>
               <h2 className="mt-1 text-2xl font-medium tracking-tight text-foreground sm:text-3xl">
-                Before & After Impact
+                Every confusing screen is a missed ride.
               </h2>
             </div>
 
@@ -195,8 +162,10 @@ export default function HomePage() {
                   return (
                     <button
                       key={item.id}
+                      type="button"
+                      aria-pressed={isActive}
                       onClick={() => setActiveTab(item)}
-                      className="relative rounded-full px-4 py-1.5 text-xs font-medium transition-colors"
+                      className="relative min-h-11 rounded-full px-4 py-1.5 text-xs font-medium transition-colors"
                     >
                       {isActive && (
                         <motion.div
@@ -244,38 +213,40 @@ export default function HomePage() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -8 }}
                 transition={{ duration: 0.25, ease: "easeOut" }}
-                className="grid grid-cols-2 space-y-6 mt-4 md:grid-cols-2 md:gap-x-8 md:space-y-0"
+                className="mt-4 grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-x-8"
               >
                 <div>
-                  <h2 className="text-2xl font-medium tracking-tight text-foreground">
+                  <h3 className="text-2xl font-medium tracking-tight text-foreground">
                     {activeTab.title}
-                  </h2>
-        
-                <div>
-                  <Link
-                    href={activeTab.caseStudyUrl}
-                    className="inline-flex items-center gap-1.5 text-sm font-medium text-foreground transition-colors hover:text-muted-foreground"
-                  >
-                    Read deep-dive case study
-                    <ArrowUpRight className="size-4" />
-                  </Link>
-                </div>
-                </div>
-                <div>
-                <p className="text-muted-foreground leading-relaxed">
-                  {activeTab.description}
-                </p>
-                
-                <div className="grid grid-cols-2 gap-4 pt-6">
-                  {activeTab.metrics.map((m, idx) => (
-                    <div key={idx}>
-                      <p className="text-2xl font-semibold tracking-tight text-foreground">{m.value}</p>
-                      <p className="text-xs text-muted-foreground mt-0.5">{m.label}</p>
-                    </div>
-                  ))}
-                </div>
+                  </h3>
+
+                  <div className="mt-3">
+                    <Link
+                      href={activeTab.caseStudyUrl}
+                      className="inline-flex min-h-11 items-center gap-1.5 text-sm font-medium text-foreground transition-colors hover:text-muted-foreground"
+                    >
+                      Read deep-dive case study
+                      <ArrowUpRight className="size-4" aria-hidden="true" />
+                    </Link>
+                  </div>
                 </div>
 
+                <div>
+                  <p className="text-muted-foreground leading-relaxed">
+                    {activeTab.description}
+                  </p>
+
+                  {activeTab.metrics.length > 0 && (
+                    <div className="grid grid-cols-2 gap-4 pt-6">
+                      {activeTab.metrics.map((m) => (
+                        <div key={m.label}>
+                          <p className="text-2xl font-semibold tracking-tight text-foreground">{m.value}</p>
+                          <p className="text-xs text-muted-foreground mt-0.5">{m.label}</p>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
               </motion.div>
             </AnimatePresence>
           </div>

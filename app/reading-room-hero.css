@@ -1,0 +1,298 @@
+/* Reading room hero (global CSS, every class prefixed rr- so it cannot clash with the rest of the site) — the painting is 2752 × 1536. Every overlay is positioned
+   in % of the scene, and sized with cqi, so it scales with the image. */
+
+.rr-root {
+  --rr-ink: #0d0b14;
+  --rr-paper: #f1e9dc;
+  --rr-focus: #d9b45f;
+  --rr-pill: rgba(14, 11, 20, 0.85);
+  --rr-font: var(--font-geist-sans, "Geist"), system-ui, -apple-system, "Segoe UI", sans-serif;
+  /* Space your fixed header takes up. Override from the parent if yours differs. */
+  --rr-header: 0px; /* no header on the homepage; set to your header height if you show it */
+  position: relative;
+  width: 100%;
+  background: var(--rr-ink);
+  color: var(--rr-paper);
+  font-family: var(--rr-font);
+}
+
+.rr-pan {
+  position: relative;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+}
+.rr-pan::-webkit-scrollbar { display: none; }
+
+.rr-scene {
+  position: relative;
+  width: min(100%, calc((100svh - var(--rr-header)) * 1.7917));
+  aspect-ratio: 2752 / 1536;
+  margin-inline: auto;
+  overflow: hidden;
+  isolation: isolate;
+  container-type: inline-size;
+}
+
+.rr-base { object-fit: cover; }
+
+.rr-lit {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: url("/hero/room-lit.webp") center / 100% 100% no-repeat;
+  transition: opacity 0.7s ease;
+}
+.rr-full { transition: opacity 0.9s ease; }
+
+.rr-fx { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+
+.rr-root :focus-visible { outline: 3px solid var(--rr-focus); outline-offset: 3px; border-radius: 4px; }
+
+.rr-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* ---------- light switches ---------- */
+.rr-lt {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  min-width: 44px;
+  min-height: 44px;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+}
+.rr-lt::after {
+  content: "";
+  position: absolute;
+  inset: 6%;
+  border-radius: inherit;
+  border: 2px dashed rgba(255, 226, 170, 0);
+  transition: border-color 0.2s;
+}
+.rr-lt:hover::after, .rr-lt:focus-visible::after { border-color: rgba(255, 226, 170, 0.75); }
+.rr-tip {
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 6px);
+  transform: translateX(-50%);
+  white-space: nowrap;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: var(--rr-pill);
+  color: var(--rr-paper);
+  font: 500 0.8rem var(--rr-font);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+.rr-lt:hover .rr-tip, .rr-lt:focus-visible .rr-tip { opacity: 1; }
+
+/* ---------- the cat ---------- */
+.rr-kitty {
+  position: absolute;
+  left: 58.5%;
+  top: 61.85%;
+  width: 21.8%;
+  height: 18.2%;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 50% 50% 40% 40%;
+  padding: 0;
+}
+.rr-kitty:focus-visible { outline-offset: -6px; }
+.rr-bubble {
+  position: absolute;
+  left: 14%;
+  bottom: calc(100% + 4px);
+  padding: 9px 16px;
+  border-radius: 18px 18px 18px 6px;
+  background: var(--rr-pill);
+  backdrop-filter: blur(16px) saturate(1.6);
+  -webkit-backdrop-filter: blur(16px) saturate(1.6);
+  box-shadow: 0 12px 30px -12px rgba(0, 0, 0, 0.6);
+  color: #fff;
+  font: 500 clamp(0.95rem, 1.4cqi, 1.2rem) var(--rr-font);
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateY(8px) scale(0.95);
+  transform-origin: 0 100%;
+  transition: opacity 0.2s, transform 0.25s cubic-bezier(0.2, 1.4, 0.4, 1);
+  pointer-events: none;
+}
+.rr-kitty:hover .rr-bubble, .rr-kitty:focus-visible .rr-bubble, .rr-talk .rr-bubble { opacity: 1; transform: none; }
+
+.rr-zz { position: absolute; left: 24%; top: -4%; color: #cfc6ff; font-size: clamp(0.9rem, 1.6cqi, 1.4rem); pointer-events: none; }
+.rr-zz span { position: absolute; opacity: 0; animation: rr-zz 4.2s ease-in infinite; }
+.rr-zz span:nth-child(2) { animation-delay: 1.4s; font-size: 0.8em; }
+.rr-zz span:nth-child(3) { animation-delay: 2.8s; font-size: 0.65em; }
+@keyframes rr-zz { 0% { opacity: 0; transform: translate(0, 0); } 20% { opacity: 0.9; } 100% { opacity: 0; transform: translate(36px, -60px); } }
+.rr-awake .rr-zz { display: none; }
+
+.rr-hearts { position: absolute; left: 30%; top: 10%; pointer-events: none; }
+.rr-heart { position: absolute; font-style: normal; color: #ff7aa2; font-size: clamp(0.9rem, 1.5cqi, 1.3rem); animation: rr-heart 1.4s ease-out forwards; }
+@keyframes rr-heart { from { opacity: 1; transform: translate(0, 0) scale(0.6); } to { opacity: 0; transform: translate(var(--dx), -80px) scale(1.2); } }
+
+.rr-eyes { position: absolute; inset: 0; pointer-events: none; opacity: 0; transition: opacity 0.6s 0.3s; }
+.rr-awake .rr-eyes { opacity: 1; }
+.rr-eye {
+  position: absolute;
+  width: 5.2%;
+  height: 4.5%;
+  border-radius: 50%;
+  transform: rotate(-16deg);
+  background: radial-gradient(closest-side, #f2ff8a, #c3e03a 60%, rgba(195, 224, 58, 0) 100%);
+  box-shadow: 0 0 14px 4px rgba(200, 230, 70, 0.45);
+}
+.rr-eye::after { content: ""; position: absolute; left: 44%; top: 12%; width: 12%; height: 76%; border-radius: 50%; background: #0a0710; }
+
+/* ---------- hotspots ---------- */
+.rr-hot {
+  position: absolute;
+  z-index: 4;
+  transform: translate(-22px, -50%);
+  display: block;
+  min-height: 44px;
+  text-decoration: none;
+  color: #fff;
+}
+.rr-hotin { position: relative; display: block; padding: 10px; }
+.rr-plus {
+  position: relative;
+  flex: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: rgba(14, 11, 20, 0.62);
+  backdrop-filter: blur(10px) saturate(1.4);
+  -webkit-backdrop-filter: blur(10px) saturate(1.4);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.14), 0 6px 16px -6px rgba(0, 0, 0, 0.8);
+  color: #fff;
+  transition: transform 0.3s cubic-bezier(0.2, 1.2, 0.4, 1), background 0.25s;
+}
+.rr-plus svg { width: 10px; height: 10px; display: block; }
+.rr-plus::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.35);
+  animation: rr-ping 2.8s ease-out infinite;
+}
+@keyframes rr-ping { 0% { transform: scale(1); opacity: 0.9; } 70%, 100% { transform: scale(1.8); opacity: 0; } }
+.rr-lab {
+  position: absolute;
+  left: 46px;
+  top: 50%;
+  translate: 0 -50%;
+  padding: 7px 13px;
+  border-radius: 999px;
+  background: var(--rr-pill);
+  backdrop-filter: blur(16px) saturate(1.6);
+  -webkit-backdrop-filter: blur(16px) saturate(1.6);
+  box-shadow: 0 12px 30px -12px rgba(0, 0, 0, 0.6);
+  font: 500 clamp(0.85rem, 1.15cqi, 1.05rem) var(--rr-font);
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: opacity 0.2s, transform 0.25s cubic-bezier(0.2, 1.4, 0.4, 1);
+  pointer-events: none;
+}
+.rr-hot:hover .rr-lab, .rr-hot:focus-visible .rr-lab, .rr-books:hover .rr-lab, .rr-books:focus-visible .rr-lab { opacity: 1; transform: none; }
+.rr-hot:hover .rr-plus, .rr-hot:focus-visible .rr-plus, .rr-books:hover .rr-plus, .rr-books:focus-visible .rr-plus { transform: rotate(90deg); background: rgba(14, 11, 20, 0.85); }
+.rr-hot:focus-visible, .rr-books:focus-visible { outline: none; }
+.rr-hot:focus-visible .rr-plus, .rr-books:focus-visible .rr-plus { outline: 3px solid var(--rr-focus); outline-offset: 3px; }
+
+/* the books under the cat: the whole stack is clickable */
+.rr-books {
+  position: absolute;
+  left: 56.7%;
+  top: 80.8%;
+  width: 31.3%;
+  height: 15.6%;
+  display: block;
+  border-radius: 14px;
+  text-decoration: none;
+  color: #fff;
+  z-index: 2;
+}
+.rr-books::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(closest-side, rgba(255, 214, 150, 0.16), transparent);
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+.rr-books:hover::before, .rr-books:focus-visible::before { opacity: 1; }
+.rr-books .rr-hotin { position: absolute; left: 34%; top: 22%; transform: translateY(-50%); }
+.rr-hot { width: 44px; }
+
+/* ---------- hint + motion control ---------- */
+.rr-hint {
+  position: absolute;
+  left: clamp(12px, 2cqi, 28px);
+  top: clamp(12px, 2cqi, 28px);
+  z-index: 3;
+  margin: 0;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: var(--rr-pill);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  font: 500 0.85rem var(--rr-font);
+}
+.rr-hint-mobile { display: none; }
+.rr-pause {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  z-index: 5;
+  min-height: 44px;
+  padding: 0 15px;
+  border-radius: 999px;
+  border: 0;
+  background: var(--rr-pill);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: var(--rr-paper);
+  font: 500 0.85rem var(--rr-font);
+  cursor: pointer;
+}
+
+@media (hover: none) {
+  .rr-lab { opacity: 1; transform: none; }
+}
+
+/* phones in portrait: the room fills the height and pans sideways */
+@media (max-aspect-ratio: 1/1) {
+  .rr-scene { width: calc((100svh - var(--rr-header)) * 1.7917); max-width: none; }
+  .rr-scene .rr-hint { display: none; }
+  .rr-hint-mobile {
+    display: block;
+    position: absolute;
+    left: 50%;
+    bottom: 16px;
+    transform: translateX(-50%);
+    z-index: 6;
+    width: max-content;
+    max-width: calc(100% - 32px);
+    margin: 0;
+    text-align: center;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: var(--rr-pill);
+    font: 500 0.8rem var(--rr-font);
+  }
+  .rr-pause { bottom: 64px; }
+}
+
+.rr-still *, .rr-still *::before, .rr-still *::after { animation: none !important; transition: none !important; }
+@media (prefers-reduced-motion: reduce) {
+  .rr-root *, .rr-root *::before, .rr-root *::after { animation: none !important; transition: none !important; }
+}
