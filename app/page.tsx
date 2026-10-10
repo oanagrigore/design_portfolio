@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from 'react'
+import { Fragment, useState } from 'react'
 import Link from 'next/link'
 import { ArrowUpRight } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -112,14 +112,14 @@ export default function HomePage() {
             <h1 className="mt-6 max-w-4xl text-balance text-4xl font-semibold leading-[1.1] tracking-tight sm:text-5xl md:text-6xl">
               {heroLines.map((line, lineIndex) => (
                 <span key={lineIndex} className={line.className}>
-                  {line.text.split(" ").map((word, wordIndex) => (
-                    <span
-                      key={`${lineIndex}-${wordIndex}`}
-                      className="hero-title-word inline-block mr-[0.22em] whitespace-nowrap"
-                    >
-                      {word}
-                    </span>
+                  {line.text.split(" ").map((word, wordIndex, words) => (
+                    <Fragment key={`${lineIndex}-${wordIndex}`}>
+                      <span className="hero-title-word inline-block whitespace-nowrap">{word}</span>
+                      {/* a real space, so crawlers, AI assistants and screen readers read words, not "Makeyourselfathome" */}
+                      {wordIndex < words.length - 1 ? " " : null}
+                    </Fragment>
                   ))}
+                  {lineIndex < heroLines.length - 1 ? " " : null}
                 </span>
               ))}
             </h1>

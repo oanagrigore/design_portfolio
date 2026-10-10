@@ -1,0 +1,24 @@
+# Oana Grigore
+
+> Senior Product Designer based in Bucharest, Romania. Designs accessible healthcare transportation products (Medicaid ride booking portals, state NEMT information pages) and the design systems that keep them WCAG 2.1 AA compliant.
+
+Oana works across product strategy and architecture, design systems and governance, WCAG compliant systems, and conversion and flow optimization. Previous roles include Senior Product Designer at Vitals and Brand Designer at Electronic Arts. Open to senior product design roles, remote in Europe.
+
+## Case studies
+
+- [Designing a ride booking portal every Medicaid member can use](https://www.ogrigore.design/work/medidrive-member-portal): Accessibility driven redesign of a Medicaid non-emergency medical transportation (NEMT) portal
+- [Restructuring MediDrive's state NEMT pages](https://www.ogrigore.design/work/medidrive-state-resource-pages): Multi-audience information architecture redesign for Colorado and Virginia NEMT pages — segmenting member, facility, and provider paths, introducing a WCAG 2.1 AA-audited component system, and standardizing accessible downloadable forms
+- [MediDrive: Scaling Accessibility Across an Enterprise Healthtech Ecosystem](https://www.ogrigore.design/work/design-system-redesign): Design system built as governance infrastructure enabled consistent, accessible redesign at ecosystem scale
+- [Omni Limousine: Driving direct bookings through a premium web experience](https://www.ogrigore.design/work/omni-limousine): Redesign and Webflow build of premium chauffeur service in Las Vegas and Miami, converting static brand site into direct-booking channel
+
+## About
+
+- [About Oana](https://www.ogrigore.design/about): experience, certifications and capabilities
+- [Testimonials](https://www.ogrigore.design/testimonials)
+- [Contact](https://www.ogrigore.design/contact)
+
+## Optional
+
+- [LinkedIn](https://www.linkedin.com/in/oanagrigore)
+- [Dribbble](https://dribbble.com/oelenagrigore)
+- [Medium](https://medium.com/@oelenagrigore)

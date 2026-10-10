@@ -3,8 +3,14 @@ import { ContactForm } from '@/components/contact-form'
 import { profile } from '@/lib/content'
 
 export const metadata: Metadata = {
-  title: 'Contact — Oana Grigore',
+  title: 'Contact',
   description: 'Get in touch to discuss a project or collaboration.',
+  alternates: { canonical: '/contact' },
+  openGraph: {
+    url: '/contact',
+    title: 'Contact — Oana Grigore',
+    description: 'Get in touch to discuss a project or collaboration.',
+  },
 }
 
 export default function ContactPage() {
@@ -21,8 +27,8 @@ export default function ContactPage() {
         <div className="space-y-10">
           <div className="space-y-4">
             <span className="inline-flex items-center gap-2 rounded-full border border-border/60 bg-card px-3 py-1 text-sm text-foreground">
-              <span className="relative flex size-2">
-                <span className="absolute inline-flex size-full animate-ping rounded-full bg-pink-500 opacity-75" />
+              <span className="relative flex size-2" aria-hidden="true">
+                <span className="absolute inline-flex size-full motion-safe:animate-ping rounded-full bg-pink-500 opacity-75" />
                 <span className="relative inline-flex size-2 rounded-full bg-pink-500" />
               </span>
               Available for project-based or full-time work

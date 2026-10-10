@@ -9,16 +9,47 @@ import {
 } from '@/lib/content'
 import { AboutAnimator } from '@/components/about-animator'
 import { FiveReasons } from '@/components/five-reasons'
+import { JsonLd, personId } from '@/components/json-ld'
+import { SITE_URL, absoluteUrl } from '@/lib/seo'
+
+const PORTRAIT = '/oana-grigore.JPG'
+const DESCRIPTION = `${profile.role} driving design strategy and accessible product design across multiple brands and platforms, from marketing to product flows.`
 
 export const metadata: Metadata = {
-  title: `${profile.name} — ${profile.role}`,
-  description:
-    'Lead Product Designer driving design strategy and accessible product design across multiple brands and platforms, from marketing to product flows.',
+  // The root layout adds "— Oana Grigore" automatically
+  title: 'About',
+  description: DESCRIPTION,
+  alternates: { canonical: '/about' },
+  openGraph: {
+    type: 'profile',
+    url: '/about',
+    title: `${profile.name} — ${profile.role}`,
+    description: DESCRIPTION,
+    images: [{ url: PORTRAIT, alt: `Portrait of ${profile.name}` }],
+  },
 }
 
 export default function AboutPage() {
   return (
     <AboutAnimator>
+      {/* Tells search engines and AI assistants this page is about you */}
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'ProfilePage',
+          '@id': `${SITE_URL}/about#profilepage`,
+          url: absoluteUrl('/about'),
+          name: `About ${profile.name}`,
+          mainEntity: {
+            '@id': personId,
+            '@type': 'Person',
+            name: profile.name,
+            jobTitle: profile.role,
+            image: absoluteUrl(PORTRAIT),
+          },
+        }}
+      />
+
       <div className="mx-auto max-w-6xl px-6">
         <section className="pt-24 pb-16 md:pt-32 md:pb-20">
           <p data-animate="hero-label" className="text-sm text-muted-foreground">
@@ -47,7 +78,7 @@ export default function AboutPage() {
               className="relative aspect-4/5 overflow-hidden rounded-lg border border-border/60 bg-card"
             >
               <Image
-                src={profile.name ? '/oana-grigore.JPG' : '/placeholder.svg'}
+                src={PORTRAIT}
                 alt={`Portrait of ${profile.name}`}
                 fill
                 sizes="(max-width: 768px) 100vw, 33vw"

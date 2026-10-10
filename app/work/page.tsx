@@ -3,6 +3,16 @@ import Image from 'next/image'
 import { Sparkles, ArrowUpRight } from 'lucide-react'
 import { caseStudies } from '@/lib/content'
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  // object form keeps the "— Oana Grigore" suffix on every case study under /work
+  title: { default: "Selected work", template: "%s — Oana Grigore" },
+  description: "Case studies by Oana Grigore: an accessible Medicaid ride booking portal, multi-audience state NEMT pages for Colorado and Virginia, a governance-first design system for MediDrive, and a direct-booking site for Omni Limousine.",
+  alternates: { canonical: "/work" },
+  openGraph: { url: "/work", title: "Selected work — Oana Grigore", description: "Case studies by Oana Grigore: an accessible Medicaid ride booking portal, multi-audience state NEMT pages for Colorado and Virginia, a governance-first design system for MediDrive, and a direct-booking site for Omni Limousine." },
+};
+
 export default function WorkPage() {
   return (
     <div className="mx-auto max-w-6xl px-6 py-16 md:py-24">

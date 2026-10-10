@@ -5,6 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { ArrowLeft, ArrowUpRight, Maximize2, X } from 'lucide-react'
+
 import {
   caseStudies,
   type CaseStudyDecision,
@@ -18,13 +19,14 @@ export default function CaseStudyPage({
   params: Promise<{ slug: string }>
 }) {
   const { slug } = React.use(params)
+  // Hooks run before any early exit
+  const [activeImage, setActiveImage] = useState<CaseStudyImage | null>(null)
+
   const index = caseStudies.findIndex((s) => s.slug === slug)
   const study = caseStudies[index]
-
   if (!study) notFound()
 
   const next = caseStudies[(index + 1) % caseStudies.length]
-  const [activeImage, setActiveImage] = useState<CaseStudyImage | null>(null)
 
   return (
     <article className="w-full">
@@ -338,9 +340,9 @@ function RichSection({
                     key={testimonial.name}
                     className="flex w-full flex-col justify-between rounded-2xl bg-pink-500/[0.06] p-8 md:p-10"
                   >
-                  <blockquote className="text-pretty text-base leading-relaxed text-foreground/90">
-                    {testimonial.quote}
-                  </blockquote>
+                    <blockquote className="text-pretty text-base leading-relaxed text-foreground/90">
+                      {testimonial.quote}
+                    </blockquote>
                     <figcaption className="mt-8 border-t border-pink-500/20 pt-4">
                       <p className="text-sm font-semibold text-foreground">{testimonial.name}</p>
                       <p className="mt-1 text-xs uppercase tracking-[0.12em] text-pink-300">
@@ -355,9 +357,9 @@ function RichSection({
             {/* Editorial pull-quote */}
             {section.callout && (
               <blockquote className="my-4 border-l-2 border-pink-500 pl-6 md:pl-8">
-              <p className="text-pretty text-xl font-medium leading-[1.45] text-foreground sm:text-2xl">
-                {section.callout}
-              </p>
+                <p className="text-pretty text-xl font-medium leading-[1.45] text-foreground sm:text-2xl">
+                  {section.callout}
+                </p>
                 {section.calloutAttribution && (
                   <cite className="mt-4 block text-xs font-semibold not-italic uppercase tracking-[0.14em] text-muted-foreground">
                     {section.calloutAttribution}
