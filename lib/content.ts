@@ -1683,7 +1683,7 @@ export const experience: Experience[] = [
   {
     role: 'Brand Designer',
     company: 'Electronic Arts',
-    period: "Mar '16 ��� Feb '19",
+    period: "Mar '16 - Feb '19",
     description:
       'Crafted brand and visual design work within a global games company, building assets and identity systems across campaigns.',
     bullets: [],
