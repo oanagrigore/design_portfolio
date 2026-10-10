@@ -4,12 +4,13 @@ import { profile } from '@/lib/content'
 
 export const metadata: Metadata = {
   title: 'Contact',
-  description: 'Get in touch to discuss a project or collaboration.',
+  description:
+    'Contact Oana Grigore, Senior Product Designer in Bucharest, for senior product design roles, remote in Europe.',
   alternates: { canonical: '/contact' },
   openGraph: {
     url: '/contact',
     title: 'Contact — Oana Grigore',
-    description: 'Get in touch to discuss a project or collaboration.',
+    description: 'Open to senior product design roles, remote in Europe.',
   },
 }
 

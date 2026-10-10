@@ -91,20 +91,16 @@ export default function AboutPage() {
 
         <FiveReasons />
 
-        {/* Selected Impact Section */}
+        {/* Scope & Scale Section */}
         <section
           data-animate="impact-section"
-          className="grid grid-cols-1 gap-10 py-16 md:grid-cols-[1fr_2fr] md:py-20"
+          aria-labelledby="scope-heading"
+          className="py-16 md:py-20"
         >
-          <div>
-            <h2 className="text-sm font-medium tracking-tight text-muted-foreground">
-              Selected Impact
-            </h2>
-            <p className="mt-2 text-sm text-muted-foreground/80">
-              Key outcomes across systems, accessibility, and reach.
-            </p>
-          </div>
-          <ul className="grid grid-cols-1 gap-px overflow-hidden rounded-xl border border-border/60 bg-border/60 sm:grid-cols-2">
+          <h2 id="scope-heading" className="sr-only">
+            Scope and scale
+          </h2>
+          <ul className="grid grid-cols-1 gap-px overflow-hidden rounded-xl sm:grid-cols-2">
             {highlights.map((item) => (
               <li
                 key={item.title}
@@ -116,9 +112,6 @@ export default function AboutPage() {
                 </span>
                 <div>
                   <h3 className="font-medium text-foreground">{item.title}</h3>
-                  <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
-                    {item.description}
-                  </p>
                 </div>
               </li>
             ))}
@@ -126,7 +119,7 @@ export default function AboutPage() {
         </section>
 
         {/* Experience Section */}
-        <section className="grid grid-cols-1 gap-10 border-t border-border/60 py-16 md:grid-cols-[1fr_2fr] md:py-20">
+        <section className="grid grid-cols-1 gap-10 py-16 md:grid-cols-[1fr_2fr] md:py-20">
           <h2 className="text-sm font-medium tracking-tight text-muted-foreground">
             Experience
           </h2>
@@ -176,12 +169,12 @@ export default function AboutPage() {
         {/* Certifications Section */}
         <section
           data-animate="certs-section"
-          className="grid grid-cols-1 gap-10 border-t border-border/60 py-16 md:grid-cols-[1fr_2fr] md:py-20"
+          className="grid grid-cols-1 gap-10 py-16 md:grid-cols-[1fr_2fr] md:py-20"
         >
           <h2 className="text-sm font-medium tracking-tight text-muted-foreground">
             Certifications
           </h2>
-          <ul className="grid grid-cols-1 gap-px overflow-hidden rounded-lg border border-border/60 bg-border/60 sm:grid-cols-2">
+          <ul className="grid grid-cols-1 gap-px overflow-hidden rounded-lg sm:grid-cols-2">
             {certifications.map((cert) => (
               <li
                 key={cert.name}
@@ -202,7 +195,7 @@ export default function AboutPage() {
         {/* Capabilities Section */}
         <section
           data-animate="capabilities-section"
-          className="grid grid-cols-1 gap-10 border-t border-border/60 py-16 md:grid-cols-[1fr_2fr] md:py-20"
+          className="grid grid-cols-1 gap-10 py-16 md:grid-cols-[1fr_2fr] md:py-20"
         >
           <h2 className="text-sm font-medium tracking-tight text-muted-foreground">
             Capabilities

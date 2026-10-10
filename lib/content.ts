@@ -20,33 +20,24 @@ export const profile = {
 export interface Highlight {
   value: string;
   title: string;
-  description: string; // Add this field
 }
 
 export const highlights: Highlight[] = [
   {
-    value: 'Millions+',
-    title: 'Rider Reach & System Scale',
-    description:
-      'Designed the MediDrive Member App, Web Portal, and unified design system powering non-emergency healthcare transport across Virginia and Colorado.',
+    value: '5 brands',
+    title: 'design strategy led across 5 transportation brands, including MediDrive',
   },
   {
-    value: '+8%',
-    title: 'Addressable Market Growth',
-    description:
-      'Advanced accessibility across core applications to align strictly with WCAG guidelines, expanding overall market reach and compliance.',
+    value: 'WCAG 2.1 AA',
+    title: 'the accessibility baseline to design MediDrive\'s member app and portal',
   },
   {
-    value: '+40%',
-    title: 'Design Consistency',
-    description:
-      'Built a tokenized multi-brand design system across production web applications, cutting design debt by 15% and accelerating handoffs.',
+    value: '40+ Shopify apps',
+    title: 'scaled for 30,000+ merchants',
   },
   {
-    value: '+75%',
-    title: 'Startup CSAT Lift',
-    description:
-      'Guided early-stage startups in establishing online presences and product flows, driving measurable improvements in customer satisfaction.',
+    value: '15 years',
+    title: 'across visual, web and product design',
   },
 ]
 
@@ -110,7 +101,7 @@ export type CaseStudy = {
 export const caseStudies: CaseStudy[] = [
   {
     slug: 'medidrive-member-portal',
-    title: 'Designing a ride booking portal every Medicaid member can use',
+    title: 'Designing a ridebooking portal every Medicaid member can use',
     summary:
       'Accessibility driven redesign of a Medicaid non-emergency medical transportation (NEMT) portal. Audited flow by flow, rebuilt in light and dark mode with state-specific variants and designed to WCAG 2.1 AA.',
     impactText: 'Audited and transformed a dispatch-heavy interface into an intuitive, accessible portal built specifically for caregivers and members aged 65+.',
