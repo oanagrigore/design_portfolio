@@ -7,6 +7,8 @@
   --rr-focus: #d9b45f;
   --rr-pill: rgba(14, 11, 20, 0.85);
   --rr-font: var(--font-geist-sans, "Geist"), system-ui, -apple-system, "Segoe UI", sans-serif;
+  /* Colour the bottom of the hero fades into: your page background. */
+  --rr-fade: var(--background, #0b0b0d);
   /* Space your fixed header takes up. Override from the parent if yours differs. */
   --rr-header: 64px;
   position: relative;
@@ -24,9 +26,37 @@
 }
 .rr-pan::-webkit-scrollbar { display: none; }
 
+/* Wide screens: fill the width, trimming up to ~15% off the top and bottom
+   (ceiling beams and floorboards). Wider than that, the sides fade into a
+   blurred, dimmed copy of the room instead of hard black bars. */
+@media (min-aspect-ratio: 1/1) {
+  .rr-root { overflow: hidden; isolation: isolate; }
+  .rr-root::before {
+    content: "";
+    position: absolute;
+    inset: -60px;
+    z-index: -1;
+    background: url("/hero/room-dark.webp") center / cover no-repeat;
+    filter: blur(40px) brightness(0.55) saturate(1.2);
+  }
+  .rr-pan {
+    display: flex;
+    align-items: center;
+    max-height: calc(100svh - var(--rr-header));
+    overflow: hidden;
+  }
+}
+@media (min-aspect-ratio: 2114/1000) {
+  .rr-scene {
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  }
+}
+
 .rr-scene {
   position: relative;
-  width: min(100%, calc((100svh - var(--rr-header)) * 1.7917));
+  flex: none;
+  width: min(100%, calc((100svh - var(--rr-header)) * 1.7917 * 1.18));
   aspect-ratio: 2752 / 1536;
   margin-inline: auto;
   overflow: hidden;
@@ -240,11 +270,30 @@
 .rr-books .rr-hotin { position: absolute; left: 34%; top: 22%; transform: translateY(-50%); }
 .rr-hot { width: 44px; }
 
+/* soft fade from the painting into the page below */
+.rr-root::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: clamp(72px, 12%, 140px);
+  z-index: 4;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    color-mix(in srgb, var(--rr-fade) 18%, transparent) 30%,
+    color-mix(in srgb, var(--rr-fade) 55%, transparent) 62%,
+    var(--rr-fade) 100%
+  );
+}
+
 /* ---------- hint + motion control ---------- */
 .rr-hint {
   position: absolute;
-  left: clamp(12px, 2cqi, 28px);
-  top: clamp(12px, 2cqi, 28px);
+  left: 20px;
+  top: 20px;
   z-index: 3;
   margin: 0;
   padding: 8px 14px;
@@ -279,7 +328,7 @@
 /* phones in portrait: the room fills the height and pans sideways */
 @media (max-aspect-ratio: 1/1) {
   .rr-scene { width: calc((100svh - var(--rr-header)) * 1.7917); max-width: none; }
-  .rr-scene .rr-hint { display: none; }
+  .rr-root > .rr-hint { display: none; }
   .rr-hint-mobile {
     display: block;
     position: absolute;

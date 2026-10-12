@@ -367,10 +367,10 @@ export function ReadingRoomHero() {
             </Link>
           ))}
 
-          <p className={styles.hint} aria-hidden="true">Click a light · Say hi to the cat · Follow the + signs</p>
         </div>
       </div>
 
+      <p className={styles.hint} aria-hidden="true">Click a light · Say hi to the cat · Follow the + signs</p>
       <p className={styles.hintMobile} aria-hidden="true">Swipe to look around · tap a light · follow the + signs</p>
       <button type="button" className={styles.pause} aria-pressed={paused} onClick={togglePause}>
         {paused ? "Play motion" : "Pause motion"}

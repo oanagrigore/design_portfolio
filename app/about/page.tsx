@@ -94,16 +94,12 @@ export default function AboutPage() {
         {/* 1 · Opening */}
         <section
           aria-labelledby="about-title"
-          className="grid grid-cols-1 gap-x-6 pt-24 pb-16 md:grid-cols-12 md:pt-36 md:pb-24"
+          className="grid grid-cols-1 gap-x-5 pt-16 pb-16 md:grid-cols-12 md:pt-36 md:pb-24"
         >
           <div
             data-animate="hero-label"
-            className={`${label} col-span-full mb-10 flex flex-wrap justify-between gap-x-6 gap-y-2 border-b border-border/60 pb-5 md:mb-20`}
+            className={`${label} col-span-full mb-10 flex flex-wrap justify-between gap-x-6 gap-y-2 md:mb-20`}
           >
-            <span>About</span>
-            <span className="text-foreground">
-              Open to senior product design roles · Remote in Europe
-            </span>
           </div>
 
           <div className="md:col-span-8">
