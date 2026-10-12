@@ -76,9 +76,6 @@ export default function RootLayout({
           </div>
         </SmoothScrollProvider>
 
-        {/* Live Design System & Redline Inspector Overlay */}
-        <DesignInspector />
-
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>

@@ -28,6 +28,7 @@ const styles = {
   pan: "rr-pan",
   pause: "rr-pause",
   plus: "rr-plus",
+  reader: "rr-reader",
   root: "rr-root",
   scene: "rr-scene",
   sr: "rr-sr",
@@ -68,6 +69,7 @@ const LIGHTS: Light[] = [
   { id: "fire", name: "Fireplace", x: 470, y: 1075, hw: 200, hh: 290, pool: { x: 480, y: 1170, rx: 680, ry: 540 } },
   { id: "c1", name: "Mantel candle", x: 407, y: 610, r: 300 },
   { id: "c2", name: "Mantel candle", x: 621, y: 665, r: 280 },
+  { id: "lh", name: "Hanging lantern", x: 916, y: 300, r: 380 },
   { id: "lt", name: "Hanging lantern", x: 1767, y: 330, r: 380 },
   { id: "ll", name: "Hanging lantern", x: 987, y: 690, r: 360 },
   { id: "lr", name: "Hanging lantern", x: 1478, y: 722, r: 360 },
@@ -77,6 +79,11 @@ const LIGHTS: Light[] = [
 ];
 
 /** Plus markers. Positions are % of the scene. */
+/** The reader (box in painting pixels). The two paintings have her in different poses,
+ *  so she's drawn as her own layer, always reading: one copy lit by the lantern beside
+ *  her, one with it out. Only the light changes. */
+const READER = { x: 795, y: 750, w: 441, h: 609 };
+
 const HOTSPOTS = [
   { href: "/about", label: "About me", left: 36.3, top: 70.3 },
   { href: "/testimonials", label: "Testimonials", left: 26.7, top: 89.5 },
@@ -266,7 +273,7 @@ export function ReadingRoomHero() {
         <div ref={sceneRef} className={styles.scene}>
           <Image
             src="/hero/room-dark.webp"
-            alt="Illustration of a cozy two-storey library at night: a fire in a stone fireplace, candles on the mantel, hanging lanterns, a patchwork armchair, a tall arched window full of stars, and a black cat asleep on a stack of books."
+            alt="Illustration of a cozy two-storey library at night: a fire in a stone fireplace, candles on the mantel, hanging lanterns, a woman reading in a patchwork armchair by a table lantern, a tall arched window full of stars, and a black cat asleep on a stack of books."
             fill
             priority
             sizes="(max-aspect-ratio: 1/1) 180svh, 100vw"
@@ -285,6 +292,26 @@ export function ReadingRoomHero() {
               />
             );
           })}
+
+          {/* the reader: covers both poses so the light pools never show two of her */}
+          {[
+            { src: "/hero/reader-reading.webp", show: lights.tl },
+            { src: "/hero/reader-reading-dark.webp", show: !lights.tl },
+          ].map((r) => (
+            <div
+              key={r.src}
+              aria-hidden="true"
+              className={styles.reader}
+              style={{
+                left: px(READER.x),
+                top: py(READER.y),
+                width: px(READER.w),
+                height: py(READER.h),
+                backgroundImage: `url(${r.src})`,
+                opacity: r.show ? 1 : 0,
+              }}
+            />
+          ))}
 
           <canvas ref={canvasRef} className={styles.fx} aria-hidden="true" />
 
