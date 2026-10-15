@@ -1,0 +1,96 @@
+/* Sparks from the reading-room fire, reused on hover across the site.
+   Global CSS with an sp- prefix so it cannot clash with anything else.
+
+   Each spark rises from the middle of the button's top edge, sways gently left and right
+   like a real ember on warm air, twinkles once, and fades as it cools. */
+
+.sp-wrap { position: relative; display: inline-flex; isolation: isolate; }
+.sp {
+  position: absolute;
+  inset: -8px -4px;
+  pointer-events: none;
+  z-index: 1;
+}
+.sp i {
+  position: absolute;
+  bottom: 72%;
+  width: 2.5px;
+  height: 2.5px;
+  margin-left: -1.25px;
+  border-radius: 50%;
+  background: #fff3d6;
+  box-shadow: 0 0 4px 1px rgba(255, 176, 92, 0.7);
+  opacity: 0;
+  will-change: transform, opacity;
+}
+/* clustered around the centre; each has its own drift (--dx), height (--h), speed and start */
+.sp i:nth-child(1)  { left: 41%; --dx: -9px; --h: 34px; animation-duration: 2.1s; animation-delay: -0.2s; }
+.sp i:nth-child(2)  { left: 47%; --dx: 6px;  --h: 44px; animation-duration: 2.6s; animation-delay: -1.4s; }
+.sp i:nth-child(3)  { left: 53%; --dx: -5px; --h: 30px; animation-duration: 1.9s; animation-delay: -0.9s; }
+.sp i:nth-child(4)  { left: 58%; --dx: 10px; --h: 40px; animation-duration: 2.4s; animation-delay: -2.0s; }
+.sp i:nth-child(5)  { left: 44%; --dx: 4px;  --h: 48px; animation-duration: 2.8s; animation-delay: -0.5s; width: 2px; height: 2px; }
+.sp i:nth-child(6)  { left: 50%; --dx: -7px; --h: 38px; animation-duration: 2.2s; animation-delay: -1.7s; }
+.sp i:nth-child(7)  { left: 37%; --dx: -4px; --h: 28px; animation-duration: 2.0s; animation-delay: -1.1s; width: 2px; height: 2px; }
+.sp i:nth-child(8)  { left: 62%; --dx: 5px;  --h: 32px; animation-duration: 2.3s; animation-delay: -0.3s; width: 2px; height: 2px; }
+/* two pink embers, for the accent colour */
+.sp i:nth-child(9)  { left: 49%; --dx: 8px;  --h: 42px; animation-duration: 2.5s; animation-delay: -1.9s;
+  background: #ffd6e8; box-shadow: 0 0 4px 1px rgba(236, 72, 153, 0.6); }
+.sp i:nth-child(10) { left: 55%; --dx: -6px; --h: 36px; animation-duration: 2.7s; animation-delay: -0.7s; width: 2px; height: 2px;
+  background: #ffd6e8; box-shadow: 0 0 4px 1px rgba(236, 72, 153, 0.6); }
+
+.sp-wrap:hover .sp i,
+.sp-wrap:focus-within .sp i,
+.sp-on .sp i {
+  animation-name: sp-rise;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+/* rise with a soft S-shaped sway, a small twinkle midway, then cool and fade */
+@keyframes sp-rise {
+  0%   { opacity: 0;    transform: translate(0, 0) scale(1); }
+  12%  { opacity: 0.95; }
+  30%  { transform: translate(calc(var(--dx) * 0.45), calc(var(--h) * var(--lift, 1) * -0.3)) scale(0.95); }
+  45%  { opacity: 0.6; }
+  52%  { opacity: 0.95; }
+  62%  { transform: translate(calc(var(--dx) * -0.25), calc(var(--h) * var(--lift, 1) * -0.62)) scale(0.8); }
+  80%  { opacity: 0.5; }
+  100% { opacity: 0;    transform: translate(calc(var(--dx) * var(--lift, 1)), calc(var(--h) * var(--lift, 1) * -1)) scale(0.5); }
+}
+
+/* the round "View" bubble: a touch bigger, rising a little higher */
+.sp-big .sp { --lift: 1.5; }
+.sp-big .sp i { bottom: 78%; width: 3px; height: 3px; margin-left: -1.5px; }
+
+/* Primary button: on hover the pink → rose → violet gradient flows left to right.
+   Add the class `flow-gradient` to any gradient button. The moving layer is twice the
+   button's width and repeats once, so sliding it by one button-width loops seamlessly. */
+.flow-gradient { position: relative; overflow: hidden; isolation: isolate; }
+.flow-gradient::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -100%;
+  width: 200%;
+  z-index: -1;
+  background: linear-gradient(90deg, #ec4899, #f43f5e, #a855f7, #ec4899, #f43f5e, #a855f7, #ec4899);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+.flow-gradient:hover::before,
+.flow-gradient:focus-visible::before {
+  opacity: 1;
+  animation: flow-gradient 3.2s linear infinite;
+}
+@keyframes flow-gradient {
+  from { transform: translateX(0); }
+  to   { transform: translateX(50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sp { display: none; }
+  .flow-gradient:hover::before,
+  .flow-gradient:focus-visible::before { animation: none; }
+}
