@@ -7,7 +7,7 @@ export const profile = {
   aboutIntro: [
     `Led design strategy across 5 transportation brands, including MediDrive, a non-emergency medical transport (NEMT) platform serving millions of members across Virginia and Colorado, where WCAG accessibility is a mandatory baseline.`,
     `I created the core design system used across all MediDrive touchpoints and led the complete UX/UI redesigns for the Member Mobile App and Member Web Portal, making healthcare transport effortless for members.`,
-    `Backing this is an 8+ year specialization in complex web applications, including scaling 40+ Shopify apps for 30,000+ merchants, and a 14-year foundation spanning visual, graphic, and product design.`
+    `Backing this is an 8+ year specialization in complex web applications, including scaling 40+ Shopify apps for 30,000+ merchants, and a 15-year foundation spanning visual, graphic, and product design.`
   ],
   intro:
     'In healthcare transportation, bad UX means someone doesn\'t get to their appointment. That\'s why I design accessibility in from the start, across portals, apps and the systems that hold them together.',
@@ -59,11 +59,13 @@ export type CaseStudyImage = {
   // When set, the image renders directly after the bullet at this index.
   // Otherwise it renders after the bullet list.
   afterBullet?: number
-  afterDecision?: number 
+  afterDecision?: number
 }
 
 export type CaseStudySection = {
   heading: string
+  // One-line takeaway shown under the heading, for readers who skim.
+  lead?: string
   paragraphs?: string[]
   bullets?: string[]
   callout?: string
@@ -101,10 +103,11 @@ export type CaseStudy = {
 export const caseStudies: CaseStudy[] = [
   {
     slug: 'medidrive-member-portal',
-    title: 'Designing a ridebooking portal every Medicaid member can use',
+    title: 'Designing a ride booking portal every Medicaid member can use',
     summary:
-      'Accessibility driven redesign of a Medicaid non-emergency medical transportation (NEMT) portal. Audited flow by flow, rebuilt in light and dark mode with state-specific variants and designed to WCAG 2.1 AA.',
-    impactText: 'Audited and transformed a dispatch-heavy interface into an intuitive, accessible portal built specifically for caregivers and members aged 65+.',
+      'An accessibility-led redesign of a Medicaid non-emergency medical transportation (NEMT) portal. I audited it flow by flow, then rebuilt it in light and dark mode, with state-specific variants, designed to WCAG 2.1 AA.',
+    impactText:
+      'Audited and transformed a dispatch-heavy interface into an intuitive, accessible portal built specifically for caregivers and members aged 65+.',
     cover: '/work/MediDrive-portal-cover.png',
     year: '2026',
     client: 'MediDrive',
@@ -113,109 +116,85 @@ export const caseStudies: CaseStudy[] = [
     overview:
       'MediDrive lets members book and manage rides to medical appointments. The audience skews older, less tech-savvy, and benefit-dependent. I led a flow-based heuristic and accessibility audit of the member portal and partnered with Senior Product Designer Liviu to completely redesign the web portal and app in light and dark mode, including state-specific variants.',
     challenge:
-      'The portal had accreted features over time by borrowing mental models from operational and dispatcher tooling. This led to silent failures, premature error states, and severe accessibility barriers that forced members to rely on costly support phone calls.',
+      'The portal had borrowed its patterns from dispatcher tooling. Members hit silent failures, premature errors and keyboard and contrast barriers, and fell back on costly support calls.',
     approach:
-      'Audited four primary journeys against Nielsen’s heuristics and WCAG 2.1 AA. Anchored the redesign around three core principles: eliminating silent failure states, replacing operational dispatcher grids with intuitive member tables, and baking WCAG 2.1 AA keyboard/contrast accessibility into every component.',
+      'Audited four core journeys against Nielsen’s heuristics and WCAG 2.1 AA, then redesigned around three rules: no silent states, member tables instead of dispatcher grids, and accessibility built into every component.',
     outcome:
-      'A complete, accessibility-first redesign across portal and mobile app surfaces in light and dark mode, backed by a comprehensive 90-day measurement plan targeting onboarding completion, self-service rates, and support call reduction.',
+      'A complete redesign of portal and app, in light and dark mode with a Colorado variant, ready for build, with a 90-day plan to measure onboarding, self-service and support calls.',
     metrics: [
       { label: 'Accessibility', value: 'WCAG 2.1 AA' },
       { label: 'Theme Support', value: 'Light & Dark' },
-      { label: 'State Variants', value: 'UX for elderly users' },
+      { label: 'State Variants', value: 'Colorado' },
     ],
     quickSummary: [
-      { label: 'My role', value: 'Lead Product Designer' },
-      {
-        label: 'Team',
-        value: 'Co-redesigned with Liviu (Senior Product Designer).',
-      },
+      { label: 'My role', value: 'Lead Product Designer: audit, flow architecture and accessibility.' },
+      { label: 'Team', value: 'Co-redesigned with Liviu (Senior Product Designer).' },
       {
         label: 'Scope',
         value:
-          'Flow heuristic audit, portal & mobile app redesign, light & dark modes, state-specific variant system (Colorado), accessibility compliance specification.',
+          'Flow heuristic audit, portal & mobile app redesign, light & dark modes, Colorado state variant system, accessibility specification.',
       },
-      {
-        label: 'Status',
-        value: 'Design complete & specified; awaiting implementation & conformance testing.',
-      },
+      { label: 'Status', value: 'Design complete and specified; awaiting build and conformance testing.' },
     ],
     sections: [
       {
-        heading: 'Context',
+        heading: 'Why this portal had to work',
+        lead: 'For these members, a failed booking isn’t an inconvenience. It’s a missed medical appointment.',
         paragraphs: [
-          'MediDrive allows members to schedule and manage rides to medical appointments. The audience is older, less tech-savvy, and reliant on benefits. A demographic for whom a failed booking is more than a minor inconvenience; it is a missed appointment.That single fact set the standard for the entire redesign: the portal must make the next step clear and never fail silently.',
+          'MediDrive allows members to schedule and manage rides to medical appointments. The audience is older, less tech-savvy, and reliant on benefits. That single fact set the standard for the entire redesign: the portal must make the next step clear and never fail silently.',
           'The existing portal had accreted feature by feature, borrowing patterns from operational/dispatcher tooling that were wrong for members. So I audited it before touching the UI.',
-'I led the audit, flow architecture, and accessibility. I partnered with Liviu, the other senior product designer on the team, to fully redesign the member app and portal in light and dark mode.',
-  'Status: design complete, not yet in development. ',
         ],
         images: [
           {
             src: '/work/md-cs-solution4.png',
             alt: 'Full bleed overview showing the redesigned MediDrive portal in both light and dark mode.',
-            caption: 'The redesigned MediDrive member experience: task-focused portal and app interfaces in light and dark modes.',
+            caption: 'The redesigned member experience: task-focused portal and app screens in light and dark mode.',
           },
         ],
       },
       {
-        heading: 'The engineering perspective',
+        heading: 'What I found',
+        lead: 'Five recurring failures across four journeys, each mapped to a usability heuristic or a WCAG criterion.',
         paragraphs: [
-          'The redesign was shaped by the way design decisions travel into real products: through shared language, accessible systems, edge-case thinking, and close collaboration with the people who build the experience.',
+          'I ran a flow-based heuristic evaluation, not a screen skin, across the four journeys that mattered to the business: New user, Existing user, Multiple members, and Mobile. Each was evaluated against Nielsen’s 10 usability heuristics (Nielsen Norman Group) and WCAG 2.1 AA (W3C), because a Medicaid-adjacent product carries both a usability and a legal-conformance obligation.',
         ],
-  testimonialQuotes: [
-  {
-  quote:
-  'Oana is one of those rare Lead Product Designers who naturally steps up whenever a project needs direction, clarity, or a bridge between design and engineering. Her design decisions were directly responsible for us passing every accessibility audit without friction.',
-  name: 'Serhii Nadoienko',
-  title: 'Frontend Engineer, Technology Oriented',
-  },
-  ],
-      },
-      {
-        heading: 'The audit',
-        paragraphs: [
-          'I ran a flow-based heuristic evaluation, not a screen skin, across the four journeys that mattered to the business: New user, Existing user, Multiple members, and Mobile. Each was evaluated against Nielsen’s 10 usability heuristics (Nielsen Norman Group) and WCAG 2.1 AA (W3C) — because a Medicaid-adjacent product carries a usability and a legal-conformance obligation.',
-          'The findings clustered into five core themes:',
-        ],
-       
         bullets: [
-          'The portal repeatedly put users into blocked states without telling them why or what to do (e.g., multi-leg booking disabling "Continue" without feedback, missing service levels blocking progress without explanation). Violates Heuristics #1 & #9; WCAG 3.3.1 & 4.1.3.',
-          'Layouts borrowed dispatcher mental models (dense operational grids, searching by Trip ID, jargon like "Legs") rather than providing intuitive tables and member-first flows. Violates Heuristics #2 & #8.',
-          'Inputs that could not be completed via keyboard (WCAG 2.1.1 Level A failure), pervasive low-contrast elements (WCAG 1.4.3), and insufficient badge font sizes for older adults.',
-          'Premature error states that alarmed elderly users into thinking they made mistakes, alongside confusing and misleading empty panel states.',
-          'Orientation and feedback gaps: Lack of branding/location hints, no multi-step registration progress indicators, and transient feedback/tooltips that vanished before being read.',
+          'Silent blocks: the portal repeatedly put users into blocked states without telling them why or what to do (e.g., multi-leg booking disabling "Continue" without feedback, missing service levels blocking progress without explanation). Violates Heuristics #1 & #9; WCAG 3.3.1 & 4.1.3.',
+          'Dispatcher mental models: dense operational grids, searching by Trip ID and jargon like "Legs", instead of intuitive tables and member-first flows. Violates Heuristics #2 & #8.',
+          'Keyboard and contrast failures: inputs that could not be completed via keyboard (WCAG 2.1.1, Level A), pervasive low-contrast elements (WCAG 1.4.3), and badge text too small for older adults.',
+          'Premature errors: error states that fired too early and alarmed older users into thinking they had made mistakes, alongside confusing and misleading empty panels.',
+          'Orientation gaps: no branding or location hints, no progress indicator in multi-step registration, and feedback that vanished before it could be read.',
         ],
         callout:
-          'In the multiple-members flow, selecting a member from the dropdown failed to update the trip list automatically, forcing manual page refreshes. A functional defect the redesign solved structurally.',
+          'In the multiple-members flow, selecting a member from the dropdown failed to update the trip list, forcing a manual page refresh. A functional defect the redesign solved structurally.',
         images: [
           {
             src: '/work/md-cs-audit.png',
-            alt: 'dispatcher mental models (dense operational grids, searching by Trip ID, jargon like "Legs")',
-            caption: 'Dispatcher mental models (dense operational grids, searching by Trip ID.',
+            alt: 'Dispatcher mental models: dense operational grids, searching by Trip ID, jargon like "Legs".',
+            caption: 'Dispatcher mental models: dense operational grids and searching by Trip ID.',
             afterBullet: 1,
           },
           {
             src: '/work/md-cs-audit2.png',
-            alt: 'Premature error states that alarmed elderly users into thinking they made mistakes',
-            caption: 'Premature error states that alarmed elderly users into thinking they made mistakes',
+            alt: 'Premature error states that alarmed older users into thinking they had made mistakes.',
+            caption: 'Premature error states that alarmed older users into thinking they had made mistakes.',
             afterBullet: 3,
           },
           {
             src: '/work/portal-audit.png',
-            alt: 'Full-bleed heuristic audit analysis mapping screen flaws to Nielsen heuristics and WCAG AA guidelines.',
-            caption: 'Flow-based heuristic and accessibility audit matrix mapping critical user friction points.',
+            alt: 'Heuristic audit matrix mapping screen flaws to Nielsen heuristics and WCAG AA criteria.',
+            caption: 'The audit matrix: every friction point mapped to a heuristic or a WCAG criterion.',
             afterBullet: 4,
           },
         ],
       },
       {
-        heading: 'Principles',
-        paragraphs: [
-          'Three non-negotiables, drawn straight from the audit findings, guided every interface decision:',
-        ],
+        heading: 'Three rules I designed by',
+        lead: 'Each rule comes straight from an audit finding, so every later decision can be traced back to evidence.',
         bullets: [
-          'No silent states: Every disabled control, block, or error explains itself explicitly and offers a clear way forward.',
-          'Members are not dispatchers: Familiar, scannable, task-focused patterns (tables over operational grids); zero internal jargon.',
-          'Accessibility is the floor: Keyboard operability and AA contrast designed in from the flow up, verified against WCAG 2.1 — with older adults as the primary design target, not an edge case.',
+          'No silent states: every disabled control, block, or error explains itself and offers a clear way forward.',
+          'Members are not dispatchers: familiar, scannable, task-focused patterns (tables over operational grids) and zero internal jargon.',
+          'Accessibility is the floor: keyboard operability and AA contrast designed in from the flow up, with older adults as the primary design target, not an edge case.',
         ],
         images: [
           {
@@ -226,102 +205,116 @@ export const caseStudies: CaseStudy[] = [
           },
           {
             src: '/work/md-cs-solution2.png',
-            alt: 'Familiar, scannable, task-focused patterns (tables over operational grids)',
-            caption: 'Familiar, scannable, task-focused patterns (tables over operational grids)',
+            alt: 'Familiar, scannable, task-focused patterns: tables over operational grids.',
+            caption: 'Familiar, scannable, task-focused patterns: tables over operational grids.',
             afterBullet: 1,
           },
         ],
       },
       {
-        heading: 'The redesign',
+        heading: 'The decisions that changed the experience',
+        lead: 'I rebuilt all four flows in light and dark mode, plus a Colorado variant layer instead of hard-coded exceptions.',
         paragraphs: [
-          'I rebuilt all four flows and delivered the full screen set in light and dark mode, plus a Colorado state-specific variant set (state Medicaid programs differ in requirements and language — handled as a deliberate variant layer, not hardcoded exceptions).',
+          'State Medicaid programs differ in requirements and language, so the Colorado set is a deliberate variant layer on the same system, not a fork.',
         ],
         decisions: [
           {
-            title: 'Clear, self-explaining error & block states',
-            problem:
-              'Users were frequently blocked by disabled buttons or silent validation errors without feedback.',
+            title: 'Blocked states explain themselves',
+            problem: 'Users were frequently blocked by disabled buttons or silent validation errors without feedback.',
             change:
-              'Redesigned every form and action point so that disabled buttons display contextual helper messages indicating missing required fields.',
-            why: 'Eliminates guesswork and keeps anxious or less tech-savvy members moving forward without needing to call support.',
+              'Every form and action point now shows a contextual helper message naming the missing field when a button is disabled.',
+            why: 'It removes guesswork and keeps anxious or less tech-savvy members moving forward without calling support.',
           },
           {
-            title: 'Task-focused member tables over operational grids',
-            problem:
-              'Members had to parse multi-column dispatcher tables with internal jargon like "Trip IDs" and "Legs".',
+            title: 'Member tables instead of operational grids',
+            problem: 'Members had to parse multi-column dispatcher tables with internal jargon like "Trip IDs" and "Legs".',
             change:
-              'Replaced dense grids with clean, scannable member tables highlighting date, destination, driver status, and simple human actions.',
-            why: 'Aligns with the member mental model, drastically lowering cognitive load and reading friction.',
+              'Dense grids became clean, scannable tables showing date, destination, driver status and simple human actions.',
+            why: 'It matches how members think about their trips, lowering cognitive load and reading effort.',
           },
           {
-            title: 'First-run member onboarding priority',
-            problem:
-              'First-time logins immediately dropped users into booking forms without identifying who the trip was for.',
-            change:
-              'Structured first-run onboarding to prioritize adding a member and confirming Medicaid details prior to booking.',
-            why: 'Prevents the most expensive error in the ecosystem — booking a medical trip under the wrong account.',
+            title: 'Who the trip is for comes first',
+            problem: 'First-time logins dropped users straight into a booking form without identifying who the trip was for.',
+            change: 'First-run onboarding now adds the member and confirms their Medicaid details before any booking.',
+            why: 'It prevents the most expensive error in the ecosystem: booking a medical trip under the wrong account.',
           },
         ],
         images: [
           {
             src: '/work/portal-figma.png',
-            alt: 'Full-bleed layout comparing member portal dashboard screens across Light, Dark, and Colorado state modes.',
-            caption: 'The complete redesign ecosystem: rendered across light mode, dark mode, and state-specific Medicaid variants.',
+            alt: 'Member portal dashboard screens across light, dark and Colorado state modes.',
+            caption: 'The full system: light mode, dark mode and the Colorado variant.',
           },
-           {
+          {
             src: '/work/md-cs-solution5.png',
             alt: 'Confirmed trip on the redesigned MediDrive portal, showing clear status and next steps.',
+            caption: 'A confirmed trip: clear status and the next step.',
           },
           {
             src: '/work/md-cs-solution6.png',
             alt: 'Ride card on the dashboard showing clear status, driver ETA, and next steps.',
+            caption: 'The ride card answers “is my ride happening?” at a glance.',
           },
         ],
       },
       {
-        heading: 'Designing for accessibility (design stage)',
-        paragraphs: [
-          'The portal isn’t in development yet, so I’m not claiming verified conformance — there’s no built product to test. What I can show is accessibility designed in from the flow up, targeting WCAG 2.1 AA, with the specific failures from the audit resolved in the design:',
-        ],
+        heading: 'Accessibility, designed in',
+        lead: 'The audit’s most serious failures are designed out. I’m not claiming conformance until there’s a built product to test.',
         bullets: [
-          'Keyboard operability — the audit’s most serious finding, "these inputs can’t be filled out by using a keyboard" (WCAG 2.1.1, Level A), designed out completely.',
-          'Contrast — AA-contrast tokens replacing the repeated low-contrast callouts (WCAG 1.4.3).',
-          'Error identification and status — errors that no longer fire prematurely, and blocked states that explain themselves (WCAG 3.3.1, 4.1.3) — the change that most directly protects an anxious, older user from thinking they’ve done something wrong.',
+          'Keyboard operability: the audit’s most serious finding, "these inputs can’t be filled out by using a keyboard" (WCAG 2.1.1, Level A), designed out completely.',
+          'Contrast: AA-contrast tokens replace the repeated low-contrast callouts (WCAG 1.4.3).',
+          'Error identification and status: errors no longer fire prematurely, and blocked states explain themselves (WCAG 3.3.1, 4.1.3). This is the change that most directly protects an anxious, older user from thinking they’ve done something wrong.',
         ],
         callout:
-          'The honest next step is verification against the built product. An accessibility audit plus usability sessions with real members, before any formal conformance claim is made.',
+          'The honest next step is verification against the built product: an accessibility audit plus usability sessions with real members, before any formal conformance claim is made.',
         images: [
           {
             src: '/work/portal-btns.png',
-            alt: 'Full-bleed diagram showing focus ring indicators, high-contrast touch targets, and typography specs.',
-            caption: 'Accessibility specifications: keyboard focus navigation states, 44px+ touch targets, and WCAG AA contrast rules.',
+            alt: 'Focus ring indicators, high-contrast touch targets, and typography specs.',
+            caption: 'Accessibility specs: keyboard focus states, 44px+ touch targets and WCAG AA contrast rules.',
             afterBullet: 2,
           },
-           {
+          {
             src: '/work/md-cs-solution3.png',
-            alt: 'Design for accessibility',
-            caption: 'Design for accessibility.',
+            alt: 'Accessible components from the redesigned portal.',
+            caption: 'Accessibility carried into every component.',
           },
         ],
       },
       {
-        heading: 'How we’ll measure success',
+        heading: 'What engineering said',
+        lead: 'Design decisions only matter if they survive the build.',
         paragraphs: [
-          'No reliable pre-redesign baseline existed, so this is a measurement plan, not a results claim: baseline is established at launch and actuals reported at 90 days. Four metrics tracked from day one, each tied to a problem the audit surfaced:',
+          'I worked closely with the people who build the experience: shared language, accessible systems, and edge cases solved before development, not during it.',
+        ],
+        testimonialQuotes: [
+          {
+            quote:
+              'Oana is one of those rare Lead Product Designers who naturally steps up whenever a project needs direction, clarity, or a bridge between design and engineering. Her design decisions were directly responsible for us passing every accessibility audit without friction.',
+            name: 'Serhii Nadoienko',
+            title: 'Frontend Engineer, Technology Oriented',
+          },
+        ],
+      },
+      {
+        heading: 'How we’ll know it worked',
+        lead: 'No reliable baseline existed, so this is a measurement plan, not a results claim.',
+        paragraphs: [
+          'A baseline is set at launch and actuals reported at 90 days. Four metrics are tracked from day one, each tied to a problem the audit surfaced:',
         ],
         bullets: [
           'Onboarding completion rate: % of users who finish profile setup and make their first booking without calling for help.',
-          'Self-service rate: % of bookings completed independently: no dispatcher contact, no support call.',
-          'Booking error rate: % of submitted bookings requiring correction, cancellation, or support contact.',
-          'Support contact rate: Inbound support contacts per 100 booking attempts — the clearest single signal of user friction.',
+          'Self-service rate: % of bookings completed independently, with no dispatcher contact and no support call.',
+          'Booking error rate: % of submitted bookings needing correction, cancellation, or support contact.',
+          'Support contact rate: inbound support contacts per 100 booking attempts, the clearest single signal of friction.',
         ],
       },
       {
         heading: 'Reflection',
+        lead: 'I designed it for my own parents: something they could use on their own, with feedback that guides rather than alarms.',
         paragraphs: [
-          'Designing for older, less tech-savvy members was a new challenge for me. The lens I used was my own parents: build something they could use on their own, with feedback at every step — feedback that guides rather than alarms. That’s not a sentiment; it’s a design rule that shows up in specific decisions here. It’s why "the error state appears too early… may cause them to stop or second-guess themselves" was flagged critical, why no state is allowed to fail silently, and why the whole point is a member who can complete a booking without calling for help.',
-                ],
+          'Designing for older, less tech-savvy members was a new challenge for me. That’s not a sentiment; it’s a design rule that shows up in specific decisions here. It’s why "the error state appears too early… may cause them to stop or second-guess themselves" was flagged critical, why no state is allowed to fail silently, and why the whole point is a member who can complete a booking without calling for help.',
+        ],
       },
     ],
   },
@@ -572,7 +565,7 @@ export const caseStudies: CaseStudy[] = [
           'The existing product carried the assumptions of the operation that built it, not the people using it.',
         ],
         bullets: [
-          'The portal was built for dispatchers, not members. The trip list was laid out for staff scanning across many members, so members reading their own trips had to parse a table designed for someone else\u2019s job.',
+          'The portal was built for dispatchers, not members. The trip list was laid out for staff scanning across many members, so members reading their own trips had to parse a table designed for someone else’s job.',
           "Members were dropped straight into a booking form after login, with no guidance that their first step was to add a member — and no signal that the account they created wasn't the member's.",
           'The booking form was one-size-fits-all. The same fields appeared whether the trip was one-way, round trip, or multi-leg, and errors surfaced after submission — so a caregiver booking on behalf of someone had no confirmation of who the trip was for until it was too late to fix cheaply.',
           'There was no design system. Colors, components, and patterns were inconsistent across surfaces, so every new screen re-litigated basic decisions and accessibility was applied case by case.',
@@ -600,15 +593,15 @@ export const caseStudies: CaseStudy[] = [
         }
       ],
         callout:
-          'The strategic problem underneath all of this: you cannot redesign two surfaces consistently, accessibly, and at multi-brand scale by hand-crafting screens. The bottleneck isn\u2019t design taste, it\u2019s the absence of a system and a governance model — so I sequenced the work accordingly.',
+          'The strategic problem underneath all of this: you cannot redesign two surfaces consistently, accessibly, and at multi-brand scale by hand-crafting screens. The bottleneck isn’t design taste, it’s the absence of a system and a governance model — so I sequenced the work accordingly.',
       },
-      
+
       {
         heading: 'The strategic bet: system first',
         paragraphs: [
           'The decision that shaped everything: build the design system as the governance layer before redesigning at scale, so consistency and accessibility become structural instead of discretionary.',
           'The forcing function was the ecosystem itself. With separate portals for facilities, providers, members, and dispatchers, there is no way to keep the experience coherent — or to change one color, component, or contrast ratio once and have it hold everywhere — without a shared token layer they all consume. A per-portal approach would have re-litigated the same decisions four-plus times and guaranteed drift.',
-          "This is deliberately an outcomes-over-output framing: the system's job isn't to produce more components faster — it's to make \u201cconsistent and accessible\u201d the path of least resistance for everyone building on it, including a dev team I don't manage.",
+          "This is deliberately an outcomes-over-output framing: the system's job isn't to produce more components faster — it's to make “consistent and accessible” the path of least resistance for everyone building on it, including a dev team I don't manage.",
         ],
       },
       {
@@ -635,7 +628,7 @@ export const caseStudies: CaseStudy[] = [
           src: '/work/semantics.png',
           alt: 'Semantics alias primitives to a role. No semantic token holds a raw hex; it always points to a primitive',
           caption:
-            'Semnatics alias.',
+            'Semantics alias.',
           afterBullet: 1,
         }
       ],
@@ -652,7 +645,7 @@ export const caseStudies: CaseStudy[] = [
               'Conventional sign-in forces users to know in advance whether they already have an account, and onboarding usually starts with account administration rather than the reason they came.',
             change:
               'One entry point takes an email or phone number; the system recognizes the person and routes returning vs. first-time users automatically. For a first-time user, the very first step is adding the member who needs transportation, with support for multiple members, then booking a first trip immediately.',
-            why: 'It removes a decision the audience shouldn\u2019t have to make and orders onboarding around the real goal — getting a ride booked — instead of account setup.',
+            why: 'It removes a decision the audience shouldn’t have to make and orders onboarding around the real goal — getting a ride booked — instead of account setup.',
           },
           {
             title: 'Dashboard as the landing surface',
@@ -668,7 +661,7 @@ export const caseStudies: CaseStudy[] = [
               'One form for every trip type; return legs re-typed by hand; problems discovered only after submit.',
             change:
               'The flow opens with a trip-type choice (round trip / one-way / multi-leg). Round trip auto-fills the return leg; one-way removes the return section entirely; fields adapt to the selection.',
-            why: 'Fewer fields per path, no duplicate data entry, and the form\u2019s shape matches the member\u2019s actual intent.',
+            why: 'Fewer fields per path, no duplicate data entry, and the form’s shape matches the member’s actual intent.',
           },
           {
             title: 'Member confirmation before any field is touched',
@@ -687,7 +680,7 @@ export const caseStudies: CaseStudy[] = [
           },
           {
             title: 'Trip list rebuilt for the member',
-            problem: 'The trip layout overview was appropiated to a dispatcher or operational tool. It introduced unnecessary complexity for members and increases cognitive load without adding real value to their core tasks. ',
+            problem: 'The trip layout overview was appropriated to a dispatcher or operational tool. It introduced unnecessary complexity for members and increases cognitive load without adding real value to their core tasks. ',
             change:
               'A table layout it is more intuitive, task-focused and more familiar structure that’s easy to scan and understand, especially for less tech-savvy users.',
             why: 'No training required to read your own trips.',
@@ -936,7 +929,7 @@ export const caseStudies: CaseStudy[] = [
     approach:
       'I enlarged the icon wrapper to a compliant touch target, added merchant customization for size, color, and badge count, then tested across real stores and partnered with engineering on a resilient fallback for edge-case themes.',
     outcome:
-      'A more accessible, theme-agnostic Wishlist experience that reduced support friction, improved mobile usability, and aligned better with merchants\u2019 storefront designs.',
+      'A more accessible, theme-agnostic Wishlist experience that reduced support friction, improved mobile usability, and aligned better with merchants’ storefront designs.',
     metrics: [
       { label: 'Touch target', value: '44×44px' },
       { label: 'Themes working', value: '~80%' },
@@ -963,10 +956,10 @@ export const caseStudies: CaseStudy[] = [
           "Vitals' Wishlist icon could be injected into any store header — but the initial implementation had several issues.",
         ],
         bullets: [
-          'Accessibility on mobile: the tap area around the icon was too small. It didn\u2019t meet the WCAG-recommended 44x44px minimum for touch targets, which was especially problematic on mobile devices.',
+          'Accessibility on mobile: the tap area around the icon was too small. It didn’t meet the WCAG-recommended 44x44px minimum for touch targets, which was especially problematic on mobile devices.',
           'Integration inconsistencies: merchants could install Vitals on multiple storefronts (Shopify and non-Shopify), each with custom themes or code.',
-          'Some themes didn\u2019t support proper injection of the icon into headers.',
-          'Others didn\u2019t respect accessibility standards or had layout constraints that clashed with the icon\u2019s structure.',
+          'Some themes didn’t support proper injection of the icon into headers.',
+          'Others didn’t respect accessibility standards or had layout constraints that clashed with the icon’s structure.',
         ],
       },
       {
@@ -983,17 +976,17 @@ export const caseStudies: CaseStudy[] = [
           {
             title: 'Customization options for merchants',
             problem:
-              'A single fixed style couldn\u2019t match the range of storefront aesthetics merchants ran.',
+              'A single fixed style couldn’t match the range of storefront aesthetics merchants ran.',
             change:
-              'Added settings for merchants to control the icon\u2019s size, color, and badge count display.',
+              'Added settings for merchants to control the icon’s size, color, and badge count display.',
             why: 'Ensured design consistency while allowing flexibility across diverse storefronts.',
           },
           {
             title: 'Cross-theme testing',
             problem:
-              'Theme fragmentation meant theoretical compliance wasn\u2019t enough — real stores behaved differently.',
+              'Theme fragmentation meant theoretical compliance wasn’t enough — real stores behaved differently.',
             change:
-              'Tested the updated version on multiple stores; ~80% of themes worked perfectly. In the remaining 20%, edge cases appeared: misalignment where the 44px wrapper didn\u2019t match smaller header icons, overflow and spacing issues where themes didn\u2019t respect the full height, and badge-positioning bugs where the count floated away from the icon.',
+              'Tested the updated version on multiple stores; ~80% of themes worked perfectly. In the remaining 20%, edge cases appeared: misalignment where the 44px wrapper didn’t match smaller header icons, overflow and spacing issues where themes didn’t respect the full height, and badge-positioning bugs where the count floated away from the icon.',
             why: 'Testing across real stores surfaced the layout tradeoffs that drove the next iteration.',
           },
         ],
@@ -1009,7 +1002,7 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: 'Collaboration & tradeoffs',
         paragraphs: [
-          'I worked closely with the developer to decide on the next iteration. Here\u2019s how we resolved it.',
+          'I worked closely with the developer to decide on the next iteration. Here’s how we resolved it.',
         ],
         decisions: [
           {
@@ -1051,11 +1044,11 @@ export const caseStudies: CaseStudy[] = [
         heading: 'What I learned',
         bullets: [
           'Accessibility fixes can introduce new layout issues when working in third-party environments — which requires design-engineering tradeoffs.',
-          'Testing across real stores is crucial; theoretical compliance isn\u2019t enough when dealing with theme fragmentation.',
+          'Testing across real stores is crucial; theoretical compliance isn’t enough when dealing with theme fragmentation.',
           'Balancing accessibility, visual harmony, and technical constraints is key when designing UI elements that live inside external codebases.',
         ],
         callout:
-          'Theoretical compliance isn\u2019t enough — resilient accessibility in third-party environments is a design-engineering negotiation, not a checkbox.',
+          'Theoretical compliance isn’t enough — resilient accessibility in third-party environments is a design-engineering negotiation, not a checkbox.',
       },
     ],
   },
@@ -1116,7 +1109,7 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: 'The opportunity',
         paragraphs: [
-          '"Design isn\u2019t just about how something looks but how it works." — Airbnb',
+          '"Design isn’t just about how something looks but how it works." — Airbnb',
           'A shared system was a chance to make consistency, accessibility, and speed the default — and to give non-designers and engineers a common language to build with.',
         ],
       },
@@ -1144,8 +1137,8 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: 'First steps',
         bullets: [
-          'Research: audited established design systems, including Shopify\u2019s and major store themes, to learn what to align with.',
-          'Colors: defined a tailored, token-based approach so components could inherit each store\u2019s palette instead of hardcoding values.',
+          'Research: audited established design systems, including Shopify’s and major store themes, to learn what to align with.',
+          'Colors: defined a tailored, token-based approach so components could inherit each store’s palette instead of hardcoding values.',
           'Good practices: documented naming conventions and usage rules to make the system approachable for designers, engineers, and non-designers alike.',
           'Components: built Figma components and tokens, then partnered with engineers on implementation with backward compatibility.',
         ],
@@ -1155,7 +1148,7 @@ export const caseStudies: CaseStudy[] = [
           width: 864,
           height: 523,
           caption:
-            'The same system powering live conversion widgets — product cards, upsell offers, and bundle selectors — each adapting to the host store\u2019s look.',
+            'The same system powering live conversion widgets — product cards, upsell offers, and bundle selectors — each adapting to the host store’s look.',
         }],
       },
       {
@@ -1169,7 +1162,7 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: 'Rabbit holes & KPIs',
         paragraphs: [
-          'I stayed alert to the traps — many iterations and constant updates, and teams\u2019 natural resistance to changing their rhythms — and tied success to measurable signals.',
+          'I stayed alert to the traps — many iterations and constant updates, and teams’ natural resistance to changing their rhythms — and tied success to measurable signals.',
         ],
         bullets: [
           'Team efficiency: how long it takes to build a new product using the system.',
@@ -1239,7 +1232,7 @@ export const caseStudies: CaseStudy[] = [
         ],
         bullets: [
           'Clarity of product information — each product in the cart displays a thumbnail image, name, specifications (like size or color), and quantity, so users can easily review their order.',
-          'Clean, focused layout �� we avoided clutter and limited the number of upsells and promotions shown, to maintain a frictionless path to checkout.',
+          'Clean, focused layout — we avoided clutter and limited the number of upsells and promotions shown, to maintain a frictionless path to checkout.',
           'Persistent checkout access — the checkout button remains visible across screen sizes, ensuring easy access regardless of device or resolution.',
           'Accessibility — the drawer works well with screen readers and can be fully navigated by keyboard, with WCAG-compliant contrast and tap targets large enough to hit on any device.',
         ],
@@ -1457,10 +1450,10 @@ export const caseStudies: CaseStudy[] = [
           'The objective was to ensure the pop-up widget would integrate seamlessly with a variety of store themes while providing a consistent, high-conversion experience for users.',
         ],
         bullets: [
-          'Visual consistency: designed to align with each storefront\u2019s aesthetic — color schemes, typography, and overall design elements — for a cohesive look.',
+          'Visual consistency: designed to align with each storefront’s aesthetic — color schemes, typography, and overall design elements — for a cohesive look.',
           'Responsiveness: optimized for desktop, tablet, and mobile, since mobile-optimized apps can increase conversions by up to 300%.',
           'Customization & flexibility: options for placement, animation styles, and triggers (exit-intent, timed delay) to help recover up to 10–15% of abandoning visitors.',
-          'Scenarios: from simple lead capture to more complex upsell opportunities, each scenario highlights the widget\u2019s flexibility in driving engagement.',
+          'Scenarios: from simple lead capture to more complex upsell opportunities, each scenario highlights the widget’s flexibility in driving engagement.',
         ],
         images: [{
           src: '/work/popup-scenarios.png',
@@ -1482,7 +1475,7 @@ export const caseStudies: CaseStudy[] = [
           width: 1024,
           height: 770,
           caption:
-            'A live mockup inheriting the theme\u2019s typography and spacing — brand-aligned in a few clicks.',
+            'A live mockup inheriting the theme’s typography and spacing — brand-aligned in a few clicks.',
         }],
         callout:
           'Designing the app to inherit theme styling was the key to easy onboarding — brand alignment without merchants touching a single style value.',
@@ -1494,12 +1487,12 @@ export const caseStudies: CaseStudy[] = [
           'The widget is now promoted through two in-app methods:',
         ],
         bullets: [
-          'Product Update Modal — introducing the widget\u2019s new features to users.',
-          '\u201CMy Apps\u201D Reminder — a prompt for users who have yet to activate the widget.',
+          'Product Update Modal — introducing the widget’s new features to users.',
+          '“My Apps” Reminder — a prompt for users who have yet to activate the widget.',
         ],
         images: [{
           src: '/work/popup-dashboard.png',
-          alt: 'The Shopify admin showing a Vitals in-app "Product Update" modal titled "Vitals\u2019 Pop-ups just got a whole lot better," with a preview of the new discount popup and a "Try it now" button — one of the two in-app promotion methods driving activation.',
+          alt: 'The Shopify admin showing a Vitals in-app "Product Update" modal titled "Vitals’ Pop-ups just got a whole lot better," with a preview of the new discount popup and a "Try it now" button — one of the two in-app promotion methods driving activation.',
           width: 1440,
           height: 930,
           caption:
@@ -1578,7 +1571,7 @@ export const testimonials: Testimonial[] = [
       'grounded, highly reliable, and a genuine pleasure to build products with',
     ],
     name: 'Serhii Nadoienko',
-    title: 'Frontend Engineer, Techonology Oriented',
+    title: 'Frontend Engineer, Technology Oriented',
   },
   {
     headline: 'An exceptional colleague and team lead',
@@ -1590,12 +1583,12 @@ export const testimonials: Testimonial[] = [
       'a remarkable asset to any team',
     ],
     name: 'Liviu Atudorei',
-    title: 'Product Designer, Techonology Oriented',
+    title: 'Product Designer, Technology Oriented',
   },
   {
     headline: 'The kind of person you want in your corner',
     quote:
-    'Across multiple projects and brands, Oana has consistently demonstrated one defining quality: she takes the time to understand the real need behind every task before jumping into execution. Once she does, she\u2019ll go above and beyond to deliver the best possible outcome. She understands complex business challenges and translates them into intuitive user experiences. She thinks through problems thoroughly, considers every angle, and designs scalable systems that have a measurable impact on business outcomes. She also cares deeply about the people she manages, and is always looking to empower them to do their best work. Honestly, Oana is the kind of person you want in your corner: she takes initiative and assumes full ownership of her work. Even under tight deadlines, she never compromises on quality, always delivering great work at a fast pace.',
+    'Across multiple projects and brands, Oana has consistently demonstrated one defining quality: she takes the time to understand the real need behind every task before jumping into execution. Once she does, she’ll go above and beyond to deliver the best possible outcome. She understands complex business challenges and translates them into intuitive user experiences. She thinks through problems thoroughly, considers every angle, and designs scalable systems that have a measurable impact on business outcomes. She also cares deeply about the people she manages, and is always looking to empower them to do their best work. Honestly, Oana is the kind of person you want in your corner: she takes initiative and assumes full ownership of her work. Even under tight deadlines, she never compromises on quality, always delivering great work at a fast pace.',
     highlights: [
       'understand the real need behind every task',
       'scalable systems that have a measurable impact on business outcomes',
@@ -1603,7 +1596,7 @@ export const testimonials: Testimonial[] = [
       'never compromises on quality',
     ],
     name: 'Livia Burbulea',
-    title: 'Senior Copywriter, Techonology Oriented',
+    title: 'Senior Copywriter, Technology Oriented',
   },
   {
     headline: 'A designer who makes teams and products better',
@@ -1617,7 +1610,7 @@ export const testimonials: Testimonial[] = [
     name: 'Adrian Neatu',
     title: 'Engineering Manager, Vitals',
   },
-  
+
 ]
 
 
@@ -1683,7 +1676,7 @@ export const experience: Experience[] = [
   {
     role: 'Brand Designer',
     company: 'Electronic Arts',
-    period: "Mar '16 - Feb '19",
+    period: "Mar '16 — Feb '19",
     description:
       'Crafted brand and visual design work within a global games company, building assets and identity systems across campaigns.',
     bullets: [],
