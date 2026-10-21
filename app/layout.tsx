@@ -1,11 +1,8 @@
 import type { Metadata, Viewport } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
-import { SiteHeader } from '@/components/site-header'
 import { SiteFooter } from '@/components/site-footer'
 import { SmoothScrollProvider } from '@/components/smooth-scroll-provider'
-import DesignInspector from '@/components/DesignInspector'
-import { HeaderGate } from '@/components/header-gate'
 import { SiteJsonLd } from '@/components/json-ld'
 import { PERSON, SITE_URL, SITE_DESCRIPTION } from '@/lib/seo'
 import './globals.css'
@@ -68,9 +65,6 @@ export default function RootLayout({
         <SiteJsonLd />
         <SmoothScrollProvider>
           <div className="relative flex min-h-dvh flex-col">
-            <HeaderGate>
-              <SiteHeader />
-            </HeaderGate>
             <main className="flex-1">{children}</main>
             <SiteFooter />
           </div>

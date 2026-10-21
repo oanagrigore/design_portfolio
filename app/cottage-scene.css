@@ -1,0 +1,197 @@
+/* Contact page cottage scene. Global CSS, every class prefixed cs- so it can't clash with the rest of the site.
+   The painting is 2752 × 1536 (same ratio as the homepage reading room), and every overlay
+   is placed in % of the painting, so the overlays scale with it. */
+
+/* Scene size on landscape screens. The painting is 2752 × 1536 (1.79 : 1).
+   - Fills the screen height and width, like a cover photo.
+   - On squarer screens it trims up to ~15% off each side (the cottage sits between 18% and
+     88% of the painting's width, so it stays whole).
+   - On wider screens it trims up to 20% off the bottom (the path), so moon and roof stay in view.
+   - Beyond that (ultra-wide) it stops growing and the sides fade into a blurred copy.
+   On :root so the scroll cue and the content can line up with it. */
+:root {
+  --cs-w: min(clamp(100vw, calc(100svh * 1.7917), 130vw), calc(100svh * 1.7917 * 1.2));
+  --cs-h: min(calc(var(--cs-w) / 1.7917), 100svh);
+}
+
+.cs-root {
+  --cs-fade: var(--background, #0b0b0d);
+  position: relative;
+  overflow: hidden;
+  background: var(--cs-fade);
+}
+
+.cs-frame {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+.cs-scene {
+  position: relative;
+  aspect-ratio: 2752 / 1536;
+}
+
+/* Soft fade from the bottom of the painting into the page, like the homepage hero */
+.cs-frame::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: clamp(80px, 18%, 200px);
+  z-index: 4;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    color-mix(in srgb, var(--cs-fade) 25%, transparent) 30%,
+    color-mix(in srgb, var(--cs-fade) 70%, transparent) 65%,
+    var(--cs-fade) 100%
+  );
+}
+
+/* ---------- landscape screens (laptops, desktops, landscape tablets) ----------
+   The scene fills exactly one screen and the contact content starts below the fold,
+   never half-hidden behind the floating nav. */
+@media (min-width: 640px) and (min-aspect-ratio: 1/1) {
+  .cs-root { height: 100svh; }
+  .cs-frame {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* any trimming comes off the bottom (the path) */
+    height: var(--cs-h);
+  }
+  .cs-scene { flex: none; width: var(--cs-w); }
+  /* wider than the painting can go: the sides fade into a blurred copy of it */
+  .cs-frame::before {
+    content: "";
+    position: absolute;
+    inset: -60px;
+    z-index: -1;
+    background: url("/contact/cottage.webp") center / cover no-repeat;
+    filter: blur(40px) brightness(0.5) saturate(1.2);
+  }
+  .cs-pull { padding-top: 4rem; }
+}
+@media (min-width: 640px) and (min-aspect-ratio: 215/100) {
+  .cs-scene {
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  }
+}
+
+/* ---------- phones and portrait tablets ----------
+   A slightly zoomed crop centred on the door and the big window, with the contact
+   details straight underneath, so no scroll cue is needed. */
+@media (max-width: 639px), (max-aspect-ratio: 1/1) {
+  .cs-scene { width: 135%; margin-left: -12%; }
+  .cs-pull { margin-top: -2.5rem; }
+}
+
+.cs-pull { scroll-margin-top: 2rem; }
+
+/* ---------- scroll cue (landscape screens only) ---------- */
+.cs-cue {
+  display: none;
+  position: absolute;
+  left: 50%;
+  /* bottom of the screen, clear of the floating nav */
+  top: calc(100svh - 10rem);
+  z-index: 20;
+  transform: translateX(-50%);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+@media (min-width: 640px) and (min-aspect-ratio: 1/1) {
+  .cs-cue { display: flex; }
+}
+.cs-cue[data-hidden="true"] { opacity: 0; transform: translate(-50%, 8px); pointer-events: none; }
+.cs-cue-arrow { animation: cs-nudge 2.4s cubic-bezier(0.45, 0, 0.55, 1) infinite; }
+@keyframes cs-nudge {
+  0%, 55%, 100% { transform: translateY(0); }
+  25% { transform: translateY(5px); }
+}
+
+.cs-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+
+/* ---------- ambient life: quiet, nothing to click ---------- */
+
+/* lantern flicker: a warm glow that breathes on top of each lantern */
+.cs-glow {
+  position: absolute;
+  width: 7%;
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(255, 196, 110, 0.55), rgba(255, 160, 70, 0.18) 55%, transparent);
+  mix-blend-mode: screen;
+  animation: cs-flicker var(--d, 3.4s) ease-in-out var(--delay, 0s) infinite;
+  pointer-events: none;
+}
+.cs-glow--window {
+  width: 26%;
+  aspect-ratio: 0.7;
+  background: radial-gradient(closest-side, rgba(255, 170, 90, 0.22), rgba(255, 140, 60, 0.08) 60%, transparent);
+  animation-name: cs-breathe;
+}
+@keyframes cs-flicker {
+  0%, 100% { opacity: 0.55; }
+  18% { opacity: 0.9; }
+  22% { opacity: 0.6; }
+  48% { opacity: 1; }
+  70% { opacity: 0.7; }
+}
+@keyframes cs-breathe {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+/* fireflies drift in small loops and fade in and out */
+.cs-fly {
+  position: absolute;
+  width: 0.45%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, #fff6b8, #ffd25e 55%, rgba(255, 210, 94, 0));
+  box-shadow: 0 0 10px 3px rgba(255, 210, 94, 0.45);
+  opacity: 0;
+  animation:
+    cs-drift var(--d, 9s) ease-in-out var(--delay, 0s) infinite,
+    cs-blink var(--b, 4s) ease-in-out var(--delay, 0s) infinite;
+  pointer-events: none;
+}
+@keyframes cs-drift {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(var(--x1, 14px), var(--y1, -10px)); }
+  50% { transform: translate(var(--x2, -6px), var(--y2, -22px)); }
+  75% { transform: translate(var(--x3, -16px), var(--y3, -8px)); }
+  100% { transform: translate(0, 0); }
+}
+@keyframes cs-blink {
+  0%, 100% { opacity: 0; }
+  30%, 60% { opacity: 0.95; }
+}
+
+/* chimney smoke: a soft plume that rises and thins out */
+.cs-smoke {
+  position: absolute;
+  left: 27.6%;
+  top: 7%;
+  width: 6%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(220, 215, 240, 0.22), transparent);
+  filter: blur(6px);
+  opacity: 0;
+  animation: cs-rise 7s ease-out var(--delay, 0s) infinite;
+  pointer-events: none;
+}
+@keyframes cs-rise {
+  0% { transform: translate(0, 0) scale(0.6); opacity: 0; }
+  20% { opacity: 1; }
+  100% { transform: translate(40%, -170%) scale(1.8); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cs-glow, .cs-fly, .cs-smoke, .cs-cue-arrow { animation: none; }
+  .cs-cue { transition: none; }
+  .cs-fly, .cs-smoke { display: none; }
+  .cs-glow { opacity: 0.7; }
+}
