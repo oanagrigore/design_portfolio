@@ -310,6 +310,55 @@ export const caseStudies: CaseStudy[] = [
         ],
       },
       {
+        heading: 'Turning the system into an AI tool',
+        lead: 'I turned the design system into a Claude skill, and designed how the AI behaves as carefully as the screens it builds.',
+        paragraphs: [
+          'Designers, developers and marketing all need MediDrive screens, for different reasons. I built a Claude skill that lets any of them describe a screen in plain words and get back a clickable HTML prototype of the portal or the app. It’s built from the design system I created and the portal and app patterns Liviu and I designed: real tokens, real components and the content rules members depend on.',
+          'Every prototype starts from the rules in this case study, so accessibility isn’t something the person asking has to remember:',
+        ],
+        bullets: [
+          'Member-first structure: one primary action per screen, and on anything trip-related, status and time are read first.',
+          'Plain language: no internal terms like "leg" or "LOS", and a way to reach a person wherever something can go wrong.',
+          'Accessible by default: status is never shown by color alone (WCAG 1.4.1), member-critical text is 16px or larger, and touch targets are at least 44px.',
+          'The system’s own gaps, fixed and reported: a focus ring too faint to see and placeholder text that fails contrast (WCAG 1.4.3) are corrected in every prototype and flagged for the design system.',
+        ],
+        decisions: [
+          {
+            title: 'One tool, three kinds of user',
+            problem:
+              'A designer exploring options, a developer building a screen and a marketer making a comms asset need different things from the same request.',
+            change:
+              'The skill works out which mode it’s in first. Explore gives designers two or three variants, each labeled with the hypothesis it tests. Spec gives developers one variant with every element annotated with its token, component and size. Guarded gives non-designers one variant built only from existing components.',
+            why: 'Each person gets the right amount of freedom, instead of one output that’s wrong for two of the three.',
+          },
+          {
+            title: 'Guardrails instead of improvisation',
+            problem:
+              'Asked for something the system doesn’t cover, an AI will invent a pattern, and a non-designer can’t tell it apart from the real thing.',
+            change:
+              'In Guarded mode, anything outside the system becomes a grey placeholder labeled "Needs design team", with a note to check with the design team. It only refuses when the core of the request is outside the system.',
+            why: 'Marketing gets a usable asset right away, and new patterns still go through design instead of leaking into production.',
+          },
+          {
+            title: 'Member data never enters a prototype',
+            problem:
+              'People paste real examples into prompts. In medical transportation, that can mean names, Medicaid IDs and diagnoses.',
+            change:
+              'The skill only uses fictional data. If someone pastes real details, it swaps them out and says so. Summary screens say "Medical appointment" instead of the treatment, following HIPAA’s minimum necessary standard.',
+            why: 'Privacy is part of how the tool behaves, so it doesn’t depend on every colleague remembering the rules.',
+          },
+          {
+            title: 'It shows its work',
+            problem: 'A polished prototype hides its assumptions, and Figma has to stay the source of truth.',
+            change:
+              'Every prototype goes through a pre-delivery checklist and ends with three lines: what was built, what was assumed, and what needs a designer’s call. When the skill and Figma disagree, it says so instead of choosing silently.',
+            why: 'People can trust it because it’s open about where it’s guessing. That’s the bar I’d hold any AI feature to.',
+          },
+        ],
+        callout:
+          'This is an internal tool for the team, not something members see. I’m not claiming time saved, because there’s no baseline to compare it against.',
+      },
+      {
         heading: 'Reflection',
         lead: 'I designed it for my own parents: something they could use on their own, with feedback that guides rather than alarms.',
         paragraphs: [
