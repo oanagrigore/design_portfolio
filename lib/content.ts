@@ -5,9 +5,11 @@ export const profile = {
   email: 'grigore.oana.elena@gmail.com',
   phone: '+40 742 090 361',
   aboutIntro: [
-    `Led design strategy across 5 transportation brands, including MediDrive, a non-emergency medical transport (NEMT) platform serving millions of members across Virginia and Colorado, where WCAG accessibility is a mandatory baseline.`,
-    `I created the core design system used across all MediDrive touchpoints and led the complete UX/UI redesigns for the Member Mobile App and Member Web Portal, making healthcare transport effortless for members.`,
-    `Backing this is an 8+ year specialization in complex web applications, including scaling 40+ Shopify apps for 30,000+ merchants, and a 15-year foundation spanning visual, graphic, and product design.`
+    `I’m specialising in B2B SaaS and enterprise platforms: products with multiple user roles, compliance requirements, and more edge cases than anyone admits to in kickoff.`,
+    `Most recently I led design across 5 transportation brands, including MediDrive, a NEMT platform serving millions of members, facilities and providers across Virginia and Colorado. I built the design system behind every MediDrive touchpoint and redesigned its member app and web portal to WCAG 2.1 AA.`,
+    `Before that, I spent six years as the solo designer behind 40+ SaaS apps used by 30,000+ Shopify merchants.`,
+`14 years in design, 8+ of them on complex web applications.`,
+`Now looking for: Senior or Lead Product Design roles on B2B SaaS and enterprise products.`,
   ],
   intro:
     'In healthcare transportation, bad UX means someone doesn\'t get to their appointment. That\'s why I design accessibility in from the start, across portals, apps and the systems that hold them together.',

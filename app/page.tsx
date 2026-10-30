@@ -70,9 +70,9 @@ const COMPARISONS: Comparison[] = [
 ]
 
 const heroLines = [
-  { text: 'Make yourself at home.', className: 'block text-foreground' },
+  { text: 'Senior Product Designer for B2B SaaS & enterprise.', className: 'block text-foreground' },
   {
-    text: 'I’ll show you how I design for people who can’t afford to get lost.',
+    text: 'Six user roles, three compliance rules and a design system held together with hope? That’s my favourite kind of brief.',
     className: 'block text-muted-foreground',
   },
 ]

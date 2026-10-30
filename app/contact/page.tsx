@@ -7,7 +7,7 @@ import { ScrollCue } from '@/components/scroll-cue'
 export const metadata: Metadata = {
   title: 'Contact',
   description:
-    "I'm currently looking to take on project-based or full-time roles. Drop me an email with a bit about what you're building and I'll get back to you within a couple of days.",
+    "I’m looking for my next Senior or Lead Product Design role on a B2B SaaS or enterprise product. If your product has more user roles than your team has designers, a design system that needs rescuing, or accessibility requirements you can’t negotiate with, let’s talk.",
   alternates: { canonical: '/contact' },
 }
 
@@ -35,8 +35,7 @@ export default function ContactPage() {
               Available for project-based or full-time work
             </p>
             <p className="mt-6 max-w-xl text-pretty text-lg leading-relaxed text-muted-foreground">
-              I&apos;m currently looking to take on project-based or full-time roles. Drop me an email with a bit about
-              what you&apos;re building and I&apos;ll get back to you within a couple of days.
+              I&apos;m looking for my next Senior or Lead Product Design role on a B2B SaaS or enterprise product. If your product has more user roles than your team has designers, a design system that needs rescuing, or accessibility requirements you can&apos;t negotiate with, let&apos;s talk.
             </p>
           </div>
 
