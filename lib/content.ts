@@ -40,8 +40,8 @@ export interface Highlight {
 
 export const highlights: Highlight[] = [
   {
-    value: '5 brands',
-    title: 'design strategy led across 5 transportation brands, including MediDrive',
+    value: 'Millions',
+    title: 'of members use the MediDrive platforms I designed, one of 5 transportation brands I led',
   },
   {
     value: 'WCAG 2.1 AA',
@@ -52,8 +52,8 @@ export const highlights: Highlight[] = [
     title: 'scaled for 30,000+ merchants',
   },
   {
-    value: '15 years',
-    title: 'across visual, web and product design',
+    value: '4.9 / 5',
+    title: 'Vitals’ Shopify App Store rating across 2,800+ merchant reviews',
   },
 ]
 
