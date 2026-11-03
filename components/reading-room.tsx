@@ -4,12 +4,15 @@ import { useCallback, useEffect, useRef, useState, type CSSProperties } from "re
 import Image from "next/image";
 import Link from "next/link";
 import "@/app/reading-room-hero.css";
+import { favouriteBooks } from "@/lib/content";
 
 /** class names defined in app/reading-room-hero.css */
 const styles = {
   awake: "rr-awake",
   base: "rr-base",
   books: "rr-books",
+  shelf: "rr-shelf",
+  dialog: "rr-dialog",
   bubble: "rr-bubble",
   eye: "rr-eye",
   eyes: "rr-eyes",
@@ -90,6 +93,9 @@ const HOTSPOTS = [
   { href: "/contact", label: "Contact", left: 45.5, top: 56.8 },
 ];
 
+/** The tall bookshelf left of the fireplace (painting pixels). Opens "Books I liked". */
+const SHELF = { x: 20, y: 300, w: 215, h: 560 };
+
 const PURRS = ["prrr…", "prrrrrr", "okay, one more", "♥"];
 
 function poolMask(l: Light): string {
@@ -110,6 +116,56 @@ function PlusIcon() {
   );
 }
 
+/** Native modal dialog: focus moves in and back out, Esc closes, the page behind is inert. */
+function BookshelfDialog({ dialogRef }: { dialogRef: React.RefObject<HTMLDialogElement | null> }) {
+  const [failed, setFailed] = useState<Record<string, boolean>>({});
+  const close = () => dialogRef.current?.close();
+  return (
+    <dialog
+      ref={dialogRef}
+      className={styles.dialog}
+      aria-labelledby="rr-shelf-title"
+      // a click on the dimmed backdrop lands on the dialog itself
+      onClick={(e) => { if (e.target === e.currentTarget) close(); }}
+    >
+      <div className="rr-dialog-in">
+        <div className="rr-dialog-head">
+          <h2 id="rr-shelf-title">Books I liked</h2>
+          <button type="button" className="rr-dialog-x" onClick={close} aria-label="Close">
+            <svg viewBox="0 0 10 10" aria-hidden="true">
+              <path d="M2 2l6 6M8 2l-6 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+            </svg>
+          </button>
+        </div>
+        <ul className="rr-shelf-list">
+          {favouriteBooks.map((b) => (
+            <li key={b.title}>
+              <span className="rr-cover">
+                {failed[b.title] ? (
+                  <span className="rr-cover-fallback" aria-hidden="true">{b.title}</span>
+                ) : (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    src={b.cover}
+                    alt=""
+                    loading="lazy"
+                    width={180}
+                    height={270}
+                    onError={() => setFailed((f) => ({ ...f, [b.title]: true }))}
+                  />
+                )}
+              </span>
+              <span className="rr-book-title">{b.title}</span>
+              <span className="rr-book-author">{b.author}</span>
+            </li>
+          ))}
+        </ul>
+        <p className="rr-dialog-credit">Covers from Open Library</p>
+      </div>
+    </dialog>
+  );
+}
+
 export function ReadingRoomHero() {
   const [lights, setLights] = useState<Record<string, boolean>>(
     () => Object.fromEntries(LIGHTS.map((l) => [l.id, true]))
@@ -127,6 +183,7 @@ export function ReadingRoomHero() {
   const lightsRef = useRef(lights);
   const petsRef = useRef(0);
   const purrTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
+  const shelfRef = useRef<HTMLDialogElement>(null);
 
   lightsRef.current = lights;
   const still = paused || reducedMotion;
@@ -326,6 +383,16 @@ export function ReadingRoomHero() {
             </Link>
           ))}
 
+          <button
+            type="button"
+            className={styles.shelf}
+            style={{ left: px(SHELF.x), top: py(SHELF.y), width: px(SHELF.w), height: py(SHELF.h) }}
+            aria-haspopup="dialog"
+            onClick={() => shelfRef.current?.showModal()}
+          >
+            <span className={styles.hotin}><PlusIcon /><span className={styles.lab}>Books I liked</span></span>
+          </button>
+
 
           {LIGHTS.map((l) => {
             const on = lights[l.id];
@@ -379,6 +446,7 @@ export function ReadingRoomHero() {
         {paused ? "Play motion" : "Pause motion"}
       </button>
       <p className={styles.sr} role="status">{status}</p>
+      <BookshelfDialog dialogRef={shelfRef} />
     </section>
   );
 }
