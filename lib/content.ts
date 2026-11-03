@@ -619,243 +619,232 @@ export const caseStudies: CaseStudy[] = [
 },
   {
     slug: 'design-system-redesign',
-    title: 'MediDrive: Scaling Accessibility Across an Enterprise Healthtech Ecosystem',
+    title: 'The person booking isn’t the person riding',
     summary:
-      'How a design system built as governance infrastructure made a consistent, accessible redesign of a NEMT member portal and app possible at ecosystem scale.',
+      'A significant share of MediDrive rides are booked by someone else: a caregiver, a family member, a facility staffer. The product assumed the account holder was the rider. I redesigned the member experience around that gap and built the token system that carries it, and WCAG 2.1 AA, across every MediDrive portal.',
     cover: '/work/MediDrive-ds-cover.png',
     year: '2026',
     client: 'MediDrive',
     role: 'Lead Product Designer',
     tags: ['Product design', 'Accessibility', 'Design Systems'],
     overview:
-      'MediDrive is a US non-emergency medical transportation (NEMT) service whose members are largely Medicaid beneficiaries aged 65+, many with low digital confidence. I owned the design system and led the end-to-end redesign of both the member portal and the app.',
+      'Redesigning MediDrive’s member portal and app around caregivers, and building the design system that made the fix hold across every portal.',
     challenge:
-      'The existing product carried the assumptions of the operation that built it, not the people using it — and there was no shared system to keep an ecosystem of portals consistent or accessible.',
+      'The member portal looked like it had five usability problems. It had one: the product assumed the person using it was the person riding, or a dispatcher. Often it was a caregiver or facility staffer booking for someone else.',
     approach:
-      'I made a strategic bet to build the design system as a governance layer first, so consistency and accessibility became structural instead of discretionary, then redesigned each surface around member reality.',
+      'Build the design system first as a governance layer, so the fix and WCAG 2.1 AA hold across every portal, then redesign each member decision around one question: who is this person, and who are they booking for?',
     outcome:
-      'The system became the backbone of the redesign, letting a separate development team ship consistent, accessible screens across surfaces — with a clear plan to measure impact on avoidable support calls.',
+      'A token system a separate dev team builds on, accessibility set at the system level, and a measurement plan for the target: 15–20% fewer avoidable support calls.',
     metrics: [
-      { label: 'Avoidable support calls (target)', value: '15–20%' },
-      { label: 'Accessibility standard', value: 'WCAG 2.1 AA' },
-      { label: 'Surfaces redesigned', value: 'Portal + App' },
+      { label: 'Portals sharing one token system', value: '4+' },
+      { label: 'Accessibility baseline, set in tokens', value: 'WCAG 2.1 AA' },
+      { label: 'Avoidable support calls (target, measured post-launch)', value: '−15–20%' },
     ],
     quickSummary: [
-      { label: 'My role', value: 'Lead Product Designer' },
       {
-        label: 'Scope',
+        label: 'My role',
         value:
-          'Owned the design system, led the end-to-end redesign of both the portal and the app, and coordinated delivery with a separate development team.',
+          'Lead Product Designer. I set the direction, owned the system architecture and led the portal and app redesign.',
       },
       {
         label: 'Team',
         value:
-          'Co-built the design system with one other product designer, worked with content/strategy partners on copy, and handed off to a development team operating under a separate project manager.',
+          'Me and one other product designer (we co-built the system), content and strategy partners on copy, and a separate development team under its own project manager.',
       },
       {
-        label: 'Primary metric (target)',
-        value: '15–20% reduction in avoidable support calls',
+        label: 'Audience',
+        value:
+          'Members (Medicaid, mostly 65+) and the caregivers who book for them; facility staff via the facilities portal; drivers and transport providers via the driver apps and portals; operations staff via the admin portal.',
       },
-      {
-        label: 'Timeline',
-        value: 'Started spring 2026 (March–April); ongoing.',
-      },
+      { label: 'Timeline', value: 'Started March 2026; ongoing.' },
     ],
     sections: [
       {
-        heading: 'Context',
+        heading: 'The stakes',
         paragraphs: [
-          'MediDrive is a US non-emergency medical transportation (NEMT) service. Its members are largely Medicaid beneficiaries aged 65+, many with low digital confidence, and a significant share of bookings are made on behalf of a member by a caregiver or facility staffer.',
-          "The platform is not one product — it's an ecosystem of portals serving different audiences: medical facilities, transportation providers, members, and dispatchers. Each has a different job, but they all sit on the same underlying booking and trip data.",
-          'This case study focuses on the member surface: a web portal and a mobile app for booking, managing, and tracking medically necessary rides plus mileage reimbursement. The design system was built to serve all of those portals, which is the reason it exists at all.',
+          'MediDrive is a US non-emergency medical transportation (NEMT) service. Its members are mostly Medicaid beneficiaries aged 65+, many with low digital confidence.',
+          'When a booking goes wrong here, nobody bounces. Someone misses a medical appointment, or calls a support line to find out if their ride exists.',
         ],
       },
       {
-        heading: 'The problem',
+        heading: 'What everyone saw vs. what was actually wrong',
+        lead: 'The product assumed the person using it was the person riding, or a dispatcher. Often it was neither. It was a caregiver or facility staffer booking for someone else.',
         paragraphs: [
-          'The existing product carried the assumptions of the operation that built it, not the people using it.',
+          'The member portal had a familiar list of complaints. The trip list was hard to read. Login dropped people into a form. The booking form showed every field for every trip. Errors appeared after submit. Nothing looked consistent.',
+          'It looked like five usability problems. Auditing the flows, I saw one root cause, and every complaint traced back to it:',
         ],
         bullets: [
-          'The portal was built for dispatchers, not members. The trip list was laid out for staff scanning across many members, so members reading their own trips had to parse a table designed for someone else’s job.',
-          "Members were dropped straight into a booking form after login, with no guidance that their first step was to add a member — and no signal that the account they created wasn't the member's.",
-          'The booking form was one-size-fits-all. The same fields appeared whether the trip was one-way, round trip, or multi-leg, and errors surfaced after submission — so a caregiver booking on behalf of someone had no confirmation of who the trip was for until it was too late to fix cheaply.',
-          'There was no design system. Colors, components, and patterns were inconsistent across surfaces, so every new screen re-litigated basic decisions and accessibility was applied case by case.',
-          "The audience amplifies every one of these. For a 65+ Medicaid population, the cost of a confusing flow isn't a bounce — it's a missed medical appointment and a call to a support line.",
+          'The trip list looked like an ops console: it was the dispatcher view, handed to members.',
+          'Login dropped you into a booking form: there was no step to say who you were booking for.',
+          'The account created wasn’t the member’s: the system treated account holder and rider as the same person.',
+          'Wrong-member bookings were caught too late: identity was never confirmed up front.',
+          'Every surface looked different: there was no shared system, so each portal re-made these choices on its own.',
         ],
         images: [
           {
-          src: '/work/medidrive-dispatcher-view.png',
-          alt: 'The original MediDrive trip console: a dense dispatcher-oriented list of trips with status pills, a trip-detail panel, and a large route map — built for staff scanning across many members rather than a single member reading their own trips.',
-          caption:
-            'The original console — a dispatcher tool members were expected to read as their own trip list.',
-          afterBullet: 0,
-        },
-        {
-          src: '/work/portal-booking-1.png',
-          alt: 'The original post-login experience: a member is dropped straight into a booking form with no onboarding step and no prompt to add the member who needs transportation, and no indication that the account just created is not the member’s own.',
-          caption: 'Login dropped members directly into a booking form — no guidance that the first step was to add a member, and no signal the account wasn’t the member’s.',
-          afterBullet: 1,
-        },
-        {
-          src: '/work/portal-booking-2.png',
-          alt: 'The original one-size-fits-all booking form: the same fields shown regardless of trip type (one-way, round trip, or multi-leg), with a validation error surfaced only after submission rather than at the point of entry.',
-          caption: 'One form for every trip type, with errors appearing only after submit — so a caregiver booking for someone else had no confirmation of who the trip was for until it was too late to fix cheaply.',
-          afterBullet: 2,
-        }
-      ],
-        callout:
-          'The strategic problem underneath all of this: you cannot redesign two surfaces consistently, accessibly, and at multi-brand scale by hand-crafting screens. The bottleneck isn’t design taste, it’s the absence of a system and a governance model — so I sequenced the work accordingly.',
-      },
-
-      {
-        heading: 'The strategic bet: system first',
-        paragraphs: [
-          'The decision that shaped everything: build the design system as the governance layer before redesigning at scale, so consistency and accessibility become structural instead of discretionary.',
-          'The forcing function was the ecosystem itself. With separate portals for facilities, providers, members, and dispatchers, there is no way to keep the experience coherent — or to change one color, component, or contrast ratio once and have it hold everywhere — without a shared token layer they all consume. A per-portal approach would have re-litigated the same decisions four-plus times and guaranteed drift.',
-          "This is deliberately an outcomes-over-output framing: the system's job isn't to produce more components faster — it's to make “consistent and accessible” the path of least resistance for everyone building on it, including a dev team I don't manage.",
+            src: '/work/medidrive-dispatcher-view.png',
+            alt: 'The original MediDrive trip console: a dense dispatcher-oriented list of trips with status pills, a trip-detail panel, and a large route map — built for staff scanning across many members rather than a single member reading their own trips.',
+            caption: 'The original console: a dispatcher tool members were expected to read as their own trip list.',
+            afterBullet: 0,
+          },
+          {
+            src: '/work/portal-booking-1.png',
+            alt: 'The original post-login experience: a member is dropped straight into a booking form with no onboarding step and no prompt to add the member who needs transportation, and no indication that the account just created is not the member’s own.',
+            caption: 'Login dropped people straight into a booking form, with no step to say who the trip was for.',
+            afterBullet: 2,
+          },
+          {
+            src: '/work/portal-booking-2.png',
+            alt: 'The original one-size-fits-all booking form: the same fields shown regardless of trip type (one-way, round trip, or multi-leg), with a validation error surfaced only after submission rather than at the point of entry.',
+            caption: 'One form for every trip type, with errors only after submit. A caregiver had no confirmation of who the trip was for until it was too late to fix cheaply.',
+            afterBullet: 3,
+          },
         ],
       },
       {
-        heading: 'What I built: the design system',
+        heading: 'The fix had to hold everywhere, so I built the system first',
+        lead: 'Fixing one portal by hand would have left the others to drift.',
         paragraphs: [
-          'The system is a two-tier token architecture, primitives resolving into semantics, following standard atomic design and token practice.',
+          'MediDrive isn’t one product. The member portal and app, the facilities portal, the driver apps and portals, and the admin portal all sit on the same booking and trip data. So I sequenced the work: build the design system as a governance layer first, then redesign on top of it.',
         ],
         bullets: [
-          'Primitives hold every raw value. They carry no meaning and are never referenced directly in components.',
-          'Semantics alias primitives to a role. No semantic token holds a raw hex; it always points to a primitive. This is the governance mechanism, not a nicety — theming, dark mode, and rebrands change one layer, and component authors physically cannot hardcode a value that escapes the system.',
-          'Light and dark modes resolve through the semantic layer, so a token never fails to resolve for a developer.',
-          'Accessibility is baked into the tokens. WCAG 2.1 AA was applied to color and component decisions at the token level. Contrast is a property of the system, not a per-screen check.',
-          'A single icon component set keeps icon usage consistent and swappable.',
+          'Two-tier tokens: primitives hold raw values and are never used directly. Semantics map them to a role. No semantic token holds a raw hex, so a developer can’t hardcode a value that escapes the system.',
+          'Accessibility in the tokens: WCAG 2.1 AA contrast is a property of the system, not a per-screen check. Light and dark modes resolve through the semantic layer.',
+          'Built for a team I didn’t manage: the goal wasn’t more components faster. It was making “consistent and accessible” the easiest path for a separate dev team under its own project manager.',
+          'I co-built the system with one other product designer. I set the architecture and the rules.',
         ],
         images: [
           {
-          src: '/work/primitives.png',
-          alt: 'Primitives hold every raw value',
-          caption:
-            'The list of primitive colors',
-          afterBullet: 0,
-        },
-        {
-          src: '/work/semantics.png',
-          alt: 'Semantics alias primitives to a role. No semantic token holds a raw hex; it always points to a primitive',
-          caption:
-            'Semantics alias.',
-          afterBullet: 1,
-        }
-      ],
+            src: '/work/primitives.png',
+            alt: 'Primitives hold every raw value',
+            caption: 'Primitives: every raw value, never referenced directly in components.',
+            afterBullet: 0,
+          },
+          {
+            src: '/work/semantics.png',
+            alt: 'Semantics alias primitives to a role. No semantic token holds a raw hex; it always points to a primitive',
+            caption: 'Semantics: each token points to a primitive, never a raw hex.',
+            afterBullet: 1,
+          },
+        ],
       },
       {
-        heading: 'How the system enabled the redesign',
-        paragraphs: [
-          'With the system in place, the redesign became a series of decisions grounded in members and caregivers reality.',
-        ],
+        heading: 'Redesigning around the person booking',
+        lead: 'Every decision answers one question: who is this person, and who are they booking for?',
         decisions: [
           {
-            title: 'Unified sign-in with a member-first first run',
-            problem:
-              'Conventional sign-in forces users to know in advance whether they already have an account, and onboarding usually starts with account administration rather than the reason they came.',
-            change:
-              'One entry point takes an email or phone number; the system recognizes the person and routes returning vs. first-time users automatically. For a first-time user, the very first step is adding the member who needs transportation, with support for multiple members, then booking a first trip immediately.',
-            why: 'It removes a decision the audience shouldn’t have to make and orders onboarding around the real goal — getting a ride booked — instead of account setup.',
-          },
-          {
-            title: 'Dashboard as the landing surface',
-            problem:
-              'Login dropped members into a booking form with no context.',
-            change:
-              'Members now land on a dashboard; if a trip is active, driver details and pickup time are front and center, with shortcuts to trip history, reimbursements, and addresses.',
-            why: 'It answers the highest-anxiety question first, so most members never navigate further. Booking starts when the member decides to book — not the instant they log in.',
-          },
-          {
-            title: 'Trip-type selector opens the booking flow',
-            problem:
-              'One form for every trip type; return legs re-typed by hand; problems discovered only after submit.',
-            change:
-              'The flow opens with a trip-type choice (round trip / one-way / multi-leg). Round trip auto-fills the return leg; one-way removes the return section entirely; fields adapt to the selection.',
-            why: 'Fewer fields per path, no duplicate data entry, and the form’s shape matches the member’s actual intent.',
-          },
-          {
-            title: 'Member confirmation before any field is touched',
+            title: 'Confirm who the trip is for, before any field',
             problem:
               'A caregiver or facility staffer booking on behalf of someone found out too late if they had the wrong member.',
-            change:
-              'Member identity (Medicaid ID, DOB) is confirmed at the top of the flow.',
-            why: 'The most expensive error — booking a medical ride for the wrong person — is caught before it can happen.',
+            change: 'Member identity (Medicaid ID, date of birth) is confirmed at the top of the flow.',
+            why: 'The most expensive error, a medical ride booked for the wrong person, is caught before it can happen.',
           },
           {
-            title: 'Inline, specific error handling',
+            title: 'Onboarding starts with adding the member',
             problem:
-              'Errors surfaced after submission, generating support calls.',
-            change: 'Validation is inline and specific at the point of entry.',
-            why: 'Recovery happens in-flow, matching the prevent-errors and help-users-recover heuristics.',
+              'Sign-in made people know in advance whether they had an account, and nothing said the account holder wasn’t the member.',
+            change:
+              'One sign-in field takes email or phone and routes new and returning users automatically. A first-time user’s first step is adding the person who needs rides, with support for several members.',
+            why: 'Onboarding is ordered around the real goal, getting a ride booked for the right person, instead of account setup.',
           },
           {
-            title: 'Trip list rebuilt for the member',
-            problem: 'The trip layout overview was appropriated to a dispatcher or operational tool. It introduced unnecessary complexity for members and increases cognitive load without adding real value to their core tasks. ',
+            title: 'Land on “is my ride happening?”',
+            problem: 'Login dropped people into a booking form with no context.',
             change:
-              'A table layout it is more intuitive, task-focused and more familiar structure that’s easy to scan and understand, especially for less tech-savvy users.',
-            why: 'No training required to read your own trips.',
+              'A dashboard is now the landing page. An active trip shows driver details and pickup time first, with shortcuts to trip history, reimbursements and addresses.',
+            why: 'It answers the highest-anxiety question first. Booking starts when the person chooses to book.',
+          },
+          {
+            title: 'A trip list written for one member, not fifty',
+            problem: 'The trip list was the dispatcher’s operational view, built for staff scanning across many members.',
+            change: 'One row per trip, in plain terms: member, date, status, pickup and drop-off.',
+            why: 'No training needed to read your own trips.',
+          },
+          {
+            title: 'A form shaped by the trip',
+            problem: 'One form for every trip type; return legs re-typed by hand.',
+            change:
+              'Choosing round trip, one-way or multi-leg reshapes the form. Round trip fills the return leg; one-way removes it.',
+            why: 'Fewer fields per path, no duplicate entry, and the form matches what the person actually wants to do.',
+          },
+          {
+            title: 'Errors where they happen',
+            problem: 'Errors surfaced after submission, generating support calls.',
+            change: 'Validation is inline and specific at the point of entry.',
+            why: 'People recover in the flow instead of calling after a failed submit.',
           },
         ],
         images: [
           {
-          src: '/work/md-email-entry.png',
-          alt: 'The redesigned MediDrive sign-in: a single entry field accepting either an email address or phone number, with no separate sign-up path — the system recognizes the person and routes returning versus first-time users automatically.',
-          caption:'One entry point — email or phone. Returning and first-time members are routed automatically, so no one has to know in advance whether they have an account.',
-          afterDecision: 0,
-        },
-        {
-          src: '/work/dashboard-portal.png',
-          alt: 'The redesigned member dashboard as the landing surface after login: an active trip shown front and center with driver details and pickup time, plus shortcuts to trip history, reimbursements, and saved addresses.',
-          caption:'The dashboard answers the highest-anxiety question first, “is my ride happening?”. So most members never need to navigate further.',
-          afterDecision: 1,
-        },
-        {
-          src: '/work/trip-selection.png',
-          alt: 'The start of the redesigned booking flow: a trip-type selector offering round trip, one-way, and multi-leg. The choice reshapes the form, round trip auto-fills the return leg, one-way removes the return section entirely.',
-          caption: 'The flow opens with a trip-type choice, so each path shows only the fields it needs and the return leg is never re-typed by hand.',
-          afterDecision: 2,
-        },
-        {
-          src: '/work/confirmation.png',
-          alt: 'The member-confirmation step at the top of the booking flow: the member’s identity — Medicaid ID and date of birth — surfaced for confirmation before any trip fields are filled in.',
-          caption:'Member identity is confirmed before any field is touched, so the most expensive error — booking a medical ride for the wrong person — is caught up front.',
-          afterDecision: 3,
-        },
-        {
-          src: '/work/errors.png',
-          alt: 'The redesigned booking form showing inline validation: a specific, field-level error message displayed next to the input at the point of entry, rather than a generic error after submission.',
-          caption: 'Validation is inline and specific at the point of entry, so members recover in-flow instead of calling support after a failed submit.',
-          afterDecision: 4,
-        },
-        {
-          src: '/work/trip-list.png',
-          alt: 'The redesigned member trip list: one clear row per trip showing member, date, status, treatment, pickup, and drop-off — a simple, member-oriented layout in place of the dispatcher console.',
-          caption: 'A member-oriented trip list built to be scanned without training — each row is one trip, in plain terms.',
-          afterDecision: 5,
-        }
-      ],
+            src: '/work/confirmation.png',
+            alt: 'The member-confirmation step at the top of the booking flow: the member’s identity — Medicaid ID and date of birth — surfaced for confirmation before any trip fields are filled in.',
+            caption: 'Member identity is confirmed before any field is touched.',
+            afterDecision: 0,
+          },
+          {
+            src: '/work/md-email-entry.png',
+            alt: 'The redesigned MediDrive sign-in: a single entry field accepting either an email address or phone number, with no separate sign-up path — the system recognizes the person and routes returning versus first-time users automatically.',
+            caption: 'One entry point, email or phone. Nobody has to know in advance whether they have an account.',
+            afterDecision: 1,
+          },
+          {
+            src: '/work/dashboard-portal.png',
+            alt: 'The redesigned member dashboard as the landing surface after login: an active trip shown front and center with driver details and pickup time, plus shortcuts to trip history, reimbursements, and saved addresses.',
+            caption: 'The dashboard answers “is my ride happening?” first.',
+            afterDecision: 2,
+          },
+          {
+            src: '/work/trip-list.png',
+            alt: 'The redesigned member trip list: one clear row per trip showing member, date, status, treatment, pickup, and drop-off — a simple, member-oriented layout in place of the dispatcher console.',
+            caption: 'A trip list built to be scanned without training.',
+            afterDecision: 3,
+          },
+          {
+            src: '/work/trip-selection.png',
+            alt: 'The start of the redesigned booking flow: a trip-type selector offering round trip, one-way, and multi-leg. The choice reshapes the form, round trip auto-fills the return leg, one-way removes the return section entirely.',
+            caption: 'The trip type shapes the form, so the return leg is never re-typed by hand.',
+            afterDecision: 4,
+          },
+          {
+            src: '/work/errors.png',
+            alt: 'The redesigned booking form showing inline validation: a specific, field-level error message displayed next to the input at the point of entry, rather than a generic error after submission.',
+            caption: 'Inline, specific validation at the point of entry.',
+            afterDecision: 5,
+          },
+        ],
       },
-
       {
-        heading: 'Accessibility as risk management',
+        heading: 'Accessibility as risk, not polish',
+        lead: 'For a Medicaid NEMT product, accessibility is legal exposure and a state requirement.',
         paragraphs: [
-          'For a Medicaid NEMT product, accessibility is legal exposure (ADA / Section 508), not polish. I treated it that way. And a mandatory request from the states.',
+          'Accessibility here means ADA and Section 508 exposure, and it was a mandatory request from the states. I treated it as a property of the system, not a final pass.',
         ],
         bullets: [
-          'WCAG 2.1 AA applied at the token and component level, contrast is a property of the system, not a per-screen check.',
-          'Concrete targets: minimum body text size, 44px touch targets, 4.5:1 contrast, and plain language pitched to the member audience.',
-          "Design decisions carried the accessibility load so individual builders didn't have to re-derive it.",
+          'WCAG 2.1 AA applied at token and component level, so every screen built on the system inherits it.',
+          'Concrete rules: minimum body text size, 44px touch targets, 4.5:1 contrast, and plain language for a 65+ audience.',
+          'Status is never shown by colour alone, and each screen has one primary action.',
         ],
-        callout:
-          'I made accessibility structural rather than discretionary, so every screen built on the system inherits it by default.',
       },
       {
-        heading: 'Impact',
+        heading: 'Evidence so far',
+        lead: 'What’s already true, and what I’ll measure.',
         paragraphs: [
-          'This program is in progress, so this section states a target and a measurement plan, not achieved results. No number here is claimed as proven.',
-          'Primary success metric (target): reduce avoidable, self-service-able support calls by 15–20%. This targets specific call reasons — wrong-member bookings, unexplained booking failures, "is my ride happening?", and login confusion — not total call volume, and it is not an attempt to remove the phone as a channel. For a 65+ Medicaid audience the phone is often the appropriate channel; the goal is only to stop generating calls a member never should have needed to make.',
-          'The target is only provable if support calls are tagged by reason code, with a baseline captured before rollout and the same categories tracked after. Naming the measurement condition, rather than asserting the number, is what a numerate reader trusts.',
+          'The redesign is still in progress, so I keep what’s already true separate from what will be measured. No target here is presented as a result.',
+        ],
+        bullets: [
+          'Adopted by a team I don’t manage: the system is what the separate dev team builds on.',
+          'Strict enough for AI to use safely: its rules drive a design-system skill that builds on-system screens, flags gaps instead of inventing patterns, and keeps health details off summary screens.',
+          'Target, measured after launch: 15–20% fewer avoidable support calls, for specific reasons only: wrong-member bookings, unexplained booking failures, “is my ride happening?” and login confusion.',
+          'The phone stays a valid channel for this audience. The goal is to stop calls people should never have needed to make.',
+          'The target is only provable with calls tagged by reason, a baseline before rollout, and the same tags after.',
+        ],
+        testimonialQuotes: [
+          {
+            quote:
+              'Her design decisions were directly responsible for us passing every accessibility audit without friction.',
+            name: 'Serhii Nadoienko',
+            title: 'Frontend Engineer, Technology Oriented',
+          },
         ],
       },
     ],
