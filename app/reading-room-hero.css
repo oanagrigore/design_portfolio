@@ -343,7 +343,8 @@
     background: var(--rr-pill);
     font: 500 0.8rem var(--rr-font);
   }
-  .rr-pause { bottom: 64px; }
+  /* top-right, clear of the "Open the case studies" label on the books and the bottom hint */
+  .rr-pause { top: max(16px, env(safe-area-inset-top)); bottom: auto; }
 }
 
 .rr-still *, .rr-still *::before, .rr-still *::after { animation: none !important; transition: none !important; }
