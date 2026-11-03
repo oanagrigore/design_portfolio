@@ -234,12 +234,12 @@
   box-shadow: 0 12px 30px -12px rgba(0, 0, 0, 0.6);
   font: 500 clamp(0.85rem, 1.15cqi, 1.05rem) var(--rr-font);
   white-space: nowrap;
-  opacity: 0;
-  transform: translateX(-6px);
-  transition: opacity 0.2s, transform 0.25s cubic-bezier(0.2, 1.4, 0.4, 1);
-  pointer-events: none;
+  /* Always visible, so every + says where it goes. Quiet by default, bright on hover/focus. */
+  color: rgba(255, 255, 255, 0.86);
+  background: rgba(14, 11, 20, 0.62);
+  transition: background 0.2s, color 0.2s, transform 0.25s cubic-bezier(0.2, 1.4, 0.4, 1);
 }
-.rr-hot:hover .rr-lab, .rr-hot:focus-visible .rr-lab, .rr-books:hover .rr-lab, .rr-books:focus-visible .rr-lab { opacity: 1; transform: none; }
+.rr-hot:hover .rr-lab, .rr-hot:focus-visible .rr-lab, .rr-books:hover .rr-lab, .rr-books:focus-visible .rr-lab { color: #fff; background: var(--rr-pill); transform: translateX(2px); }
 .rr-hot:hover .rr-plus, .rr-hot:focus-visible .rr-plus, .rr-books:hover .rr-plus, .rr-books:focus-visible .rr-plus { transform: rotate(90deg); background: rgba(14, 11, 20, 0.85); }
 .rr-hot:focus-visible, .rr-books:focus-visible { outline: none; }
 .rr-hot:focus-visible .rr-plus, .rr-books:focus-visible .rr-plus { outline: 3px solid var(--rr-focus); outline-offset: 3px; }
@@ -321,9 +321,7 @@
   cursor: pointer;
 }
 
-@media (hover: none) {
-  .rr-lab { opacity: 1; transform: none; }
-}
+
 
 /* phones in portrait: the room fills the height and pans sideways */
 @media (max-aspect-ratio: 1/1) {

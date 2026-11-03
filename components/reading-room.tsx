@@ -315,6 +315,18 @@ export function ReadingRoomHero() {
 
           <canvas ref={canvasRef} className={styles.fx} aria-hidden="true" />
 
+          {/* The links come first in the tab order, so keyboard users reach the site before the toys. */}
+          <Link href="/work" className={styles.books}>
+            <span className={styles.hotin}><PlusIcon /><span className={styles.lab}>Open the case studies</span></span>
+          </Link>
+
+          {HOTSPOTS.map((h) => (
+            <Link key={h.href} href={h.href} className={styles.hot} style={{ left: `${h.left}%`, top: `${h.top}%` }}>
+              <span className={styles.hotin}><PlusIcon /><span className={styles.lab}>{h.label}</span></span>
+            </Link>
+          ))}
+
+
           {LIGHTS.map((l) => {
             const on = lights[l.id];
             const style: CSSProperties = { left: px(l.x), top: py(l.y), width: px(l.hw ?? 110), height: px(l.hh ?? l.hw ?? 110) };
@@ -357,15 +369,6 @@ export function ReadingRoomHero() {
             <span className={styles.bubble} aria-hidden="true">{bubbleText}</span>
           </button>
 
-          <Link href="/work" className={styles.books}>
-            <span className={styles.hotin}><PlusIcon /><span className={styles.lab}>Open the case studies</span></span>
-          </Link>
-
-          {HOTSPOTS.map((h) => (
-            <Link key={h.href} href={h.href} className={styles.hot} style={{ left: `${h.left}%`, top: `${h.top}%` }}>
-              <span className={styles.hotin}><PlusIcon /><span className={styles.lab}>{h.label}</span></span>
-            </Link>
-          ))}
 
         </div>
       </div>
