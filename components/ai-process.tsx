@@ -64,7 +64,7 @@ export function AiProcess() {
         <div className="grid" style={{ gridTemplateColumns: `repeat(${n}, minmax(0, 1fr))` }}>
           {phases.map((p) => (
             <div key={p.name} className="px-3" style={{ gridColumn: `${p.start + 1} / span ${p.count}` }}>
-              <p className="border-b border-border/60 pb-3 text-center text-xs font-medium uppercase tracking-[0.08em] text-muted-foreground">
+              <p className="border-b border-border/60 pb-3 text-left text-xs font-medium uppercase tracking-[0.08em] text-muted-foreground">
                 {p.name}
               </p>
             </div>
@@ -74,17 +74,13 @@ export function AiProcess() {
         {/* Steps */}
         <ol className="relative mt-10 grid" style={{ gridTemplateColumns: `repeat(${n}, minmax(0, 1fr))` }}>
           {/* the line running through every node */}
-          <motion.span
+          <span
             aria-hidden="true"
-            className="absolute top-[22px] h-px origin-left bg-gradient-to-r from-pink-400/70 via-fuchsia-400/50 to-white/25"
-            style={{ left: `${50 / n}%`, right: `${50 / n}%` }}
-            initial={{ scaleX: 0 }}
-            whileInView={{ scaleX: 1 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+            className="absolute top-[22px] h-px bg-gradient-to-r from-pink-400/70 via-fuchsia-400/50 to-white/25"
+            style={{ left: "34px", right: `calc(${100 / n}% - 34px)` }}
           />
           {aiProcess.steps.map((step, i) => (
-            <motion.li key={step.title} className="flex flex-col items-center px-3 text-center" {...reveal(i)}>
+            <motion.li key={step.title} className="flex flex-col items-start px-3 text-left" {...reveal(i)}>
               <Node index={i} tool={step.tool} />
               <span className="mt-5 text-xs font-medium tabular-nums text-pink-400">{String(i + 1).padStart(2, "0")}</span>
               <h3 className="mt-2 text-balance text-base font-medium leading-snug tracking-tight text-foreground xl:text-lg">
@@ -99,7 +95,7 @@ export function AiProcess() {
         </ol>
 
         {/* The loop: step 6 back to step 1 */}
-        <div aria-hidden="true" className="relative mt-8 h-14" style={{ marginLeft: `${50 / n}%`, marginRight: `${50 / n}%` }}>
+        <div aria-hidden="true" className="relative mt-8 h-14" style={{ marginLeft: "34px", marginRight: `calc(${100 / n}% - 34px)` }}>
           <span className="absolute inset-0 rounded-b-[28px] border-x border-b border-dashed border-white/20" />
           {/* arrowhead pointing up at step 1 */}
           <svg className="absolute -left-[5px] -top-2 text-white/40" width="11" height="8" viewBox="0 0 11 8">
