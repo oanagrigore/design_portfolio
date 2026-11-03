@@ -33,6 +33,39 @@ export const profile = {
     { label: 'Dribbble', href: 'https://dribbble.com/oelenagrigore' },
   ],
 }
+/** Home page: how I work with AI, in order. */
+export const aiProcess = {
+  heading: 'Context first. Variants second.',
+  intro:
+    'I work with Claude from research through discovery and ideation. The prompt is the easy part. The setup is what makes it work: once the context is right, good variants come fast.',
+  steps: [
+    {
+      title: 'Set up the fundamentals',
+      detail: 'Before any screens, I give Claude the context: the brand, the product, its users and the constraints I’m working within.',
+    },
+    {
+      title: 'Research the field',
+      detail: 'Competitors, what they get right and wrong, and the key differentiators worth building on.',
+    },
+    {
+      title: 'Frame the problem',
+      detail: 'What we actually need to solve, and the best approach to it, before anything gets designed.',
+    },
+    {
+      title: 'Generate variants',
+      detail: 'With everything set up, I explore several directions side by side instead of committing to the first one.',
+    },
+    {
+      title: 'Fine-tune in Figma',
+      detail: 'When a design needs craft rather than more options, it moves into Figma.',
+    },
+    {
+      title: 'Feed it back to the team',
+      detail: 'New rules and guidelines go into the Figma file and a shared artifact, so the whole team designs from the same source.',
+    },
+  ],
+}
+
 export interface Highlight {
   value: string;
   title: string;

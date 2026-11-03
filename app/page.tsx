@@ -4,7 +4,7 @@ import { Fragment, useRef, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
-import { caseStudies, highlights, profile, services } from '@/lib/content'
+import { aiProcess, caseStudies, highlights, profile, services } from '@/lib/content'
 import { HeroAnimator } from '@/components/hero-animator'
 import { AnimatedProjectCard } from '@/components/animated-project-card'
 import ImageSlider from '@/components/ImageSlider'
@@ -384,11 +384,50 @@ export default function HomePage() {
           </AnimatePresence>
         </section>
 
-        {/* 4 · What I do */}
+        {/* 4 · How I work with AI */}
+        <section aria-labelledby="ai-heading" className="py-16 md:py-28">
+          <div className="grid grid-cols-1 gap-10 md:grid-cols-12">
+            <div className="md:col-span-5 lg:col-span-4">
+              <SectionLabel n="03">How I work with AI</SectionLabel>
+              <h2
+                id="ai-heading"
+                className="mt-6 text-balance text-3xl font-medium leading-[1.1] tracking-tight text-foreground sm:text-4xl"
+              >
+                {aiProcess.heading}
+              </h2>
+              <p className="mt-6 max-w-[42ch] text-pretty leading-relaxed text-muted-foreground">{aiProcess.intro}</p>
+              <Link
+                href="/work/design-system-redesign"
+                className="group mt-8 inline-flex min-h-11 items-center gap-3 text-sm font-medium text-foreground"
+              >
+                <Plus />
+                See it in practice: the MediDrive design system as a Claude skill
+              </Link>
+            </div>
+            <ol className="md:col-span-7 lg:col-span-7 lg:col-start-6">
+              {aiProcess.steps.map((step, i) => (
+                <li
+                  key={step.title}
+                  className="grid grid-cols-[2rem_1fr] gap-x-4 border-t border-border/60 py-6 last:border-b md:grid-cols-[2.5rem_1fr] md:py-7"
+                >
+                  <span className="pt-1 text-xs font-medium tabular-nums text-pink-400">
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <div>
+                    <h3 className="text-lg font-medium tracking-tight text-foreground md:text-xl">{step.title}</h3>
+                    <p className="mt-2 max-w-[60ch] text-pretty leading-relaxed text-muted-foreground">{step.detail}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+
+        {/* 5 · What I do */}
         <section aria-labelledby="do-heading" className="py-16 md:py-28">
           <div className="grid grid-cols-1 gap-10 md:grid-cols-12">
             <div className="md:col-span-4">
-              <SectionLabel n="03">What I do</SectionLabel>
+              <SectionLabel n="04">What I do</SectionLabel>
               <h2 id="do-heading" className="sr-only">
                 What I do
               </h2>
