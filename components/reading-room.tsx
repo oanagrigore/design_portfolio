@@ -116,17 +116,35 @@ function PlusIcon() {
   );
 }
 
-/** Native modal dialog: focus moves in and back out, Esc closes, the page behind is inert. */
+/**
+ * Native modal dialog, one book at a time: focus moves in and back out, Esc closes,
+ * the page behind is inert. Arrow keys, the buttons or a swipe move between books.
+ */
 function BookshelfDialog({ dialogRef }: { dialogRef: React.RefObject<HTMLDialogElement | null> }) {
-  const [failed, setFailed] = useState<Record<string, boolean>>({});
+  const [i, setI] = useState(0);
+  const touchX = useRef<number | null>(null);
+  const n = favouriteBooks.length;
+  const book = favouriteBooks[i];
+  const go = (d: number) => setI((v) => (v + d + n) % n);
   const close = () => dialogRef.current?.close();
+
   return (
     <dialog
       ref={dialogRef}
       className={styles.dialog}
       aria-labelledby="rr-shelf-title"
-      // a click on the dimmed backdrop lands on the dialog itself
       onClick={(e) => { if (e.target === e.currentTarget) close(); }}
+      onKeyDown={(e) => {
+        if (e.key === "ArrowRight") { e.preventDefault(); go(1); }
+        if (e.key === "ArrowLeft") { e.preventDefault(); go(-1); }
+      }}
+      onTouchStart={(e) => { touchX.current = e.touches[0].clientX; }}
+      onTouchEnd={(e) => {
+        if (touchX.current === null) return;
+        const dx = e.changedTouches[0].clientX - touchX.current;
+        if (Math.abs(dx) > 40) go(dx < 0 ? 1 : -1);
+        touchX.current = null;
+      }}
     >
       <div className="rr-dialog-in">
         <div className="rr-dialog-head">
@@ -137,30 +155,35 @@ function BookshelfDialog({ dialogRef }: { dialogRef: React.RefObject<HTMLDialogE
             </svg>
           </button>
         </div>
-        <ul className="rr-shelf-list">
-          {favouriteBooks.map((b) => (
-            <li key={b.title}>
-              <span className="rr-cover">
-                {failed[b.title] ? (
-                  <span className="rr-cover-fallback" aria-hidden="true">{b.title}</span>
-                ) : (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img
-                    src={b.cover}
-                    alt=""
-                    loading="lazy"
-                    width={180}
-                    height={270}
-                    onError={() => setFailed((f) => ({ ...f, [b.title]: true }))}
-                  />
-                )}
-              </span>
-              <span className="rr-book-title">{b.title}</span>
-              <span className="rr-book-author">{b.author}</span>
-            </li>
-          ))}
-        </ul>
-        <p className="rr-dialog-credit">Covers from Open Library</p>
+
+        <div className="rr-book" aria-live="polite">
+          <span className="rr-cover" key={book.cover}>
+            <Image src={book.cover} alt="" width={book.w} height={book.h} sizes="240px" />
+          </span>
+          <div className="rr-book-text">
+            <p className="rr-book-count">{i + 1} of {n}</p>
+            <p className="rr-book-title">{book.title}</p>
+            <p className="rr-book-author">{book.author}</p>
+          </div>
+        </div>
+
+        <div className="rr-book-nav">
+          <button type="button" className="rr-dialog-x" onClick={() => go(-1)} aria-label="Previous book">
+            <svg viewBox="0 0 10 10" aria-hidden="true">
+              <path d="M6.5 1.5 3 5l3.5 3.5" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </button>
+          <span className="rr-dots" aria-hidden="true">
+            {favouriteBooks.map((b, d) => (
+              <i key={b.title} className={d === i ? "on" : ""} />
+            ))}
+          </span>
+          <button type="button" className="rr-dialog-x" onClick={() => go(1)} aria-label="Next book">
+            <svg viewBox="0 0 10 10" aria-hidden="true">
+              <path d="M3.5 1.5 7 5 3.5 8.5" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </button>
+        </div>
       </div>
     </dialog>
   );

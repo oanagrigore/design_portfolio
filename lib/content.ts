@@ -79,16 +79,18 @@ export const aiProcess = {
   ],
 }
 
-/** Reading room: books on the shelf by the fireplace. Covers are linked from Open Library. */
+/** Reading room: books on the shelf by the fireplace, shown one at a time. */
 export const favouriteBooks = [
-  { title: 'The Design of Everyday Things', author: 'Don Norman', cover: 'https://covers.openlibrary.org/b/id/8749094-M.jpg' },
-  { title: 'Articulating Design Decisions', author: 'Tom Greever', cover: 'https://covers.openlibrary.org/b/id/13266545-M.jpg' },
+  { title: 'The Design of Everyday Things', author: 'Don Norman', cover: '/books/design-of-everyday-things.webp', w: 320, h: 479 },
+  { title: 'Articulating Design Decisions', author: 'Tom Greever', cover: '/books/articulating-design-decisions.webp', w: 296, h: 444 },
   {
     title: 'The Path to Senior Product Designer',
     author: 'Artiom Dashinsky',
-    cover: 'https://covers.openlibrary.org/b/id/14546443-M.jpg',
+    cover: '/books/path-to-senior-product-designer.webp',
+    w: 180,
+    h: 279,
   },
-  { title: 'Continuous Discovery Habits', author: 'Teresa Torres', cover: 'https://covers.openlibrary.org/b/id/11136152-M.jpg' },
+  { title: 'Continuous Discovery Habits', author: 'Teresa Torres', cover: '/books/continuous-discovery-habits.webp', w: 365, h: 547 },
 ]
 
 export interface Highlight {
