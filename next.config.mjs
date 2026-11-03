@@ -4,6 +4,7 @@
 // served under ogrigore.design/lab/* through these rewrites.
 const LAB = {
   'wireframe-kit': 'https://wireframe-kit-team-of-one2.vercel.app',
+  tokens: 'https://token-pipeline-team-of-one2.vercel.app',
 }
 
 const nextConfig = {
