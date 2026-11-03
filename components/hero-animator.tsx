@@ -54,6 +54,18 @@ export function HeroAnimator({ children }: { children: React.ReactNode }) {
         },
         "-=0.5"
       );
+
+      // 5. Proof strip settles in last
+      tl.from(
+        ".hero-proof li",
+        {
+          y: 12,
+          opacity: 0,
+          duration: 0.6,
+          stagger: 0.06,
+        },
+        "-=0.4"
+      );
     }, containerRef);
 
     return () => ctx.revert(); // Automatic GSAP cleanup

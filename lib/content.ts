@@ -13,6 +13,20 @@ export const profile = {
   ],
   intro:
     'In healthcare transportation, bad UX means someone doesn\'t get to their appointment. That\'s why I design accessibility in from the start, across portals, apps and the systems that hold them together.',
+  /** Shown in the home hero. Two ways to work together. */
+  availability: {
+    status: 'Open to full-time & fractional work',
+    options: [
+      {
+        label: 'Full-time',
+        detail: 'Senior or Lead Product Designer on B2B SaaS and enterprise products. Remote in Europe or Bucharest.',
+      },
+      {
+        label: 'Fractional',
+        detail: 'Product design, design systems and WCAG 2.1 AA accessibility for teams that need a senior designer part-time.',
+      },
+    ],
+  },
   avatar: '/oana-avatar.png',
   social: [
     { label: 'LinkedIn', href: 'https://www.linkedin.com/in/oanagrigore' },

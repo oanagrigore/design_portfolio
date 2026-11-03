@@ -4,7 +4,7 @@ import { Fragment, useRef, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
-import { caseStudies, profile, services } from '@/lib/content'
+import { caseStudies, highlights, profile, services } from '@/lib/content'
 import { HeroAnimator } from '@/components/hero-animator'
 import { AnimatedProjectCard } from '@/components/animated-project-card'
 import ImageSlider from '@/components/ImageSlider'
@@ -69,12 +69,15 @@ const COMPARISONS: Comparison[] = [
   },
 ]
 
+// One dominant idea: the setup in white, the payoff in the accent.
+// The role stays inside the h1 (as a smaller kicker) so search engines still read it.
+const heroRole = 'Senior Product Designer for B2B SaaS & enterprise'
 const heroLines = [
-  { text: 'Senior Product Designer for B2B SaaS & enterprise.', className: 'block text-foreground' },
   {
-    text: 'Six user roles, three compliance rules and a design system held together with hope? That’s my favourite kind of brief.',
-    className: 'block text-muted-foreground',
+    text: 'Six user roles, three compliance rules and a design system held together with hope?',
+    className: 'block text-foreground',
   },
+  { text: 'That’s my favourite kind of brief.', className: 'block text-pink-300' },
 ]
 
 const label =
@@ -173,42 +176,85 @@ export default function HomePage() {
       <div className="relative z-20 mx-auto max-w-6xl px-4 sm:px-6">
         {/* 1 · Introduction */}
         <HeroAnimator>
-          <section className="pt-20 pb-24 md:pt-28 md:pb-36">
-            <p className={`${label} mb-6 md:mb-8`}>{profile.name}</p>
-
-            <h1 className="max-w-5xl text-balance text-4xl font-medium leading-[1.06] tracking-tight sm:text-5xl lg:text-6xl">
-              {heroLines.map((line, lineIndex) => (
-                <span key={lineIndex} className={line.className}>
-                  {line.text.split(' ').map((word, wordIndex, words) => (
-                    <Fragment key={`${lineIndex}-${wordIndex}`}>
-                      <span className="hero-title-word inline-block whitespace-nowrap">{word}</span>
-                      {/* a real space, so crawlers, AI assistants and screen readers read words */}
-                      {wordIndex < words.length - 1 ? ' ' : null}
-                    </Fragment>
-                  ))}
-                  {lineIndex < heroLines.length - 1 ? ' ' : null}
+          <section aria-labelledby="hero-heading" className="pt-20 pb-20 md:pt-28 md:pb-28">
+            {/* Who + availability, one quiet line */}
+            <div className="hero-subtitle mb-8 flex flex-wrap items-center gap-x-5 gap-y-3 md:mb-10">
+              <p className={label}>{profile.name}</p>
+              <p className="inline-flex items-center gap-2.5 rounded-full bg-white/[0.04] px-3 py-1.5 text-xs font-medium text-foreground/90 ring-1 ring-white/10">
+                <span aria-hidden="true" className="relative flex size-2">
+                  <span className="absolute inline-flex size-full animate-ping rounded-full bg-emerald-400/60 motion-reduce:animate-none" />
+                  <span className="relative inline-flex size-2 rounded-full bg-emerald-400" />
                 </span>
-              ))}
+                {profile.availability.status}
+              </p>
+            </div>
+
+            <h1 id="hero-heading" className="max-w-5xl">
+              <span className="hero-subtitle mb-5 block text-lg font-medium tracking-tight text-muted-foreground sm:text-xl md:mb-6">
+                {heroRole}
+              </span>
+              <span className="block text-balance text-4xl font-medium leading-[1.06] tracking-tight sm:text-5xl lg:text-[4.25rem]">
+                {heroLines.map((line, lineIndex) => (
+                  <span key={lineIndex} className={line.className}>
+                    {line.text.split(' ').map((word, wordIndex, words) => (
+                      <Fragment key={`${lineIndex}-${wordIndex}`}>
+                        <span className="hero-title-word inline-block whitespace-nowrap">{word}</span>
+                        {/* a real space, so crawlers, AI assistants and screen readers read words */}
+                        {wordIndex < words.length - 1 ? ' ' : null}
+                      </Fragment>
+                    ))}
+                    {lineIndex < heroLines.length - 1 ? ' ' : null}
+                  </span>
+                ))}
+              </span>
             </h1>
 
-            <div className="mt-10 grid grid-cols-1 gap-8 md:mt-14 md:grid-cols-12">
-              <p className="max-w-[58ch] text-pretty text-lg leading-relaxed text-muted-foreground md:col-span-7 md:text-xl">
-                {profile.intro}
-              </p>
-              <div className="hero-cta-group flex flex-wrap items-center gap-3 md:col-span-5 md:justify-end md:self-end">
-                <Sparkle>
-                  <PrimaryButton href="/work">View selected work</PrimaryButton>
-                </Sparkle>
-                <Sparkle>
-                  <Link
-                    href="/about"
-                    className="inline-flex min-h-12 items-center rounded-full border border-border/60 px-6 text-sm font-medium text-foreground transition-colors hover:border-muted-foreground"
-                  >
-                    About me
-                  </Link>
-                </Sparkle>
+            <div className="mt-12 grid grid-cols-1 gap-12 md:mt-16 md:grid-cols-12 md:gap-10">
+              {/* Intro + actions, read top to bottom */}
+              <div className="md:col-span-7">
+                <p className="hero-cta-group max-w-[56ch] text-pretty text-lg leading-relaxed text-muted-foreground md:text-xl">
+                  {profile.intro}
+                </p>
+                <div className="hero-cta-group mt-8 flex flex-wrap items-center gap-3 md:mt-10">
+                  <Sparkle>
+                    <PrimaryButton href="/work">View selected work</PrimaryButton>
+                  </Sparkle>
+                  <Sparkle>
+                    <Link
+                      href="/contact"
+                      className="inline-flex min-h-12 items-center rounded-full border border-border px-6 text-sm font-medium text-foreground transition-colors hover:border-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                    >
+                      Start a conversation
+                    </Link>
+                  </Sparkle>
+                </div>
+              </div>
+
+              {/* Ways to work together */}
+              <div className="hero-cta-group md:col-span-5 md:pl-6 lg:pl-10">
+                <h2 className={label}>Ways to work together</h2>
+                <dl className="mt-5 border-t border-border/60">
+                  {profile.availability.options.map((option) => (
+                    <div key={option.label} className="grid grid-cols-[6.5rem_1fr] gap-4 border-b border-border/60 py-5">
+                      <dt className="text-sm font-medium text-foreground">{option.label}</dt>
+                      <dd className="text-sm leading-relaxed text-muted-foreground">{option.detail}</dd>
+                    </div>
+                  ))}
+                </dl>
               </div>
             </div>
+
+            {/* Proof, above the fold on desktop: the same four facts as the About page */}
+            <ul aria-label="Scope and scale" className="hero-proof mt-16 grid grid-cols-2 gap-x-6 gap-y-8 border-t border-border/60 pt-8 md:mt-20 lg:grid-cols-4">
+              {highlights.map((item) => (
+                <li key={item.value} className="min-w-0">
+                  <span className="block text-2xl font-medium leading-none tracking-tight tabular-nums text-foreground md:text-3xl">
+                    {item.value}
+                  </span>
+                  <span className="mt-3 block text-sm leading-relaxed text-muted-foreground">{item.title}</span>
+                </li>
+              ))}
+            </ul>
           </section>
         </HeroAnimator>
 
