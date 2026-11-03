@@ -117,7 +117,7 @@ export default function CaseStudyPage({ params }: { params: Promise<{ slug: stri
           <h2 id="tldr" className={`${label} mb-6`}>
             <span className="text-pink-400">At a glance</span>
           </h2>
-          <dl className="grid grid-cols-1 border-y border-border/60 md:grid-cols-2 lg:grid-cols-4">
+          <dl className="grid grid-cols-1 border-t border-border/60 md:grid-cols-2 lg:grid-cols-4">
             {[
               { k: 'The problem', v: study.challenge },
               { k: 'What I did', v: study.approach },
@@ -290,7 +290,7 @@ function StorySection({
   const trailing = section.images?.filter((im) => im.afterBullet === undefined && im.afterDecision === undefined) ?? []
 
   return (
-    <section id={id} aria-labelledby={`${id}-h`} className="scroll-mt-28 border-t border-border/60 py-14 first:border-t-0 first:pt-0 md:py-20">
+    <section id={id} aria-labelledby={`${id}-h`} className="scroll-mt-28 py-14 first:pt-0 md:py-20">
       <p className={`${label} flex gap-3.5`}>
         <span className="text-pink-400">{num(n)}</span>
       </p>
@@ -318,7 +318,7 @@ function StorySection({
           {section.bullets.map((b, i) => {
             const { lead, rest } = splitLead(b)
             return (
-              <li key={i} className="border-b border-border/60 py-6">
+              <li key={i} className="border-b border-border/60 py-6 last:border-b-0">
                 <div className="grid grid-cols-[2.5rem_1fr] gap-x-2">
                   <span className="pt-1 text-xs font-medium tabular-nums text-pink-400">{num(i + 1)}</span>
                   <p className="max-w-[64ch] text-pretty leading-relaxed text-muted-foreground md:text-lg">

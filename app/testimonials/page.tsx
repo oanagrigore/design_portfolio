@@ -160,7 +160,7 @@ export default function TestimonialsPage() {
                 <li
                   key={t.name}
                   data-animate="experience-item"
-                  className="grid grid-cols-1 gap-x-6 gap-y-5 border-b border-border/60 py-10 md:grid-cols-12 md:py-14"
+                  className="grid grid-cols-1 gap-x-6 gap-y-5 border-b border-border/60 py-10 last:border-b-0 md:grid-cols-12 md:py-14"
                 >
                   <figure className="contents">
                     <figcaption className="md:col-span-4">

@@ -42,7 +42,7 @@ export function FiveReasons() {
         {reasons.map((item) => (
           <li
             key={item.num}
-            className="grid grid-cols-[48px_1fr] gap-y-2 border-t border-border/60 py-7 last:border-b md:grid-cols-[56px_1fr] md:py-8"
+            className="grid grid-cols-[48px_1fr] gap-y-2 border-t border-border/60 py-7 md:grid-cols-[56px_1fr] md:py-8"
           >
             <span
               aria-hidden="true"

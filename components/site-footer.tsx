@@ -19,7 +19,7 @@ function LegalLine({ className = '' }: { className?: string }) {
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-border/60">
+    <footer>
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <FooterCta
           // On /contact: only the legal line, since the email and links are already on the page.

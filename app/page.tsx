@@ -236,7 +236,7 @@ export default function HomePage() {
                 <h2 className={label}>Ways to work together</h2>
                 <dl className="mt-5 border-t border-border/60">
                   {profile.availability.options.map((option) => (
-                    <div key={option.label} className="grid grid-cols-[6.5rem_1fr] gap-4 border-b border-border/60 py-5">
+                    <div key={option.label} className="grid grid-cols-[6.5rem_1fr] gap-4 border-b border-border/60 py-5 last:border-b-0">
                       <dt className="text-sm font-medium text-foreground">{option.label}</dt>
                       <dd className="text-sm leading-relaxed text-muted-foreground">{option.detail}</dd>
                     </div>
@@ -276,7 +276,7 @@ export default function HomePage() {
 
           <ol className="border-t border-border/60">
             {featured.map((study, i) => (
-              <li key={study.slug} className="border-b border-border/60">
+              <li key={study.slug} className="border-b border-border/60 last:border-b-0">
                 <AnimatedProjectCard>
                   <Link
                     href={`/work/${study.slug}`}
@@ -422,7 +422,7 @@ export default function HomePage() {
               {services.map((service, i) => (
                 <li
                   key={service}
-                  className="flex items-baseline gap-6 border-t border-border/60 py-6 last:border-b md:py-8"
+                  className="flex items-baseline gap-6 border-t border-border/60 py-6 md:py-8"
                 >
                   <span className="text-xs font-medium tabular-nums text-muted-foreground">
                     {String(i + 1).padStart(2, '0')}

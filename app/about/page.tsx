@@ -164,7 +164,7 @@ export default function AboutPage() {
           <h2 id="scope-heading" className="sr-only">
             Scope and scale
           </h2>
-          <ul className="grid grid-cols-1 border-y border-border/60 sm:grid-cols-2 lg:grid-cols-4">
+          <ul className="grid grid-cols-1 border-t border-border/60 sm:grid-cols-2 lg:grid-cols-4">
             {highlights.map((item, idx) => (
               <li
                 key={item.value}
@@ -249,7 +249,7 @@ export default function AboutPage() {
             {/* Summary row: nothing to expand, so no icon */}
             <div
               data-animate="experience-item"
-              className={`${rowGrid} border-b border-border/60`}
+              className={rowGrid}
             >
               <span className={period}>{EARLIER_ROLES.period}</span>
               <h3 className="text-lg font-medium tracking-tight text-foreground md:text-xl">

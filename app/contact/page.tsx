@@ -39,7 +39,7 @@ export default function ContactPage() {
             </p>
           </div>
 
-          <dl className="divide-y divide-white/10 border-y border-white/10 lg:col-span-5 lg:mt-1">
+          <dl className="divide-y divide-white/10 border-t border-white/10 lg:col-span-5 lg:mt-1">
             <div className="py-5">
               <dt className={label}>Email</dt>
               <dd className="mt-2">

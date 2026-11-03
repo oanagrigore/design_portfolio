@@ -77,7 +77,7 @@ export function WorkGallery({ studies }: { studies: CaseStudy[] }) {
       {/* Index */}
       <ul className="mt-20 border-t border-border/60 md:mt-28">
         {studies.map((study) => (
-          <li key={study.slug}>
+          <li key={study.slug} className="last:[&>a]:border-b-0">
             <Link
               href={`/work/${study.slug}`}
               className="group grid grid-cols-[3rem_1fr_auto] items-baseline gap-4 border-b border-border/60 py-4 sm:gap-8"

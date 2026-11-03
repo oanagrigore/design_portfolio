@@ -35,7 +35,7 @@ export default function WorkPage() {
           >
             <Link href={`/work/${study.slug}`} className="flex flex-col h-full">
               {/* Project Cover Image */}
-              <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl border border-border/60 bg-muted">
+              <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl bg-muted">
                 <Image
                   src={study.cover || '/placeholder.svg'}
                   alt={study.title}
