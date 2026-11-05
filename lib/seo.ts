@@ -11,27 +11,55 @@ export const PERSON = {
   location: { city: "Bucharest", country: "Romania", countryCode: "RO" },
   email: "grigore.oana.elena@gmail.com",
   summary:
-    "Product designer specialising in accessible healthcare transportation products: member portals, booking flows and the design systems behind them, built to WCAG 2.1 AA.",
+    "Senior Product Designer for B2B SaaS and enterprise products with multiple user roles and compliance requirements. Designs accessibility in from the start (WCAG 2.1 AA) and builds the design systems that hold products together. Open to full-time and fractional work.",
   knowsAbout: [
     "Product design",
+    "B2B SaaS",
+    "Enterprise UX",
     "Accessibility",
     "WCAG 2.1 AA",
     "Design systems",
     "Design system governance",
+    "Design tokens",
+    "Product strategy",
     "Information architecture",
     "UX audits",
-    "Non-emergency medical transportation (NEMT)",
+    "Conversion and flow optimisation",
+    "AI-assisted design with Claude",
     "Healthcare UX",
+    "Non-emergency medical transportation (NEMT)",
+    "Shopify apps",
     "Webflow",
   ],
   sameAs: [
     "https://www.linkedin.com/in/oanagrigore",
+    "https://github.com/oanagrigore",
     "https://dribbble.com/oelenagrigore",
     "https://medium.com/@oelenagrigore",
   ],
 };
 
 export const SITE_DESCRIPTION =
-  "Oana Grigore is a Senior Product Designer in Bucharest designing accessible healthcare transportation products: Medicaid ride booking portals, state NEMT pages and the design systems that keep them WCAG 2.1 AA compliant.";
+  "Oana Grigore is a Senior Product Designer in Bucharest for B2B SaaS and enterprise: accessible WCAG 2.1 AA products, design systems and complex multi-role flows. Led design at MediDrive; solo designer behind 40+ Vitals Shopify apps. Open to full-time and fractional work.";
+
+/** Search and AI-answer keywords. Google ignores the keywords tag, but Bing and some AI tools still read it. */
+export const SITE_KEYWORDS = [
+  "Oana Grigore",
+  "Senior Product Designer",
+  "Lead Product Designer",
+  "Fractional Product Designer",
+  "B2B SaaS product designer",
+  "Enterprise UX designer",
+  "Design systems",
+  "Design system governance",
+  "Accessibility designer",
+  "WCAG 2.1 AA",
+  "Healthcare UX",
+  "NEMT",
+  "Shopify app design",
+  "AI-assisted product design",
+  "Product designer Bucharest",
+  "Remote product designer Europe",
+];
 
 export const absoluteUrl = (path = "/") => new URL(path, SITE_URL).toString();

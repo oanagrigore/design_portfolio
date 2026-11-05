@@ -4,7 +4,7 @@ import { Analytics } from '@vercel/analytics/next'
 import { SiteFooter } from '@/components/site-footer'
 import { SmoothScrollProvider } from '@/components/smooth-scroll-provider'
 import { SiteJsonLd } from '@/components/json-ld'
-import { PERSON, SITE_URL, SITE_DESCRIPTION } from '@/lib/seo'
+import { PERSON, SITE_URL, SITE_DESCRIPTION, SITE_KEYWORDS } from '@/lib/seo'
 import './globals.css'
 
 const geistSans = Geist({
@@ -24,6 +24,7 @@ export const metadata: Metadata = {
     template: `%s — ${PERSON.name}`,
   },
   description: SITE_DESCRIPTION,
+  keywords: SITE_KEYWORDS,
   applicationName: `${PERSON.name} Portfolio`,
   authors: [{ name: PERSON.name, url: SITE_URL }],
   creator: PERSON.name,

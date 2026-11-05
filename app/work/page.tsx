@@ -5,12 +5,15 @@ import { caseStudies } from '@/lib/content'
 
 import type { Metadata } from "next";
 
+const DESCRIPTION =
+  "Case studies by Oana Grigore across healthcare and e-commerce SaaS: MediDrive’s accessible Medicaid ride booking portal, member app and state NEMT pages, and Vitals’ Shopify apps, from accessibility at scale to a design system living inside thousands of storefront themes.";
+
 export const metadata: Metadata = {
   // object form keeps the "— Oana Grigore" suffix on every case study under /work
   title: { default: "Selected work", template: "%s — Oana Grigore" },
-  description: "Case studies by Oana Grigore: an accessible Medicaid ride booking portal, multi-audience state NEMT pages for Colorado and Virginia, a governance-first design system for MediDrive, and a direct-booking site for Omni Limousine.",
+  description: DESCRIPTION,
   alternates: { canonical: "/work" },
-  openGraph: { url: "/work", title: "Selected work — Oana Grigore", description: "Case studies by Oana Grigore: an accessible Medicaid ride booking portal, multi-audience state NEMT pages for Colorado and Virginia, a governance-first design system for MediDrive, and a direct-booking site for Omni Limousine." },
+  openGraph: { url: "/work", title: "Selected work — Oana Grigore", description: DESCRIPTION, images: ["/opengraph-image"] },
 };
 
 export default function WorkPage() {

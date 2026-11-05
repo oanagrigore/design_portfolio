@@ -27,7 +27,7 @@ export default function OgImage() {
         </div>
         <div style={{ fontSize: 88, fontWeight: 700, marginTop: 16, lineHeight: 1.05 }}>{PERSON.name}</div>
         <div style={{ fontSize: 34, marginTop: 24, maxWidth: 900, color: "#cfc6d8" }}>
-          Accessible healthcare transportation products, portals and design systems.
+          B2B SaaS & enterprise. Accessible products and the design systems behind them.
         </div>
       </div>
     ),

@@ -14,7 +14,7 @@ import { SITE_URL, absoluteUrl } from '@/lib/seo'
 
 // Matches the file name in /public exactly (Vercel paths are case-sensitive)
 const PORTRAIT = '/oana-grigore.JPG'
-const DESCRIPTION = `${profile.role} driving design strategy and accessible product design across multiple brands and platforms, from marketing to product flows.`
+const DESCRIPTION = `${profile.role} for B2B SaaS and enterprise products. Led design across 5 transportation brands including MediDrive, and spent six years as the solo designer behind 40+ Shopify apps. 14 years in design. Open to full-time and fractional work.`
 
 // Not in lib/content yet. Move it there if you prefer; replace the period with your real years.
 const EARLIER_ROLES = {

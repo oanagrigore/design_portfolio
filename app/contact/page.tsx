@@ -7,7 +7,7 @@ import { ScrollCue } from '@/components/scroll-cue'
 export const metadata: Metadata = {
   title: 'Contact',
   description:
-    "I’m looking for my next Senior or Lead Product Design role on a B2B SaaS or enterprise product. If your product has more user roles than your team has designers, a design system that needs rescuing, or accessibility requirements you can’t negotiate with, let’s talk.",
+    "Hire Oana Grigore full-time or fractional: Senior or Lead Product Designer for B2B SaaS and enterprise. For products with more user roles than designers, a design system that needs rescuing, or accessibility requirements you can’t negotiate with.",
   alternates: { canonical: '/contact' },
 }
 
@@ -48,17 +48,6 @@ export default function ContactPage() {
                   className="inline-flex min-h-11 items-center break-all text-lg font-medium text-foreground underline decoration-white/20 underline-offset-[6px] transition-colors hover:text-pink-300 hover:decoration-pink-300 sm:text-xl"
                 >
                   {profile.email}
-                </a>
-              </dd>
-            </div>
-            <div className="py-5">
-              <dt className={label}>Phone</dt>
-              <dd className="mt-2">
-                <a
-                  href={`tel:${profile.phone.replace(/\s/g, '')}`}
-                  className="inline-flex min-h-11 items-center text-lg text-foreground transition-colors hover:text-pink-300"
-                >
-                  {profile.phone}
                 </a>
               </dd>
             </div>

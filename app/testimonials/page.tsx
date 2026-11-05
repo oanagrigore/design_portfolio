@@ -14,6 +14,7 @@ export const metadata: Metadata = {
     url: '/testimonials',
     title: 'Testimonials — Oana Grigore',
     description: `${TITLE} ${INTRO}`,
+    images: ['/opengraph-image'],
   },
 }
 

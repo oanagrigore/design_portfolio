@@ -3,7 +3,6 @@ export const profile = {
   role: 'Senior Product Designer',
   location: 'Bucharest, Romania',
   email: 'grigore.oana.elena@gmail.com',
-  phone: '+40 742 090 361',
   aboutIntro: [
     `I’m specialising in B2B SaaS and enterprise platforms: products with multiple user roles, compliance requirements, and more edge cases than anyone admits to in kickoff.`,
     `Most recently I led design across 5 transportation brands, including MediDrive, a NEMT platform serving millions of members, facilities and providers across Virginia and Colorado. I built the design system behind every MediDrive touchpoint and redesigned its member app and web portal to WCAG 2.1 AA.`,
@@ -30,6 +29,7 @@ export const profile = {
   avatar: '/oana-avatar.png',
   social: [
     { label: 'LinkedIn', href: 'https://www.linkedin.com/in/oanagrigore' },
+    { label: 'GitHub', href: 'https://github.com/oanagrigore' },
     { label: 'Dribbble', href: 'https://dribbble.com/oelenagrigore' },
   ],
 }

@@ -1,24 +1,39 @@
 # Oana Grigore
 
-> Senior Product Designer based in Bucharest, Romania. Designs accessible healthcare transportation products (Medicaid ride booking portals, state NEMT information pages) and the design systems that keep them WCAG 2.1 AA compliant.
+> Senior Product Designer based in Bucharest, Romania, for B2B SaaS and enterprise products: multiple user roles, compliance requirements and the design systems that hold them together. Designs accessibility in from the start (WCAG 2.1 AA). Open to full-time and fractional work, remote in Europe.
 
-Oana works across product strategy and architecture, design systems and governance, WCAG compliant systems, and conversion and flow optimization. Previous roles include Senior Product Designer at Vitals and Brand Designer at Electronic Arts. Open to senior product design roles, remote in Europe.
+Most recently Oana led design across 5 transportation brands at Technology Oriented, including MediDrive, a non-emergency medical transportation (NEMT) platform used by millions of members, facilities and providers in Virginia and Colorado. She built the design system behind every MediDrive touchpoint and redesigned its member app and web portal to WCAG 2.1 AA. Before that she spent six years as the solo designer behind 40+ Vitals SaaS apps used by 30,000+ Shopify merchants (rated 4.9/5 across 2,800+ App Store reviews). Earlier: Brand Designer at Electronic Arts. 14 years in design, 8+ of them on complex web applications.
 
-## Case studies
+She works with Claude from research through discovery and ideation: brand and product context first, then competitor research, problem framing and multiple variants, with fine-tuning in Figma and new rules fed back into the team's design system.
 
-- [Designing a ride booking portal every Medicaid member can use](https://www.ogrigore.design/work/medidrive-member-portal): Accessibility driven redesign of a Medicaid non-emergency medical transportation (NEMT) portal
-- [Restructuring MediDrive's state NEMT pages](https://www.ogrigore.design/work/medidrive-state-resource-pages): Multi-audience information architecture redesign for Colorado and Virginia NEMT pages — segmenting member, facility, and provider paths, introducing a WCAG 2.1 AA-audited component system, and standardizing accessible downloadable forms
-- [MediDrive: Scaling Accessibility Across an Enterprise Healthtech Ecosystem](https://www.ogrigore.design/work/design-system-redesign): Design system built as governance infrastructure enabled consistent, accessible redesign at ecosystem scale
-- [Omni Limousine: Driving direct bookings through a premium web experience](https://www.ogrigore.design/work/omni-limousine): Redesign and Webflow build of premium chauffeur service in Las Vegas and Miami, converting static brand site into direct-booking channel
+## Ways to work together
+
+- Full-time: Senior or Lead Product Designer on B2B SaaS and enterprise products, remote in Europe or Bucharest.
+- Fractional: product design, design systems and WCAG 2.1 AA accessibility for teams that need a senior designer part-time.
+
+## Case studies: MediDrive (healthcare transportation)
+
+- [Designing a ride booking portal every Medicaid member can use](https://www.ogrigore.design/work/medidrive-member-portal): accessibility-led redesign of a Medicaid NEMT portal, audited flow by flow and rebuilt to WCAG 2.1 AA
+- [The person booking isn't the person riding](https://www.ogrigore.design/work/design-system-redesign): redesigning the member experience for caregivers, family members and facility staff who book for someone else, and the token system behind it
+- [Restructuring MediDrive's state NEMT pages](https://www.ogrigore.design/work/medidrive-state-resource-pages): multi-audience information architecture for Colorado and Virginia, with member, facility and provider paths
+- [Omni Limousine: Driving direct bookings through a premium web experience](https://www.ogrigore.design/work/omni-limousine): redesign and Webflow build for a chauffeur service in Las Vegas and Miami
+
+## Case studies: Vitals (Shopify apps)
+
+- [Standardizing e-commerce accessibility across 1,000+ custom Shopify themes](https://www.ogrigore.design/work/wishlist-accessibility)
+- [Design systems with a twist at Vitals](https://www.ogrigore.design/work/design-systems-with-a-twist): a design system that lives inside thousands of storefront themes it doesn't control
+- [Cart drawer: smoother, faster e-commerce UX](https://www.ogrigore.design/work/cart-drawer)
+- [Popup redesign that drove a 10% activation increase](https://www.ogrigore.design/work/popup-redesign)
 
 ## About
 
 - [About Oana](https://www.ogrigore.design/about): experience, certifications and capabilities
 - [Testimonials](https://www.ogrigore.design/testimonials)
-- [Contact](https://www.ogrigore.design/contact)
+- [Contact](https://www.ogrigore.design/contact): grigore.oana.elena@gmail.com
 
 ## Optional
 
 - [LinkedIn](https://www.linkedin.com/in/oanagrigore)
+- [GitHub](https://github.com/oanagrigore)
 - [Dribbble](https://dribbble.com/oelenagrigore)
 - [Medium](https://medium.com/@oelenagrigore)
