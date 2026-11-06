@@ -12,12 +12,12 @@ const reasons = [
   {
     num: '02',
     title: 'I ask questions, a lot of them.',
-    description: "I might be relentless when something isn't clear, but I refuse to make blind assumptions. If I don't deeply understand the project, I can't deliver exceptional results.",
+    description: "I might be relentless when something isn't clear, but guessing is more expensive. If I don't understand the project, the design won't hold up either.",
   },
   {
     num: '03',
     title: 'I build design systems. If your team operates on "it works like this, don\'t worry", I worry a lot.',
-    description: 'Working like this, creates debt. I build tokenized, scalable component governance designed for seamless, production-ready developer handoff.',
+    description: "That's how debt piles up. I build token-based systems with written rules, so developers don't have to guess.",
   },
   {
     num: '04',
@@ -34,7 +34,7 @@ export function FiveReasons() {
           A few reasons you shouldn&apos;t hire me.
         </h2>
         <p className="mt-5 max-w-[38ch] text-pretty text-base leading-relaxed text-muted-foreground md:text-lg">
-          Unless you want a product design lead who prioritizes clear problem definition, design governance, and accessibility over shortcut execution.
+          Unless you want someone who&apos;ll define the problem before designing, build the system before scaling it, and won&apos;t cut accessibility to make a deadline.
         </p>
       </div>
 

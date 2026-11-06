@@ -183,7 +183,7 @@ export const caseStudies: CaseStudy[] = [
     summary:
       'An accessibility-led redesign of a Medicaid non-emergency medical transportation (NEMT) portal. I audited it flow by flow, then rebuilt it in light and dark mode, with state-specific variants, designed to WCAG 2.1 AA.',
     impactText:
-      'Audited and transformed a dispatch-heavy interface into an intuitive, accessible portal built specifically for caregivers and members aged 65+.',
+      'Rebuilt a portal designed for dispatchers into one that members aged 65+ and their caregivers can use on their own.',
     cover: '/work/MediDrive-portal-cover.png',
     year: '2026',
     client: 'MediDrive',
@@ -232,7 +232,7 @@ export const caseStudies: CaseStudy[] = [
         heading: 'What I found',
         lead: 'Five recurring failures across four journeys, each mapped to a usability heuristic or a WCAG criterion.',
         paragraphs: [
-          'I ran a flow-based heuristic evaluation, not a screen skin, across the four journeys that mattered to the business: New user, Existing user, Multiple members, and Mobile. Each was evaluated against Nielsen’s 10 usability heuristics (Nielsen Norman Group) and WCAG 2.1 AA (W3C), because a Medicaid-adjacent product carries both a usability and a legal-conformance obligation.',
+          'I ran a flow-based heuristic evaluation across the four journeys that mattered to the business: New user, Existing user, Multiple members, and Mobile. Each was evaluated against Nielsen’s 10 usability heuristics (Nielsen Norman Group) and WCAG 2.1 AA (W3C), because a Medicaid-adjacent product carries both a usability and a legal-conformance obligation.',
         ],
         bullets: [
           'Silent blocks: the portal repeatedly put users into blocked states without telling them why or what to do (e.g., multi-leg booking disabling "Continue" without feedback, missing service levels blocking progress without explanation). Violates Heuristics #1 & #9; WCAG 3.3.1 & 4.1.3.',
@@ -270,7 +270,7 @@ export const caseStudies: CaseStudy[] = [
         bullets: [
           'No silent states: every disabled control, block, or error explains itself and offers a clear way forward.',
           'Members are not dispatchers: familiar, scannable, task-focused patterns (tables over operational grids) and zero internal jargon.',
-          'Accessibility is the floor: keyboard operability and AA contrast designed in from the flow up, with older adults as the primary design target, not an edge case.',
+          'Accessibility is the floor: keyboard operability and AA contrast designed in from the flow up, with older adults as the primary design target.',
         ],
         images: [
           {
@@ -291,7 +291,7 @@ export const caseStudies: CaseStudy[] = [
         heading: 'The decisions that changed the experience',
         lead: 'I rebuilt all four flows in light and dark mode, plus a Colorado variant layer instead of hard-coded exceptions.',
         paragraphs: [
-          'State Medicaid programs differ in requirements and language, so the Colorado set is a deliberate variant layer on the same system, not a fork.',
+          'State Medicaid programs differ in requirements and language, so the Colorado set is a variant layer on the same system rather than a separate copy.',
         ],
         decisions: [
           {
@@ -361,7 +361,7 @@ export const caseStudies: CaseStudy[] = [
         heading: 'What engineering said',
         lead: 'Design decisions only matter if they survive the build.',
         paragraphs: [
-          'I worked closely with the people who build the experience: shared language, accessible systems, and edge cases solved before development, not during it.',
+          'I worked closely with the people who build the experience: shared language, accessible systems, and edge cases solved before development started.',
         ],
         testimonialQuotes: [
           {
@@ -374,7 +374,7 @@ export const caseStudies: CaseStudy[] = [
       },
       {
         heading: 'How we’ll know it worked',
-        lead: 'No reliable baseline existed, so this is a measurement plan, not a results claim.',
+        lead: 'No reliable baseline existed, so this is a measurement plan. There are no results to claim yet.',
         paragraphs: [
           'A baseline is set at launch and actuals reported at 90 days. Four metrics are tracked from day one, each tied to a problem the audit surfaced:',
         ],
@@ -438,7 +438,7 @@ export const caseStudies: CaseStudy[] = [
         heading: 'Reflection',
         lead: 'I designed it for my own parents: something they could use on their own, with feedback that guides rather than alarms.',
         paragraphs: [
-          'Designing for older, less tech-savvy members was a new challenge for me. That’s not a sentiment; it’s a design rule that shows up in specific decisions here. It’s why "the error state appears too early… may cause them to stop or second-guess themselves" was flagged critical, why no state is allowed to fail silently, and why the whole point is a member who can complete a booking without calling for help.',
+          'Designing for older, less tech-savvy members was a new challenge for me, and it shows up in specific decisions here. It’s why "the error state appears too early… may cause them to stop or second-guess themselves" was flagged critical, why no state is allowed to fail silently, and why the whole point is a member who can complete a booking without calling for help.',
         ],
       },
     ],
@@ -447,8 +447,8 @@ export const caseStudies: CaseStudy[] = [
   slug: 'medidrive-state-resource-pages',
   title: 'Restructuring MediDrive’s state NEMT pages',
   summary:
-    'A multi-audience information architecture redesign for Colorado and Virginia NEMT pages — segmenting member, facility, and provider paths, introducing a WCAG 2.1 AA-audited component system, and standardizing accessible downloadable forms.',
-  impactText: 'Our state NEMT traffic jumped +280% in just a few months. I built a clear, multi-audience layout to make sure thousands of members, facilities, and providers could easily self-serve instead of calling support.',
+    'A multi-audience information architecture redesign for the Colorado and Virginia NEMT pages: separate paths for members, facilities and providers, a component system audited to WCAG 2.1 AA, and accessible downloadable forms.',
+  impactText: 'The Colorado page went from 622 to ~3,585 monthly clicks the month it launched. I built a multi-audience layout so members, facilities and providers could find their own answers instead of calling support.',
   cover: '/work/medidrive-website-cover.png',
   year: '2026',
   client: 'MediDrive',
@@ -487,7 +487,7 @@ export const caseStudies: CaseStudy[] = [
     {
       heading: 'Context',
       paragraphs: [
-        'MediDrive provides non-emergency medical transportation (NEMT) for Medicaid members. Its state resource pages are not single-audience pages — they must simultaneously serve three distinct user groups, each arriving with a different intent:',
+        'MediDrive provides non-emergency medical transportation (NEMT) for Medicaid members. Each state resource page serves three groups at once, and each arrives wanting something different:',
         '1. Members and caregivers: Skewing older, often with lower digital literacy, seeking immediate reassurance to two core questions: Am I covered, and how do I book a ride?',
         '2. Medical facilities: Hospital and clinic staff scheduling rides on behalf of patients who need fast, explicit processes and requirements.',
         '3. Transportation providers: Logistics partners evaluating or managing operational relationships.',
@@ -504,7 +504,7 @@ export const caseStudies: CaseStudy[] = [
     {
       heading: 'The core design challenge',
       paragraphs: [
-        'Serving members, facilities, and providers on shared state pages is a structural information architecture problem, not a copy refresh. The three groups operate in entirely different registers:',
+        'Serving members, facilities and providers on shared state pages is an information architecture problem. A copy refresh wouldn’t fix it. The three groups need very different things:',
         'Members need plain-language reassurance and clear steps. Facility schedulers need rapid rules and forms without hand-holding. Transportation providers need partner mechanics. Get the architecture wrong, and you either bury the member route under operational complexity or dilute the professional tooling needed by staff.',
         'The legacy design failed because it treated members as an afterthought. To fix this, I established the member route as the primary path, anchored against an explicit user persona: an older Medicaid member (frequently 60s–80s), often viewing zoomed text on mobile devices, and unfamiliar with complex digital conventions.',
       ],
@@ -546,8 +546,8 @@ export const caseStudies: CaseStudy[] = [
           problem:
             'Visitors had to manually scan dense operational documents to locate relevant instructions.',
           change:
-            'Introduced a "Find the information you need" routing section directly below the hero, immediately bifurcating members, medical facilities, and transportation providers into tailored tracks.',
-          why: 'Eliminates cognitive overload for older members while giving professional staff direct access to operational workflows.',
+            'Added a "Find the information you need" section directly below the hero, sending members, facilities and providers to their own section.',
+          why: 'Older members see only their own path; staff skip straight to the rules and forms they need.',
         },
         {
           title: 'Need-first ride categorization',
@@ -563,7 +563,7 @@ export const caseStudies: CaseStudy[] = [
             'Call centers were overloaded because web and app booking options were obscured.',
           change:
             'Positioned 24/7 web and mobile app booking as the primary actions while maintaining a dedicated "Prefer to speak with someone?" phone section.',
-          why: 'Drives self-service efficiency without removing essential phone support for lower-literacy members.',
+          why: 'More people book on their own, and members who need a person can still call.',
         },
       ],
       images: [
@@ -577,7 +577,7 @@ export const caseStudies: CaseStudy[] = [
     {
       heading: 'Systematizing accessibility (web & forms)',
       paragraphs: [
-        'Accessibility was treated as core architecture rather than a post-launch audit requirement across both digital and printable touchpoints:',
+        'Accessibility was built into the structure from the start, across both the web pages and the printable forms:',
       ],
       bullets: [
         'Web DOM Conformance: Audited all five Colorado public pages against WCAG 2.1 AA via live DOM inspection. Produced an official Accessibility Conformance Report (ACR) documenting 42 Supports, 8 Partially Supports, and 0 Does Not Support across 50 applicable success criteria.',
@@ -598,7 +598,7 @@ export const caseStudies: CaseStudy[] = [
     {
       heading: 'Impact & performance',
       paragraphs: [
-        'The restructuring established a robust operational foundation as MediDrive launched state-level partnerships:',
+        'The structure went live just as MediDrive launched as Colorado’s NEMT partner:',
       ],
       bullets: [
         'High-volume core page: Coinciding with MediDrive’s launch as Colorado’s Medicaid NEMT partner in July 2026, the redesigned Colorado page became the most-trafficked surface on the site (~3,585 clicks in July 2026, up from 622 in June; Google Search Console).',
@@ -619,8 +619,8 @@ export const caseStudies: CaseStudy[] = [
     {
       heading: 'Reflection',
       paragraphs: [
-        'Designing for public health access requires balancing strict operational requirements with deep empathy for vulnerable users. Removing decorative UI elements — such as the non-functional interactive map — reinforced a core principle: every element on a high-stakes resource page must earn its place by helping a user take their next step.',
-        'Structuring information for multi-audience surfaces proved that clarity is achieved through intentional routing, not by omitting necessary details. By protecting the member path while providing clear tracks for professional partners, the redesign delivers an equitable experience across all user groups.',
+        'Public health pages have to satisfy strict operational rules and still work for vulnerable users. Removing the non-functional interactive map set the rule for everything else: if an element doesn’t help someone take their next step, it goes.',
+        'Sending each audience to its own section did more than any amount of copy trimming. Members got a short page. Staff still got every rule they needed.',
       ],
       images: [
         {
@@ -723,7 +723,7 @@ export const caseStudies: CaseStudy[] = [
         ],
         bullets: [
           'Two-tier tokens: primitives hold raw values and are never used directly. Semantics map them to a role. No semantic token holds a raw hex, so a developer can’t hardcode a value that escapes the system.',
-          'Accessibility in the tokens: WCAG 2.1 AA contrast is a property of the system, not a per-screen check. Light and dark modes resolve through the semantic layer.',
+          'Accessibility in the tokens: WCAG 2.1 AA contrast is a property of the system, so nobody has to check it screen by screen. Light and dark modes resolve through the semantic layer.',
           'Built for a team I didn’t manage: the goal wasn’t more components faster. It was making “consistent and accessible” the easiest path for a separate dev team under its own project manager.',
           'I co-built the system with one other product designer. I set the architecture and the rules.',
         ],
@@ -828,10 +828,10 @@ export const caseStudies: CaseStudy[] = [
         ],
       },
       {
-        heading: 'Accessibility as risk, not polish',
+        heading: 'Accessibility as risk',
         lead: 'For a Medicaid NEMT product, accessibility is legal exposure and a state requirement.',
         paragraphs: [
-          'Accessibility here means ADA and Section 508 exposure, and it was a mandatory request from the states. I treated it as a property of the system, not a final pass.',
+          'Accessibility here means ADA and Section 508 exposure, and it was a mandatory request from the states. I treated it as a property of the system from the start.',
         ],
         bullets: [
           'WCAG 2.1 AA applied at token and component level, so every screen built on the system inherits it.',
@@ -907,9 +907,9 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: 'Overview',
         paragraphs: [
-          'Omni Limousine has run a premium chauffeur service since 1998, but almost all of its bookings came through partnerships — hotels, concierges, referrals — rather than its own website.',
+          'Omni Limousine has run a premium chauffeur service since 1998, but almost all of its bookings came through partnerships (hotels, concierges, referrals) rather than its own website.',
           'The old site looked dated, didn’t reflect the quality of the real-world service, and wasn’t built to convert. I redesigned and rebuilt it in Webflow around one goal: turn the website into a direct-booking channel, with booking reachable from anywhere on the site.',
-          'Because the previous site collected no analytics and the new one launched without instrumentation, this case study is about the problem, the decisions, and the craft — not a measured lift. I’ve kept the line between result and hypothesis explicit throughout.',
+          'Because the previous site collected no analytics and the new one launched without instrumentation, this case study is about the problem, the decisions and the craft. There’s no measured lift to report. I’ve kept the line between result and hypothesis explicit throughout.',
         ],
       },
       {
@@ -919,7 +919,7 @@ export const caseStudies: CaseStudy[] = [
         ],
         bullets: [
           'The website wasn’t a booking channel: Direct web bookings were a small share of volume; the business leaned on partnership referrals. Growing direct bookings meant the site had to build trust and remove friction on its own.',
-          'The brand read as neither premium nor approachable: The old design looked like a generic black-and-white chauffeur template. It didn’t signal luxury, and it didn’t feel welcoming to the broad audience Omni actually serves — event guests, business travelers, and families, not only executives.',
+          'The brand read as neither premium nor approachable: The old design looked like a generic black-and-white chauffeur template. It didn’t signal luxury, and it didn’t feel welcoming to the broad audience Omni actually serves: event guests, business travelers and families as well as executives.',
         ],
         callout:
           'The target set for the project was a 20% increase in direct web bookings. To be precise: that was the target the design worked toward, not an outcome I can claim.',
@@ -941,9 +941,9 @@ export const caseStudies: CaseStudy[] = [
           'I anchored the redesign in three core principles:',
         ],
         bullets: [
-          'Approachable luxury: Omni serves a wide audience, so the site had to feel premium without being intimidating or exclusive. In practice that meant clean layouts, clear and literal language, readable typography, and straightforward service explanations — luxury you don’t have to decode.',
+          'Approachable luxury: Omni serves a wide audience, so the site had to feel premium without being intimidating or exclusive. In practice that meant clean layouts, clear and literal language, readable typography, and straightforward service explanations. Luxury you don’t have to decode.',
           'A visual identity built on Las Vegas at night: To break from the generic black-and-white chauffeur look, I built the palette around the city where Omni operates best: deep charcoals for a cinematic base, purple gradients evoking dusk over the strip, and gold accents for warmth and signal. The intent was instant recognizability and clear differentiation from competitors.',
-          'Book from anywhere: If the site was going to become a booking channel, booking couldn’t sit on one buried page. I placed an above-the-fold booking widget on the homepage and booking entry points throughout — in the hero, on fleet cards, inside service descriptions, and beside social proof — so the shortest path to a reservation was always one click away.',
+          'Book from anywhere: If the site was going to become a booking channel, booking couldn’t sit on one buried page. I placed an above-the-fold booking widget on the homepage and booking entry points throughout (in the hero, on fleet cards, inside service descriptions and beside social proof), so the shortest path to a reservation was always one click away.',
         ],
       },
       {
@@ -955,7 +955,7 @@ export const caseStudies: CaseStudy[] = [
           {
             title: 'Shift from isolated flow to omnipresent entry point',
             problem:
-              'The old booking flow was a six-step, single-purpose journey — Reservation, Vehicle, Options, Passenger, Payment, Confirmation — that lived on its own page, disconnected from the rest of the site.',
+              'The old booking flow had six steps (Reservation, Vehicle, Options, Passenger, Payment, Confirmation) and lived on its own page, disconnected from the rest of the site.',
             change:
               'Reframed booking as something available everywhere, starting with an above-the-fold homepage widget that opens the flow immediately.',
             why: 'A customer no longer has to hunt for the booking page; the entry point is available the second they land or browse any service.',
@@ -965,7 +965,7 @@ export const caseStudies: CaseStudy[] = [
             problem:
               'Users faced overwhelming form fields right at the start before defining their core intent.',
             change:
-              'The trip type is chosen up front (one-way / return, hourly / as-directed, and security services), revealing only essential fields to start — pickup, drop-off, date, and time.',
+              'The trip type is chosen up front (one-way / return, hourly / as-directed, and security services), revealing only the essential fields to start: pickup, drop-off, date and time.',
             why: 'Reduces cognitive load and allows the reservation to progress naturally into vehicle and detail selection.',
           },
           {
@@ -974,7 +974,7 @@ export const caseStudies: CaseStudy[] = [
               'Traditional booking forms fail silently or obscurely when inputs are invalid, causing drop-offs.',
             change:
               'Designed explicit states for empty fields, invalid inputs, and moments where a booking can stall.',
-            why: 'Designing for where a flow breaks is what makes it a dependable product rather than just a web form.',
+            why: 'A booking flow earns trust at the moments it breaks, so those moments got designed too.',
           },
         ],
         images: [
@@ -995,14 +995,14 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: 'Designing and building it in Webflow',
         paragraphs: [
-          'I built the entire site in Webflow, not a design handed off to someone else. That meant translating the system into real, responsive components, wiring the CMS, and collaborating with the backend developer at the one seam where my booking UI met Omni’s reservation platform.',
+          'I built the entire site in Webflow myself. That meant translating the system into real, responsive components, wiring the CMS, and collaborating with the backend developer at the one seam where my booking UI met Omni’s reservation platform.',
           'Owning both design and build kept the shipped product faithful to the intent and let me iterate directly instead of through a handoff round-trip.',
         ],
         images: [
           {
             src: '/work/omni-webflow.png',
             alt: 'Webflow component structure and layout system designed for the Omni Limousine website.',
-            caption: 'Modular Webflow components designed for seamless responsiveness and CMS integration.',
+            caption: 'Webflow components built once and reused across pages, wired to the CMS.',
           },
         ],
       },
@@ -1010,18 +1010,18 @@ export const caseStudies: CaseStudy[] = [
         heading: 'Outcome and how I’d measure it',
         paragraphs: [
           'The honest version: there are no performance metrics. The old site tracked nothing, so there’s no baseline; the new site shipped without analytics, so there’s nothing to compare against yet. I won’t present a target as a result.',
-          'What I’d do now — and would prioritize on any similar project — is make it measurable from day one:',
+          'What I’d do now, and on any similar project, is make it measurable from day one:',
         ],
         bullets: [
           'Instrument the booking funnel end to end: widget opens, step completions, drop-off points, completed reservations.',
           'Define the success metric explicitly: direct web bookings, and homepage-to-booking conversion rate against the 20% target.',
-          'Validate behavioral assumptions with real data: are guests actually booking on mobile and close to pickup? — and let the findings reshape the flow.',
+          'Validate behavioral assumptions with real data: are guests actually booking on mobile and close to pickup? Then let the findings reshape the flow.',
         ],
       },
       {
         heading: 'Reflection',
         paragraphs: [
-          'The craft holds up. The site looks premium, stays approachable, and puts booking one click away from anywhere, but "designed to convert" and "converts" are different claims, and I don’t want to blur them. On the next project, measurement is a first-class design requirement, not an afterthought.',
+          'The craft holds up. The site looks premium, stays approachable, and puts booking one click away from anywhere, but "designed to convert" and "converts" are different claims, and I don’t want to blur them. On the next project, measurement is a design requirement from the first brief.',
         ],
       },
     ],
@@ -1030,7 +1030,7 @@ export const caseStudies: CaseStudy[] = [
     slug: 'wishlist-accessibility',
     title: 'Standardizing E-Commerce Accessibility Across 1,000+ Custom Shopify Themes',
     summary:
-      'Engineered adaptable UI patterns to meet mobile touch-target standards without breaking legacy storefront layouts.',
+      'Making a wishlist icon meet the 44px touch target inside 1,000+ themes I didn’t control, without breaking their headers.',
     cover: '/work/wishlist-cover.png',
     year: '2025',
     client: 'Vitals',
@@ -1054,7 +1054,7 @@ export const caseStudies: CaseStudy[] = [
       {
         label: 'Scope',
         value:
-          "Improved the Wishlist icon's accessibility and integration across diverse Shopify and non-Shopify themes, ensuring mobile compliance and seamless merchant customization.",
+          "Improved the Wishlist icon's accessibility and integration across Shopify and non-Shopify themes: a compliant mobile touch target and merchant controls for size, color and badge.",
       },
       {
         label: 'Result',
@@ -1067,7 +1067,7 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: 'The problem',
         paragraphs: [
-          "Vitals' Wishlist icon could be injected into any store header — but the initial implementation had several issues.",
+          "Vitals' Wishlist icon could be injected into any store header, but the first implementation had problems.",
         ],
         bullets: [
           'Accessibility on mobile: the tap area around the icon was too small. It didn’t meet the WCAG-recommended 44x44px minimum for touch targets, which was especially problematic on mobile devices.',
@@ -1098,7 +1098,7 @@ export const caseStudies: CaseStudy[] = [
           {
             title: 'Cross-theme testing',
             problem:
-              'Theme fragmentation meant theoretical compliance wasn’t enough — real stores behaved differently.',
+              'Compliance on paper didn’t guarantee anything: real stores behaved differently.',
             change:
               'Tested the updated version on multiple stores; ~80% of themes worked perfectly. In the remaining 20%, edge cases appeared: misalignment where the 44px wrapper didn’t match smaller header icons, overflow and spacing issues where themes didn’t respect the full height, and badge-positioning bugs where the count floated away from the icon.',
             why: 'Testing across real stores surfaced the layout tradeoffs that drove the next iteration.',
@@ -1157,12 +1157,9 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: 'What I learned',
         bullets: [
-          'Accessibility fixes can introduce new layout issues when working in third-party environments — which requires design-engineering tradeoffs.',
+          'An accessibility fix can break layouts in code you don’t own, so design and engineering have to agree on the tradeoff together.',
           'Testing across real stores is crucial; theoretical compliance isn’t enough when dealing with theme fragmentation.',
-          'Balancing accessibility, visual harmony, and technical constraints is key when designing UI elements that live inside external codebases.',
-        ],
-        callout:
-          'Theoretical compliance isn’t enough — resilient accessibility in third-party environments is a design-engineering negotiation, not a checkbox.',
+                  ],
       },
     ],
   },
@@ -1170,7 +1167,7 @@ export const caseStudies: CaseStudy[] = [
     slug: 'design-systems-with-a-twist',
     title: 'Design Systems with a twist at Vitals',
     summary:
-      'Building a design system that had to live inside thousands of storefront themes it did not control — flexible enough to adapt, strict enough to stay consistent.',
+      'Building a design system that had to live inside thousands of storefront themes it didn’t control: flexible enough to adapt, strict enough to stay consistent.',
     cover: '/work/ds-twist-cover.png',
     year: '2023',
     client: 'Vitals',
@@ -1223,8 +1220,7 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: 'The opportunity',
         paragraphs: [
-          '"Design isn’t just about how something looks but how it works." — Airbnb',
-          'A shared system was a chance to make consistency, accessibility, and speed the default — and to give non-designers and engineers a common language to build with.',
+          'A shared system meant fixing accessibility once, in the component, instead of in 40 apps. It also gave non-designers and engineers a common language to build with.',
         ],
       },
       {
@@ -1234,10 +1230,10 @@ export const caseStudies: CaseStudy[] = [
         ],
         bullets: [
           'Everything had to be accessible, yet users still needed to customize settings to their preferences. Auditing stores surfaced repeated issues with the colors used for Add to Cart buttons, text, and backgrounds.',
-          "Store themes carry countless styles, colors, and typography choices, but apps must seamlessly align with each store's design — Shopify theme or not.",
+          "Store themes carry countless styles, colors, and typography choices, but the apps had to match each store's design, Shopify theme or not.",
           'We could not use hardcoded values, font families, or font weights, because the apps had to stay consistent with every other section of the store.',
           'Vitals is a large project built with multiple technologies, so components could not be applied universally across all apps.',
-          'Every new component and variable had to maintain backward compatibility — and getting management buy-in for a design system was itself a challenge, as there was never an "opportune" moment to start.',
+          'Every new component and variable had to stay backward compatible. Getting management buy-in for a design system was itself a challenge, as there was never an "opportune" moment to start.',
         ],
         images: [{
           src: '/work/ds-twist-frame1.png',
@@ -1245,7 +1241,7 @@ export const caseStudies: CaseStudy[] = [
           width: 885,
           height: 429,
           caption:
-            'Core selector components rebuilt as tokenized, theme-agnostic patterns — including validation states — so a single update propagates across every app.',
+            'Core selector components rebuilt on tokens, validation states included, so one update reaches every app.',
         }],
       },
       {
@@ -1262,7 +1258,7 @@ export const caseStudies: CaseStudy[] = [
           width: 864,
           height: 523,
           caption:
-            'The same system powering live conversion widgets — product cards, upsell offers, and bundle selectors — each adapting to the host store’s look.',
+            'The same system powering live widgets (product cards, upsell offers, bundle selectors), each picking up the host store’s look.',
         }],
       },
       {
@@ -1276,7 +1272,7 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: 'Rabbit holes & KPIs',
         paragraphs: [
-          'I stayed alert to the traps — many iterations and constant updates, and teams’ natural resistance to changing their rhythms — and tied success to measurable signals.',
+          'The traps were endless iterations and teams resisting a change to how they worked. To stay out of them, I tied success to signals we could measure.',
         ],
         bullets: [
           'Team efficiency: how long it takes to build a new product using the system.',
@@ -1291,10 +1287,10 @@ export const caseStudies: CaseStudy[] = [
         heading: 'Results & impact',
         bullets: [
           'Adopted across 40+ internal apps by both development teams, improving consistency and reducing maintenance overhead.',
-          'Centralized key components — buttons, variant selectors, and quantity selectors — making accessibility updates scalable across the platform.',
+          'Centralized the key components (buttons, variant selectors, quantity selectors), so an accessibility fix ships to every app at once.',
           'Improved engineering velocity by documenting components and tokens, reducing design-to-dev clarification and rework.',
           'Reduced design debt by eliminating inconsistent spacing, typography, and color patterns inherited from legacy themes and early-stage chaos.',
-          'Boosted internal engagement: naming conventions made the system approachable and encouraged usage from non-designers and engineers.',
+          'Non-designers started using it, because the names made sense to them.',
           'Still in progress: the system continues to evolve as the team scales.',
         ],
       },
@@ -1304,18 +1300,18 @@ export const caseStudies: CaseStudy[] = [
     slug: 'cart-drawer',
     title: 'Cart Drawer – smoother, faster ecommerce UX',
     summary:
-      'A custom, accessible cart drawer built to replace unreliable third-party solutions — improving retention and giving merchants a native way to boost sales with Vitals.',
+      'A custom, accessible cart drawer that replaced unreliable third-party carts and gave merchants a native place for Vitals upsells.',
     cover: '/work/cart-drawer-cover.png',
     year: '2024',
     client: 'Vitals',
     role: 'Lead Product Designer',
     tags: ['Product design', 'Design Systems', 'Accessibility'],
     overview:
-      'We built a custom cart drawer to replace unreliable third-party solutions, improving retention and giving merchants a seamless way to boost sales with Vitals. The new drawer works like a native Shopify cart, adds custom elements like Announcement Bars and Cart Notices, and supports every Vitals module.',
+      'We built a custom cart drawer to replace unreliable third-party solutions, improving retention and giving merchants a built-in way to sell more with Vitals. The new drawer works like a native Shopify cart, adds custom elements like Announcement Bars and Cart Notices, and supports every Vitals module.',
     challenge:
       'Merchants relied on inconsistent third-party cart solutions that hurt retention and made it hard to surface Vitals upsell modules in a reliable, accessible way.',
     approach:
-      'Starting from competitive analysis and best-practice research, I designed a modular, atomic cart drawer in Figma, baked in accessibility from day one, tested responsive variants across real devices, and built the merchant admin on Shopify Polaris — partnering closely with engineering throughout.',
+      'Starting from competitive analysis and best-practice research, I designed a modular, atomic cart drawer in Figma, baked in accessibility from day one, tested responsive variants across real devices, and built the merchant admin on Shopify Polaris, working closely with engineering throughout.',
     outcome:
       'A performant, accessible cart experience with improved UX consistency, reduced support tickets, and new upsell opportunities unlocked for merchants.',
     metrics: [
@@ -1328,7 +1324,7 @@ export const caseStudies: CaseStudy[] = [
       {
         label: 'Scope',
         value:
-          'Built a custom cart drawer to replace unreliable third-party solutions, improving retention and giving merchants a seamless way to boost sales with Vitals. The new drawer works like a native Shopify cart, includes custom elements like Announcement Bars and Cart Notices, and supports all Vitals modules: Upsell Builder, Product Bundles, Volume Discounts, Gifts, and Spending Goals.',
+          'Built a custom cart drawer to replace unreliable third-party solutions, improving retention and giving merchants a built-in way to sell more with Vitals. The new drawer works like a native Shopify cart, includes custom elements like Announcement Bars and Cart Notices, and supports all Vitals modules: Upsell Builder, Product Bundles, Volume Discounts, Gifts, and Spending Goals.',
       },
       {
         label: 'Result',
@@ -1345,10 +1341,10 @@ export const caseStudies: CaseStudy[] = [
           'Key UX principles we followed:',
         ],
         bullets: [
-          'Clarity of product information — each product in the cart displays a thumbnail image, name, specifications (like size or color), and quantity, so users can easily review their order.',
-          'Clean, focused layout — we avoided clutter and limited the number of upsells and promotions shown, to maintain a frictionless path to checkout.',
-          'Persistent checkout access — the checkout button remains visible across screen sizes, ensuring easy access regardless of device or resolution.',
-          'Accessibility — the drawer works well with screen readers and can be fully navigated by keyboard, with WCAG-compliant contrast and tap targets large enough to hit on any device.',
+          'Clear product information: each product in the cart displays a thumbnail image, name, specifications (like size or color), and quantity, so users can easily review their order.',
+          'Focused layout: we limited the number of upsells and promotions shown, to keep the path to checkout short.',
+          'Persistent checkout: the checkout button stays visible on every screen size.',
+          'Accessibility: the drawer works with screen readers and can be fully navigated by keyboard, with WCAG-compliant contrast and tap targets large enough to hit on any device.',
         ],
         images: [{
           src: '/work/cart-drawer-design.png',
@@ -1356,14 +1352,14 @@ export const caseStudies: CaseStudy[] = [
           width: 1440,
           height: 1157,
           caption:
-            'The cart drawer previewed inside the merchant admin — free-shipping bar, line items, order note, upsells, spending goal, and a sticky checkout button.',
+            'The cart drawer previewed inside the merchant admin: free-shipping bar, line items, order note, upsells, spending goal, and a sticky checkout button.',
         }],
       },
       {
         heading: 'Design system & component structure in Figma',
         paragraphs: [
           'To ensure consistency, speed up implementation, and make the cart drawer scalable across merchant setups, we built the UI using atomic, reusable Figma components.',
-          'We broke the drawer into modular sections — Products, Upsells, Sticky Checkout, Spending Goal, Order Note, and Discount Summary — each designed as a separate component with variations (collapsed/expanded, filled/empty) that stay visually and functionally consistent.',
+          'We broke the drawer into modular sections (Products, Upsells, Sticky Checkout, Spending Goal, Order Note and Discount Summary), each designed as a separate component with variations (collapsed/expanded, filled/empty) that stay visually and functionally consistent.',
         ],
         bullets: [
           'Used Figma variants and component properties (boolean toggles, instance swaps) to manage complexity while keeping the file easy for developers and collaborators.',
@@ -1381,7 +1377,7 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: 'Component design & developer handoff',
         paragraphs: [
-          'Close partnership with engineering was key. We established a shared workflow that made handoff fast and low-friction.',
+          'We set up a shared workflow with engineering so handoff was quick:',
         ],
         bullets: [
           'A shared Figma library with components and tokens, enabling faster dev handoff.',
@@ -1390,12 +1386,12 @@ export const caseStudies: CaseStudy[] = [
           'A post-launch feedback loop to iterate based on real merchant usage and evolving product needs.',
         ],
         callout:
-          'By treating the cart drawer like a mini design system, we made it easy to maintain, expand, and reuse across storefronts — without design debt or guesswork during development.',
+          'Treating the cart drawer like a mini design system made it easy to maintain, extend and reuse across storefronts, and left developers nothing to guess.',
       },
       {
         heading: 'Accessibility',
         paragraphs: [
-          "Accessibility wasn't an afterthought — it was a core part of the design and development process from the start. We wanted the drawer to be usable by as many people as possible, including those navigating with screen readers, keyboards, or assistive technologies.",
+          "We wanted the drawer to be usable by as many people as possible, including those navigating with screen readers, keyboards, or assistive technologies.",
         ],
         bullets: [
           'ARIA labels & landmarks: role="dialog" for proper modal semantics, aria-labelledby tied to the heading, aria-describedby for upsell and discount context, and careful aria-hidden use to keep screen-reader focus inside the drawer.',
@@ -1407,7 +1403,7 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: 'Responsive design: variants by device',
         paragraphs: [
-          'To ensure an optimal experience across devices, we designed and tested the drawer across a range of screen resolutions — each breakpoint chosen to represent real devices in our customer base and to surface layout or behavior inconsistencies.',
+          'We designed and tested the drawer across a range of screen resolutions, each breakpoint chosen to represent real devices in our customer base and to surface layout or behavior inconsistencies.',
           'Edge cases handled:',
         ],
         bullets: [
@@ -1428,8 +1424,8 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: 'User admin',
         paragraphs: [
-          'The interface is built using the Shopify Polaris design system, ensuring accessibility, consistency, and a native admin experience aligned with the rest of the app.',
-          'Working within Polaris constraints, we used Figma components that mirrored Polaris patterns to make handoff seamless — with a few adjustments to bridge the gap between Polaris defaults and our custom needs:',
+          'The admin is built on Shopify Polaris, so it feels native and inherits Polaris’ accessibility.',
+          'Working within Polaris constraints, we used Figma components that mirrored Polaris patterns so handoff was straightforward, with a few adjustments to bridge the gap between Polaris defaults and our custom needs:',
         ],
         bullets: [
           "Preview embeds: since Polaris doesn't natively support live previews, we designed a scrollable drawer mock inside the admin for real-time visual feedback.",
@@ -1447,11 +1443,8 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: 'What I learned',
         bullets: [
-          "Accessibility isn't a checklist — it's part of thoughtful, inclusive design, and building for real-world edge cases (screen readers, color contrast) requires collaborating with devs and testers early.",
           'Simplifying a flow often means removing choices, not adding features.',
-          'Even small visual tweaks — spacing, button hierarchy — can drastically shift user behavior.',
-          'Working closely with developers from day one leads to better outcomes and faster launches.',
-          'Designing for reuse requires thinking beyond the current screen.',
+          'Screen reader and keyboard issues are cheapest to fix in the spec. Bringing developers and testers in at the design stage caught them before build.',
         ],
       },
     ],
@@ -1460,23 +1453,23 @@ export const caseStudies: CaseStudy[] = [
     slug: 'popup-redesign',
     title: 'Popup redesign that drove a 10% activation increase',
     summary:
-      'An end-to-end redesign of the Pop-up app — improving usability, accessibility, and conversion for small merchants while balancing scalability and compliance.',
+      'An end-to-end redesign of the Pop-up app for small merchants: custom layouts, their own images and logos, and accessible, mobile-first popups.',
     cover: '/work/popup-cover.png',
     year: '2024',
     client: 'Vitals',
     role: 'Lead Product Designer',
     tags: ['Product design', 'Accessibility'],
     overview:
-      'The Pop-up app was a key activation moment for merchants, but its outdated design limited customization and conversion. I led an end-to-end redesign that added custom layouts, image and logo uploads, and mobile-first optimization — lifting activation by 10%.',
+      'The Pop-up app was a key activation moment for merchants, but its outdated design limited customization and conversion. I led an end-to-end redesign that added custom layouts, image and logo uploads, and mobile-first optimization. Activation went up 10%.',
     challenge:
-      "The existing app couldn't create brand-aligned layouts (text on one side, image on the other), lacked custom image and logo uploads, and felt unprofessional — driving merchant churn and dissatisfaction.",
+      "The existing app couldn't create brand-aligned layouts (text on one side, image on the other), lacked custom image and logo uploads, and looked unprofessional, so merchants were leaving.",
     approach:
-      "I ran competitive analysis and merchant research, wireframed the enhanced flow for stakeholder alignment, then designed detailed admin and storefront screens in Figma — building in exit-intent triggers, theme-inherited styling, and mobile optimization, working closely with the PM and engineering.",
+      "I ran competitive analysis and merchant research, wireframed the enhanced flow for stakeholder alignment, then designed detailed admin and storefront screens in Figma with exit-intent triggers, theme-inherited styling, and mobile optimization, working closely with the PM and engineering.",
     outcome:
       'A cleaner, more customizable, mobile-optimized popup that increased user engagement and conversion, simplified setup to reduce time-to-launch, and drove a 10% activation increase one month post-launch.',
     metrics: [
       { label: 'Activation lift', value: '+10%' },
-      { label: 'Conversion range', value: '3–9%' },
+      { label: 'Surfaces', value: 'Admin + storefront' },
       { label: 'Research to handoff', value: '3 wks' },
     ],
     quickSummary: [
@@ -1505,18 +1498,18 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: 'The problem',
         paragraphs: [
-          'The primary challenge with the existing Pop-up app was its outdated design, which limited its effectiveness and appeal. Merchants were unable to create custom layouts that aligned with their brand aesthetics — particularly the ability to position text on one side (left or right) and images on the opposite side.',
+          'The primary challenge with the existing Pop-up app was its outdated design, which limited its effectiveness and appeal. Merchants couldn’t create layouts that matched their brand, particularly the ability to position text on one side (left or right) and images on the opposite side.',
           "Additionally, the app lacked essential features such as the ability to upload and utilize custom images. These limitations significantly reduced the app's value as part of a broader eCommerce strategy.",
         ],
       },
       {
         heading: 'Research',
         paragraphs: [
-          'Through our research, we identified several key reasons behind merchant churn and dissatisfaction with the existing Pop-up app.',
+          'Merchants were leaving for four reasons:',
         ],
         bullets: [
           'Limited customization options: merchants were frustrated by the inability to customize colors to match their brand identity. The app had launched with pre-made templates that, while quick to market, became outdated and inflexible over time.',
-          'Image upload demand: the most frequently requested feature was the ability to upload their own images — critical for visually compelling, brand-aligned pop-ups.',
+          'Image upload demand: the most frequently requested feature was the ability to upload their own images, so pop-ups looked like their brand.',
           'Logo integration: many merchants needed to incorporate their own logos to enhance brand recognition and consistency across their store.',
           'Lack of professional design: merchants felt the templates were too basic and unsuitable for businesses maintaining a minimalist, modern aesthetic.',
         ],
@@ -1524,11 +1517,11 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: 'Design process',
         paragraphs: [
-          'Our design process began with a competitive analysis of top pop-up solutions and industry benchmarks, revealing that conversion rates can increase by 3–9% on average.',
+          'The design process started with a competitive analysis of the top pop-up apps on Shopify.',
         ],
         bullets: [
-          'Prioritized an exit-intent trigger, which can recover 10–15% of abandoning visitors.',
-          'Made mobile optimization a key focus — mobile-friendly apps can boost conversions by up to 300%.',
+          'Prioritized an exit-intent trigger, to catch visitors as they leave.',
+          'Made mobile optimization a key focus.',
           'Set a goal to create the most mobile-optimized pop-up solution on Shopify.',
         ],
       },
@@ -1543,13 +1536,13 @@ export const caseStudies: CaseStudy[] = [
           width: 2048,
           height: 1507,
           caption:
-            'The full Figma exploration — every layout, state, and edge case (thank-you, click-through, discount, error, close-button) mapped with settings annotations.',
+            'The full Figma exploration: every layout, state and edge case (thank-you, click-through, discount, error, close-button) mapped with settings annotations.',
         }],
       },
       {
         heading: 'User admin design',
         paragraphs: [
-          'In collaboration with the Product Manager and the development team, I designed the User Admin interface. Every aspect was discussed and refined to ensure it would be intuitive, user-friendly, and aligned with our goals. The final designs incorporated all the new settings and flows mapped in the wireframing stage.',
+          'In collaboration with the Product Manager and the development team, I designed the User Admin interface. The final designs incorporated all the new settings and flows mapped in the wireframing stage.',
           'Key screens from the User Admin interface:',
         ],
         bullets: [
@@ -1561,13 +1554,13 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: 'Storefront design',
         paragraphs: [
-          'The objective was to ensure the pop-up widget would integrate seamlessly with a variety of store themes while providing a consistent, high-conversion experience for users.',
+          'The pop-up had to fit into any store theme and still behave the same way everywhere.',
         ],
         bullets: [
-          'Visual consistency: designed to align with each storefront’s aesthetic — color schemes, typography, and overall design elements — for a cohesive look.',
-          'Responsiveness: optimized for desktop, tablet, and mobile, since mobile-optimized apps can increase conversions by up to 300%.',
-          'Customization & flexibility: options for placement, animation styles, and triggers (exit-intent, timed delay) to help recover up to 10–15% of abandoning visitors.',
-          'Scenarios: from simple lead capture to more complex upsell opportunities, each scenario highlights the widget’s flexibility in driving engagement.',
+          'Visual consistency: picks up each storefront’s colors, typography and overall style.',
+          'Responsiveness: optimized for desktop, tablet and mobile.',
+          'Customization & flexibility: options for placement, animation styles and triggers (exit-intent, timed delay).',
+          'Scenarios: from simple lead capture to upsells.',
         ],
         images: [{
           src: '/work/popup-scenarios.png',
@@ -1575,13 +1568,13 @@ export const caseStudies: CaseStudy[] = [
           width: 2048,
           height: 515,
           caption:
-            'Storefront scenarios: image-right, image-left, logo, and the thank-you/coupon screen — one consistent, high-conversion system.',
+            'Storefront scenarios: image-right, image-left, logo, and the thank-you/coupon screen, all from one system.',
         }],
       },
       {
         heading: 'Mockups',
         paragraphs: [
-          'To ensure compatibility with various store themes and simplify setup, we designed the app to inherit key styling elements directly from the theme — such as font family for headings and body text, as well as line height. This lets merchants customize and launch in just a few clicks, providing a seamless integration experience aligned with our easy-onboarding policy.',
+          'To ensure compatibility with various store themes and simplify setup, we designed the app to inherit key styles directly from the theme: heading and body font families, and line height. Merchants can customize and launch in a few clicks.',
         ],
         images: [{
           src: '/work/popup-left.png',
@@ -1589,10 +1582,10 @@ export const caseStudies: CaseStudy[] = [
           width: 1024,
           height: 770,
           caption:
-            'A live mockup inheriting the theme’s typography and spacing — brand-aligned in a few clicks.',
+            'A live mockup inheriting the theme’s typography and spacing.',
         }],
         callout:
-          'Designing the app to inherit theme styling was the key to easy onboarding — brand alignment without merchants touching a single style value.',
+          'Inheriting the theme’s styles was what made onboarding easy: the pop-up matches the brand before merchants touch a single setting.',
       },
       {
         heading: 'One month post-launch',
@@ -1601,8 +1594,8 @@ export const caseStudies: CaseStudy[] = [
           'The widget is now promoted through two in-app methods:',
         ],
         bullets: [
-          'Product Update Modal — introducing the widget’s new features to users.',
-          '“My Apps” Reminder — a prompt for users who have yet to activate the widget.',
+          'Product Update Modal: introducing the widget’s new features to users.',
+          '“My Apps” Reminder: a prompt for users who have yet to activate the widget.',
         ],
         images: [{
           src: '/work/popup-dashboard.png',
@@ -1610,7 +1603,7 @@ export const caseStudies: CaseStudy[] = [
           width: 1440,
           height: 930,
           caption:
-            'The in-app Product Update Modal — one of two prompts driving the 10% activation increase post-launch.',
+            'The in-app Product Update Modal, one of two prompts driving the 10% activation increase post-launch.',
         }],
       },
     ],
@@ -1742,11 +1735,11 @@ export const experience: Experience[] = [
     company: 'Technology Oriented',
     period: "Oct '25 — Sep '26",
     description:
-      "I stepped into this role to do something I hadn't done before: lead design strategy across 5 brands at once. That means thinking in systems, not just screens, and zooming out from individual flows to ask what each brand needs to communicate, convert, and grow.",
+      "I stepped into this role to do something I hadn't done before: lead design strategy across 5 brands at once. That means thinking about the brand portfolio as a whole, then the flows inside each brand, and zooming out from individual flows to ask what each brand needs to communicate, convert, and grow.",
     bullets: [
       'Owning the full design strategy for 5 brands, balancing distinct identities while maintaining coherence across the portfolio.',
       'Redesigning landing pages to improve conversion, restructuring narrative, visual hierarchy, and CTAs based on brand goals and user behaviour.',
-      "Defining and executing social media design strategies — from content frameworks to visual language — that translate each brand's identity into scroll-stopping assets.",
+      "Defining and executing social media design for each brand, from content frameworks to visual language, so every asset looks like the brand it belongs to.",
       'Improving product flows across multiple platforms, identifying friction points and redesigning experiences to be more intuitive and effective.',
       "Bringing the same systems thinking that helped me scale 40+ apps to a multi-brand environment, making sure quality doesn't slip when scope is wide.",
     ],
@@ -1756,12 +1749,11 @@ export const experience: Experience[] = [
     company: 'Vitals',
     period: "Feb '19 — Oct '25",
     description:
-      'For 5 years, as a solo designer, I led all facets of product design and UI/UX, ensuring cohesive experiences across over 40 mobile and web apps. My responsibilities also included branding, web design, and social media assets.',
+      'For six years, as a solo designer, I led all facets of product design and UI/UX, ensuring cohesive experiences across over 40 mobile and web apps. My responsibilities also included branding, web design, and social media assets.',
     bullets: [
       'Worked closely with product managers to deeply understand customer needs across multiple product lines, consistently designing experiences that led to a 10–15% increase in key user actions on core apps.',
       'Boosted app activation by 5% and increased offer creation within the Upsell Builder app by approximately 10% through targeted UX improvements.',
-      'Developed and maintained robust design systems for 2 years, critical for scaling design quality across a high volume of apps.',
-      'Applied human-centered thinking and business acumen to turn concepts into scalable solutions that excel.',
+      'Built and ran the design system for 2 years, used by both dev teams across 40+ apps.',
     ],
   },
   {
@@ -1771,8 +1763,8 @@ export const experience: Experience[] = [
     description:
       'Working with startups to determine the best solution for their brand, product, and online presence by applying a variety of guides and design systems to help them maintain consistency and ramp up.',
     bullets: [
-      'Masterminded the planning, design, and roll-out of three new web applications with product and development teams, achieving a 20% increase in active users within six months.',
-      "A proud design generalist — I've had the opportunity to explore various aspects of design with all of the startups I've worked with.",
+      'Planned, designed and launched three web apps with product and dev teams; active users grew 20% within six months.',
+      "A proud design generalist: I've had the opportunity to explore various aspects of design with all of the startups I've worked with.",
       'Supported the growth of junior designers by providing feedback, design guidance, and best practices for working within design systems.',
     ],
   },

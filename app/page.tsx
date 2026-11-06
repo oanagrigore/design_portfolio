@@ -32,7 +32,7 @@ const COMPARISONS: Comparison[] = [
   {
     id: 'portal',
     tabLabel: 'Member Portal',
-    title: 'Designing ride booking portal every Medicaid member can use',
+    title: 'Designing a ride booking portal every Medicaid member can use',
     description:
       'Redesigned the complex legacy member portal to adhere to WCAG 2.1 AA standards, simplifying patient onboarding and drive scheduling.',
     caseStudyUrl: '/work/medidrive-member-portal',
@@ -47,7 +47,7 @@ const COMPARISONS: Comparison[] = [
     tabLabel: 'Mobile App Flow',
     title: 'MediDrive Native Mobile App',
     description:
-      'Standardized tokenized mobile UI components to ensure seamless booking flows for patients with visual and motor impairments.',
+      'Rebuilt the app’s components on shared tokens, with 44px targets and AA contrast, so members with low vision or limited dexterity can book without help.',
     caseStudyUrl: '/work/design-system-redesign',
     beforeImage: '/work/md-app-before.png',
     beforeAlt: 'Legacy MediDrive Mobile App flow',
@@ -60,7 +60,7 @@ const COMPARISONS: Comparison[] = [
     tabLabel: 'Omni Limousine',
     title: 'Omni Limousine Direct Booking Flow',
     description:
-      'Transformed a static brand website into a high-converting, accessible direct-booking funnel for luxury chauffeur services in Las Vegas and Miami.',
+      'Turned a static brand site into a direct-booking channel for a chauffeur service in Las Vegas and Miami, with booking one click away from every page.',
     caseStudyUrl: '/work/omni-limousine',
     beforeImage: '/work/omni-before.png',
     beforeAlt: 'Legacy Omni Limousine website interface',
