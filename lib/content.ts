@@ -1731,6 +1731,30 @@ export type Experience = {
 
 export const experience: Experience[] = [
   {
+    role: 'Design Engineer',
+    company: 'Freelancer',
+    period: "Sep '25 — Present",
+    description:
+      'Designing and building in code: tools and systems that close the gap between design and development.',
+    bullets: [
+      'Built a wireframe kit in Astro components so copywriters and product managers can iterate on ideas with real copy, faster.',
+      'Built a multi-brand design token pipeline, from primitives to semantic tokens, ready for developers.',
+      'Set up Claude design-system skills that turn brand and product context into designs, documents and clickable prototypes.',
+    ],
+  },
+  {
+    role: 'Product Designer',
+    company: 'Freelancer',
+    period: "Mar '16 — Sep '25",
+    description:
+      'Working with startups to determine the best solution for their brand, product, and online presence by applying a variety of guides and design systems to help them maintain consistency and ramp up.',
+    bullets: [
+      'Planned, designed and launched three web apps with product and dev teams; active users grew 20% within six months.',
+      "A proud design generalist: I've had the opportunity to explore various aspects of design with all of the startups I've worked with.",
+      'Supported the growth of junior designers by providing feedback, design guidance, and best practices for working within design systems.',
+    ],
+  },
+  {
     role: 'Lead Product Designer',
     company: 'Technology Oriented',
     period: "Oct '25 — Sep '26",
@@ -1754,18 +1778,6 @@ export const experience: Experience[] = [
       'Worked closely with product managers to deeply understand customer needs across multiple product lines, consistently designing experiences that led to a 10–15% increase in key user actions on core apps.',
       'Boosted app activation by 5% and increased offer creation within the Upsell Builder app by approximately 10% through targeted UX improvements.',
       'Built and ran the design system for 2 years, used by both dev teams across 40+ apps.',
-    ],
-  },
-  {
-    role: 'Product Designer',
-    company: 'Freelancer',
-    period: "Mar '16 — Present",
-    description:
-      'Working with startups to determine the best solution for their brand, product, and online presence by applying a variety of guides and design systems to help them maintain consistency and ramp up.',
-    bullets: [
-      'Planned, designed and launched three web apps with product and dev teams; active users grew 20% within six months.',
-      "A proud design generalist: I've had the opportunity to explore various aspects of design with all of the startups I've worked with.",
-      'Supported the growth of junior designers by providing feedback, design guidance, and best practices for working within design systems.',
     ],
   },
   {
