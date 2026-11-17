@@ -7,7 +7,7 @@ import { ScrollCue } from '@/components/scroll-cue'
 export const metadata: Metadata = {
   title: 'Contact',
   description:
-    "Hire Oana Grigore full-time or fractional: Senior or Lead Product Designer for B2B SaaS and enterprise. For products with more user roles than designers, a design system that needs rescuing, or accessibility requirements you can’t negotiate with.",
+    "Get in touch with Oana Grigore, Senior Product Designer in Bucharest: accessibility, design systems and complex B2B SaaS and enterprise products. Email, LinkedIn, GitHub and Dribbble.",
   alternates: { canonical: '/contact' },
 }
 
@@ -25,17 +25,10 @@ export default function ContactPage() {
           <div className="lg:col-span-7">
             <p className={label}>Contact</p>
             <h1 className="mt-4 text-balance text-4xl font-medium leading-[1.05] tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-              Let&apos;s make something together.
+              Say hello.
             </h1>
-            <p className="mt-6 inline-flex items-center gap-2.5 text-sm text-foreground/90">
-              <span className="relative flex size-2">
-                <span className="absolute inline-flex size-full animate-ping rounded-full bg-emerald-400/60 motion-reduce:hidden" />
-                <span className="relative inline-flex size-2 rounded-full bg-emerald-400" />
-              </span>
-              Available for project-based or full-time work
-            </p>
             <p className="mt-6 max-w-xl text-pretty text-lg leading-relaxed text-muted-foreground">
-              I&apos;m looking for my next Senior or Lead Product Design role on a B2B SaaS or enterprise product. If your product has more user roles than your team has designers, a design system that needs rescuing, or accessibility requirements you can&apos;t negotiate with, let&apos;s talk.
+              Want to talk accessibility, design systems, or a product with more user roles than anyone planned for? Questions about a case study, a speaking or writing idea, or just a hello: my inbox is open.
             </p>
           </div>
 

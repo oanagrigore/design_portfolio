@@ -12,7 +12,7 @@ function LegalLine({ className = '' }: { className?: string }) {
       <span>
         © {new Date().getFullYear()} {profile.name}. All rights reserved.
       </span>
-      <span>Based in {profile.location} · Open to remote roles in Europe</span>
+      <span>Based in {profile.location}</span>
     </div>
   )
 }
@@ -32,7 +32,7 @@ export function SiteFooter() {
               <div className="max-w-2xl">
                 <p className={label}>Contact</p>
                 <h2 className="mt-4 text-balance text-3xl font-medium leading-[1.1] tracking-tight text-foreground sm:text-4xl lg:text-5xl">
-                  Hiring a senior product designer who ships accessible, systemised products?
+                  Accessible products, design systems and the edge cases in between. Let’s talk.
                 </h2>
                 <Link
                   href="/contact"

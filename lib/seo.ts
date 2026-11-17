@@ -11,7 +11,7 @@ export const PERSON = {
   location: { city: "Bucharest", country: "Romania", countryCode: "RO" },
   email: "grigore.oana.elena@gmail.com",
   summary:
-    "Senior Product Designer for B2B SaaS and enterprise products with multiple user roles and compliance requirements. Designs accessibility in from the start (WCAG 2.1 AA) and builds the design systems that hold products together. Open to full-time and fractional work.",
+    "Senior Product Designer for B2B SaaS and enterprise products with multiple user roles and compliance requirements. Designs accessibility in from the start (WCAG 2.1 AA) and builds the design systems that hold products together.",
   knowsAbout: [
     "Product design",
     "B2B SaaS",
@@ -40,14 +40,13 @@ export const PERSON = {
 };
 
 export const SITE_DESCRIPTION =
-  "Oana Grigore is a Senior Product Designer in Bucharest for B2B SaaS and enterprise: accessible WCAG 2.1 AA products, design systems and complex multi-role flows. Led design at MediDrive; solo designer behind 40+ Vitals Shopify apps. Open to full-time and fractional work.";
+  "Oana Grigore is a Senior Product Designer in Bucharest for B2B SaaS and enterprise: accessible WCAG 2.1 AA products, design systems and complex multi-role flows. Led design at MediDrive; solo designer behind 40+ Vitals Shopify apps.";
 
 /** Search and AI-answer keywords. Google ignores the keywords tag, but Bing and some AI tools still read it. */
 export const SITE_KEYWORDS = [
   "Oana Grigore",
   "Senior Product Designer",
   "Lead Product Designer",
-  "Fractional Product Designer",
   "B2B SaaS product designer",
   "Enterprise UX designer",
   "Design systems",
@@ -59,7 +58,6 @@ export const SITE_KEYWORDS = [
   "Shopify app design",
   "AI-assisted product design",
   "Product designer Bucharest",
-  "Remote product designer Europe",
 ];
 
 export const absoluteUrl = (path = "/") => new URL(path, SITE_URL).toString();

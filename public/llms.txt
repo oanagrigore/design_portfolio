@@ -1,15 +1,10 @@
 # Oana Grigore
 
-> Senior Product Designer based in Bucharest, Romania, for B2B SaaS and enterprise products: multiple user roles, compliance requirements and the design systems that hold them together. Designs accessibility in from the start (WCAG 2.1 AA). Open to full-time and fractional work, remote in Europe.
+> Senior Product Designer based in Bucharest, Romania, for B2B SaaS and enterprise products: multiple user roles, compliance requirements and the design systems that hold them together. Designs accessibility in from the start (WCAG 2.1 AA).
 
 Most recently Oana led design across 5 transportation brands at Technology Oriented, including MediDrive, a non-emergency medical transportation (NEMT) platform used by millions of members, facilities and providers in Virginia and Colorado. She built the design system behind every MediDrive touchpoint and redesigned its member app and web portal to WCAG 2.1 AA. Before that she spent six years as the solo designer behind 40+ Vitals SaaS apps used by 30,000+ Shopify merchants (rated 4.9/5 across 2,800+ App Store reviews). Earlier: Brand Designer at Electronic Arts. 14 years in design, 8+ of them on complex web applications.
 
 She works with Claude from research through discovery and ideation: brand and product context first, then competitor research, problem framing and multiple variants, with fine-tuning in Figma and new rules fed back into the team's design system.
-
-## Ways to work together
-
-- Full-time: Senior or Lead Product Designer on B2B SaaS and enterprise products, remote in Europe or Bucharest.
-- Fractional: product design, design systems and WCAG 2.1 AA accessibility for teams that need a senior designer part-time.
 
 ## Case studies: MediDrive (healthcare transportation)
 

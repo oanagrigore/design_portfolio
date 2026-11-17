@@ -8,24 +8,24 @@ export const profile = {
     `Most recently I led design across 5 transportation brands, including MediDrive, a NEMT platform serving millions of members, facilities and providers across Virginia and Colorado. I built the design system behind every MediDrive touchpoint and redesigned its member app and web portal to WCAG 2.1 AA.`,
     `Before that, I spent six years as the solo designer behind 40+ SaaS apps used by 30,000+ Shopify merchants.`,
 `14 years in design, 8+ of them on complex web applications.`,
-`Now looking for: Senior or Lead Product Design roles on B2B SaaS and enterprise products.`,
   ],
   intro:
     'In healthcare transportation, bad UX means someone doesn\'t get to their appointment. That\'s why I design accessibility in from the start, across portals, apps and the systems that hold them together.',
-  /** Shown in the home hero. Two ways to work together. */
-  availability: {
-    status: 'Open to full-time & fractional work',
-    options: [
-      {
-        label: 'Full-time',
-        detail: 'Senior or Lead Product Designer on B2B SaaS and enterprise products. Remote in Europe or Bucharest.',
-      },
-      {
-        label: 'Fractional',
-        detail: 'Product design, design systems and WCAG 2.1 AA accessibility for teams that need a senior designer part-time.',
-      },
-    ],
-  },
+  /** Shown in the home hero: what I do, at a glance. */
+  focus: [
+    {
+      label: 'Accessibility',
+      detail: 'WCAG 2.1 AA designed in from the first flow, not patched in before launch.',
+    },
+    {
+      label: 'Design systems',
+      detail: 'Token-based systems with written rules, so developers don’t have to guess.',
+    },
+    {
+      label: 'Complex products',
+      detail: 'B2B SaaS and enterprise platforms with many user roles and compliance requirements.',
+    },
+  ],
   avatar: '/oana-avatar.png',
   social: [
     { label: 'LinkedIn', href: 'https://www.linkedin.com/in/oanagrigore' },

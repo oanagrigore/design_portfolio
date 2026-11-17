@@ -178,16 +178,10 @@ export default function HomePage() {
         {/* 1 · Introduction */}
         <HeroAnimator>
           <section aria-labelledby="hero-heading" className="pt-20 pb-20 md:pt-28 md:pb-28">
-            {/* Who + availability, one quiet line */}
+            {/* Who + where, one quiet line */}
             <div className="hero-subtitle mb-8 flex flex-wrap items-center gap-x-5 gap-y-3 md:mb-10">
               <p className={label}>{profile.name}</p>
-              <p className="inline-flex items-center gap-2.5 rounded-full bg-white/[0.04] px-3 py-1.5 text-xs font-medium text-foreground/90 ring-1 ring-white/10">
-                <span aria-hidden="true" className="relative flex size-2">
-                  <span className="absolute inline-flex size-full animate-ping rounded-full bg-emerald-400/60 motion-reduce:animate-none" />
-                  <span className="relative inline-flex size-2 rounded-full bg-emerald-400" />
-                </span>
-                {profile.availability.status}
-              </p>
+              <p className={label}>{profile.location}</p>
             </div>
 
             <h1 id="hero-heading" className="max-w-5xl">
@@ -225,18 +219,18 @@ export default function HomePage() {
                       href="/contact"
                       className="inline-flex min-h-12 items-center rounded-full border border-border px-6 text-sm font-medium text-foreground transition-colors hover:border-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                     >
-                      Start a conversation
+                      Get in touch
                     </Link>
                   </Sparkle>
                 </div>
               </div>
 
-              {/* Ways to work together */}
+              {/* What I do */}
               <div className="hero-cta-group md:col-span-5 md:pl-6 lg:pl-10">
-                <h2 className={label}>Ways to work together</h2>
+                <h2 className={label}>What I do</h2>
                 <dl className="mt-5 border-t border-border/60">
-                  {profile.availability.options.map((option) => (
-                    <div key={option.label} className="grid grid-cols-[6.5rem_1fr] gap-4 border-b border-border/60 py-5 last:border-b-0">
+                  {profile.focus.map((option) => (
+                    <div key={option.label} className="grid grid-cols-[8.5rem_1fr] gap-4 border-b border-border/60 py-5 last:border-b-0">
                       <dt className="text-sm font-medium text-foreground">{option.label}</dt>
                       <dd className="text-sm leading-relaxed text-muted-foreground">{option.detail}</dd>
                     </div>

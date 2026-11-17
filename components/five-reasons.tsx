@@ -31,7 +31,7 @@ export function FiveReasons() {
     <div className="grid grid-cols-1 gap-x-6 gap-y-10 md:grid-cols-12">
       <div className="md:sticky md:top-28 md:col-span-5 md:self-start">
         <h2 className="text-balance text-3xl font-medium leading-[1.1] tracking-tight text-foreground sm:text-4xl lg:text-5xl">
-          A few reasons you shouldn&apos;t hire me.
+          A few reasons I&apos;m hard to work with.
         </h2>
         <p className="mt-5 max-w-[38ch] text-pretty text-base leading-relaxed text-muted-foreground md:text-lg">
           Unless you want someone who&apos;ll define the problem before designing, build the system before scaling it, and won&apos;t cut accessibility to make a deadline.
