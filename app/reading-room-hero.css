@@ -347,6 +347,21 @@
   .rr-pause { top: max(16px, env(safe-area-inset-top)); bottom: auto; }
 }
 
+/* ---------- intro: the room appears in the dark, then the lights come on one by one ----------
+   Each light pool has --i (its order in LIGHTS). The whole-room layer has no --i, so it comes
+   on last. Only "from" keyframes: each layer ends on whatever opacity React set inline,
+   so toggling lights afterwards works as before. Pause and reduced motion skip it (rules below). */
+.rr-scene { animation: rr-room-in 1.4s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.rr-lit,
+.rr-reader { animation: rr-light-on 0.9s ease-out calc(0.7s + var(--i, 11) * 0.12s) backwards; }
+.rr-fx { animation: rr-light-on 1s ease-out 1.2s backwards; }
+.rr-hot, .rr-books, .rr-shelf, .rr-kitty, .rr-hint, .rr-hint-mobile, .rr-pause {
+  animation: rr-ui-in 0.6s ease-out 2.2s backwards;
+}
+@keyframes rr-room-in { from { opacity: 0; transform: scale(1.04); } }
+@keyframes rr-light-on { from { opacity: 0; } }
+@keyframes rr-ui-in { from { opacity: 0; } }
+
 .rr-still *, .rr-still *::before, .rr-still *::after { animation: none !important; transition: none !important; }
 @media (prefers-reduced-motion: reduce) {
   .rr-root *, .rr-root *::before, .rr-root *::after { animation: none !important; transition: none !important; }

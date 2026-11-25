@@ -362,13 +362,13 @@ export function ReadingRoomHero() {
 
           {/* lit painting: whole room when every light is on, otherwise one pool per light */}
           <div className={`${styles.lit} ${styles.full}`} style={{ opacity: onCount === LIGHTS.length ? 1 : 0 }} />
-          {LIGHTS.map((l) => {
+          {LIGHTS.map((l, i) => {
             const mask = poolMask(l);
             return (
               <div
                 key={l.id}
                 className={styles.lit}
-                style={{ maskImage: mask, WebkitMaskImage: mask, opacity: lights[l.id] ? 1 : 0 }}
+                style={{ maskImage: mask, WebkitMaskImage: mask, opacity: lights[l.id] ? 1 : 0, ["--i" as string]: i }}
               />
             );
           })}
@@ -389,6 +389,8 @@ export function ReadingRoomHero() {
                 height: py(READER.h),
                 backgroundImage: `url(${r.src})`,
                 opacity: r.show ? 1 : 0,
+                // comes on with the table lantern beside her during the intro
+                ["--i" as string]: LIGHTS.findIndex((l) => l.id === "tl"),
               }}
             />
           ))}
