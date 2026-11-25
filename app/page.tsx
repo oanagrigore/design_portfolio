@@ -163,7 +163,7 @@ function Cover({ src, priority }: { src: string; priority: boolean }) {
 
 export default function HomePage() {
   const [activeTab, setActiveTab] = useState(COMPARISONS[0])
-  const featured = caseStudies.slice(0, 4)
+  const featured = caseStudies.slice(0, 3)
 
   return (
     <div className="relative isolate min-h-screen overflow-hidden">

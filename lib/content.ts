@@ -101,7 +101,7 @@ export interface Highlight {
 export const highlights: Highlight[] = [
   {
     value: 'Millions',
-    title: 'of members use the MediDrive platforms I designed, one of 5 transportation brands I led',
+    title: 'of members use the MediDrive platforms I designed',
   },
   {
     value: 'WCAG 2.1 AA',
